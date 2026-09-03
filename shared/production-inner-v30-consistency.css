@@ -1,0 +1,191 @@
+/*
+ * PDP inner pages — V30 consistency pass
+ *
+ * Linked only by the four pages covered by this pass. The approved homepage
+ * does not load this layer.
+ */
+
+body.production-page {
+  --v30-line: rgba(17, 19, 17, .16);
+  --v30-line-strong: rgba(17, 19, 17, .27);
+  --v30-orange: #f45116;
+  --v30-ease: cubic-bezier(.22, .72, .18, 1);
+}
+
+/* One quiet interaction language: no lift, tilt or heavy shadow. */
+body.production-page :where(.svc-service-card, .prod-step, .prod-composition__item, .articles-index-editorial-card) {
+  box-shadow: none;
+  transform: none;
+  border-color: var(--v30-line);
+  transition: background-color 360ms var(--v30-ease), border-color 360ms ease;
+}
+
+body.production-page :where(.svc-service-card, .prod-step, .prod-composition__item, .articles-index-editorial-card):hover,
+body.production-page :where(.svc-service-card, .prod-step, .prod-composition__item, .articles-index-editorial-card):focus-within {
+  transform: none;
+  border-color: var(--v30-line-strong);
+}
+
+/* About: preserve the image-led proof section, with a calmer reading field. */
+body.production-about .prod-hero h1 {
+  font-size: clamp(55px, 5.7vw, 110px);
+}
+
+body.production-about .prod-hero__copy > p {
+  max-width: 540px;
+}
+
+body.production-about .prod-proof {
+  min-height: 500px;
+}
+
+body.production-about .prod-proof__copy h2 {
+  max-width: 500px;
+  font-size: clamp(30px, 2.2vw, 43px);
+}
+
+body.production-about .prod-proof__copy > p {
+  max-width: 470px;
+}
+
+body.production-about .prod-proof__points {
+  margin-top: 30px;
+}
+
+body.production-about .prod-proof__media,
+body.production-about .prod-proof__media img {
+  min-height: 500px;
+}
+
+body.production-about .prod-proof__media img {
+  object-position: 56% center;
+}
+
+/* Services: seven equal cells at desktop: 3 + 3 + 1. */
+body.production-services .svc-service-grid {
+  grid-auto-flow: row;
+}
+
+body.production-services .svc-service-card--wide {
+  grid-column: auto;
+}
+
+body.production-services .svc-service-card {
+  min-height: 224px;
+}
+
+body.production-services .svc-service-card:hover,
+body.production-services .svc-service-card:focus-within {
+  background: #f0efe9;
+}
+
+/* Detail: secondary headings support the narrative instead of competing with
+   the hero. The primary task/result headings retain their scale. */
+body.production-service-detail .prod-section-head h2 {
+  max-width: 1100px;
+  font-size: clamp(42px, 4.15vw, 78px);
+  line-height: .9;
+}
+
+body.production-service-detail .prod-composition {
+  box-shadow: none;
+}
+
+body.production-service-detail .prod-composition__item {
+  min-height: 164px;
+  padding: 22px 18px;
+}
+
+body.production-service-detail .prod-step {
+  min-height: 150px;
+  padding: 22px 16px;
+}
+
+body.production-service-detail .prod-step:hover,
+body.production-service-detail .prod-step:focus-within {
+  background: rgba(244, 81, 22, .045);
+}
+
+/* Articles: retain the editorial composition and align its quiet rules. */
+body.pdp-articles-index .articles-index-editorial-card__copy h3 {
+  text-wrap: balance;
+}
+
+body.pdp-articles-index .articles-index-editorial-card__media img,
+body.pdp-articles-index .articles-index-featured__media img {
+  transform: none;
+}
+
+body.pdp-articles-index .articles-index-editorial-card:hover .articles-index-editorial-card__media img,
+body.pdp-articles-index .articles-index-editorial-card:focus-within .articles-index-editorial-card__media img,
+body.pdp-articles-index .articles-index-featured:hover .articles-index-featured__media img,
+body.pdp-articles-index .articles-index-featured:focus-within .articles-index-featured__media img {
+  transform: scale(1.018);
+}
+
+@media (max-width: 1199px) and (min-width: 701px) {
+  body.production-services .svc-service-card--wide {
+    grid-column: auto;
+  }
+
+  body.production-service-detail .prod-section-head h2 {
+    font-size: clamp(38px, 5.4vw, 58px);
+  }
+
+  body.production-about .prod-proof,
+  body.production-about .prod-proof__media,
+  body.production-about .prod-proof__media img {
+    min-height: 460px;
+  }
+}
+
+@media (max-width: 700px) {
+  body.production-about .prod-hero h1 {
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  body.production-about .prod-proof__copy h2 {
+    font-size: 33px;
+  }
+
+  body.production-about .prod-proof__media,
+  body.production-about .prod-proof__media img {
+    min-height: 280px;
+  }
+
+  body.production-services .svc-service-card--wide {
+    grid-column: auto;
+  }
+
+  body.production-services .svc-service-card {
+    min-height: 214px;
+  }
+
+  body.production-service-detail .prod-section-head h2 {
+    font-size: clamp(34px, 10vw, 44px);
+  }
+
+  body.production-service-detail .prod-composition__item {
+    min-height: 126px;
+    padding: 18px 14px;
+  }
+
+  body.production-service-detail .prod-step {
+    min-height: 136px;
+    padding: 18px 12px;
+  }
+
+  body.pdp-articles-index .articles-index-editorial-card:hover .articles-index-editorial-card__media img,
+  body.pdp-articles-index .articles-index-editorial-card:focus-within .articles-index-editorial-card__media img,
+  body.pdp-articles-index .articles-index-featured:hover .articles-index-featured__media img,
+  body.pdp-articles-index .articles-index-featured:focus-within .articles-index-featured__media img {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.production-page :where(.svc-service-card, .prod-step, .prod-composition__item, .articles-index-editorial-card),
+  body.production-page :where(.svc-service-card, .prod-step, .prod-composition__item, .articles-index-editorial-card) img {
+    transition-duration: .01ms !important;
+  }
+}

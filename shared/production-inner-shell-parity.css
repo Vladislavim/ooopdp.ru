@@ -1,0 +1,80 @@
+/* Inner-page shell parity: keep the homepage shell geometry and rendering intact
+   without changing orig_test_v2/index.html or its shared source. */
+
+/* The inner pages use the same orange accent as the approved homepage for the
+   viewport scrollbar. This selector cannot match the protected homepage. */
+html:has(body.production-page) {
+  scrollbar-color: #F45116 #171918;
+  scrollbar-width: thin;
+}
+
+html:has(body.production-page)::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+html:has(body.production-page)::-webkit-scrollbar-track {
+  background: #171918;
+}
+
+html:has(body.production-page)::-webkit-scrollbar-thumb {
+  background: #F45116;
+  border: 3px solid #171918;
+  border-radius: 0;
+}
+
+html:has(body.production-page)::-webkit-scrollbar-thumb:hover {
+  background: #ff6a32;
+}
+
+@media (min-width: 1200px) {
+  body.production-page .top {
+    border-bottom-color: #d3d1cb !important;
+  }
+
+  body.production-page .top .top-cta {
+    border-color: #fff !important;
+  }
+
+  body.production-page .footer-map-embed {
+    height: 188px !important;
+  }
+
+  body.production-page .footer-map-embed iframe {
+    height: 188px !important;
+    min-height: 0 !important;
+  }
+}
+
+/* The contacts page keeps the same live Yandex iframe used by the homepage;
+   its authored wireframe decoration must not mask the real map. */
+body.production-contacts .prod-contact-map > .footer-map-embed {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+body.production-contacts .prod-contact-map > .footer-map-embed iframe {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+body.production-contacts .prod-contact-map::before,
+body.production-contacts .prod-contact-map__wash,
+body.production-contacts .prod-contact-map__diagram,
+body.production-contacts .prod-contact-map__coords,
+body.production-contacts .prod-contact-map__address,
+body.production-contacts .prod-contact-map__open {
+  display: none !important;
+}

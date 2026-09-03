@@ -1,0 +1,37 @@
+/* Scoped art-direction corrections for 02-services.html. */
+body.production-page.production-services .prod-services-reference__hero .prod-hero__copy {
+  width: min(1140px, 66vw) !important;
+}
+
+body.production-page.production-services .prod-services-reference__hero {
+  min-height: 464px !important;
+  height: auto !important;
+}
+
+body.production-page.production-services .prod-services-reference__hero .prod-hero__inner {
+  min-height: 464px !important;
+  height: auto !important;
+  padding-block: 48px 58px !important;
+}
+
+body.production-page.production-services .prod-services-reference__hero h1 {
+  max-width: 1140px !important;
+  font: 800 clamp(48px, 3.6vw, 68px) / .86 "Geologica", Geologica, sans-serif !important;
+  letter-spacing: -.078em !important;
+}
+
+@media (max-width: 700px) {
+  body.production-page.production-services .prod-services-reference__hero .prod-hero__copy {
+    width: 100% !important;
+  }
+
+  body.production-page.production-services .prod-services-reference__hero,
+  body.production-page.production-services .prod-services-reference__hero .prod-hero__inner {
+    min-height: 520px !important;
+  }
+
+  body.production-page.production-services .prod-services-reference__hero h1 {
+    max-width: 100% !important;
+    font-size: clamp(42px, 12vw, 64px) !important;
+  }
+}

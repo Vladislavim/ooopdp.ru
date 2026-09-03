@@ -1,0 +1,22 @@
+/* Final scoped catalog geometry: keep the HoverGrid index compact at every
+   breakpoint despite the legacy inner hero height rule. */
+body.production-catalog .prod-catalog-hero {
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+body.production-catalog .prod-catalog-hero__inner {
+  min-height: 298px !important;
+  height: auto !important;
+}
+
+body.production-catalog .prod-catalog-hero__rail {
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+@media (max-width: 700px) {
+  body.production-catalog .prod-catalog-hero__inner {
+    min-height: 0 !important;
+  }
+}

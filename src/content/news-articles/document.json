@@ -1,0 +1,75 @@
+{
+  "id": "news-articles",
+  "source": "pages/07-news-articles.html",
+  "output": "pages/07-news-articles.html",
+  "kind": "inner",
+  "doctype": "<!doctype html>\n",
+  "htmlOpen": "<html lang=\"ru\">",
+  "headOpen": "<head>",
+  "headInner": "\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Статьи и материалы — ПДП</title>\n  <link rel=\"stylesheet\" href=\"../shared/production-base.css?v=20260831-cache-v4\">\n    <link rel=\"stylesheet\" href=\"../shared/production-inner-shell-parity.css?v=20260831-cache-v4\">\n  <link rel=\"stylesheet\" href=\"../shared/production-articles-index-reference.css?v=20260831-cache-v4\">\n",
+  "headClose": "</head>",
+  "bodyOpen": "<body class=\"production-page production-news pdp-articles pdp-articles-index\" data-page=\"Статьи\">",
+  "bodyBeforeMain": "\n  <div data-site-header></div>\n  ",
+  "mainOpen": "<main>",
+  "mainInnerTrailing": "\n  ",
+  "mainClose": "</main>",
+  "bodyAfterMain": "\n  <script src=\"../shared/production-site-shell.js?v=20260831-cache-v4\"></script>\n  <link rel=\"stylesheet\" href=\"../shared/production-inner-v28-polish.css?v=20260831-cache-v4\">\n  <link rel=\"stylesheet\" href=\"../shared/production-inner-v30-consistency.css?v=20260831-cache-v4\">\n  <link rel=\"stylesheet\" href=\"../shared/production-inner-motion-a.css?v=20260831-cache-v4\">\n  <script src=\"../shared/production-inner-motion-a.js?v=20260831-cache-v4\"></script>\n",
+  "bodyClose": "</body>",
+  "htmlClose": "</html>",
+  "parts": [
+    {
+      "key": "articles-index-hero",
+      "tagName": "section",
+      "sourceIndex": 0,
+      "file": "content/news-articles/parts/001-articles-index-hero.html"
+    },
+    {
+      "key": "materials",
+      "tagName": "section",
+      "sourceIndex": 1,
+      "file": "content/news-articles/parts/002-materials.html"
+    },
+    {
+      "key": "prod-container",
+      "tagName": "section",
+      "sourceIndex": 2,
+      "file": "content/news-articles/parts/003-prod-container.html"
+    },
+    {
+      "key": "catalog",
+      "tagName": "section",
+      "sourceIndex": 3,
+      "file": "content/news-articles/parts/004-catalog.html"
+    },
+    {
+      "key": "prod-container-2",
+      "tagName": "section",
+      "sourceIndex": 4,
+      "file": "content/news-articles/parts/005-prod-container-2.html"
+    },
+    {
+      "key": "documents",
+      "tagName": "section",
+      "sourceIndex": 5,
+      "file": "content/news-articles/parts/006-documents.html"
+    },
+    {
+      "key": "prod-container-3",
+      "tagName": "section",
+      "sourceIndex": 6,
+      "file": "content/news-articles/parts/007-prod-container-3.html"
+    },
+    {
+      "key": "div",
+      "tagName": "div",
+      "sourceIndex": 7,
+      "file": "content/news-articles/parts/008-div.html"
+    },
+    {
+      "key": "div-2",
+      "tagName": "div",
+      "sourceIndex": 8,
+      "file": "content/news-articles/parts/009-div-2.html"
+    }
+  ]
+}

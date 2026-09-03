@@ -1,0 +1,1 @@
+/* Articles behavior remains in the existing page scripts during migration. */

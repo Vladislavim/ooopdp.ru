@@ -1,0 +1,87 @@
+/* Service-page-only hover state, matching the PDP orange interaction language. */
+
+body.production-services .svc-service-card {
+  transition: background-color var(--pdp-motion-ui, 280ms) var(--pdp-motion-ease, cubic-bezier(.22, .72, .18, 1)),
+    border-color var(--pdp-motion-ui, 280ms) var(--pdp-motion-ease, cubic-bezier(.22, .72, .18, 1)),
+    color var(--pdp-motion-ui, 280ms) var(--pdp-motion-ease, cubic-bezier(.22, .72, .18, 1));
+}
+
+body.production-services .svc-service-card:is(:hover, :focus-within) {
+  background: var(--svc-orange, #f45116) !important;
+  border-color: var(--svc-orange, #f45116) !important;
+  color: #fff;
+  transform: none !important;
+}
+
+body.production-services .svc-service-card:is(:hover, :focus-within) .svc-service-card__head > span,
+body.production-services .svc-service-card:is(:hover, :focus-within) h3,
+body.production-services .svc-service-card:is(:hover, :focus-within) p,
+body.production-services .svc-service-card:is(:hover, :focus-within) .svc-card-action {
+  color: #fff;
+}
+
+body.production-services .svc-service-card:is(:hover, :focus-within) .svc-service-card__head img {
+  filter: brightness(0) invert(1);
+}
+
+body.production-services .svc-service-card:is(:hover, :focus-within) .svc-card-action span {
+  color: #fff;
+}
+
+/* The industry tiles use the same decisive interaction: the whole tile turns
+   orange and the image clears out, so the hover state reads as one surface. */
+body.production-services .svc-industry-card {
+  transition: background-color var(--pdp-motion-ui, 280ms) var(--pdp-motion-ease, cubic-bezier(.22, .72, .18, 1));
+}
+
+body.production-services .svc-industry-card:is(:hover, :focus-visible) {
+  background: var(--svc-orange, #f45116) !important;
+}
+
+body.production-services .svc-industry-card:is(:hover, :focus-visible) > img:first-child {
+  opacity: 0 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+body.production-services .svc-industry-card::before {
+  background: var(--svc-orange, #f45116) !important;
+  transition: height var(--pdp-motion-ui, 280ms) var(--pdp-motion-ease, cubic-bezier(.22, .72, .18, 1));
+}
+
+body.production-services .svc-industry-card:is(:hover, :focus-visible)::before {
+  height: 100% !important;
+}
+
+body.production-services .svc-industry-card:is(:hover, :focus-visible) .svc-industry-card__veil {
+  background: transparent !important;
+}
+
+body.production-services .svc-industry-card:is(:hover, :focus-visible) .svc-industry-card__content strong,
+body.production-services .svc-industry-card:is(:hover, :focus-visible) .svc-industry-card__content small {
+  color: #fff !important;
+}
+
+body.production-services .svc-industry-card:is(:hover, :focus-visible) .svc-industry-card__content img {
+  filter: brightness(0) invert(1) !important;
+}
+
+body.production-services .svc-industry-card::after {
+  z-index: 4;
+  top: auto;
+  right: 12px;
+  bottom: 14px;
+}
+
+body.production-services .svc-industry-card:is(:hover, :focus-visible)::after {
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.production-services .svc-service-card,
+  body.production-services .svc-service-card *,
+  body.production-services .svc-industry-card,
+  body.production-services .svc-industry-card * {
+    transition: none !important;
+  }
+}

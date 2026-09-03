@@ -1,0 +1,650 @@
+/*
+ * Cases reference page.
+ * Scoped to .production-cases so the protected homepage remains byte-for-byte
+ * untouched. The direction is visual-first: wireframe, one featured object,
+ * an architectural archive collage, then the shared CTA and footer.
+ */
+body.production-cases {
+  --cases-paper: #f4f2ec;
+  --cases-paper-deep: #e9e6de;
+  --cases-ink: #111311;
+  --cases-muted: #6f706a;
+  --cases-line: rgba(17, 19, 17, .18);
+  --cases-orange: #f45116;
+  --cases-dark: #101211;
+  --cases-pad: clamp(28px, 4vw, 64px);
+  background: var(--cases-paper);
+  color: var(--cases-ink);
+}
+
+body.production-cases main {
+  background: var(--cases-paper);
+  overflow: clip;
+}
+
+body.production-cases .prod-container {
+  width: min(calc(100% - 2 * var(--cases-pad)), 1660px) !important;
+}
+
+body.production-cases .pdp-cases-hero {
+  position: relative;
+  min-height: 475px;
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 1px solid var(--cases-line);
+  background: var(--cases-paper);
+}
+
+.pdp-cases-hero__art {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 0 34%;
+  overflow: hidden;
+  background: var(--cases-paper);
+}
+
+.pdp-cases-hero__art::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: linear-gradient(90deg, var(--cases-paper) 0%, rgba(244, 242, 236, .96) 15%, rgba(244, 242, 236, .45) 45%, rgba(244, 242, 236, 0) 78%);
+  pointer-events: none;
+}
+
+.pdp-cases-hero__art::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  left: 34%;
+  width: 2px;
+  background: var(--cases-orange);
+  opacity: .95;
+}
+
+.pdp-cases-hero__art > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(1) invert(1);
+  mix-blend-mode: multiply;
+  opacity: .14;
+  animation: cases-wire-drift 14s ease-in-out infinite alternate;
+}
+
+.pdp-cases-hero__mark {
+  position: absolute;
+  z-index: 1;
+  right: 3%;
+  bottom: -15%;
+  color: transparent;
+  font: 800 clamp(360px, 39vw, 720px) / .7 Geologica, Arial, sans-serif;
+  -webkit-text-stroke: 1px rgba(17, 19, 17, .16);
+  opacity: .44;
+}
+
+.pdp-cases-hero__coordinate {
+  position: absolute;
+  z-index: 4;
+  right: 6%;
+  top: 22%;
+  color: rgba(17, 19, 17, .42);
+  font: 700 9px/1 Geologica, Arial, sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.pdp-cases-hero__inner {
+  position: relative;
+  min-height: 475px;
+  padding-top: 52px;
+}
+
+.pdp-cases-hero__inner .prod-breadcrumb {
+  position: relative;
+  z-index: 5;
+  margin-bottom: 56px;
+}
+
+.pdp-cases-hero__copy {
+  position: relative;
+  z-index: 5;
+  max-width: 760px;
+}
+
+.pdp-cases-hero__copy .prod-eyebrow,
+.pdp-cases-section-head .prod-eyebrow,
+.pdp-cases-materials__head .prod-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--cases-orange);
+  font: 800 10px/1 Geologica, Arial, sans-serif;
+  letter-spacing: .105em;
+  text-transform: uppercase;
+}
+
+.pdp-cases-hero__copy .prod-eyebrow::before,
+.pdp-cases-section-head .prod-eyebrow::before,
+.pdp-cases-materials__head .prod-eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: currentColor;
+}
+
+.pdp-cases-hero__copy h1 {
+  max-width: 760px;
+  margin: 28px 0 25px;
+  font: 800 clamp(72px, 8.2vw, 142px) / .84 Geologica, Arial, sans-serif;
+  letter-spacing: -.085em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pdp-cases-hero__copy h1 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.pdp-cases-hero__copy p {
+  max-width: 590px;
+  margin: 0;
+  color: #4b4d47;
+  font-size: 16px;
+  line-height: 1.42;
+}
+
+@keyframes cases-wire-drift {
+  from { transform: translate3d(-1.5%, 0, 0) scale(1.02); }
+  to { transform: translate3d(1.5%, -1.2%, 0) scale(1.06); }
+}
+
+.pdp-cases-trust {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: stretch;
+  min-height: 126px;
+  padding-top: 26px;
+  border-bottom: 1px solid var(--cases-line);
+}
+
+.pdp-cases-trust__intro {
+  grid-column: 1 / -1;
+  color: var(--cases-orange);
+  font: 800 9px/1 Geologica, Arial, sans-serif;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.pdp-cases-trust__logo {
+  min-width: 0;
+  min-height: 72px;
+  display: grid;
+  place-items: center;
+  padding: 14px 20px 18px;
+  border-right: 1px solid var(--cases-line);
+  color: #333633;
+  text-align: center;
+  transition: background-color .3s ease, color .3s ease, transform .45s cubic-bezier(.2,.75,.2,1);
+}
+
+.pdp-cases-trust__logo:last-child { border-right: 0; }
+
+.pdp-cases-trust__logo:hover {
+  color: var(--cases-orange);
+  background: rgba(244, 81, 22, .035);
+  transform: translateY(-3px);
+}
+
+.pdp-cases-trust__logo img {
+  width: auto;
+  max-width: 172px;
+  max-height: 38px;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.25);
+  opacity: .84;
+}
+
+.pdp-cases-trust__logo--eurochem img { max-width: 184px; }
+.pdp-cases-trust__logo--severstal img { max-width: 142px; max-height: 40px; }
+.pdp-cases-trust__logo--red img { max-width: 148px; max-height: 45px; }
+.pdp-cases-trust__logo strong { font: 800 16px/1.02 Geologica, Arial, sans-serif; letter-spacing: -.045em; text-transform: uppercase; }
+.pdp-cases-trust__logo--gaz strong { font-size: 15px; }
+
+.pdp-cases-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(390px, .94fr);
+  min-height: 492px;
+  margin-top: 48px;
+}
+
+.pdp-cases-feature__media {
+  position: relative;
+  min-height: 492px;
+  overflow: hidden;
+  background: #30332e;
+}
+
+.pdp-cases-feature__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(17, 19, 17, .02), rgba(17, 19, 17, .72));
+  pointer-events: none;
+}
+
+.pdp-cases-feature__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+  filter: saturate(.88) contrast(1.04);
+  transition: transform .85s cubic-bezier(.2,.75,.2,1), filter .5s ease;
+}
+
+.pdp-cases-feature__media:hover img {
+  transform: scale(1.035);
+  filter: saturate(1) contrast(1.08);
+}
+
+.pdp-cases-feature__media-label {
+  position: absolute;
+  z-index: 1;
+  left: 28px;
+  bottom: 24px;
+  color: #fff;
+  font: 800 10px/1 Geologica, Arial, sans-serif;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.pdp-cases-feature__panel {
+  position: relative;
+  overflow: hidden;
+  background: var(--cases-dark);
+  color: #fff;
+}
+
+.pdp-cases-feature__panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 2px solid var(--cases-orange);
+  opacity: .9;
+  pointer-events: none;
+}
+
+.pdp-cases-feature__wire {
+  position: absolute;
+  z-index: 0;
+  right: -18%;
+  bottom: -8%;
+  width: 115%;
+  max-width: none;
+  height: 78%;
+  object-fit: contain;
+  object-position: right bottom;
+  opacity: .4;
+  mix-blend-mode: screen;
+}
+
+.pdp-cases-feature__content {
+  position: relative;
+  z-index: 1;
+  min-height: 492px;
+  padding: 54px 52px 44px;
+}
+
+.pdp-cases-feature__eyebrow {
+  display: block;
+  color: var(--cases-orange);
+  font: 800 10px/1.2 Geologica, Arial, sans-serif;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.pdp-cases-feature h2 {
+  margin: 32px 0 42px;
+  font: 800 clamp(50px, 5vw, 82px) / .84 Geologica, Arial, sans-serif;
+  letter-spacing: -.085em;
+  text-transform: uppercase;
+}
+
+.pdp-cases-feature__stats {
+  display: grid;
+  gap: 20px;
+  max-width: 280px;
+  margin: 0;
+}
+
+.pdp-cases-feature__stats div { display: grid; gap: 5px; }
+.pdp-cases-feature__stats dt { order: 2; color: #a7aaa3; font-size: 11px; }
+.pdp-cases-feature__stats dd { order: 1; margin: 0; color: var(--cases-orange); font: 800 23px/1 Geologica, Arial, sans-serif; letter-spacing: -.04em; }
+
+.pdp-cases-archive {
+  padding-top: 72px;
+}
+
+.pdp-cases-section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--cases-line);
+}
+
+.pdp-cases-section-head h2,
+.pdp-cases-materials__head h2 {
+  margin: 22px 0 0;
+  font: 800 clamp(52px, 6vw, 104px) / .86 Geologica, Arial, sans-serif;
+  letter-spacing: -.085em;
+  text-transform: uppercase;
+}
+
+.pdp-cases-section-head p {
+  max-width: 360px;
+  margin: 0 0 6px;
+  padding-left: 22px;
+  border-left: 2px solid var(--cases-orange);
+  color: #666861;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.pdp-cases-archive__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: 236px 178px 208px;
+  gap: 16px;
+  padding-top: 18px;
+}
+
+.pdp-cases-archive-item {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  background: #292c29;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  isolation: isolate;
+  border-bottom: 2px solid transparent;
+  transition: border-color .3s ease, transform .6s cubic-bezier(.2,.75,.2,1);
+}
+
+.pdp-cases-archive-item--red { grid-column: 1 / 7; grid-row: 1 / 3; }
+.pdp-cases-archive-item--clinic { grid-column: 7 / 13; grid-row: 1; }
+.pdp-cases-archive-item--eurochem { grid-column: 7 / 10; grid-row: 2; }
+.pdp-cases-archive-item--severstal { grid-column: 10 / 13; grid-row: 2; }
+
+.pdp-cases-archive-item--red { background-image: url("../assets/inner-optimized/archive-PDP-OBJ-004.webp"); background-position: center 45%; }
+.pdp-cases-archive-item--clinic { background-image: url("../assets/inner-optimized/cases-polyclinic-render-front.webp"); background-position: center 48%; }
+.pdp-cases-archive-item--eurochem { background-image: url("../assets/inner-optimized/archive-PDP-OBJ-068.webp"); }
+.pdp-cases-archive-item--severstal { background-image: url("../assets/inner-optimized/archive-PDP-OBJ-006.webp"); }
+
+.pdp-cases-archive-item::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(17, 19, 17, .02) 25%, rgba(17, 19, 17, .48) 100%);
+  pointer-events: none;
+}
+
+.pdp-cases-archive-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  filter: saturate(.82) contrast(1.05);
+  transition: transform .85s cubic-bezier(.2,.75,.2,1), filter .5s ease;
+}
+
+.pdp-cases-archive-item--clinic img { object-position: center 48%; }
+.pdp-cases-archive-item--red img { object-position: center 45%; }
+
+.pdp-cases-archive-item:hover,
+.pdp-cases-archive-item:focus-visible {
+  border-bottom-color: var(--cases-orange);
+  transform: translateY(-4px);
+}
+
+.pdp-cases-archive-item:hover img,
+.pdp-cases-archive-item:focus-visible img {
+  transform: scale(1.045);
+  filter: saturate(1) contrast(1.08);
+}
+
+.pdp-cases-archive-item__meta,
+.pdp-cases-archive-item > strong {
+  position: absolute;
+  z-index: 2;
+  left: 22px;
+  right: 22px;
+}
+
+.pdp-cases-archive-item__meta {
+  top: 20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pdp-cases-archive-item__meta b {
+  color: var(--cases-orange);
+  font: 800 29px/1 Geologica, Arial, sans-serif;
+  letter-spacing: -.06em;
+}
+
+.pdp-cases-archive-item__meta small {
+  color: rgba(255, 255, 255, .72);
+  font: 700 8px/1.1 Geologica, Arial, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.pdp-cases-archive-item > strong {
+  bottom: 20px;
+  font: 800 clamp(20px, 2.1vw, 38px) / .88 Geologica, Arial, sans-serif;
+  letter-spacing: -.07em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.pdp-cases-archive-item--eurochem > strong,
+.pdp-cases-archive-item--severstal > strong { font-size: clamp(18px, 1.45vw, 27px); }
+
+.pdp-cases-materials {
+  display: grid;
+  grid-template-columns: minmax(290px, .5fr) minmax(0, 1.5fr);
+  margin-top: 72px;
+  border-top: 1px solid var(--cases-line);
+  border-bottom: 1px solid var(--cases-line);
+}
+
+.pdp-cases-materials__head {
+  padding: 34px 34px 34px 0;
+  border-right: 1px solid var(--cases-line);
+}
+
+.pdp-cases-materials__head h2 { font-size: clamp(34px, 3.2vw, 58px); }
+
+.pdp-cases-materials__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.pdp-cases-materials__list a {
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: 7px 15px;
+  align-content: center;
+  min-width: 0;
+  padding: 30px 24px;
+  border-right: 1px solid var(--cases-line);
+  transition: background-color .3s ease, padding-left .4s cubic-bezier(.2,.75,.2,1);
+}
+
+.pdp-cases-materials__list a:last-child { border-right: 0; }
+.pdp-cases-materials__list a:hover { padding-left: 30px; background: rgba(244, 81, 22, .045); }
+.pdp-cases-materials__list strong { font: 700 11px/1.2 Geologica, Arial, sans-serif; text-transform: uppercase; }
+.pdp-cases-materials__list small { color: var(--cases-orange); font-size: 10px; }
+
+.pdp-cases-pdf {
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 56px;
+  border: 1px solid var(--cases-orange);
+  color: var(--cases-orange);
+  font: 800 11px/1 Geologica, Arial, sans-serif;
+  position: relative;
+}
+
+.pdp-cases-pdf::after {
+  content: "↓";
+  position: absolute;
+  right: -7px;
+  bottom: -13px;
+  font-size: 17px;
+}
+
+body.production-cases [data-cta] { margin-top: 0; }
+
+@media (max-width: 1199px) {
+  body.production-cases .prod-container { width: min(calc(100% - 56px), 1040px) !important; }
+  .pdp-cases-hero__copy h1 { font-size: clamp(66px, 9vw, 108px); }
+  .pdp-cases-feature { grid-template-columns: minmax(0, 1fr) minmax(320px, .82fr); }
+  .pdp-cases-feature__content { padding-inline: 34px; }
+  .pdp-cases-archive__grid { grid-template-rows: 205px 160px 180px; gap: 12px; }
+  .pdp-cases-archive-item__meta { left: 16px; right: 16px; }
+  .pdp-cases-archive-item > strong { left: 16px; right: 16px; bottom: 16px; }
+  .pdp-cases-materials { grid-template-columns: 230px 1fr; }
+  .pdp-cases-materials__list a { padding-inline: 16px; grid-template-columns: 42px minmax(0, 1fr); }
+}
+
+@media (max-width: 700px) {
+  body.production-cases {
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  body.production-cases .prod-container { width: calc(100% - 36px) !important; }
+
+  .pdp-cases-hero { min-height: 610px !important; }
+  .pdp-cases-hero__art { inset: 36% 0 0; }
+  .pdp-cases-hero__art::before { background: linear-gradient(180deg, var(--cases-paper) 0%, rgba(244, 242, 236, .68) 30%, rgba(244, 242, 236, .06) 80%); }
+  .pdp-cases-hero__art::after { left: 14px; top: 0; bottom: 0; }
+  .pdp-cases-hero__art > img { opacity: .16; }
+  .pdp-cases-hero__mark { right: -4%; bottom: -4%; font-size: 330px; }
+  .pdp-cases-hero__coordinate { right: 16px; top: 12%; font-size: 8px; }
+  .pdp-cases-hero__inner { min-height: 610px; padding-top: 34px; }
+  .pdp-cases-hero__inner .prod-breadcrumb { margin-bottom: 54px; }
+  .pdp-cases-hero__copy { max-width: 100%; }
+  .pdp-cases-hero__copy h1 { max-width: 350px; margin: 24px 0 20px; font-size: clamp(48px, 15vw, 70px); white-space: normal; }
+  .pdp-cases-hero__copy h1 span { white-space: normal; }
+  .pdp-cases-hero__copy p { max-width: 330px; font-size: 14px; }
+
+  .pdp-cases-trust { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-top: 22px; }
+  .pdp-cases-trust__intro { padding-bottom: 8px; }
+  .pdp-cases-trust__logo { min-height: 76px; padding-inline: 12px; border-bottom: 1px solid var(--cases-line); }
+  .pdp-cases-trust__logo:nth-last-child(-n + 2) { border-bottom: 0; }
+  .pdp-cases-trust__logo:nth-child(odd) { border-right: 1px solid var(--cases-line); }
+  .pdp-cases-trust__logo strong { font-size: 13px; }
+  .pdp-cases-trust__logo img { max-width: 120px; max-height: 33px; }
+
+  .pdp-cases-feature { display: flex; flex-direction: column; min-height: 0; margin-top: 28px; }
+  .pdp-cases-feature__media { min-height: 300px; }
+  .pdp-cases-feature__panel { min-height: 430px; }
+  .pdp-cases-feature__content { min-height: 430px; padding: 34px 24px 30px; }
+  .pdp-cases-feature h2 { margin: 24px 0 34px; font-size: 54px; }
+  .pdp-cases-feature__wire { right: -18%; bottom: -3%; width: 112%; height: 62%; }
+
+  .pdp-cases-archive { padding-top: 48px; }
+  .pdp-cases-section-head { display: block; padding-bottom: 18px; }
+  .pdp-cases-section-head h2 { margin-top: 18px; font-size: 54px; }
+  .pdp-cases-section-head p { margin-top: 20px; font-size: 13px; }
+  .pdp-cases-archive__grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 188px); gap: 10px; padding-top: 12px; }
+  .pdp-cases-archive-item--red { grid-column: 1 / 3; grid-row: 1 / 3; }
+  .pdp-cases-archive-item--clinic { grid-column: 1 / 3; grid-row: 3; }
+  .pdp-cases-archive-item--eurochem { grid-column: 1; grid-row: 4; }
+  .pdp-cases-archive-item--severstal { grid-column: 2; grid-row: 4; }
+  .pdp-cases-archive-item > strong { font-size: 24px; }
+  .pdp-cases-archive-item--eurochem > strong,
+  .pdp-cases-archive-item--severstal > strong { font-size: 17px; }
+  .pdp-cases-archive-item__meta small { max-width: 125px; }
+
+  .pdp-cases-materials { display: block; margin-top: 48px; }
+  .pdp-cases-materials__head { padding: 28px 0 22px; border-right: 0; border-bottom: 1px solid var(--cases-line); }
+  .pdp-cases-materials__head h2 { margin-top: 18px; font-size: 42px; }
+  .pdp-cases-materials__list { grid-template-columns: 1fr; }
+  .pdp-cases-materials__list a { min-height: 112px; padding-inline: 0; border-right: 0; border-bottom: 1px solid var(--cases-line); }
+  .pdp-cases-materials__list a:last-child { border-bottom: 0; }
+  .pdp-cases-materials__list a:hover { padding-left: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pdp-cases-hero__art > img { animation: none; }
+  .pdp-cases-archive-item,
+  .pdp-cases-archive-item img,
+  .pdp-cases-feature__media img { transition-duration: .01ms; }
+}
+
+/* Confirmed PDP portfolio only: four organisations and four documented objects.
+   Keep the archive composition intentional instead of leaving empty legacy slots. */
+body.production-cases .pdp-cases-trust {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+body.production-cases .pdp-cases-trust__logo--alan strong {
+  font-size: clamp(22px, 1.6vw, 30px);
+  letter-spacing: -.06em;
+}
+
+body.production-cases .pdp-cases-feature__content {
+  padding-inline: clamp(36px, 4.1vw, 72px);
+}
+
+body.production-cases .pdp-cases-feature h2 {
+  max-width: 100%;
+  overflow: visible;
+  word-break: normal;
+}
+
+@media (min-width: 1200px) {
+  body.production-cases .pdp-cases-feature h2 {
+    font-size: clamp(48px, 4.25vw, 78px);
+    letter-spacing: -.07em;
+  }
+
+  body.production-cases .pdp-cases-archive__grid {
+    grid-template-rows: 280px 206px;
+  }
+}
+
+@media (max-width: 700px) {
+  body.production-cases .pdp-cases-trust {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.production-cases .pdp-cases-feature__content {
+    padding-inline: 24px;
+  }
+
+  body.production-cases .pdp-cases-archive__grid {
+    grid-template-rows: repeat(4, 188px);
+  }
+}

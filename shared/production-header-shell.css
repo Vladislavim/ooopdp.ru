@@ -1,0 +1,132 @@
+/* One canonical desktop header for the main page and every inner page. */
+.top{
+  height:84px;
+  display:grid;
+  grid-template-columns:29% 41% 16% 14%;
+  border:1px solid #d3d1cb;
+  background:#fbfaf7;
+  color:#101110;
+  position:relative;
+  z-index:30;
+  box-sizing:border-box;
+}
+.top>*{
+  display:flex;
+  align-items:center;
+  min-width:0;
+  border-right:1px solid #d3d1cb;
+  box-sizing:border-box;
+}
+.top .brand{
+  padding:0 clamp(24px,3.4vw,52px);
+  gap:20px;
+  border-right:1px solid #d3d1cb;
+}
+.top .brand-logo{
+  display:block;
+  width:150px;
+  height:50px;
+  flex:0 0 150px;
+  object-fit:contain;
+  object-position:left center;
+}
+.top .brand-slogan{
+  flex:0 0 auto;
+  padding-left:18px;
+  border-left:1px solid #d8d6cf;
+  color:#5d605a;
+  font-family:"Golos Text",Golos,Arial,sans-serif;
+  font-size:11px;
+  font-weight:570;
+  line-height:1.25;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+}
+.top .nav{
+  justify-content:center;
+  gap:35.2px;
+  font-family:"Golos Text",Golos,Arial,sans-serif;
+  font-size:11px;
+  font-weight:550;
+  line-height:1;
+  text-transform:uppercase;
+}
+.top .nav a{
+  position:relative;
+  display:block;
+  padding:0;
+  color:#20221f;
+  font-family:"Golos Text",Golos,Arial,sans-serif;
+  font-size:11px;
+  font-weight:640;
+  line-height:1;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  transition:color .22s ease;
+}
+.top .nav a:hover,
+.top .nav a:focus-visible,
+.top .nav a.active{color:#f45116}
+.top .nav a.active::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-31px;
+  width:26px;
+  height:2px;
+  background:#f45116;
+  transform:translateX(-50%);
+}
+.top .tel{
+  justify-content:center;
+  gap:9px;
+  padding:0 18px;
+  border-left:0;
+  border-right:1px solid #d3d1cb;
+  background:#fffefa;
+  color:#101110;
+  font-family:"Golos Text",Golos,Arial,sans-serif;
+  font-size:17px;
+  font-weight:800;
+  line-height:1;
+  white-space:nowrap;
+}
+.top .phone-icon{width:17px;height:17px;flex:0 0 17px}
+.top .top-cta{
+  justify-content:center;
+  padding:0 10px;
+  border:0;
+  background:#f45116;
+  color:#fff;
+  font-size:0;
+  white-space:nowrap;
+  transition:background-color .22s ease,color .22s ease;
+}
+.top .top-cta::after{
+  display:block;
+  width:100%;
+  content:attr(data-desktop-label);
+  font-family:"Golos Text",Golos,Arial,sans-serif;
+  font-size:10px;
+  font-weight:760;
+  line-height:1.15;
+  letter-spacing:.025em;
+  text-transform:uppercase;
+  white-space:normal;
+  text-align:center;
+}
+.top .top-cta:hover,
+.top .top-cta:focus-visible{background:#d9400c;color:#fff}
+@media (max-width:1199px) and (min-width:701px){
+  .top .brand{padding-inline:42px}
+  .top .brand-slogan{display:none}
+  .top .top-cta::after{content:attr(data-tablet-label);font-size:10px;line-height:1.15;white-space:normal;text-align:center}
+}
+@media (max-width:700px){
+  .top{height:64px;grid-template-columns:1fr 54px}
+  .top .brand{padding:0 14px;gap:0}
+  .top .brand-logo{width:150px;height:50px;flex-basis:150px}
+  .top .nav,.top .tel{display:none}
+  .top .top-cta{font-size:0;padding:0}
+  .top .top-cta::after{content:"→";font:20px/1 Arial,sans-serif}
+}

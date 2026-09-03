@@ -1,0 +1,75 @@
+{
+  "id": "project-red-october",
+  "source": "pages/05-project-red-october.html",
+  "output": "pages/05-project-red-october.html",
+  "kind": "inner",
+  "doctype": "<!doctype html>\n",
+  "htmlOpen": "<html lang=\"ru\">",
+  "headOpen": "<head>",
+  "headInner": "\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Красный Октябрь — ПДП</title>\n  <link rel=\"stylesheet\" href=\"../shared/production-base.css?v=20260831-cache-v4\">\n",
+  "headClose": "</head>",
+  "bodyOpen": "<body class=\"production-page production-case\" data-page=\"Кейсы\">",
+  "bodyBeforeMain": "\n  <div data-site-header></div>\n  ",
+  "mainOpen": "<main>",
+  "mainInnerTrailing": "\n  ",
+  "mainClose": "</main>",
+  "bodyAfterMain": "\n    <script src=\"../shared/production-site-shell.js?v=20260831-cache-v4\"></script>\n    <link rel=\"stylesheet\" href=\"../shared/production-inner-shell-parity.css?v=20260831-cache-v4\">\n    <link rel=\"stylesheet\" href=\"../shared/production-inner-v28-polish.css?v=20260831-cache-v4\">\n    <link rel=\"stylesheet\" href=\"../shared/production-inner-motion-a.css?v=20260831-cache-v4\">\n    <script src=\"../shared/production-inner-motion-a.js?v=20260831-cache-v4\"></script>\n",
+  "bodyClose": "</body>",
+  "htmlClose": "</html>",
+  "parts": [
+    {
+      "key": "prod-hero",
+      "tagName": "section",
+      "sourceIndex": 0,
+      "file": "content/project-red-october/parts/001-prod-hero.html"
+    },
+    {
+      "key": "prod-container",
+      "tagName": "section",
+      "sourceIndex": 1,
+      "file": "content/project-red-october/parts/002-prod-container.html"
+    },
+    {
+      "key": "prod-container-2",
+      "tagName": "section",
+      "sourceIndex": 2,
+      "file": "content/project-red-october/parts/003-prod-container-2.html"
+    },
+    {
+      "key": "prod-container-3",
+      "tagName": "section",
+      "sourceIndex": 3,
+      "file": "content/project-red-october/parts/004-prod-container-3.html"
+    },
+    {
+      "key": "prod-container-4",
+      "tagName": "section",
+      "sourceIndex": 4,
+      "file": "content/project-red-october/parts/005-prod-container-4.html"
+    },
+    {
+      "key": "prod-container-5",
+      "tagName": "section",
+      "sourceIndex": 5,
+      "file": "content/project-red-october/parts/006-prod-container-5.html"
+    },
+    {
+      "key": "prod-container-6",
+      "tagName": "section",
+      "sourceIndex": 6,
+      "file": "content/project-red-october/parts/007-prod-container-6.html"
+    },
+    {
+      "key": "div",
+      "tagName": "div",
+      "sourceIndex": 7,
+      "file": "content/project-red-october/parts/008-div.html"
+    },
+    {
+      "key": "div-2",
+      "tagName": "div",
+      "sourceIndex": 8,
+      "file": "content/project-red-october/parts/009-div-2.html"
+    }
+  ]
+}

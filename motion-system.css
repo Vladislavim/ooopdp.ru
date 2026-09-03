@@ -1,0 +1,463 @@
+/* /orig desktop motion system — shared tokens and restrained interaction rules. */
+:root {
+  --motion-duration-fast: 180ms;
+  --motion-duration-base: 420ms;
+  --motion-duration-slow: 650ms;
+  --motion-stagger: 45ms;
+  --motion-ease-standard: cubic-bezier(.22, 1, .36, 1);
+  --motion-ease-exit: cubic-bezier(.4, 0, 1, 1);
+  --motion-slider-interval: 7000ms;
+  --motion-slider-transition: 460ms;
+  --motion-form-feedback: 1200ms;
+}
+
+@media (min-width: 1200px) {
+  .trust-header {
+    grid-template-columns: minmax(0, 1fr) clamp(260px, 18vw, 320px) minmax(280px, 380px);
+    align-items: center;
+    gap: clamp(20px, 2vw, 32px);
+  }
+
+  .trust-header-flourish {
+    display: block;
+    width: clamp(260px, 18vw, 320px);
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .trust-header p {
+    max-width: 380px;
+  }
+
+  /* Retire the previous competing entrance language. */
+  .motion-on .top,
+  .motion-on .hero-img,
+  .motion-on .hero-img::before,
+  .motion-on .hero-line,
+  .motion-on .hero-subline,
+  .motion-on .hero-copy p,
+  .motion-on .buttons {
+    animation: none !important;
+  }
+
+  .section-motion::before {
+    content: none !important;
+  }
+
+  /* Hero: title is one unit, followed by subtitle, actions, and metrics. */
+  .motion-ready .top,
+  .motion-ready .hero h1,
+  .motion-ready .hero-copy > p,
+  .motion-ready .hero-copy .buttons,
+  .motion-ready .hero .metrics {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  .motion-ready .hero-img {
+    opacity: 0;
+    transform: scale(.985);
+  }
+
+  .motion-ready .hero .coords,
+  .motion-ready .hero .eyebrow,
+  .motion-ready .hero h1 .hero-line,
+  .motion-ready .hero h1 .hero-subline {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .motion-ready.motion-loaded .hero .coords,
+  .motion-ready.motion-loaded .hero .eyebrow,
+  .motion-ready.motion-loaded .hero h1 .hero-line,
+  .motion-ready.motion-loaded .hero h1 .hero-subline {
+    transition: none !important;
+  }
+
+  .motion-ready.motion-loaded .top,
+  .motion-ready.motion-loaded .hero h1,
+  .motion-ready.motion-loaded .hero-copy > p,
+  .motion-ready.motion-loaded .hero-copy .buttons,
+  .motion-ready.motion-loaded .hero .metrics,
+  .motion-ready.motion-loaded .hero-img {
+    opacity: 1;
+    transform: none;
+    transition-property: opacity, transform;
+    transition-duration: var(--motion-duration-base);
+    transition-timing-function: var(--motion-ease-standard);
+  }
+
+  .motion-ready.motion-loaded .top,
+  .motion-ready.motion-loaded .hero h1 { transition-delay: 0ms; }
+  .motion-ready.motion-loaded .hero-copy > p,
+  .motion-ready.motion-loaded .hero-img { transition-delay: var(--motion-stagger); }
+  .motion-ready.motion-loaded .hero-copy .buttons { transition-delay: calc(var(--motion-stagger) * 2); }
+  .motion-ready.motion-loaded .hero .metrics { transition-delay: calc(var(--motion-stagger) * 3); }
+
+  .hero-img video,
+  .hero-img img {
+    transform: none;
+    transition: filter var(--motion-duration-base) var(--motion-ease-standard);
+    will-change: auto;
+  }
+
+  /* Sections reveal once as stable groups; child stagger is capped in JS at four. */
+  .motion-ready [data-reveal] {
+    opacity: 0;
+    clip-path: none;
+    transform: translateY(14px);
+    transition: opacity var(--motion-duration-base) var(--motion-ease-standard), transform var(--motion-duration-base) var(--motion-ease-standard);
+  }
+
+  .motion-ready [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .motion-ready [data-reveal-item] {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  .motion-ready [data-reveal].is-visible [data-reveal-item] {
+    opacity: 1;
+    transform: none;
+    transition: opacity var(--motion-duration-base) var(--motion-ease-standard), transform var(--motion-duration-base) var(--motion-ease-standard);
+    transition-delay: calc(var(--motion-stagger) * var(--reveal-index, 0));
+  }
+
+  /* One fast, consistent response for desktop hover and keyboard focus. */
+  .nav a,
+  .skip-link,
+  .tel,
+  .top-cta,
+  .btn,
+  .presentation-download,
+  .contact-presentation,
+  .project-showcase-discuss,
+  .form-submit,
+  .about-action,
+  .more,
+  .service-row,
+  .direction,
+  .direction::before,
+  .project-showcase-tab,
+  .project-showcase-controls button,
+  .trust-tab,
+  .trust-control,
+  .document-card,
+  .article,
+  .form-channel,
+  .contact-form input,
+  .contact-form textarea {
+    transition-duration: var(--motion-duration-fast) !important;
+    transition-timing-function: var(--motion-ease-standard) !important;
+  }
+
+  .metric::before,
+  .service-row::before,
+  .project-showcase-link::after,
+  .project-showcase-tab::after,
+  .project-showcase-tab img,
+  .document-card::before {
+    transition-duration: var(--motion-duration-fast) !important;
+    transition-timing-function: var(--motion-ease-standard) !important;
+  }
+
+  .btn,
+  .presentation-download,
+  .project-showcase-discuss,
+  .form-submit {
+    transition-property: color, background-color, border-color, transform, box-shadow;
+  }
+
+  .btn:hover,
+  .btn:focus-visible,
+  .presentation-download:hover,
+  .presentation-download:focus-visible,
+  .project-showcase-discuss:hover,
+  .project-showcase-discuss:focus-visible,
+  .form-submit:hover,
+  .form-submit:focus-visible,
+  .document-card:hover,
+  .document-card:focus-visible,
+  .article:hover,
+  .article:focus-visible,
+  .review:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn i,
+  .presentation-download i,
+  .project-showcase-discuss::after,
+  .form-submit::after {
+    transition: transform var(--motion-duration-fast) var(--motion-ease-standard);
+  }
+
+  .btn:hover i,
+  .btn:focus-visible i,
+  .presentation-download:hover i,
+  .presentation-download:focus-visible i,
+  .project-showcase-discuss:hover::after,
+  .project-showcase-discuss:focus-visible::after,
+  .form-submit:hover::after,
+  .form-submit:focus-visible::after {
+    transform: translateX(4px);
+  }
+
+  .about-media-single img,
+  .direction img,
+  .project-img img,
+  .project-slide-gallery img,
+  .article img,
+  .document-card img {
+    transition: filter var(--motion-duration-base) var(--motion-ease-standard), transform var(--motion-duration-base) var(--motion-ease-standard);
+  }
+
+  .about:hover .about-media-single img,
+  .direction:hover img,
+  .direction:focus-within img,
+  .project:hover .project-img img,
+  .project:focus-within .project-img img,
+  .project-showcase:hover .project-slide-gallery img,
+  .project-showcase:focus-within .project-slide-gallery img,
+  .project-slide-gallery figure:hover img,
+  .article:hover img,
+  .article:focus-visible img {
+    transform: scale(1.01);
+  }
+
+  .service-row.active {
+    height: 39px;
+  }
+
+  .service-wire {
+    transition: opacity var(--motion-slider-transition) var(--motion-ease-standard);
+  }
+
+  .service-wire.changing {
+    opacity: .72;
+    filter: none;
+    transform: none;
+  }
+
+  .services:hover .service-wire,
+  .client:hover .client-icon,
+  .client:hover .client-icon img,
+  .review:hover .brand-mark {
+    transform: none;
+  }
+
+  .client-icon,
+  .client-icon img,
+  .client-symbol,
+  .about-icon,
+  .step,
+  .review,
+  .brand-mark {
+    transition-duration: var(--motion-duration-fast) !important;
+    transition-timing-function: var(--motion-ease-standard) !important;
+  }
+
+  .direction:hover .direction-copy,
+  .direction:focus-within .direction-copy,
+  .project:hover h3,
+  .project:focus-within h3,
+  .service-row:hover {
+    transform: none;
+  }
+
+  .direction-copy {
+    transition: none !important;
+  }
+
+  .about-icon:hover,
+  .client:hover,
+  .client:hover .client-symbol,
+  .step:hover {
+    transform: translateY(-1px);
+  }
+
+  .about-icon:hover img,
+  .client:hover img,
+  .trust-tab:hover .trust-logo img,
+  .trust-tab:focus-visible .trust-logo img,
+  .trust-tab[aria-selected="true"] .trust-logo img {
+    transform: none;
+  }
+
+  .review:hover .brand-mark {
+    transform: rotate(-6deg);
+  }
+
+  .direction::after,
+  .project-img::before {
+    opacity: 0 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .trust-tab::after,
+  .trust-logo img {
+    transition-duration: var(--motion-duration-fast) !important;
+    transition-timing-function: var(--motion-ease-standard) !important;
+  }
+
+  .project-slide-gallery {
+    transition: opacity var(--motion-slider-transition) var(--motion-ease-standard), transform var(--motion-slider-transition) var(--motion-ease-standard);
+  }
+
+  .direction-collage-grid img,
+  .project-collage-grid img {
+    transition: filter var(--motion-duration-base) var(--motion-ease-standard), transform var(--motion-duration-base) var(--motion-ease-standard);
+  }
+
+  .direction-collage:hover .direction-collage-grid img,
+  .direction-collage:focus-within .direction-collage-grid img,
+  .project-collage:hover .project-collage-grid img,
+  .project-collage:focus-within .project-collage-grid img {
+    transform: scale(1.01);
+  }
+
+  .project-slide-gallery.is-changing,
+  .project-showcase.is-changing .project-slide-gallery,
+  .project-showcase.is-changing .project-showcase-copy {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  .project-showcase-copy {
+    transition: opacity var(--motion-slider-transition) var(--motion-ease-standard), transform var(--motion-slider-transition) var(--motion-ease-standard);
+  }
+
+  .trust-panel-copy,
+  .trust-panel-visual img {
+    transition: opacity var(--motion-slider-transition) var(--motion-ease-standard), transform var(--motion-slider-transition) var(--motion-ease-standard);
+  }
+
+  .trust-panel.is-changing .trust-panel-copy,
+  .trust-panel.is-changing .trust-panel-visual img {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  .trust-tab:hover,
+  .trust-tab:focus-visible {
+    transform: translateY(-1px);
+  }
+}
+
+@media (min-width: 1400px) {
+  .trust-header {
+    grid-template-columns: max-content clamp(260px, 18vw, 320px) minmax(280px, 380px);
+  }
+
+  .trust-header h2 {
+    white-space: nowrap;
+    text-wrap: nowrap;
+  }
+}
+
+@media (min-width: 1200px) and (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .motion-ready .top,
+  .motion-ready .hero h1,
+  .motion-ready .hero-copy > p,
+  .motion-ready .hero-copy .buttons,
+  .motion-ready .hero .metrics,
+  .motion-ready .hero-img,
+  .motion-ready [data-reveal],
+  .motion-ready [data-reveal-item] {
+    opacity: 1 !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration-fast: .01ms;
+    --motion-duration-base: .01ms;
+    --motion-duration-slow: .01ms;
+    --motion-stagger: 0ms;
+    --motion-slider-transition: .01ms;
+  }
+
+  .hero-video {
+    opacity: 0 !important;
+  }
+
+  .hero-fallback {
+    opacity: 1 !important;
+  }
+
+  .btn:hover,
+  .btn:focus-visible,
+  .presentation-download:hover,
+  .presentation-download:focus-visible,
+  .project-showcase-discuss:hover,
+  .project-showcase-discuss:focus-visible,
+  .form-submit:hover,
+  .form-submit:focus-visible,
+  .document-card:hover,
+  .document-card:focus-visible,
+  .article:hover,
+  .article:focus-visible,
+  .review:hover,
+  .about-icon:hover,
+  .client:hover,
+  .client:hover .client-symbol,
+  .step:hover,
+  .trust-tab:hover,
+  .trust-tab:focus-visible {
+    transform: none !important;
+  }
+
+  .service-row:not(.active):hover,
+  .service-row:not(.active):focus-visible {
+    padding-left: var(--service-pad, 16px) !important;
+    transform: none !important;
+  }
+
+  .btn:hover i,
+  .btn:focus-visible i,
+  .presentation-download:hover i,
+  .presentation-download:focus-visible i,
+  .project-showcase-discuss:hover::after,
+  .project-showcase-discuss:focus-visible::after,
+  .form-submit:hover::after,
+  .form-submit:focus-visible::after,
+  .about:hover .about-media-single img,
+  .direction:hover img,
+  .direction:focus-within img,
+  .project:hover .project-img img,
+  .project:focus-within .project-img img,
+  .project-showcase:hover .project-slide-gallery img,
+  .project-showcase:focus-within .project-slide-gallery img,
+  .project-slide-gallery figure:hover img,
+  .article:hover img,
+  .article:focus-visible img,
+  .direction-collage:hover .direction-collage-grid img,
+  .direction-collage:focus-within .direction-collage-grid img,
+  .project-collage:hover .project-collage-grid img,
+  .project-collage:focus-within .project-collage-grid img {
+    transform: none !important;
+  }
+}

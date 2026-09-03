@@ -1,0 +1,536 @@
+/*
+ * Homepage-only interaction polish.
+ * Loaded by orig_test_v2/index.html only; inner pages do not inherit this layer.
+ * Motion language: UI 280ms, calm PDP easing, transform-only micro movement.
+ */
+
+main.site > .directions .direction {
+  --home-motion-ui: 280ms;
+  --home-motion-ease: cubic-bezier(.22, .72, .18, 1);
+}
+
+/* Keep the supplied company photograph in its native state. */
+main.site > .about .about-media-single img,
+main.site > .about:hover .about-media-single img,
+main.site > .about:focus-within .about-media-single img {
+  animation: none !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+
+/* Keep the card clean: only the native text arrow remains visible. */
+main.site > .directions .direction::after,
+main.site > .directions .direction .direction-copy::after {
+  content: none !important;
+  display: none !important;
+}
+
+main.site > .directions .direction {
+  background: #101110;
+  transition: background-color 480ms var(--home-motion-ease),
+    border-color 480ms var(--home-motion-ease);
+}
+
+main.site > .directions .direction > img,
+main.site > .directions .direction .direction-collage-grid {
+  transition: opacity 480ms var(--home-motion-ease),
+    transform 560ms var(--home-motion-ease),
+    filter 480ms var(--home-motion-ease) !important;
+}
+
+main.site > .directions .direction::before {
+  transition: background-color 480ms var(--home-motion-ease),
+    border-color 480ms var(--home-motion-ease);
+}
+
+main.site > .directions .direction:hover,
+main.site > .directions .direction:focus-within {
+  background: #f45116 !important;
+  border-color: #f45116 !important;
+  box-shadow: none !important;
+}
+
+main.site > .directions .direction:hover::before,
+main.site > .directions .direction:focus-within::before {
+  background: #f45116 !important;
+  border: 0 !important;
+}
+
+main.site > .directions .direction:hover > img,
+main.site > .directions .direction:focus-within > img,
+main.site > .directions .direction:hover .direction-collage-grid,
+main.site > .directions .direction:focus-within .direction-collage-grid {
+  opacity: 0 !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+main.site > .directions .direction .direction-copy strong,
+main.site > .directions .direction .direction-copy em {
+  transition: color var(--home-motion-ui) var(--home-motion-ease);
+}
+
+/* Keep the copy anchored while a direction card changes to its orange state. */
+main.site > .directions .direction .direction-copy,
+main.site > .directions .direction .direction-copy strong,
+main.site > .directions .direction .direction-copy em,
+main.site > .directions .direction:hover .direction-copy,
+main.site > .directions .direction:focus-within .direction-copy,
+main.site > .directions .direction:hover .direction-copy strong,
+main.site > .directions .direction:focus-within .direction-copy strong,
+main.site > .directions .direction:hover .direction-copy em,
+main.site > .directions .direction:focus-within .direction-copy em {
+  transform: none !important;
+}
+
+main.site > .directions .direction .direction-copy strong,
+main.site > .directions .direction .direction-copy em {
+  transition: color var(--home-motion-ui) var(--home-motion-ease) !important;
+}
+
+main.site > .directions .direction:hover .direction-copy strong,
+main.site > .directions .direction:focus-within .direction-copy strong,
+main.site > .directions .direction:hover .direction-copy em,
+main.site > .directions .direction:focus-within .direction-copy em {
+  color: #fff !important;
+}
+
+/* The image caption is intentionally removed; the corner marker is the only affordance. */
+main.site > .directions .direction .direction-copy small {
+  display: none !important;
+}
+
+main.site > .directions .direction::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  inset: auto 12px 12px auto;
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  pointer-events: none;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  clip-path: none;
+  background: transparent url("assets/inner-optimized/pdp-card-mark.webp") center / 42px 42px no-repeat;
+  opacity: 1 !important;
+}
+
+main.site > .directions .direction img {
+  transition: transform 560ms var(--home-motion-ease),
+    filter 560ms var(--home-motion-ease);
+}
+
+main.site > .directions .direction:hover img,
+main.site > .directions .direction:focus-within img {
+  transform: scale(1.025);
+}
+
+main.site > .directions .direction .direction-copy em {
+  transition: color var(--home-motion-ui) var(--home-motion-ease);
+}
+
+main.site > .directions .direction:hover .direction-copy em,
+main.site > .directions .direction:focus-within .direction-copy em {
+  color: #fff !important;
+}
+
+/* Keep the homepage service rail flat and make the state unmistakably active. */
+main.site > .services .service-row {
+  transition: background-color var(--home-motion-ui) var(--home-motion-ease),
+    border-color var(--home-motion-ui) var(--home-motion-ease),
+    color var(--home-motion-ui) var(--home-motion-ease);
+}
+
+main.site > .services .service-row:hover:not(.active),
+main.site > .services .service-row:focus-visible:not(.active) {
+  background-color: var(--o) !important;
+  border-color: var(--o) !important;
+  color: #fff !important;
+  padding-left: var(--service-pad, 16px) !important;
+  transform: none !important;
+}
+
+main.site > .services .service-row:hover:not(.active) b,
+main.site > .services .service-row:focus-visible:not(.active) b {
+  color: #fff !important;
+}
+
+main.site > .services .service-row:hover:not(.active)::after,
+main.site > .services .service-row:focus-visible:not(.active)::after {
+  content: "→";
+  display: block;
+  grid-column: 3;
+  justify-self: end;
+  color: #fff;
+}
+
+main.site > .services .service-row.active,
+main.site > .services .service-row.active:hover,
+main.site > .services .service-row.active:focus-visible {
+  background-color: var(--o) !important;
+  border-color: var(--o) !important;
+  color: #fff !important;
+  transform: none !important;
+}
+
+/* Articles are an editorial composition: one lead material and three concise
+   companion pieces. The whole group stays visual-first, like the homepage. */
+main.site > .articles .article-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  grid-template-rows: repeat(2, minmax(192px, 1fr));
+  gap: 1px !important;
+  min-height: 408px;
+  background: rgba(16, 17, 16, .26);
+  border: 1px solid rgba(16, 17, 16, .26);
+}
+
+main.site > .articles .article {
+  position: relative;
+  display: block !important;
+  min-width: 0;
+  height: auto !important;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: #161716;
+  color: #fff;
+}
+
+main.site > .articles .article:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+main.site > .articles .article:nth-child(2) {
+  grid-column: span 2;
+}
+
+/* Preserve the intended 2 × 2 editorial grid. An older rule sent the fourth
+   item into an implicit third row, which left the lower-right tile blank. */
+main.site > .articles .article:nth-child(3) {
+  grid-column: 3 !important;
+  grid-row: 2 !important;
+}
+
+main.site > .articles .article:nth-child(4) {
+  grid-column: 4 !important;
+  grid-row: 2 !important;
+}
+
+main.site > .articles .article > img {
+  position: absolute !important;
+  inset: 0;
+  z-index: -2;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover;
+  filter: saturate(.88) contrast(.98) !important;
+  transform: scale(1.001);
+  transition: transform 480ms cubic-bezier(.22, .72, .18, 1),
+    filter 480ms cubic-bezier(.22, .72, .18, 1) !important;
+}
+
+main.site > .articles .article::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(9, 11, 10, .06) 10%, rgba(9, 11, 10, .84) 100%);
+  transition: background-color 280ms cubic-bezier(.22, .72, .18, 1);
+}
+
+main.site > .articles .article::after {
+  content: none !important;
+  display: none !important;
+}
+
+main.site > .articles .article-topic {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  z-index: 1;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--o) !important;
+  font: 800 9px/1.2 var(--font-body);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  display: none !important;
+}
+
+main.site > .articles .article > div {
+  position: absolute;
+  right: 18px;
+  bottom: 14px;
+  left: 18px;
+  z-index: 1;
+  display: grid;
+  align-content: end;
+  min-height: 0;
+  padding: 0 !important;
+  background: transparent !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+main.site > .articles .article b {
+  color: #fff !important;
+  font: 800 clamp(16px, 1.55vw, 28px)/.96 var(--font-display) !important;
+  letter-spacing: -.035em;
+}
+
+main.site > .articles .article:not(:first-child) b {
+  font-size: clamp(14px, 1.12vw, 20px) !important;
+  line-height: 1.02 !important;
+}
+
+main.site > .articles .article p {
+  display: block;
+  max-width: 510px;
+  margin: 9px 0 0 !important;
+  color: rgba(255, 255, 255, .82) !important;
+  font-size: 11px !important;
+  line-height: 1.38 !important;
+}
+
+main.site > .articles .article:not(:first-child) p {
+  display: none;
+}
+
+main.site > .articles .article small {
+  display: flex !important;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: 18px !important;
+  color: rgba(255, 255, 255, .72) !important;
+  font-size: 9px !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+main.site > .articles .article small > span:last-child {
+  margin-left: auto;
+  text-align: right;
+}
+
+main.site > .articles .article:not(:first-child) small {
+  margin-top: 10px !important;
+}
+
+main.site > .articles .article:hover > img,
+main.site > .articles .article:focus-visible > img {
+  opacity: 0 !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+/* Articles use the same clear orange state as the approved sports direction
+   card: the image recedes, the full tile becomes orange, and the copy stays
+   anchored without any layout shift. */
+main.site > .articles .article {
+  transition: background-color 280ms cubic-bezier(.22, 1, .36, 1),
+    border-color 280ms cubic-bezier(.22, 1, .36, 1),
+    color 280ms cubic-bezier(.22, 1, .36, 1),
+    transform 280ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 280ms cubic-bezier(.22, 1, .36, 1) !important;
+}
+
+main.site > .articles .article > img {
+  transition: opacity 280ms cubic-bezier(.22, 1, .36, 1),
+    transform 280ms cubic-bezier(.22, 1, .36, 1),
+    filter 280ms cubic-bezier(.22, 1, .36, 1) !important;
+}
+
+main.site > .articles .article::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: #f45116;
+  opacity: 0;
+  transition: opacity 280ms cubic-bezier(.22, 1, .36, 1);
+}
+
+main.site > .articles .article:hover,
+main.site > .articles .article:focus-visible {
+  background-color: #f45116 !important;
+  border-color: #f45116 !important;
+  color: #fff !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+main.site > .articles .article:hover::after,
+main.site > .articles .article:focus-visible::after {
+  opacity: 1;
+}
+
+main.site > .articles .article:hover > div,
+main.site > .articles .article:focus-visible > div,
+main.site > .articles .article:hover b,
+main.site > .articles .article:focus-visible b,
+main.site > .articles .article:hover p,
+main.site > .articles .article:focus-visible p,
+main.site > .articles .article:hover small,
+main.site > .articles .article:focus-visible small,
+main.site > .articles .article:hover small span,
+main.site > .articles .article:focus-visible small span {
+  color: #fff !important;
+}
+
+main.site > .articles .article:hover::before,
+main.site > .articles .article:focus-visible::before {
+  background: linear-gradient(180deg, rgba(9, 11, 10, .02) 10%, rgba(244, 81, 22, .9) 100%);
+}
+
+main.site > .articles .article:focus-visible {
+  outline: 2px solid var(--o);
+  outline-offset: -3px;
+}
+
+/* The logo mark is a transparent intermediate layer: above the technical
+   texture, below readable copy and the form. */
+body:not(.production-page) main.site > .contact-form-section#contacts {
+  --contact-p-mark-y: 0px;
+  --contact-form-p-mark: 100px;
+  right: 0px;
+}
+
+/* Homepage-only CTA art direction: real industrial photography sits below the
+   brand mark and the form. Inner-page CTA surfaces remain unchanged. */
+body:not(.production-page) main.site > .contact-form-section#contacts::after {
+  background:
+    linear-gradient(90deg, rgba(13, 16, 14, .94) 0%, rgba(13, 16, 14, .82) 37%, rgba(13, 16, 14, .48) 66%, rgba(13, 16, 14, .78) 100%),
+    linear-gradient(0deg, rgba(13, 16, 14, .48), rgba(13, 16, 14, .1)),
+    url("assets/inner-optimized/web-pexels-steel-3818947.webp") center 52% / cover no-repeat !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  filter: saturate(.78) contrast(1.04) !important;
+}
+
+body:not(.production-page) main.site > .contact-form-section#contacts .contact-form-p-mark {
+  position: absolute !important;
+  z-index: 1 !important;
+  right: calc(clamp(470px, 31vw, 610px) + 500px - var(--contact-form-p-mark));
+  bottom: -220px;
+  display: block;
+  width: clamp(420px, 39vw, 680px) !important;
+  height: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  opacity: .25;
+  pointer-events: none;
+  user-select: none;
+  transform: translate3d(0, var(--contact-p-mark-y), 0);
+  will-change: transform;
+}
+
+body:not(.production-page) main.site > .contact-form-section#contacts :is(.contact-form-intro, .contact-form) {
+  z-index: 2 !important;
+}
+
+@media (max-width: 1100px) {
+  main.site > .articles .article-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, minmax(220px, 1fr));
+    min-height: 0;
+  }
+
+  main.site > .articles .article:first-child,
+  main.site > .articles .article:nth-child(2),
+  main.site > .articles .article:nth-child(3),
+  main.site > .articles .article:nth-child(4) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  main.site > .articles .article-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: none;
+  }
+
+  main.site > .articles .article,
+  main.site > .articles .article:first-child,
+  main.site > .articles .article:nth-child(2),
+  main.site > .articles .article:nth-child(3),
+  main.site > .articles .article:nth-child(4) {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  main.site > .articles .article {
+    min-height: 188px;
+  }
+
+  main.site > .articles .article:first-child {
+    min-height: 290px;
+  }
+
+  main.site > .articles .article > div {
+    right: 14px;
+    bottom: 12px;
+    left: 14px;
+  }
+
+  main.site > .articles .article-topic {
+    top: 14px;
+    left: 14px;
+  }
+
+  main.site > .articles .article p {
+    font-size: 10px !important;
+  }
+
+  body:not(.production-page) main.site > .contact-form-section#contacts .contact-form-p-mark {
+    right: -170px;
+    bottom: -112px;
+    width: 430px !important;
+    opacity: .09;
+    transform: none;
+    will-change: auto;
+  }
+}
+
+/* Keep the project visual clean on every slide: the media caption was only a
+   decorative plaque and is not part of the showcase content. */
+main.site > .projects .project-showcase-visual figcaption {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  main.site > .directions .direction::after {
+    inset: auto 12px 12px auto;
+  }
+
+  main.site > .directions .direction img {
+    transition-duration: 480ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main.site > .directions .direction::after,
+  main.site > .directions .direction .direction-copy::after,
+  main.site > .directions .direction img,
+  main.site > .directions .direction .direction-copy em,
+  main.site > .services .service-row,
+  main.site > .articles .article,
+  main.site > .articles .article > img,
+  main.site > .articles .article::after {
+    transition: none !important;
+  }
+
+  body:not(.production-page) main.site > .contact-form-section#contacts .contact-form-p-mark {
+    transform: none !important;
+    will-change: auto;
+  }
+}

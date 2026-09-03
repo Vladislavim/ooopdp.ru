@@ -1,0 +1,25 @@
+/* Final desktop motion pass for the approved orig_test_v2 composition. */
+@media (min-width:701px) and (prefers-reduced-motion:no-preference){
+  :root{--motion-ease:cubic-bezier(.22,.76,.2,1);--motion-soft:cubic-bezier(.2,.75,.2,1)}
+  /* This file is loaded last and owns the entrance choreography on desktop. */
+  .motion-on .top{animation:shell-drop .9s var(--motion-ease) both!important}
+  .motion-on .hero-img{animation:hero-settle 1.35s .08s var(--motion-ease) both!important}
+  .motion-on .hero-img .hero-video{opacity:1!important;filter:saturate(1.14) contrast(1.1) brightness(.99)!important;mix-blend-mode:normal!important}
+  .motion-on .hero-copy{animation:hero-copy-in 1s .18s var(--motion-ease) both!important}
+  .motion-on .hero h1{animation:hero-copy-in .9s .22s var(--motion-ease) both!important}
+  .motion-on .hero-line,.motion-on .hero-subline,.motion-on .hero-subtitle,.motion-on .hero .buttons{animation:hero-element-in .85s .25s var(--motion-ease) both!important}
+  .motion-on .hero-line:nth-child(2){animation-delay:.33s!important}.motion-on .hero-line:nth-child(3){animation-delay:.41s!important}.motion-on .hero-subline:nth-child(4){animation-delay:.49s!important}.motion-on .hero-subline:nth-child(5){animation-delay:.55s!important}.motion-on .hero-subtitle{animation-delay:.6s!important}.motion-on .hero .buttons{animation-delay:.68s!important}
+  .motion-on .hero .metric{animation:metric-in .72s var(--motion-ease) both!important}
+  .motion-on .hero .metric:nth-child(1){animation-delay:.76s!important}.motion-on .hero .metric:nth-child(2){animation-delay:.82s!important}.motion-on .hero .metric:nth-child(3){animation-delay:.88s!important}.motion-on .hero .metric:nth-child(4){animation-delay:.94s!important}
+  .motion-ready main.site>section:not(.hero),.motion-ready main.site>footer{transition:opacity .95s var(--motion-ease),transform .95s var(--motion-ease)}
+  .motion-ready main.site>section:not(.hero):not(.is-visible),.motion-ready main.site>footer:not(.is-visible){opacity:.18;transform:translateY(22px)}
+  .motion-ready main.site>section.is-visible,.motion-ready main.site>footer.is-visible{opacity:1;transform:none}
+  .hero-proof img,.trust-logo img{will-change:transform,filter;transition:filter .65s var(--motion-soft),opacity .65s var(--motion-soft),transform .65s var(--motion-soft)}
+  .hero-proof img:hover,.trust-logo:hover img{transform:translateY(-3px)}
+  @keyframes shell-drop{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+  @keyframes hero-settle{from{opacity:.7;transform:scale(1.018);filter:saturate(.92) contrast(.96) brightness(1.04)}to{opacity:1;transform:none;filter:saturate(1) contrast(1.02) brightness(1.01)}}
+  @keyframes hero-copy-in{from{opacity:0;transform:translate3d(-18px,8px,0)}to{opacity:1;transform:none}}
+  @keyframes hero-element-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+  @keyframes metric-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){.motion-on .top,.motion-on .hero-img,.motion-on .hero-copy,.motion-on .hero h1,.motion-on .hero-line,.motion-on .hero-subline,.motion-on .hero-subtitle,.motion-on .hero .buttons,.motion-on .hero .metric{animation:none!important}.motion-ready main.site>section,.motion-ready main.site>footer{opacity:1!important;transform:none!important;transition:none!important}}

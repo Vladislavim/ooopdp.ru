@@ -1,0 +1,69 @@
+{
+  "id": "about-company",
+  "source": "pages/01-about-company.html",
+  "output": "pages/01-about-company.html",
+  "kind": "inner",
+  "doctype": "<!doctype html>\n",
+  "htmlOpen": "<html lang=\"ru\">",
+  "headOpen": "<head>",
+  "headInner": "\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>О компании — ПДП</title>\n  <link rel=\"stylesheet\" href=\"../shared/production-base.css?v=20260831-cache-v4\">\n",
+  "headClose": "</head>",
+  "bodyOpen": "<body class=\"production-page production-about\" data-page=\"О компании\">",
+  "bodyBeforeMain": "\n  <div data-site-header></div>\n  ",
+  "mainOpen": "<main>",
+  "mainInnerTrailing": "\n  ",
+  "mainClose": "</main>",
+  "bodyAfterMain": "\n    <script src=\"../shared/production-site-shell.js?v=20260831-cache-v4\"></script>\n    <link rel=\"stylesheet\" href=\"../shared/production-inner-shell-parity.css?v=20260831-cache-v4\">\n    <link rel=\"stylesheet\" href=\"../shared/production-inner-v28-polish.css?v=20260831-cache-v4\">\n    <link rel=\"stylesheet\" href=\"../shared/production-inner-v30-consistency.css?v=20260831-cache-v4\">\n    <link rel=\"stylesheet\" href=\"../shared/production-inner-motion-a.css?v=20260831-cache-v4\">\n    <script src=\"../shared/production-inner-motion-a.js?v=20260831-cache-v4\"></script>\n",
+  "bodyClose": "</body>",
+  "htmlClose": "</html>",
+  "parts": [
+    {
+      "key": "prod-hero",
+      "tagName": "section",
+      "sourceIndex": 0,
+      "file": "content/about-company/parts/001-prod-hero.html"
+    },
+    {
+      "key": "prod-container",
+      "tagName": "section",
+      "sourceIndex": 1,
+      "file": "content/about-company/parts/002-prod-container.html"
+    },
+    {
+      "key": "prod-section",
+      "tagName": "section",
+      "sourceIndex": 2,
+      "file": "content/about-company/parts/003-prod-section.html"
+    },
+    {
+      "key": "prod-container-2",
+      "tagName": "section",
+      "sourceIndex": 3,
+      "file": "content/about-company/parts/004-prod-container-2.html"
+    },
+    {
+      "key": "prod-container-3",
+      "tagName": "section",
+      "sourceIndex": 4,
+      "file": "content/about-company/parts/005-prod-container-3.html"
+    },
+    {
+      "key": "prod-container-4",
+      "tagName": "section",
+      "sourceIndex": 5,
+      "file": "content/about-company/parts/006-prod-container-4.html"
+    },
+    {
+      "key": "div",
+      "tagName": "div",
+      "sourceIndex": 6,
+      "file": "content/about-company/parts/007-div.html"
+    },
+    {
+      "key": "div-2",
+      "tagName": "div",
+      "sourceIndex": 7,
+      "file": "content/about-company/parts/008-div-2.html"
+    }
+  ]
+}

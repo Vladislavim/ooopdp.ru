@@ -1,0 +1,736 @@
+/* PDP desktop motion layer: one restrained technical language, desktop only. */
+
+@media (min-width: 1200px) {
+  :root {
+    --pdp-motion-ease: cubic-bezier(.22, 1, .36, 1);
+    --pdp-motion-ease-in: cubic-bezier(.7, 0, .84, 0);
+    --pdp-motion-fast: 180ms;
+    --pdp-motion-base: 520ms;
+    --pdp-motion-slow: 760ms;
+  }
+
+  /* First screen: staged like a drawing being registered, not a stack of cards. */
+  .motion-ready .top {
+    opacity: 0;
+    transform: translate3d(0, -12px, 0);
+    transition: opacity 420ms var(--pdp-motion-ease), transform 620ms var(--pdp-motion-ease);
+  }
+
+  .motion-ready.motion-loaded .top {
+    opacity: 1;
+    transform: none;
+    transition-delay: 40ms;
+  }
+
+  .motion-ready .hero-img {
+    opacity: 0;
+    clip-path: inset(0 0 0 8%);
+    transform: translate3d(18px, 0, 0) scale(1.018);
+    transition: opacity 720ms var(--pdp-motion-ease), clip-path 900ms var(--pdp-motion-ease), transform 900ms var(--pdp-motion-ease);
+  }
+
+  .motion-ready.motion-loaded .hero-img {
+    opacity: 1;
+    clip-path: inset(0);
+    transform: none;
+    transition-delay: 120ms;
+  }
+
+  .motion-ready .hero .coords,
+  .motion-ready .hero .eyebrow {
+    opacity: 0;
+    transform: translate3d(-10px, 0, 0);
+    transition: opacity 360ms var(--pdp-motion-ease), transform 520ms var(--pdp-motion-ease);
+  }
+
+  .motion-ready.motion-loaded .hero .coords,
+  .motion-ready.motion-loaded .hero .eyebrow {
+    opacity: 1;
+    transform: none;
+  }
+
+  .motion-ready.motion-loaded .hero .coords { transition-delay: 180ms; }
+  .motion-ready.motion-loaded .hero .eyebrow { transition-delay: 240ms; }
+
+  .motion-ready .hero h1 {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .motion-ready .hero h1 .hero-line,
+  .motion-ready .hero h1 .hero-subline {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transform: translate3d(-18px, 0, 0);
+    transition: opacity 420ms var(--pdp-motion-ease), clip-path 720ms var(--pdp-motion-ease), transform 720ms var(--pdp-motion-ease);
+  }
+
+  .motion-ready.motion-loaded .hero h1 .hero-line,
+  .motion-ready.motion-loaded .hero h1 .hero-subline {
+    opacity: 1;
+    clip-path: inset(0);
+    transform: none;
+  }
+
+  .motion-ready.motion-loaded .hero h1 .hero-line:nth-child(1) { transition-delay: 300ms; }
+  .motion-ready.motion-loaded .hero h1 .hero-line:nth-child(2) { transition-delay: 380ms; }
+  .motion-ready.motion-loaded .hero h1 .hero-line:nth-child(3) { transition-delay: 460ms; }
+  .motion-ready.motion-loaded .hero h1 .hero-subline:nth-child(4) { transition-delay: 540ms; }
+  .motion-ready.motion-loaded .hero h1 .hero-subline:nth-child(5) { transition-delay: 600ms; }
+
+  .motion-ready .hero-copy > p,
+  .motion-ready .hero-copy .buttons {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+    transition: opacity 460ms var(--pdp-motion-ease), transform 620ms var(--pdp-motion-ease);
+  }
+
+  .motion-ready.motion-loaded .hero-copy > p,
+  .motion-ready.motion-loaded .hero-copy .buttons {
+    opacity: 1;
+    transform: none;
+  }
+
+  .motion-ready.motion-loaded .hero-copy > p { transition-delay: 680ms; }
+  .motion-ready.motion-loaded .hero-copy .buttons { transition-delay: 750ms; }
+
+  .motion-ready .hero .metrics {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .motion-ready .hero .metric {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    transition: opacity 360ms var(--pdp-motion-ease), transform 520ms var(--pdp-motion-ease);
+  }
+
+  .motion-ready.motion-loaded .hero .metric {
+    opacity: 1;
+    transform: none;
+  }
+
+  .motion-ready.motion-loaded .hero .metric:nth-child(1) { transition-delay: 820ms; }
+  .motion-ready.motion-loaded .hero .metric:nth-child(2) { transition-delay: 875ms; }
+  .motion-ready.motion-loaded .hero .metric:nth-child(3) { transition-delay: 930ms; }
+
+  /* Scroll reveal: alternate direction slightly so the page has rhythm. */
+  .motion-ready [data-reveal] {
+    opacity: 0;
+    clip-path: inset(12px 0 0 0);
+    transform: translate3d(0, 22px, 0);
+    transition: opacity 520ms var(--pdp-motion-ease), clip-path 680ms var(--pdp-motion-ease), transform 680ms var(--pdp-motion-ease);
+  }
+
+  .motion-ready [data-reveal]:nth-of-type(3n + 2) {
+    transform: translate3d(12px, 18px, 0);
+  }
+
+  .motion-ready [data-reveal]:nth-of-type(3n) {
+    transform: translate3d(-12px, 18px, 0);
+  }
+
+  .motion-ready [data-reveal].is-visible {
+    opacity: 1;
+    clip-path: inset(0);
+    transform: none;
+  }
+
+  .motion-ready [data-reveal-item] {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translate3d(0, 12px, 0);
+    will-change: opacity, transform, clip-path;
+    transition: opacity 420ms var(--pdp-motion-ease), clip-path 600ms var(--pdp-motion-ease), transform 600ms var(--pdp-motion-ease);
+    transition-delay: calc(50ms + var(--reveal-index, 0) * 70ms);
+  }
+
+  .motion-ready [data-reveal-item].project-showcase-tab,
+  .motion-ready [data-reveal-item].trust-tab {
+    clip-path: inset(0 0 0 100%);
+    transform: translate3d(16px, 0, 0);
+  }
+
+  .motion-ready [data-reveal-item].is-visible,
+  .motion-ready [data-reveal].is-visible [data-reveal-item] {
+    opacity: 1;
+    clip-path: inset(0);
+    transform: none;
+  }
+
+  /* Interactive motion: borders, ink lines and images do the work; cards stay planted. */
+  .nav a,
+  .top-cta,
+  .tel,
+  .btn,
+  .more,
+  .about-action,
+  .project-showcase-link,
+  .project-showcase-discuss,
+  .form-submit,
+  .trust-tab,
+  .document-card,
+  .article,
+  .review,
+  .step,
+  .client,
+  .about-icon,
+  .service-row,
+  .project-showcase-controls button {
+    transition-timing-function: var(--pdp-motion-ease) !important;
+  }
+
+  .nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    height: 1px;
+    background: var(--o);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform var(--pdp-motion-fast) var(--pdp-motion-ease);
+  }
+
+  .nav a:hover::after,
+  .nav a:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  .btn,
+  .project-showcase-discuss,
+  .form-submit,
+  .presentation-download {
+    transition-property: color, background-color, border-color, box-shadow, transform !important;
+  }
+
+  .btn:hover,
+  .btn:focus-visible,
+  .project-showcase-discuss:hover,
+  .project-showcase-discuss:focus-visible,
+  .form-submit:hover,
+  .form-submit:focus-visible,
+  .presentation-download:hover,
+  .presentation-download:focus-visible {
+    transform: translate3d(0, -2px, 0) !important;
+    box-shadow: 0 9px 22px rgba(16, 17, 16, .12);
+  }
+
+  .btn:active,
+  .project-showcase-discuss:active,
+  .form-submit:active,
+  .presentation-download:active {
+    transform: translate3d(0, 0, 0) scale(.985) !important;
+    transition-duration: 120ms !important;
+  }
+
+  .service-row {
+    transition-property: color, background-color, border-color !important;
+    transform: none !important;
+  }
+
+  .service-row:hover:not(.active),
+  .service-row:focus-visible:not(.active) {
+    padding-left: var(--service-pad) !important;
+    color: #fff;
+    background: rgba(244, 81, 22, .08);
+  }
+
+  .about-icon,
+  .client,
+  .step,
+  .review,
+  .document-card,
+  .article,
+  .trust-tab {
+    transition-property: border-color, background-color, color, box-shadow, transform !important;
+  }
+
+  .about-icon:hover,
+  .about-icon:focus-within,
+  .client:hover,
+  .client:focus-within,
+  .step:hover,
+  .step:focus-within,
+  .review:hover,
+  .review:focus-within,
+  .document-card:hover,
+  .document-card:focus-visible,
+  .article:hover,
+  .article:focus-visible,
+  .trust-tab:hover,
+  .trust-tab:focus-visible {
+    transform: none !important;
+    box-shadow: 0 9px 22px rgba(16, 17, 16, .08);
+  }
+
+  .direction img,
+  .project-img img,
+  .project-slide-gallery img,
+  .article img,
+  .document-card img,
+  .about-media-single img,
+  .direction-collage-grid img,
+  .project-collage-grid img {
+    transition: filter 620ms var(--pdp-motion-ease), transform 760ms var(--pdp-motion-ease) !important;
+  }
+
+  .direction:hover img,
+  .direction:focus-within img,
+  .project:hover .project-img img,
+  .project:focus-within .project-img img,
+  .project-showcase:hover .project-slide-gallery img,
+  .project-showcase:focus-within .project-slide-gallery img,
+  .article:hover img,
+  .article:focus-visible img,
+  .document-card:hover img,
+  .document-card:focus-visible img,
+  .about:hover .about-media-single img,
+  .about:focus-within .about-media-single img,
+  .direction-collage:hover .direction-collage-grid img,
+  .direction-collage:focus-within .direction-collage-grid img,
+  .project-collage:hover .project-collage-grid img,
+  .project-collage:focus-within .project-collage-grid img {
+    transform: scale(1.018) !important;
+  }
+
+  /* Content swaps: a short lateral hand-off instead of a generic fade-down. */
+  .service-wire {
+    transition: opacity 360ms var(--pdp-motion-ease), transform 620ms var(--pdp-motion-ease), filter 360ms var(--pdp-motion-ease) !important;
+  }
+
+  .service-wire.changing {
+    opacity: .42 !important;
+    filter: none !important;
+    transform: scale(1.018) !important;
+  }
+
+  .project-showcase-copy,
+  .project-slide-gallery,
+  .trust-panel-copy,
+  .trust-panel-visual img {
+    transition: opacity 360ms var(--pdp-motion-ease), transform 480ms var(--pdp-motion-ease), clip-path 480ms var(--pdp-motion-ease) !important;
+  }
+
+  .project-showcase.is-changing .project-showcase-copy,
+  .trust-panel.is-changing .trust-panel-copy {
+    opacity: 0 !important;
+    transform: translate3d(16px, 0, 0) !important;
+  }
+
+  .project-showcase.is-changing .project-slide-gallery,
+  .trust-panel.is-changing .trust-panel-visual img {
+    opacity: 0 !important;
+    clip-path: inset(0 0 0 8%) !important;
+    transform: translate3d(-12px, 0, 0) scale(1.01) !important;
+  }
+
+  .project-showcase-tab::after,
+  .trust-tab::after,
+  .project-showcase-link::after,
+  .document-card::before {
+    transition-duration: 260ms !important;
+    transition-timing-function: var(--pdp-motion-ease) !important;
+  }
+
+  .project-showcase-controls button svg,
+  .btn i,
+  .project-showcase-discuss::after,
+  .form-submit::after {
+    transition: transform var(--pdp-motion-fast) var(--pdp-motion-ease) !important;
+  }
+
+  .project-showcase-controls button:hover svg,
+  .project-showcase-controls button:focus-visible svg,
+  .btn:hover i,
+  .btn:focus-visible i,
+  .project-showcase-discuss:hover::after,
+  .project-showcase-discuss:focus-visible::after,
+  .form-submit:hover::after,
+  .form-submit:focus-visible::after {
+    transform: translateX(4px);
+  }
+
+  .motion-ready [data-reveal] > .label,
+  .motion-ready [data-reveal] > .line-title,
+  .motion-ready [data-reveal] .projects-header .label,
+  .motion-ready [data-reveal] .articles-header .label {
+    position: relative;
+  }
+
+  .motion-ready [data-reveal] > .label::before,
+  .motion-ready [data-reveal] > .line-title::before,
+  .motion-ready [data-reveal] .projects-header .label::before,
+  .motion-ready [data-reveal] .articles-header .label::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 1px;
+    margin: 0 8px 3px 0;
+    vertical-align: middle;
+    background: var(--o);
+    transition: width 460ms var(--pdp-motion-ease);
+  }
+
+  .motion-ready [data-reveal].is-visible > .label::before,
+  .motion-ready [data-reveal].is-visible > .line-title::before,
+  .motion-ready [data-reveal].is-visible .projects-header .label::before,
+  .motion-ready [data-reveal].is-visible .articles-header .label::before {
+    width: 28px;
+  }
+
+  /* The hero keeps moving after the entrance: slow camera drift, not a looped gimmick. */
+  @keyframes pdp-hero-drift {
+    from { transform: scale(1.018) translate3d(0, 0, 0); }
+    to { transform: scale(1.045) translate3d(-.8%, -0.35%, 0); }
+  }
+
+  @keyframes pdp-wire-drift {
+    from { transform: scale(1.005) translate3d(0, 0, 0); }
+    to { transform: scale(1.035) translate3d(-.8%, -0.4%, 0); }
+  }
+
+  .motion-ready.motion-loaded .hero-img video,
+  .motion-ready.motion-loaded .hero-img .hero-fallback {
+    animation: pdp-hero-drift 18s ease-in-out 1.05s infinite alternate;
+    transform-origin: 62% 50%;
+  }
+
+  .motion-ready.motion-loaded .service-wire:not(.changing),
+  .motion-ready.motion-loaded .about-media-single img,
+  .motion-ready.motion-loaded .trust-panel-visual img {
+    animation: pdp-wire-drift 16s ease-in-out 900ms infinite alternate;
+    transform-origin: center;
+  }
+
+  .motion-ready .hero-proof {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+    transition: opacity 460ms var(--pdp-motion-ease), transform 620ms var(--pdp-motion-ease);
+  }
+
+  .motion-ready.motion-loaded .hero-proof {
+    opacity: 1;
+    transform: none;
+    transition-delay: 990ms;
+  }
+
+  /* Client marks stay exactly as supplied; motion must not wash them out. */
+  .motion-ready .hero-proof img,
+  .motion-ready .hero-proof b,
+  .motion-ready .hero-proof em {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Cards reveal as assembled plates: media first, type second, metadata last. */
+  .motion-ready [data-reveal].is-visible .direction img,
+  .motion-ready [data-reveal].is-visible .direction-collage-grid,
+  .motion-ready [data-reveal].is-visible .document-card img,
+  .motion-ready [data-reveal].is-visible .article img {
+    animation: pdp-media-settle 720ms var(--pdp-motion-ease) both;
+    animation-delay: calc(90ms + var(--reveal-index, 0) * 70ms);
+  }
+
+  @keyframes pdp-media-settle {
+    from { opacity: .4; transform: scale(1.045); filter: grayscale(1) contrast(.9); }
+    to { opacity: 1; transform: scale(1); filter: none; }
+  }
+
+  .direction-copy,
+  .document-card > span,
+  .article > div,
+  .project-showcase-copy,
+  .trust-panel-copy,
+  .contact-form-intro,
+  .contact-form {
+    will-change: transform;
+  }
+
+  .direction-copy strong,
+  .direction-copy small,
+  .document-card > span > *,
+  .article > div > *,
+  .project-showcase-copy > *,
+  .trust-panel-copy > *,
+  .contact-form-intro > *,
+  .contact-form > * {
+    transition: color 260ms var(--pdp-motion-ease), opacity 420ms var(--pdp-motion-ease), transform 520ms var(--pdp-motion-ease);
+  }
+
+  .direction:hover .direction-copy strong,
+  .direction:focus-within .direction-copy strong,
+  .document-card:hover > span > b,
+  .document-card:focus-visible > span > b,
+  .article:hover > div > b,
+  .article:focus-visible > div > b {
+    transform: translate3d(5px, 0, 0);
+    color: var(--o);
+  }
+
+  .direction:hover .direction-copy small,
+  .direction:focus-within .direction-copy small,
+  .document-card:hover > span > strong,
+  .document-card:focus-visible > span > strong,
+  .article:hover > div > small,
+  .article:focus-visible > div > small {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  .direction::after,
+  .document-card::before,
+  .article::after {
+    transition: opacity 360ms var(--pdp-motion-ease), transform 620ms var(--pdp-motion-ease) !important;
+  }
+
+  .direction:hover::after,
+  .direction:focus-within::after,
+  .document-card:hover::before,
+  .document-card:focus-visible::before,
+  .article:hover::after,
+  .article:focus-visible::after {
+    opacity: 1 !important;
+  }
+
+  /* Section-level controls get a clear active signal instead of a position jump. */
+  .service-row::before {
+    transition: transform 360ms var(--pdp-motion-ease), background-color 220ms ease !important;
+  }
+
+  .service-row.active::before {
+    transform: scaleY(1) !important;
+    transform-origin: center;
+  }
+
+  .project-showcase-tab,
+  .trust-tab {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-showcase-tab::before,
+  .trust-tab::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--o);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 420ms var(--pdp-motion-ease);
+  }
+
+  .project-showcase-tab.is-active::before,
+  .trust-tab[aria-selected="true"]::before {
+    transform: scaleX(1);
+  }
+
+  .project-showcase-tab img,
+  .trust-tab .trust-logo img {
+    transition: filter 420ms var(--pdp-motion-ease), transform 620ms var(--pdp-motion-ease), opacity 260ms ease;
+  }
+
+  .project-showcase-tab:hover img,
+  .project-showcase-tab:focus-visible img {
+    transform: scale(1.06);
+    filter: saturate(1.15) contrast(1.03);
+  }
+
+  /* Only the active/hovered trust mark may resolve to full RGB. */
+  .trust-tab .trust-logo img {
+    transform: none !important;
+    filter: none !important;
+    transition: filter 260ms ease !important;
+  }
+
+  .trust-tab .trust-logo {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: translate3d(0, 0, 0) !important;
+    transition: filter 260ms ease, transform 320ms var(--pdp-motion-ease) !important;
+  }
+
+  .trust-tab:hover .trust-logo,
+  .trust-tab:focus-visible .trust-logo {
+    filter: none !important;
+    transform: translate3d(0, -3px, 0) !important;
+  }
+
+  /* Keep the hovered mark in RGB and quiet the other marks without opacity tricks. */
+  .trust-tabs:has(.trust-tab:hover) .trust-tab:not(:hover) .trust-logo,
+  .trust-tabs:has(.trust-tab:focus-visible) .trust-tab:not(:focus-visible) .trust-logo {
+    filter: grayscale(1) contrast(1.08) !important;
+    transform: translate3d(0, 0, 0) !important;
+  }
+
+  .trust-tab:hover .trust-logo img,
+  .trust-tab:focus-visible .trust-logo img {
+    filter: none !important;
+    transform: none !important;
+  }
+
+  .contact-form .form-field,
+  .contact-form .contact-channel,
+  .contact-form .form-consent,
+  .contact-form .form-submit {
+    transition: border-color 260ms var(--pdp-motion-ease), background-color 260ms var(--pdp-motion-ease), transform 520ms var(--pdp-motion-ease), opacity 420ms var(--pdp-motion-ease);
+  }
+
+  .contact-form .form-field:focus-within {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  .contact-direct a,
+  .footer a,
+  .more,
+  .about-action,
+  .project-showcase-link {
+    position: relative;
+  }
+
+  /* Footer navigation keeps its text-sized interaction rail. The former
+     block-width pseudo underline made a hovered link draw across a whole
+     column, unlike the canonical inner-page footer. */
+  .footer a:not(.footer-map-link) {
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .contact-direct a::after,
+  .footer a::after,
+  .more::after,
+  .about-action::after,
+  .project-showcase-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 260ms var(--pdp-motion-ease);
+  }
+
+  .contact-direct a:hover::after,
+  .contact-direct a:focus-visible::after,
+  .footer a:hover::after,
+  .footer a:focus-visible::after,
+  .more:hover::after,
+  .more:focus-visible::after,
+  .about-action:hover::after,
+  .about-action:focus-visible::after,
+  .project-showcase-link:hover::after,
+  .project-showcase-link:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  /* The requested logo choreography belongs to the hero proof row. */
+  .hero-proof > div > b,
+  .hero-proof > div > img,
+  .hero-proof .hero-proof-severstal,
+  .motion-ready .hero-proof > div > b,
+  .motion-ready .hero-proof > div > img,
+  .motion-ready .hero-proof .hero-proof-severstal {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: translate3d(0, 0, 0) !important;
+    will-change: transform, filter;
+    transition: filter 460ms cubic-bezier(.4, 0, .2, 1), transform 540ms cubic-bezier(.45, 0, .15, 1) !important;
+  }
+
+  .hero-proof > div > b:hover,
+  .hero-proof > div > img:hover,
+  .hero-proof .hero-proof-severstal:hover {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: translate3d(0, -2px, 0) !important;
+  }
+
+  .hero-proof > div:has(> b:hover) > :not(:nth-child(1)),
+  .hero-proof > div:has(> :nth-child(2):hover) > :not(:nth-child(2)),
+  .hero-proof > div:has(> :nth-child(3):hover) > :not(:nth-child(3)),
+  .hero-proof > div:has(> :nth-child(4):hover) > :not(:nth-child(4)) {
+    filter: grayscale(1) contrast(1.08) !important;
+    transform: translate3d(0, 0, 0) !important;
+  }
+
+  /* Restore the original lower trust row: grayscale base, small image lift on hover. */
+  .trust-tabs:has(.trust-tab:hover) .trust-tab:not(:hover) .trust-logo,
+  .trust-tabs:has(.trust-tab:focus-visible) .trust-tab:not(:focus-visible) .trust-logo {
+    filter: none !important;
+    transform: translate3d(0, 0, 0) !important;
+  }
+
+  .trust-tab .trust-logo {
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .trust-tab .trust-logo img {
+    filter: grayscale(1) contrast(1.12) !important;
+    transform: none !important;
+    transition: filter 280ms ease, transform 320ms var(--pdp-motion-ease) !important;
+  }
+
+  .trust-tab:hover .trust-logo img,
+  .trust-tab:focus-visible .trust-logo img,
+  .trust-tab[aria-selected="true"] .trust-logo img {
+    filter: none !important;
+    transform: translate3d(0, -2px, 0) !important;
+  }
+
+  .trust-tab:hover .trust-logo-severstal span,
+  .trust-tab:focus-visible .trust-logo-severstal span,
+  .trust-tab[aria-selected="true"] .trust-logo-severstal span {
+    color: #003b71 !important;
+  }
+}
+
+@media (min-width: 1200px) and (prefers-reduced-motion: reduce) {
+  .motion-ready .top,
+  .motion-ready.motion-loaded .top,
+  .motion-ready .hero-img,
+  .motion-ready.motion-loaded .hero-img,
+  .motion-ready .hero .coords,
+  .motion-ready .hero .eyebrow,
+  .motion-ready .hero h1 .hero-line,
+  .motion-ready .hero h1 .hero-subline,
+  .motion-ready .hero-copy > p,
+  .motion-ready .hero-copy .buttons,
+  .motion-ready .hero .metric,
+  .motion-ready [data-reveal],
+  .motion-ready [data-reveal-item] {
+    opacity: 1 !important;
+    clip-path: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .project-showcase.is-changing .project-showcase-copy,
+  .project-showcase.is-changing .project-slide-gallery,
+  .trust-panel.is-changing .trust-panel-copy,
+  .trust-panel.is-changing .trust-panel-visual img,
+  .service-wire.changing {
+    opacity: 1 !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
+
+  .motion-ready.motion-loaded .hero-img video,
+  .motion-ready.motion-loaded .hero-img .hero-fallback,
+  .motion-ready.motion-loaded .service-wire:not(.changing),
+  .motion-ready.motion-loaded .about-media-single img,
+  .motion-ready.motion-loaded .trust-panel-visual img {
+    animation: none !important;
+  }
+}

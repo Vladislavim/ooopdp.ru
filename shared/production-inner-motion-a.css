@@ -1,0 +1,542 @@
+/*
+ * PDP inner motion A
+ *
+ * A deliberately small, page-scoped motion layer. The homepage does not load
+ * this file and therefore keeps its original design and timing untouched.
+ */
+body.production-page {
+  --pdp-motion-fast: 160ms;
+  --pdp-motion-ui: 280ms;
+  --pdp-motion-content: 480ms;
+  --pdp-motion-image: 600ms;
+  --pdp-motion-ease: cubic-bezier(.22, 1, .36, 1);
+
+  /* Existing inner aliases resolve to one motion language. */
+  --inner-ease: var(--pdp-motion-ease);
+  --v28-ease: var(--pdp-motion-ease);
+  --v30-ease: var(--pdp-motion-ease);
+  --svc-ease: var(--pdp-motion-ease);
+}
+
+/* Section-level scroll reveal only. Child content remains visible so the page
+   never feels like a stack of loading cards. */
+html.inner-motion-a-ready body.production-page .inner-motion-a-reveal {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity var(--pdp-motion-content) var(--pdp-motion-ease),
+    transform var(--pdp-motion-content) var(--pdp-motion-ease);
+  transition-delay: var(--inner-motion-a-delay, 0ms);
+}
+
+html.inner-motion-a-ready body.production-page .inner-motion-a-reveal.is-inner-motion-a-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Services already has a data-reveal controller. Keep it, but make it use the
+   same distance, duration and easing as the section controller. */
+html.inner-motion-a-ready body.production-services.svc-motion-ready [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity var(--pdp-motion-content) var(--pdp-motion-ease),
+    transform var(--pdp-motion-content) var(--pdp-motion-ease);
+  transition-delay: var(--svc-reveal-delay, 0ms);
+}
+
+html.inner-motion-a-ready body.production-services.svc-motion-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Controls are crisp and tactile, without the old card lift. */
+body.production-page :where(
+  .prod-actions-button,
+  .prod-link,
+  .prod-text-link,
+  .pcp-text-link,
+  .pcp-outline-link,
+  .articles-index-button,
+  .articles-index-link,
+  .pdp-articles-button,
+  .svc-button,
+  .svc-text-action,
+  .svc-card-action,
+  .prod-card,
+  .pcp-project-card,
+  .svc-service-card,
+  .svc-industry-card
+) {
+  transition-timing-function: var(--pdp-motion-ease);
+}
+
+body.production-page :where(
+  .prod-actions-button,
+  .prod-link,
+  .prod-text-link,
+  .pcp-text-link,
+  .pcp-outline-link,
+  .articles-index-button,
+  .articles-index-link,
+  .pdp-articles-button,
+  .svc-button,
+  .svc-text-action,
+  .svc-card-action,
+  .prod-card,
+  .pcp-project-card,
+  .svc-service-card,
+  .svc-industry-card
+):is(:hover, :focus-visible, :active) {
+  transform: none;
+}
+
+body.production-page :where(
+  .prod-actions-button span,
+  .prod-link span,
+  .prod-text-link span,
+  .pcp-text-link span,
+  .pcp-outline-link span,
+  .articles-index-button span,
+  .articles-index-link span,
+  .pdp-articles-button span,
+  .svc-button span,
+  .svc-text-action span,
+  .svc-card-action span,
+  .prod-card i,
+  .pcp-project-card i
+) {
+  transition: transform var(--pdp-motion-ui) var(--pdp-motion-ease),
+    color var(--pdp-motion-ui) var(--pdp-motion-ease);
+}
+
+body.production-page :where(
+  .prod-actions-button,
+  .prod-link,
+  .prod-text-link,
+  .pcp-text-link,
+  .pcp-outline-link,
+  .articles-index-button,
+  .articles-index-link,
+  .pdp-articles-button,
+  .svc-button,
+  .svc-text-action,
+  .svc-card-action,
+  .prod-card,
+  .pcp-project-card
+):is(:hover, :focus-visible) :where(span, i) {
+  transform: translate3d(4px, 0, 0);
+}
+
+/* Image movement stays nearly still: the image is the visual anchor, not a
+   floating card. */
+body.production-page :where(
+  .prod-card img,
+  .prod-project-row__image img,
+  .prod-news-feature__image img,
+  .prod-news-card > img,
+  .prod-news-row > img,
+  .prod-catalog-card > img,
+  .prod-document-row > img,
+  .prod-material img,
+  .svc-service-card img,
+  .svc-industry-card > img:first-child,
+  .pcp-project-card img,
+  .articles-index-featured__media img,
+  .articles-index-editorial-card__media img,
+  .pdp-articles-feature__media img,
+  .pdp-articles-story__visual img
+) {
+  transition: transform var(--pdp-motion-ui) var(--pdp-motion-ease),
+    opacity var(--pdp-motion-ui) var(--pdp-motion-ease),
+    filter var(--pdp-motion-ui) var(--pdp-motion-ease);
+}
+
+body.production-page :where(
+  .prod-card,
+  .prod-project-row,
+  .prod-news-feature,
+  .prod-news-card,
+  .prod-news-row,
+  .prod-catalog-card,
+  .prod-document-row,
+  .prod-material,
+  .svc-service-card,
+  .svc-industry-card,
+  .pcp-project-card,
+  .articles-index-featured,
+  .articles-index-editorial-card,
+  .pdp-articles-feature,
+  .pdp-articles-story
+):is(:hover, :focus-within) > :where(img, .prod-card__media, .pcp-project-card__media) img,
+body.production-page :where(
+  .prod-card,
+  .prod-project-row,
+  .prod-news-feature,
+  .prod-news-card,
+  .prod-news-row,
+  .prod-catalog-card,
+  .prod-document-row,
+  .prod-material,
+  .svc-service-card,
+  .svc-industry-card,
+  .pcp-project-card,
+  .articles-index-featured,
+  .articles-index-editorial-card,
+  .pdp-articles-feature,
+  .pdp-articles-story
+):is(:hover, :focus-within) > :where(img, .prod-card__media, .pcp-project-card__media) > img {
+  transform: scale(1.018);
+}
+
+/* Covers the actual direct-image markup used by the inner templates. */
+body.production-page :where(
+  .prod-card,
+  .prod-project-row,
+  .prod-news-feature,
+  .prod-news-card,
+  .prod-news-row,
+  .prod-catalog-card,
+  .prod-document-row,
+  .prod-material,
+  .svc-service-card,
+  .svc-industry-card,
+  .pcp-project-card,
+  .articles-index-featured,
+  .articles-index-editorial-card,
+  .pdp-articles-feature,
+  .pdp-articles-story
+):is(:hover, :focus-within) img {
+  transform: scale(1.018);
+}
+
+/* The RAF parallax owns this transform; do not let a legacy transition create
+   a second easing language. */
+body.production-page .inner-parallax-object {
+  transition: none;
+}
+
+/* Final specificity guard: legacy page rules must not reintroduce lift or
+   slower timing after this inner-only layer has initialized. */
+html.inner-motion-a-ready body.production-services .svc-service-card,
+html.inner-motion-a-ready body.production-services .svc-industry-card,
+html.inner-motion-a-ready body.production-projects .pcp-project-card,
+html.inner-motion-a-ready body.production-page .prod-card {
+  transition-duration: var(--pdp-motion-ui);
+  transition-timing-function: var(--pdp-motion-ease);
+}
+
+html.inner-motion-a-ready body.production-services .svc-service-card[data-reveal],
+html.inner-motion-a-ready body.production-services .svc-service-card[data-reveal].is-visible {
+  transition: opacity var(--pdp-motion-content) var(--pdp-motion-ease),
+    transform var(--pdp-motion-content) var(--pdp-motion-ease),
+    background-color var(--pdp-motion-ui) var(--pdp-motion-ease),
+    border-color var(--pdp-motion-ui) var(--pdp-motion-ease),
+    color var(--pdp-motion-ui) var(--pdp-motion-ease);
+}
+
+html.inner-motion-a-ready body.production-services .svc-service-card__head img,
+html.inner-motion-a-ready body.production-services .svc-service-card__head > span,
+html.inner-motion-a-ready body.production-services .svc-service-card h3,
+html.inner-motion-a-ready body.production-services .svc-service-card p,
+html.inner-motion-a-ready body.production-services .svc-service-card .svc-card-action {
+  transition-duration: var(--pdp-motion-ui);
+  transition-timing-function: var(--pdp-motion-ease);
+}
+
+html.inner-motion-a-ready body.production-services .svc-service-card:is(:hover, :focus-within),
+html.inner-motion-a-ready body.production-projects .pcp-project-card:is(:hover, :focus-visible),
+html.inner-motion-a-ready body.production-page .prod-card:is(:hover, :focus-within) {
+  transform: none !important;
+}
+
+html.inner-motion-a-ready body.production-services .svc-service-card:is(:hover, :focus-within) img,
+html.inner-motion-a-ready body.production-services .svc-industry-card:is(:hover, :focus-within) > img:first-child,
+html.inner-motion-a-ready body.production-projects .pcp-project-card:is(:hover, :focus-visible) .pcp-project-card__media img,
+html.inner-motion-a-ready body.production-page .prod-card:is(:hover, :focus-within) img {
+  transform: scale(1.018) !important;
+  transition-duration: var(--pdp-motion-ui);
+  transition-timing-function: var(--pdp-motion-ease);
+}
+
+@media (max-width: 700px) {
+  html.inner-motion-a-ready body.production-page .inner-motion-a-reveal {
+    transform: translate3d(0, 16px, 0);
+  }
+}
+
+/* Final inner-page normalization. Existing motion families stay intact; this
+   only removes legacy timing/easing drift and layout-moving hover states. */
+body.production-page :where(*, *::before, *::after) {
+  transition-timing-function: var(--pdp-motion-ease) !important;
+}
+
+html.inner-motion-a-ready body.production-page :where(
+  .top .brand,
+  .top .brand-logo,
+  .top .nav a,
+  .top .nav a::after,
+  .top .top-cta,
+  .form-submit,
+  .prod-actions-button,
+  .prod-link,
+  .prod-text-link,
+  .pcp-text-link,
+  .pcp-outline-link,
+  .articles-index-button,
+  .articles-index-link,
+  .pdp-articles-button,
+  .svc-button,
+  .svc-text-action,
+  .svc-card-action,
+  .prod-card,
+  .pcp-project-card,
+  .svc-service-card,
+  .svc-industry-card,
+  .prod-client,
+  .prod-document-row,
+  .prod-doc,
+  .prod-step,
+  .prod-composition__item,
+  .articles-index-editorial-card,
+  .pdp-articles-document,
+  .prod-news-index-row,
+  .prod-catalog-tabs a,
+  .prod-gallery-viewer__close,
+  .prod-gallery-viewer__prev,
+  .prod-gallery-viewer__next,
+  .footer-map-link,
+  .mobile-menu__backdrop,
+  .mobile-menu__panel,
+  .prod-contact-fact,
+  .prod-contact-map__open b
+) {
+  transition-duration: var(--pdp-motion-ui) !important;
+  transition-timing-function: var(--pdp-motion-ease) !important;
+}
+
+/* Keep card-level image hover in the UI family. The image itself may scale by
+   only a few pixels, so it should not inherit the longer media-reveal timing. */
+html.inner-motion-a-ready body.production-page :where(
+  .prod-card > img,
+  .prod-card__media img,
+  .prod-project-strip > .prod-card > img,
+  .prod-related > .prod-card > img,
+  .prod-404 .prod-card > img,
+  .svc-service-card img,
+  .svc-industry-card > img:first-child,
+  .pcp-project-card__media img
+) {
+  transition-duration: var(--pdp-motion-ui) !important;
+  transition-timing-function: var(--pdp-motion-ease) !important;
+}
+
+/* These service/case surfaces already provide the interaction; only bring
+   their legacy visual timing into the same UI/media vocabulary. */
+html.inner-motion-a-ready body.production-page :where(
+  .svc-industry-card__veil,
+  .svc-industry-card__content,
+  .svc-industry-card__content strong,
+  .svc-industry-card__content small,
+  .svc-service-row__arrow,
+  .svc-service-row__label,
+  .svc-service-row__title
+) {
+  transition-duration: var(--pdp-motion-ui) !important;
+  transition-timing-function: var(--pdp-motion-ease) !important;
+}
+
+/* Known large media that still carried the legacy .7-.9s transition. */
+html.inner-motion-a-ready body.production-page :where(
+  .prod-proof__media img,
+  .svc-project__main-media img,
+  .prod-gallery img,
+  .articles-index-case__media img,
+  .prod-service-media-stack > .prod-service-media,
+  .prod-service-media img
+) {
+  transition-duration: var(--pdp-motion-image) !important;
+  transition-timing-function: var(--pdp-motion-ease) !important;
+}
+
+/* The submit control has a more specific legacy rule in the CTA surface. */
+html.inner-motion-a-ready body.production-page .shared-contact-form-section .form-submit {
+  transition-duration: var(--pdp-motion-ui) !important;
+  transition-timing-function: var(--pdp-motion-ease) !important;
+}
+
+html.inner-motion-a-ready body.production-page :where(
+  .prod-editorial-hero-media,
+  .prod-editorial-hero-media img,
+  .prod-service-media,
+  .prod-service-media img,
+  .prod-project-row__image img,
+  .prod-client-focus__media img,
+  .prod-news-feature__image img,
+  .prod-news-card > img,
+  .prod-news-row > img,
+  .prod-catalog-card > img,
+  .prod-document-row > img,
+  .prod-material img,
+  .pcp-project-card img,
+  .articles-index-featured__media img,
+  .articles-index-editorial-card__media img,
+  .pdp-articles-feature__media img,
+  .pdp-articles-story__visual img,
+  .prod-article-preview-layer img
+) {
+  transition-duration: var(--pdp-motion-image) !important;
+  transition-timing-function: var(--pdp-motion-ease) !important;
+}
+
+/* Hover must not reflow copy or move the row itself. Keep the existing color
+   and rule transitions, and reserve movement for arrows/icons only. */
+html.inner-motion-a-ready body.production-page :where(
+  .prod-service-row,
+  .pdp-articles-document,
+  .prod-contact-fact,
+  .prod-aside a
+) {
+  transition: background-color var(--pdp-motion-ui) var(--pdp-motion-ease),
+    color var(--pdp-motion-ui) var(--pdp-motion-ease),
+    border-color var(--pdp-motion-ui) var(--pdp-motion-ease),
+    opacity var(--pdp-motion-ui) var(--pdp-motion-ease),
+    transform var(--pdp-motion-ui) var(--pdp-motion-ease) !important;
+}
+
+html.inner-motion-a-ready body.production-page :where(
+  .prod-aside a:hover,
+  .prod-aside a:focus-visible,
+  .prod-contact-fact:hover,
+  .prod-contact-fact:focus-visible
+) {
+  padding-left: 0 !important;
+}
+
+html.inner-motion-a-ready body.production-services :where(
+  .prod-service-row:hover,
+  .prod-service-row:focus-visible,
+  .prod-service-row.is-active
+) {
+  padding-left: 24px !important;
+}
+
+html.inner-motion-a-ready body.production-page .pdp-articles-document:is(:hover, :focus-visible) {
+  padding-left: 30px !important;
+}
+
+@media (max-width: 700px) {
+  html.inner-motion-a-ready body.production-page .pdp-articles-document:is(:hover, :focus-visible) {
+    padding-left: 0 !important;
+  }
+}
+
+/* Normalize the remaining existing UI interactions without changing their
+   behavior: only the shared rhythm is aligned, while copy stays in place. */
+html.inner-motion-a-ready body.production-page :where(
+  .production-skip-link,
+  .prod-doc,
+  .prod-project-row,
+  .prod-catalog-card,
+  .prod-material,
+  .prod-news-card,
+  .prod-news-row,
+  .prod-actions-button,
+  .svc-button span,
+  .svc-text-action span,
+  .svc-card-action span,
+  .svc-industry-card__content img,
+  .svc-project__thumbs > button img,
+  .pcp-project-card__media,
+  .pcp-project-card__media > span,
+  .pcp-project-card__meta,
+  .pcp-project-card__meta span,
+  .pcp-project-card__meta strong,
+  .pcp-project-card__meta i,
+  .articles-index-case,
+  .articles-index-side-card,
+  .articles-index-document
+) {
+  transition-duration: var(--pdp-motion-ui) !important;
+  transition-timing-function: var(--pdp-motion-ease) !important;
+}
+
+/* These are large editorial images, so preserve the media family rather than
+   letting their legacy card timing leak into the page rhythm. */
+html.inner-motion-a-ready body.production-page :where(
+  .articles-index-case__media img,
+  .articles-index-side-card__media img
+) {
+  transition-duration: var(--pdp-motion-image) !important;
+  transition-timing-function: var(--pdp-motion-ease) !important;
+}
+
+/* Maps are interactive embeds, not animated UI surfaces. */
+html.inner-motion-a-ready body.production-page .footer-map-embed iframe {
+  transition: none !important;
+}
+
+/* Existing service scroll-reveal is content motion; only its timing is
+   synchronized with the canonical content family. */
+html.inner-motion-a-ready body.production-services.svc-motion-ready [data-reveal].is-visible {
+  transition-duration: var(--pdp-motion-content) !important;
+  transition-timing-function: var(--pdp-motion-ease) !important;
+}
+
+/* Final pass for the remaining page-specific controls. These selectors keep
+   the existing interactions, but remove their legacy 200-520ms split timing. */
+html.inner-motion-a-ready body.production-page :where(
+  .pcp-project-nav__item,
+  .pcp-project-nav__controls button,
+  .pcp-outline-link span,
+  .pcp-text-link span,
+  .pcp-material i,
+  .prod-card > strong,
+  .prod-card > i,
+  .articles-index-button svg,
+  .articles-index-link svg,
+  .articles-index-featured__controls a,
+  .prod-case-story-rail a,
+  .svc-project__arrows button,
+  .menu-toggle,
+  .menu-toggle i
+) {
+  transition-duration: var(--pdp-motion-ui) !important;
+  transition-timing-function: var(--pdp-motion-ease) !important;
+}
+
+/* The featured project image is a large media surface, not a micro-control. */
+html.inner-motion-a-ready body.production-page :where(
+  .pcp-featured__media img
+) {
+  transition-duration: var(--pdp-motion-image) !important;
+  transition-timing-function: var(--pdp-motion-ease) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.inner-motion-a-ready body.production-page .inner-motion-a-reveal,
+  html.inner-motion-a-ready body.production-services.svc-motion-ready [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none !important;
+    transition-delay: 0ms !important;
+  }
+
+  body.production-page :where(
+    .prod-card img,
+    .prod-project-row__image img,
+    .prod-news-feature__image img,
+    .prod-news-card > img,
+    .prod-news-row > img,
+    .prod-catalog-card > img,
+    .prod-document-row > img,
+    .prod-material img,
+    .svc-service-card img,
+    .svc-industry-card > img:first-child,
+    .pcp-project-card img,
+    .articles-index-featured__media img,
+    .articles-index-editorial-card__media img,
+    .pdp-articles-feature__media img,
+    .pdp-articles-story__visual img
+  ) {
+    transition: none !important;
+  }
+}

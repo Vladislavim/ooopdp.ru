@@ -1,0 +1,51 @@
+{
+  "id": "privacy-policy",
+  "source": "pages/12-privacy-policy.html",
+  "output": "pages/12-privacy-policy.html",
+  "kind": "inner",
+  "doctype": "<!doctype html>\n",
+  "htmlOpen": "<html lang=\"ru\">",
+  "headOpen": "<head>",
+  "headInner": "\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Политика конфиденциальности — ПДП</title>\n  <link rel=\"stylesheet\" href=\"../shared/production-base.css?v=20260831-cache-v4\">\n",
+  "headClose": "</head>",
+  "bodyOpen": "<body class=\"production-page production-privacy\" data-page=\"Контакты\">",
+  "bodyBeforeMain": "\n  <div data-site-header></div>\n  ",
+  "mainOpen": "<main>",
+  "mainInnerTrailing": "\n  ",
+  "mainClose": "</main>",
+  "bodyAfterMain": "\n    <script src=\"../shared/production-site-shell.js?v=20260831-cache-v4\"></script>\n    <link rel=\"stylesheet\" href=\"../shared/production-inner-shell-parity.css?v=20260831-cache-v4\">\n  <link rel=\"stylesheet\" href=\"../shared/production-inner-v28-polish.css?v=20260831-cache-v4\">\n  <link rel=\"stylesheet\" href=\"../shared/production-inner-motion-a.css?v=20260831-cache-v4\">\n  <script src=\"../shared/production-inner-motion-a.js?v=20260831-cache-v4\"></script>\n",
+  "bodyClose": "</body>",
+  "htmlClose": "</html>",
+  "parts": [
+    {
+      "key": "prod-hero",
+      "tagName": "section",
+      "sourceIndex": 0,
+      "file": "content/privacy-policy/parts/001-prod-hero.html"
+    },
+    {
+      "key": "p01",
+      "tagName": "section",
+      "sourceIndex": 1,
+      "file": "content/privacy-policy/parts/002-p01.html"
+    },
+    {
+      "key": "prod-container",
+      "tagName": "section",
+      "sourceIndex": 2,
+      "file": "content/privacy-policy/parts/003-prod-container.html"
+    },
+    {
+      "key": "div",
+      "tagName": "div",
+      "sourceIndex": 3,
+      "file": "content/privacy-policy/parts/004-div.html"
+    },
+    {
+      "key": "div-2",
+      "tagName": "div",
+      "sourceIndex": 4,
+      "file": "content/privacy-policy/parts/005-div-2.html"
+    }
+  ]
+}

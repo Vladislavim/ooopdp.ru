@@ -1,0 +1,93 @@
+/* One canonical footer copied from the approved main page. */
+.footer{
+  display:grid;
+  grid-template-columns:1.05fr .65fr .9fr 1.65fr;
+  gap:28px;
+  min-height:268px;
+  height:auto;
+  padding:30px 64px;
+  color:#f3f2ed;
+  background:#0d0f0d;
+  border-top:1px solid #343832;
+  position:relative;
+  overflow:hidden;
+  box-sizing:border-box;
+  font:400 12px/normal "Golos Text",Golos,Arial,sans-serif;
+}
+.footer>*{align-self:start;min-width:0}
+.footer-lockup{display:flex;align-items:center;gap:18px;margin-bottom:14px}
+.footer-official-logo{display:block;width:210px;height:auto;max-width:100%;flex:0 1 auto}
+.footer-slogan{padding-left:16px;border-left:1px solid #4b4d49;color:#f45116;font:650 8px/1.2 "Golos Text",Golos,Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase}
+.footer-company small,.footer a{display:block;color:#b6bab2;font:400 10px/1.7 "Golos Text",Golos,Arial,sans-serif}
+.footer b{display:block;margin-bottom:12px;color:#f3f2ed;font:700 11px/normal "Golos Text",Golos,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.footer a:hover,.footer a:focus-visible{color:#fff}
+.footer > div:nth-child(2) > a,
+.footer > div:nth-child(3) > a{
+  position:relative;
+  width:max-content;
+  max-width:100%;
+  padding-bottom:0;
+  margin-bottom:0;
+  border-bottom:0;
+}
+.footer > div:nth-child(2) > a::after,
+.footer > div:nth-child(3) > a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:1px;
+  background:currentColor;
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform 280ms cubic-bezier(.22,.72,.18,1);
+  pointer-events:none;
+}
+.footer > div:nth-child(2) > a:hover::after,
+.footer > div:nth-child(2) > a:focus-visible::after,
+.footer > div:nth-child(3) > a:hover::after,
+.footer > div:nth-child(3) > a:focus-visible::after{
+  transform:scaleX(1);
+}
+.footer-contact-copy b{margin-bottom:22px}
+.footer-contact-copy > a:not(.phone2){font:400 10px/1.45 "Golos Text",Golos,Arial,sans-serif}
+.footer-contacts{display:grid;grid-template-columns:minmax(145px,.62fr) minmax(0,1.38fr);gap:24px;align-items:stretch;border-left:1px solid #454743;padding-left:28px}
+.footer-contact-copy{min-width:0;padding-top:2px}
+.footer-contact-copy .phone2{display:inline-flex;align-items:center;gap:9px;color:#fff;font:800 16.56px/1.15 "Golos Text",Golos,Arial,sans-serif;white-space:nowrap}
+.footer-contact-copy .phone2 .phone-icon{width:19px;height:19px;flex:0 0 19px}
+.footer-map{position:relative;height:190px;min-width:0;overflow:hidden;border:1px solid #5b6058;background:#e8e7e2}
+.footer-map-embed{position:absolute;left:50%;top:50%;width:500px;height:400px;transform:translate(-50%,-50%)}
+.footer-map-embed iframe{display:block;width:500px;height:400px;border:0;filter:none}
+.footer-map-link{position:absolute!important;left:0;right:0;bottom:0;padding:8px 10px;background:rgba(13,15,13,.84);color:#fff!important;font:700 9px/1 "Golos Text",Golos,Arial,sans-serif!important;text-transform:uppercase;display:flex!important;justify-content:space-between;opacity:0;transform:translateY(8px);transition:opacity .28s ease,transform .28s ease}
+.footer-map:hover .footer-map-link,.footer-map:focus-within .footer-map-link{opacity:1;transform:none}
+.contact-layout .contacts-map{height:470px;min-width:0;border:1px solid #c9c8c4;background:#e8e7e2}
+.contact-layout .contacts-map .footer-map-embed,.contact-layout .contacts-map .footer-map-embed iframe{width:100%;height:100%}
+.contact-layout .contacts-map .footer-map-link{display:none!important}
+@media (max-width:1199px) and (min-width:701px){
+  .footer{grid-template-columns:1fr .65fr .8fr 1.55fr;gap:18px;padding:30px 48px;color:#fff;background:#111310}
+  .footer b{font:700 7px/normal "Golos Text",Golos,Arial,sans-serif;margin-bottom:7px}
+  .footer-company small,.footer a{font-size:6px;line-height:1.65;color:#aaa}
+  .footer-contacts{grid-template-columns:1fr;gap:24px;border-left:0;padding-left:0}
+  .footer-contact-copy{padding:2px 0 0 18px}
+  .footer-contact-copy .phone2{font-size:15px}
+  .footer-contact-copy .phone2 .phone-icon{width:17px;height:17px;flex-basis:17px}
+  .footer-contact-copy > a:not(.phone2){font-size:10px;line-height:1.45}
+  .footer-map{height:190px;background:#1a1c1a;border-color:#454841}
+  .footer-map-embed{width:500px;height:400px}
+  .footer-map-link{display:block!important;left:auto;right:0;bottom:0;width:max-content;padding:18px 14px;background:#f45116;font-size:8px!important;opacity:1;transform:none}
+}
+@media (min-width:1200px){
+  .footer-contacts{grid-template-columns:170px 320px;gap:24px}
+  .footer-map-embed,.footer-map-embed iframe{width:100%!important;height:100%!important}
+  .footer-map-link{display:none!important}
+}
+@media (max-width:700px){
+  .footer{grid-template-columns:1fr 1fr;min-height:0;padding:28px 18px;gap:28px 20px;background:#0b0d0c;color:#f4f5f1}
+  .footer-company{grid-column:1/-1}
+  .footer-contacts{grid-column:1/-1;grid-template-columns:minmax(120px,.65fr) minmax(0,1.35fr);gap:14px;border-left:0;border-top:1px solid #454743;padding:22px 0 0}
+  .footer-contact-copy{padding-left:14px}
+  .footer-map{height:132px}
+  .footer-map-embed{width:500px;height:400px}
+}
+@media (max-width:420px){.footer-contacts{grid-template-columns:1fr}.footer-map{height:168px}}

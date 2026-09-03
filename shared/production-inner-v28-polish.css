@@ -1,0 +1,1040 @@
+/*
+ * PDP inner pages — V28 polish layer
+ *
+ * This file is intentionally loaded only by the twelve inner documents.
+ * The approved homepage (orig_test_v2/index.html) does not load it.
+ * Keep this layer focused on rhythm, containment, responsive guardrails and
+ * restrained motion; the existing inner art direction remains the source of
+ * structure and content.
+ */
+
+body.production-page {
+  --v28-paper: #f4f2ec;
+  --v28-paper-2: #ece9e1;
+  --v28-ink: #111311;
+  --v28-muted: #6c6e68;
+  --v28-line: rgba(17, 19, 17, .16);
+  --v28-orange: #f45116;
+  --v28-dark: #0d0f0e;
+  --v28-max: 1600px;
+  --v28-gutter: clamp(28px, 3.35vw, 64px);
+  --v28-ease: cubic-bezier(.22, .72, .18, 1);
+  --v28-ease-in: cubic-bezier(.32, .08, .24, 1);
+  min-width: 0;
+  background: var(--v28-paper);
+  color: var(--v28-ink);
+}
+
+body.production-page main,
+body.production-page section,
+body.production-page article,
+body.production-page .prod-container,
+body.production-page .svc-container,
+body.production-page .pcp-container {
+  min-width: 0;
+}
+
+body.production-page .prod-container,
+body.production-page .svc-container,
+body.production-page .pcp-container,
+body.production-page .pcp-featured-wrap {
+  width: min(calc(100% - 2 * var(--v28-gutter)), var(--v28-max));
+  max-width: var(--v28-max);
+  margin-inline: auto;
+}
+
+body.production-page img,
+body.production-page svg {
+  max-width: 100%;
+}
+
+body.production-page img {
+  image-rendering: auto;
+}
+
+body.production-page :where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--v28-orange);
+  outline-offset: 3px;
+}
+
+body.production-page :where(.prod-actions-button, .prod-link, .prod-text-link, .pcp-text-link, .pcp-outline-link, .articles-index-button, .articles-index-link, .pdp-articles-button, .svc-button, .svc-text-action) {
+  transition-duration: 240ms;
+  transition-timing-function: var(--v28-ease);
+}
+
+body.production-page :where(.prod-actions-button, .prod-link, .prod-text-link, .pcp-text-link, .pcp-outline-link, .articles-index-button, .articles-index-link, .pdp-articles-button, .svc-button, .svc-text-action):hover {
+  transform: translateY(-2px);
+}
+
+body.production-page :where(.prod-actions-button, .prod-link, .prod-text-link, .pcp-text-link, .pcp-outline-link, .articles-index-button, .articles-index-link, .pdp-articles-button, .svc-button, .svc-text-action) svg,
+body.production-page :where(.prod-actions-button, .prod-link, .prod-text-link, .pcp-text-link, .pcp-outline-link, .articles-index-button, .articles-index-link, .pdp-articles-button, .svc-button, .svc-text-action) i {
+  transition: transform 240ms var(--v28-ease);
+}
+
+body.production-page :where(.prod-actions-button, .prod-link, .prod-text-link, .pcp-text-link, .pcp-outline-link, .articles-index-button, .articles-index-link, .pdp-articles-button, .svc-button, .svc-text-action):hover svg,
+body.production-page :where(.prod-actions-button, .prod-link, .prod-text-link, .pcp-text-link, .pcp-outline-link, .articles-index-button, .articles-index-link, .pdp-articles-button, .svc-button, .svc-text-action):hover i {
+  transform: translateX(5px);
+}
+
+/* The shared shell keeps the homepage geometry; inner content uses the same
+   deliberate gutters without allowing a child to create a second canvas. */
+body.production-page .prod-hero__copy,
+body.production-page .prod-section-head,
+body.production-page .shared-contact-form-section,
+body.production-page .prod-privacy-layout,
+body.production-page .prod-contact-reference__details {
+  min-width: 0;
+}
+
+body.production-page .prod-section {
+  padding-block: clamp(44px, 4vw, 64px);
+}
+
+body.production-page .prod-section--tight {
+  padding-block: clamp(32px, 3vw, 48px);
+}
+
+body.production-page .prod-section-head {
+  margin-bottom: clamp(22px, 2vw, 32px);
+}
+
+body.production-page .prod-section-head h2 {
+  max-width: 100%;
+  text-wrap: balance;
+}
+
+body.production-page .prod-hero h1 {
+  max-width: min(100%, 1120px);
+  font-size: clamp(58px, 6.25vw, 120px);
+  line-height: .86;
+  text-wrap: balance;
+}
+
+body.production-page .prod-hero__copy > p {
+  max-width: 620px;
+  line-height: 1.42;
+}
+
+/* Decorative construction drawings never participate in layout or hit
+   testing. On smaller screens the content wins and the drawings are removed. */
+body.production-page :where(.prod-hero__wire, .prod-process-wire, .pcp-hero__wireframe, .articles-index-hero__wire, .pdp-articles-hero__wire, .prod-contact-reference__hero-art, .prod-contact-reference__request-art) {
+  pointer-events: none;
+  user-select: none;
+}
+
+body.production-page :where(.prod-hero__wire, .prod-process-wire, .pcp-hero__wireframe, .articles-index-hero__wire, .pdp-articles-hero__wire) {
+  opacity: .12;
+}
+
+/* Keep the shared injected CTA/footer at the same readable scale everywhere. */
+body.production-page .shared-contact-form-section {
+  /* The approved homepage CTA is a full-bleed dark band. Keep its inner
+     grid/padding, but do not wrap the band in a centered white gutter. */
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-block: clamp(52px, 5vw, 78px);
+}
+
+body.production-page .shared-contact-form-section .contact-form {
+  min-width: 0;
+}
+
+body.production-page .shared-contact-form-section :where(input, textarea, select) {
+  min-height: 48px;
+}
+
+body.production-page .shared-contact-form-section .form-submit {
+  min-height: 52px;
+}
+
+body.production-page .footer {
+  min-width: 0;
+}
+
+body.production-page .footer-map,
+body.production-page .footer-map-embed,
+body.production-page .footer-map-embed iframe {
+  max-width: 100%;
+}
+
+/* Services index: seven calm rows, no mobile max-content spill. */
+body.production-services .svc-container {
+  width: min(calc(100% - 2 * var(--v28-gutter)), var(--v28-max));
+}
+
+body.production-services .svc-hero__copy-inner {
+  min-width: 0;
+}
+
+body.production-services .svc-hero h1 {
+  width: 100%;
+  max-width: 780px;
+  text-wrap: balance;
+}
+
+body.production-services .svc-service-card {
+  min-height: 224px;
+}
+
+body.production-services .svc-service-card p {
+  max-width: 34ch;
+}
+
+body.production-services .svc-industry-card {
+  height: clamp(240px, 18vw, 300px);
+}
+
+body.production-services .svc-project__layout {
+  min-width: 0;
+}
+
+body.production-services .svc-project__main-media,
+body.production-services .svc-project__gallery,
+body.production-services .svc-project__copy {
+  min-width: 0;
+}
+
+/* Project / partner pages: maintain a strong 50/50 reading field and keep
+   the partner rail contained at every breakpoint. */
+body.production-projects .pcp-hero,
+body.production-projects .pcp-featured,
+body.production-projects .pcp-archive,
+body.production-projects .pcp-materials {
+  min-width: 0;
+}
+
+body.production-projects .pcp-hero__copy,
+body.production-projects .pcp-featured__copy,
+body.production-projects .pcp-featured__media {
+  min-width: 0;
+}
+
+body.production-projects .pcp-hero h1,
+body.production-projects .pcp-section-heading h2 {
+  max-width: 100%;
+  text-wrap: balance;
+}
+
+body.production-projects .pcp-partners {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+body.production-projects .pcp-partners__inner {
+  max-width: 100%;
+  overscroll-behavior-inline: contain;
+}
+
+body.production-projects .pcp-project-card,
+body.production-projects .pcp-material {
+  min-width: 0;
+}
+
+/* Detail case pages: images carry the weight; facts stay compact. */
+body.production-case .prod-case-facts,
+body.production-case .prod-two-columns,
+body.production-case .prod-step-grid,
+body.production-case .prod-gallery {
+  min-width: 0;
+}
+
+body.production-case .prod-two-columns > *,
+body.production-case .prod-step-grid > *,
+body.production-case .prod-gallery > * {
+  min-width: 0;
+}
+
+body.production-case .prod-gallery img,
+body.production-about .prod-proof__media img,
+body.production-page .prod-result-split img {
+  object-fit: cover;
+}
+
+/* Articles: keep editorial hierarchy, but prevent a headline or feature image
+   from creating a second width. */
+body.production-news :where(.articles-index-hero__copy, .articles-index-featured__copy, .pdp-articles-hero__copy, .pdp-articles-feature__copy) {
+  min-width: 0;
+}
+
+body.production-news :where(.articles-index-hero h1, .pdp-articles-hero h1) {
+  max-width: 100%;
+  text-wrap: balance;
+}
+
+body.production-news :where(.articles-index-featured__media, .articles-index-editorial-card__media, .pdp-articles-feature__media, .pdp-articles-story__visual) {
+  min-width: 0;
+  overflow: hidden;
+}
+
+body.production-news :where(.articles-index-featured__media img, .articles-index-editorial-card__media img, .pdp-articles-feature__media img, .pdp-articles-story__visual img) {
+  transition: transform 760ms var(--v28-ease), filter 760ms var(--v28-ease);
+}
+
+body.production-news :where(.articles-index-featured__media, .articles-index-editorial-card, .pdp-articles-feature__media, .pdp-articles-story):hover img {
+  transform: scale(1.018);
+}
+
+/* Contacts keeps the real Yandex iframe. This is only a geometry cap; the
+   existing parity sheet owns the iframe source and visibility. */
+body.production-contacts .prod-contact-reference__details,
+body.production-contacts .prod-contact-reference__map-wrap,
+body.production-contacts .prod-contact-map {
+  min-width: 0;
+}
+
+body.production-contacts .prod-contact-map {
+  min-height: 0;
+  height: clamp(360px, 32vw, 500px);
+}
+
+body.production-contacts .prod-contact-map > .footer-map-embed,
+body.production-contacts .prod-contact-map > .footer-map-embed iframe {
+  max-width: 100%;
+}
+
+body.production-contacts .prod-contact-reference__fact strong {
+  max-width: 28ch;
+}
+
+/* Documents and policy pages use readable measures instead of stretching a
+   line of legal/body copy across the whole 1600px canvas. */
+body.production-documents .prod-document-list,
+body.production-documents .prod-material-grid,
+body.production-privacy .prod-policy-copy {
+  min-width: 0;
+}
+
+body.production-privacy .prod-policy-copy {
+  max-width: 960px;
+}
+
+body.production-privacy .prod-policy-section p,
+body.production-privacy .prod-policy-section li {
+  max-width: 78ch;
+}
+
+body.production-404-page .prod-404__copy {
+  min-width: 0;
+}
+
+body.production-404-page .prod-404 h1 {
+  max-width: 100%;
+  text-wrap: balance;
+}
+
+/* Tablet: preserve the desktop composition while giving each column room. */
+@media (max-width: 1199px) and (min-width: 701px) {
+  body.production-page {
+    --v28-gutter: 40px;
+  }
+
+  body.production-page .prod-hero h1 {
+    font-size: clamp(56px, 7.2vw, 92px);
+  }
+
+  body.production-services .svc-hero__copy-inner {
+    padding-inline: 40px 28px;
+  }
+
+  body.production-services .svc-hero h1 {
+    font-size: clamp(48px, 6.1vw, 76px);
+  }
+
+  body.production-services .svc-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.production-services .svc-service-card--wide {
+    grid-column: span 2;
+  }
+
+  body.production-services .svc-industry-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body.production-services .svc-industry-card {
+    height: 260px;
+  }
+
+  body.production-contacts .prod-contact-map {
+    height: 420px;
+  }
+
+  body.production-page .shared-contact-form-section {
+    padding-block: 56px 64px;
+  }
+}
+
+/* Mobile: one intentional column, no hidden horizontal canvas, no sticky
+   desktop mechanics. */
+@media (max-width: 700px) {
+  body.production-page {
+    --v28-gutter: 18px;
+  }
+
+  /* Keep the closed menu out of the document's scroll geometry. A transformed
+     fixed child still contributes to body.scrollWidth in Chromium, so the
+     panel is mounted only while the menu is open and animates in at that point. */
+  body.production-page .mobile-menu {
+    overflow: hidden;
+  }
+
+  body.production-page .mobile-menu__panel {
+    display: none;
+    transform: none;
+  }
+
+  body.production-page.menu-open .mobile-menu__panel {
+    display: block;
+    animation: pdp-mobile-panel-in 420ms cubic-bezier(.2, .75, .2, 1) both;
+  }
+
+  @keyframes pdp-mobile-panel-in {
+    from { opacity: 0; transform: translateX(22px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  body.production-page .prod-container,
+  body.production-page .svc-container,
+  body.production-page .pcp-container,
+  body.production-page .pcp-featured-wrap {
+    width: calc(100% - 2 * var(--v28-gutter));
+  }
+
+  body.production-page .prod-section {
+    padding-block: 40px;
+  }
+
+  body.production-page .prod-section--tight {
+    padding-block: 32px;
+  }
+
+  body.production-page .prod-hero h1 {
+    max-width: 100%;
+    font-size: clamp(44px, 13vw, 66px);
+    line-height: .89;
+    letter-spacing: -.07em;
+    overflow-wrap: anywhere;
+  }
+
+  body.production-page .prod-hero__copy > p {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  body.production-page :where(.prod-hero__wire, .prod-process-wire, .pcp-hero__wireframe, .svc-hero__wire, .articles-index-hero__wire, .pdp-articles-hero__wire, .prod-contact-reference__hero-art, .prod-contact-reference__request-art) {
+    display: none !important;
+  }
+
+  body.production-news .pdp-articles-feature__copy h2 {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+  body.production-services .svc-hero__copy-inner {
+    width: 100%;
+    max-width: none;
+    padding-inline: 18px;
+  }
+
+  body.production-services .svc-hero h1 {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(36px, 10.4vw, 48px) !important;
+    line-height: .91;
+    letter-spacing: -.07em;
+    overflow-wrap: anywhere;
+  }
+
+  body.production-services .svc-service-grid,
+  body.production-services .svc-industry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.production-services .svc-service-card,
+  body.production-services .svc-service-card--wide {
+    grid-column: auto;
+    min-height: 214px;
+  }
+
+  body.production-services .svc-industry-card {
+    height: 250px;
+  }
+
+  body.production-services .svc-project__layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* The project heading contains a long technical compound word. Let the
+     browser break it only when the narrow mobile measure requires it, instead
+     of widening the whole services section and creating a hidden horizontal
+     scroll rail. */
+  body.production-services .svc-project .svc-section-intro h2 {
+    overflow-wrap: anywhere;
+  }
+
+  body.production-projects .pcp-partners__inner {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  body.production-projects .pcp-partner {
+    min-width: 210px;
+  }
+
+  body.production-contacts .prod-contact-map {
+    height: min(84vw, 340px);
+  }
+
+  body.production-contacts .prod-contact-reference__fact strong {
+    max-width: 100%;
+  }
+
+  body.production-page .shared-contact-form-section {
+    width: 100%;
+    max-width: none;
+    padding-block: 42px;
+  }
+
+  body.production-page .shared-contact-form-section,
+  body.production-page .shared-contact-form-section .contact-form {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.production-page .shared-contact-form-section :where(.contact-form-intro, .contact-form, .form-submit, .form-consent, .contact-channel) {
+    grid-column: 1 / -1 !important;
+    min-width: 0;
+  }
+
+  body.production-page .shared-contact-form-section .form-submit {
+    width: 100%;
+  }
+
+  body.production-page .footer-map {
+    min-height: 168px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.production-page *,
+  body.production-page *::before,
+  body.production-page *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+
+  body.production-page :where(.prod-hero__wire, .prod-process-wire, .pcp-hero__wireframe, .articles-index-hero__wire, .pdp-articles-hero__wire) {
+    transform: none !important;
+  }
+}
+
+/* Inner project interactions: the next control is an always-hot action. */
+body.production-projects .pcp-project-nav__controls button[data-project-next],
+body.production-projects .pcp-project-nav__controls button[data-project-next]:hover,
+body.production-projects .pcp-project-nav__controls button[data-project-next]:focus-visible,
+body.production-projects .pcp-project-nav__controls button[data-project-next]:active {
+  border-color: var(--v28-orange);
+  background: var(--v28-orange);
+  color: #fff;
+}
+
+body.production-projects .pcp-project-nav__controls button[data-project-next]:active {
+  transform: none;
+}
+
+/* Project links use a quiet image rail at rest and a single orange reveal on
+   hover. The markup stays semantic: the existing image, title and link are
+   reused, while the corner mark is drawn as a small layered direction sign. */
+body.production-page .prod-project-strip > .prod-card {
+  --project-card-rail: 58px;
+  isolation: isolate;
+  aspect-ratio: 1.5 / 1;
+  padding-bottom: var(--project-card-rail);
+  border: 1px solid var(--v28-line);
+  background: #fbfaf7;
+  color: var(--v28-ink);
+  transition: background-color 520ms var(--v28-ease), color 320ms ease;
+}
+
+body.production-page .prod-project-strip > .prod-card::after {
+  inset: 0 0 var(--project-card-rail);
+  background: linear-gradient(180deg, transparent 42%, rgba(9, 10, 9, .72) 100%);
+  opacity: 1;
+  transition: opacity 360ms ease;
+}
+
+body.production-page .prod-project-strip > .prod-card > img {
+  inset: 0 0 var(--project-card-rail);
+  width: 100%;
+  height: calc(100% - var(--project-card-rail));
+  object-fit: cover;
+  transition: opacity 520ms var(--v28-ease), transform 700ms var(--v28-ease), filter 360ms ease;
+}
+
+body.production-page .prod-project-strip > .prod-card > strong {
+  inset: auto 48px 14px 14px;
+  z-index: 2;
+  color: var(--v28-ink);
+  font-size: 12px;
+  line-height: 1.05;
+  transition: color 320ms ease, transform 520ms var(--v28-ease);
+}
+
+body.production-page .prod-project-strip > .prod-card > i {
+  inset: auto 13px 14px auto;
+  z-index: 3;
+  display: block;
+  width: 27px;
+  height: 25px;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  background: var(--v28-orange);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  transition: background-color 320ms ease, transform 520ms var(--v28-ease);
+}
+
+body.production-page .prod-project-strip > .prod-card > i::before,
+body.production-page .prod-project-strip > .prod-card > i::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+body.production-page .prod-project-strip > .prod-card > i::before {
+  inset: 3px 4px 3px 5px;
+  background: #fbfaf7;
+}
+
+body.production-page .prod-project-strip > .prod-card > i::after {
+  inset: 6px 7px 6px 10px;
+  background: var(--v28-orange);
+}
+
+body.production-page .prod-project-strip > .prod-card:hover,
+body.production-page .prod-project-strip > .prod-card:focus-visible {
+  background: var(--v28-orange);
+  color: #fff;
+}
+
+body.production-page .prod-project-strip > .prod-card:hover > img,
+body.production-page .prod-project-strip > .prod-card:focus-visible > img {
+  opacity: 0;
+  transform: none;
+  filter: none;
+}
+
+body.production-page .prod-project-strip > .prod-card:hover::after,
+body.production-page .prod-project-strip > .prod-card:focus-visible::after {
+  opacity: 0;
+}
+
+body.production-page .prod-project-strip > .prod-card:hover > strong,
+body.production-page .prod-project-strip > .prod-card:focus-visible > strong {
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+body.production-page .prod-project-strip > .prod-card:hover > i,
+body.production-page .prod-project-strip > .prod-card:focus-visible > i {
+  background: #fff;
+  transform: translateX(2px);
+}
+
+body.production-page .prod-project-strip > .prod-card:hover > i::before,
+body.production-page .prod-project-strip > .prod-card:focus-visible > i::before {
+  background: var(--v28-orange);
+}
+
+body.production-page .prod-project-strip > .prod-card:hover > i::after,
+body.production-page .prod-project-strip > .prod-card:focus-visible > i::after {
+  background: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.production-page .prod-project-strip > .prod-card,
+  body.production-page .prod-project-strip > .prod-card > img,
+  body.production-page .prod-project-strip > .prod-card > strong,
+  body.production-page .prod-project-strip > .prod-card > i {
+    transition-duration: .01ms !important;
+  }
+}
+
+/* Inner archive and service cards: keep the orange state consistent with the
+   related-project rail above, including keyboard focus without changing the
+   protected homepage. */
+body.production-projects .pcp-project-card {
+  background: #fbfaf7;
+  color: var(--v28-ink);
+  transition: background-color 520ms var(--v28-ease), color 320ms ease, border-color 320ms ease;
+}
+
+body.production-projects .pcp-project-card__media {
+  background: #fbfaf7;
+  transition: background-color 520ms var(--v28-ease);
+}
+
+body.production-projects .pcp-project-card__media::after {
+  transition: opacity 360ms ease, border-color 320ms ease;
+}
+
+body.production-projects .pcp-project-card__media img {
+  transition: opacity 520ms var(--v28-ease), transform 700ms var(--v28-ease), filter 360ms ease;
+}
+
+body.production-projects .pcp-project-card__media > span,
+body.production-projects .pcp-project-card__meta span,
+body.production-projects .pcp-project-card__meta strong,
+body.production-projects .pcp-project-card__meta i {
+  transition: color 320ms ease, transform 520ms var(--v28-ease);
+}
+
+body.production-projects .pcp-project-card__meta i {
+  right: 4px;
+}
+
+body.production-projects .pcp-project-card:hover,
+body.production-projects .pcp-project-card:focus-visible {
+  border-color: var(--v28-orange);
+  background: var(--v28-orange);
+  color: #fff;
+}
+
+body.production-projects .pcp-project-card:hover .pcp-project-card__media,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__media {
+  background: var(--v28-orange);
+}
+
+body.production-projects .pcp-project-card:hover .pcp-project-card__media img,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__media img {
+  opacity: 0;
+  transform: scale(1.02);
+  filter: none;
+}
+
+body.production-projects .pcp-project-card:hover .pcp-project-card__media::after,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__media::after {
+  border-color: transparent;
+  opacity: 0;
+}
+
+body.production-projects .pcp-project-card:hover .pcp-project-card__media > span,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__media > span,
+body.production-projects .pcp-project-card:hover .pcp-project-card__meta span,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__meta span,
+body.production-projects .pcp-project-card:hover .pcp-project-card__meta strong,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__meta strong,
+body.production-projects .pcp-project-card:hover .pcp-project-card__meta i,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__meta i {
+  color: #fff;
+}
+
+body.production-projects .pcp-project-card:hover .pcp-project-card__meta i,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__meta i {
+  transform: translate(4px, -4px);
+}
+
+body.production-services .svc-service-card {
+  transition: opacity 700ms ease, transform 520ms var(--v28-ease), background-color 520ms var(--v28-ease), border-color 320ms ease, color 320ms ease;
+}
+
+body.production-services.svc-motion-ready .svc-service-card[data-reveal].is-visible {
+  transition: opacity 700ms ease, transform 520ms var(--v28-ease), background-color 520ms var(--v28-ease), border-color 320ms ease, color 320ms ease;
+}
+
+body.production-services .svc-service-card__head > span,
+body.production-services .svc-service-card h3,
+body.production-services .svc-service-card p,
+body.production-services .svc-service-card .svc-card-action,
+body.production-services .svc-service-card .svc-card-action span,
+body.production-services .svc-service-card__head img {
+  transition: color 320ms ease, filter 320ms ease, transform 520ms var(--v28-ease);
+}
+
+body.production-services .svc-service-card:hover,
+body.production-services .svc-service-card:focus-within {
+  border-color: var(--v28-orange);
+  background: var(--v28-orange);
+  color: #fff;
+}
+
+body.production-services .svc-service-card:hover .svc-service-card__head > span,
+body.production-services .svc-service-card:focus-within .svc-service-card__head > span,
+body.production-services .svc-service-card:hover h3,
+body.production-services .svc-service-card:focus-within h3,
+body.production-services .svc-service-card:hover p,
+body.production-services .svc-service-card:focus-within p,
+body.production-services .svc-service-card:hover .svc-card-action,
+body.production-services .svc-service-card:focus-within .svc-card-action,
+body.production-services .svc-service-card:hover .svc-card-action span,
+body.production-services .svc-service-card:focus-within .svc-card-action span {
+  color: #fff;
+}
+
+body.production-services .svc-service-card:hover .svc-service-card__head img,
+body.production-services .svc-service-card:focus-within .svc-service-card__head img {
+  filter: brightness(0) invert(1);
+}
+
+body.production-services .svc-industry-card {
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(.2, .75, .2, 1), background-color 520ms var(--v28-ease), color 320ms ease;
+}
+
+body.production-services.svc-motion-ready .svc-industry-card[data-reveal].is-visible {
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(.2, .75, .2, 1), background-color 520ms var(--v28-ease), color 320ms ease;
+}
+
+body.production-services .svc-industry-card::after {
+  content: "↗";
+  position: absolute;
+  top: 16px;
+  right: 14px;
+  z-index: 2;
+  color: var(--v28-orange);
+  font: 24px/1 Arial, sans-serif;
+  transition: color 320ms ease, transform 520ms var(--v28-ease);
+}
+
+body.production-services .svc-industry-card > img:first-child {
+  transition: opacity 520ms var(--v28-ease), transform 700ms cubic-bezier(.2, .75, .2, 1), filter 360ms ease;
+}
+
+body.production-services .svc-industry-card__veil,
+body.production-services .svc-industry-card__content strong,
+body.production-services .svc-industry-card__content small,
+body.production-services .svc-industry-card__content img {
+  transition: background-color 520ms var(--v28-ease), color 320ms ease, filter 320ms ease;
+}
+
+body.production-services .svc-industry-card:hover,
+body.production-services .svc-industry-card:focus-visible {
+  background: var(--v28-orange);
+  color: #fff;
+}
+
+body.production-services .svc-industry-card:hover > img:first-child,
+body.production-services .svc-industry-card:focus-visible > img:first-child {
+  opacity: 0;
+  transform: none;
+  filter: none;
+}
+
+body.production-services .svc-industry-card:hover .svc-industry-card__veil,
+body.production-services .svc-industry-card:focus-visible .svc-industry-card__veil {
+  background: transparent;
+}
+
+body.production-services .svc-industry-card:hover .svc-industry-card__content strong,
+body.production-services .svc-industry-card:focus-visible .svc-industry-card__content strong,
+body.production-services .svc-industry-card:hover .svc-industry-card__content small,
+body.production-services .svc-industry-card:focus-visible .svc-industry-card__content small {
+  color: #fff;
+}
+
+body.production-services .svc-industry-card:hover .svc-industry-card__content img,
+body.production-services .svc-industry-card:focus-visible .svc-industry-card__content img {
+  filter: brightness(0) invert(1);
+}
+
+body.production-services .svc-industry-card:hover::after,
+body.production-services .svc-industry-card:focus-visible::after {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Use the supplied PDP mark as the corner affordance instead of a text arrow. */
+body.production-page .prod-project-strip > .prod-card > i,
+body.production-projects .pcp-project-card__meta i,
+body.production-services .svc-industry-card::after {
+  width: 34px;
+  height: 34px;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  clip-path: none;
+  background: transparent url('../assets/inner-optimized/pdp-card-mark.webp') center / 42px 42px no-repeat;
+}
+
+body.production-page .prod-project-strip > .prod-card > i::before,
+body.production-page .prod-project-strip > .prod-card > i::after {
+  display: none;
+}
+
+body.production-page .prod-project-strip > .prod-card:hover > i,
+body.production-page .prod-project-strip > .prod-card:focus-visible > i {
+  background-color: transparent;
+  background-image: url('../assets/inner-optimized/pdp-card-mark.webp');
+  background-position: center;
+  background-size: 42px 42px;
+  background-repeat: no-repeat;
+}
+
+body.production-projects .pcp-project-card__meta i {
+  right: 4px;
+  transition: transform 520ms var(--v28-ease);
+}
+
+body.production-services .svc-industry-card::after {
+  content: '';
+  top: 14px;
+  right: 12px;
+  transition: transform 520ms var(--v28-ease);
+}
+
+/* Final hover state: preserve the photography. The orange treatment belongs
+   to the information rail/panel, so the image remains the visual anchor. */
+body.production-page .prod-project-strip > .prod-card:hover > img,
+body.production-page .prod-project-strip > .prod-card:focus-visible > img,
+body.production-projects .pcp-project-card:hover .pcp-project-card__media img,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__media img,
+body.production-services .svc-industry-card:hover > img:first-child,
+body.production-services .svc-industry-card:focus-visible > img:first-child {
+  opacity: 1;
+  transform: scale(1.02);
+  filter: saturate(1.04);
+}
+
+body.production-services .svc-industry-card {
+  --industry-hover-panel: 47%;
+}
+
+body.production-services .svc-industry-card::before {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  height: 0;
+  background: var(--v28-orange);
+  pointer-events: none;
+  transition: height 520ms var(--v28-ease);
+}
+
+body.production-services .svc-industry-card__content {
+  z-index: 3;
+}
+
+body.production-services .svc-industry-card:hover::before,
+body.production-services .svc-industry-card:focus-visible::before {
+  height: var(--industry-hover-panel);
+}
+
+body.production-services .svc-industry-card:hover .svc-industry-card__veil,
+body.production-services .svc-industry-card:focus-visible .svc-industry-card__veil {
+  background: rgba(8, 10, 9, .16);
+}
+
+body.production-projects .pcp-project-card:hover,
+body.production-projects .pcp-project-card:focus-visible {
+  background: #fbfaf7;
+  color: var(--v28-ink);
+}
+
+body.production-projects .pcp-project-card:hover .pcp-project-card__media,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__media {
+  background: #fbfaf7;
+}
+
+body.production-projects .pcp-project-card:hover .pcp-project-card__media::after,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__media::after {
+  border-color: rgba(255, 255, 255, .24);
+  opacity: 1;
+}
+
+body.production-projects .pcp-project-card:hover .pcp-project-card__meta,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__meta {
+  background: var(--v28-orange);
+  color: #fff;
+}
+
+body.production-projects .pcp-project-card:hover .pcp-project-card__media > span,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__media > span,
+body.production-projects .pcp-project-card:hover .pcp-project-card__meta span,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__meta span,
+body.production-projects .pcp-project-card:hover .pcp-project-card__meta strong,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__meta strong,
+body.production-page .prod-project-strip > .prod-card:hover > strong,
+body.production-page .prod-project-strip > .prod-card:focus-visible > strong {
+  color: #fff;
+}
+
+body.production-projects .pcp-project-card:hover .pcp-project-card__meta i,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__meta i,
+body.production-page .prod-project-strip > .prod-card:hover > i,
+body.production-page .prod-project-strip > .prod-card:focus-visible > i {
+  transform: none;
+}
+
+body.production-projects .pcp-project-card:hover .pcp-project-card__meta i,
+body.production-projects .pcp-project-card:focus-visible .pcp-project-card__meta i {
+  transform: none;
+}
+
+/* Contacts: keep the authored map live. The visual overlays already ignore
+   pointer input, so the iframe must receive the wheel and drag events. */
+body.production-contacts .prod-contact-reference__map-wrap .prod-contact-map > .footer-map-embed iframe {
+  pointer-events: auto !important;
+}
+
+/* Contacts process rail: compact connectors and optically centered numerals
+   on the same horizontal rhythm as the homepage's technical sections. */
+@media (min-width: 701px) {
+  body.production-contacts .prod-contact-reference__steps {
+    grid-template-columns:
+      minmax(0, 1fr)
+      clamp(44px, 4.2vw, 78px)
+      minmax(0, 1fr)
+      clamp(44px, 4.2vw, 78px)
+      minmax(0, 1fr);
+    column-gap: 0;
+    min-height: 154px;
+    padding-block: 30px 32px;
+  }
+
+  body.production-contacts .prod-contact-reference__steps > div {
+    align-items: center;
+  }
+
+  body.production-contacts .prod-contact-reference__steps b {
+    align-self: center;
+  }
+
+  body.production-contacts .prod-contact-reference__steps i {
+    align-self: center;
+    width: 100%;
+    height: 1px;
+    margin-inline: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.production-projects .pcp-project-card,
+  body.production-projects .pcp-project-card__media,
+  body.production-projects .pcp-project-card__media img,
+  body.production-projects .pcp-project-card__media::after,
+  body.production-projects .pcp-project-card__media > span,
+  body.production-projects .pcp-project-card__meta span,
+  body.production-projects .pcp-project-card__meta strong,
+  body.production-projects .pcp-project-card__meta i,
+  body.production-services .svc-service-card,
+  body.production-services .svc-service-card__head > span,
+  body.production-services .svc-service-card h3,
+  body.production-services .svc-service-card p,
+  body.production-services .svc-service-card .svc-card-action,
+  body.production-services .svc-service-card .svc-card-action span,
+  body.production-services .svc-service-card__head img,
+  body.production-services .svc-industry-card,
+  body.production-services .svc-industry-card::after,
+  body.production-services .svc-industry-card > img:first-child,
+  body.production-services .svc-industry-card__veil,
+  body.production-services .svc-industry-card__content strong,
+  body.production-services .svc-industry-card__content small,
+  body.production-services .svc-industry-card__content img {
+    transition-duration: .01ms !important;
+  }
+}

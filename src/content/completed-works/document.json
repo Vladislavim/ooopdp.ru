@@ -1,0 +1,57 @@
+{
+  "id": "completed-works",
+  "source": "pages/06-completed-works.html",
+  "output": "pages/06-completed-works.html",
+  "kind": "inner",
+  "doctype": "<!doctype html>\n",
+  "htmlOpen": "<html lang=\"ru\">",
+  "headOpen": "<head>",
+  "headInner": "\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Проекты и партнёры — ПДП</title>\n  <link rel=\"stylesheet\" href=\"../shared/production-base.css?v=20260831-cache-v4\">\n",
+  "headClose": "</head>",
+  "bodyOpen": "<body class=\"production-page production-projects\" data-page=\"Кейсы\">",
+  "bodyBeforeMain": "\n  <div data-site-header></div>\n\n  ",
+  "mainOpen": "<main>",
+  "mainInnerTrailing": "\n  ",
+  "mainClose": "</main>",
+  "bodyAfterMain": "\n\n  <script src=\"../shared/production-site-shell.js?v=20260831-cache-v4\"></script>\n  <link rel=\"stylesheet\" href=\"../shared/production-inner-shell-parity.css?v=20260831-cache-v4\">\n  <link rel=\"stylesheet\" href=\"../shared/production-projects-clients-reference.css?v=20260831-cache-v4\">\n  <link rel=\"stylesheet\" href=\"../shared/production-inner-v28-polish.css?v=20260831-cache-v4\">\n  <script src=\"../shared/production-projects-clients-reference.js?v=20260831-cache-v4\"></script>\n  <link rel=\"stylesheet\" href=\"../shared/production-inner-motion-a.css?v=20260831-cache-v4\">\n  <script src=\"../shared/production-inner-motion-a.js?v=20260831-cache-v4\"></script>\n",
+  "bodyClose": "</body>",
+  "htmlClose": "</html>",
+  "parts": [
+    {
+      "key": "pcp-hero-title",
+      "tagName": "section",
+      "sourceIndex": 0,
+      "file": "content/completed-works/parts/001-pcp-hero-title.html"
+    },
+    {
+      "key": "pcp-featured",
+      "tagName": "section",
+      "sourceIndex": 1,
+      "file": "content/completed-works/parts/002-pcp-featured.html"
+    },
+    {
+      "key": "pcp-archive-title",
+      "tagName": "section",
+      "sourceIndex": 2,
+      "file": "content/completed-works/parts/003-pcp-archive-title.html"
+    },
+    {
+      "key": "pcp-materials-title",
+      "tagName": "section",
+      "sourceIndex": 3,
+      "file": "content/completed-works/parts/004-pcp-materials-title.html"
+    },
+    {
+      "key": "div",
+      "tagName": "div",
+      "sourceIndex": 4,
+      "file": "content/completed-works/parts/005-div.html"
+    },
+    {
+      "key": "div-2",
+      "tagName": "div",
+      "sourceIndex": 5,
+      "file": "content/completed-works/parts/006-div-2.html"
+    }
+  ]
+}

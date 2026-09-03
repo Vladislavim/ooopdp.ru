@@ -1,0 +1,58 @@
+/* Page-scoped hero asset for 03-service-detail.html. */
+body.production-service-detail .prod-service-detail-hero {
+  isolation: isolate;
+}
+
+body.production-service-detail .prod-service-detail-hero::before {
+  background: none !important;
+}
+
+body.production-service-detail .prod-service-detail-hero > .prod-hero__inner > .prod-editorial-hero-media {
+  display: none !important;
+}
+
+body.production-service-detail .prod-service-detail-hero__wireframe {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: clamp(-86px, -2vw, -28px);
+  width: min(69vw, 1050px);
+  height: min(93%, 700px);
+  object-fit: contain;
+  object-position: center;
+  opacity: .68;
+  pointer-events: none;
+  user-select: none;
+  transform: translateY(-50%);
+  filter: contrast(1.08) brightness(.76);
+}
+
+body.production-service-detail .prod-service-detail-hero > .prod-hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1199px) and (min-width: 701px) {
+  body.production-service-detail .prod-service-detail-hero__wireframe {
+    right: -70px;
+    width: 70vw;
+    height: 88%;
+    opacity: .56;
+  }
+}
+
+@media (max-width: 700px) {
+  body.production-service-detail .prod-service-detail-hero__wireframe {
+    top: 62%;
+    right: -86px;
+    width: 118vw;
+    height: 58%;
+    opacity: .42;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.production-service-detail .prod-service-detail-hero__wireframe {
+    transform: translateY(-50%);
+  }
+}

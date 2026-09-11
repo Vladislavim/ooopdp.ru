@@ -373,26 +373,32 @@ body.production-404-page .prod-404 h1 {
     --v28-gutter: 18px;
   }
 
-  /* Keep the closed menu out of the document's scroll geometry. A transformed
-     fixed child still contributes to body.scrollWidth in Chromium, so the
-     panel is mounted only while the menu is open and animates in at that point. */
+  /* Keep the drawer mounted so opening and closing remain interruptible. The
+     document shell already clips horizontal overflow, so the off-canvas panel
+     cannot expand the page's scroll geometry. */
   body.production-page .mobile-menu {
-    overflow: hidden;
+    overflow: clip;
+    visibility: hidden;
+    transition: visibility 0s linear 260ms;
   }
 
   body.production-page .mobile-menu__panel {
-    display: none;
-    transform: none;
+    display: block;
+    transform: translate3d(100%, 0, 0);
+    transition: transform 260ms cubic-bezier(.23, 1, .32, 1);
+  }
+
+  body.production-page .mobile-menu__backdrop {
+    transition: opacity 180ms cubic-bezier(.23, 1, .32, 1);
+  }
+
+  body.production-page.menu-open .mobile-menu {
+    visibility: visible;
+    transition-delay: 0s;
   }
 
   body.production-page.menu-open .mobile-menu__panel {
-    display: block;
-    animation: pdp-mobile-panel-in 420ms cubic-bezier(.2, .75, .2, 1) both;
-  }
-
-  @keyframes pdp-mobile-panel-in {
-    from { opacity: 0; transform: translateX(22px); }
-    to { opacity: 1; transform: translateX(0); }
+    transform: translate3d(0, 0, 0);
   }
 
   body.production-page .prod-container,

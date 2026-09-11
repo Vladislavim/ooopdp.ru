@@ -509,7 +509,7 @@
   const mobileMenu = document.createElement('div');
   mobileMenu.id = 'mobile-menu';
   mobileMenu.className = 'mobile-menu';
-  mobileMenu.innerHTML = `<div class="mobile-menu__backdrop" data-menu-close></div><div class="mobile-menu__panel"><div class="mobile-menu__head"><span>Навигация</span><button type="button" data-menu-close aria-label="Закрыть меню">×</button></div><nav aria-label="Мобильная навигация"><a href="${routes.home}">Главная</a><a href="${routes.services}">Услуги</a><a href="${routes.cases}">Кейсы</a><a href="${routes.contacts}">Контакты</a><a href="${routes.articles}">Статьи</a></nav><a class="mobile-menu__phone" href="tel:+78442564554">8 (8442) 56-45-54</a></div>`;
+  mobileMenu.innerHTML = `<div class="mobile-menu__backdrop" data-menu-close></div><div class="mobile-menu__panel"><div class="mobile-menu__head"><span>Навигация</span></div><nav aria-label="Мобильная навигация"><a href="${routes.home}">Главная</a><a href="${routes.services}">Услуги</a><a href="${routes.cases}">Кейсы</a><a href="${routes.contacts}">Контакты</a><a href="${routes.articles}">Статьи</a></nav><a class="mobile-menu__phone" href="tel:+78442564554">8 (8442) 56-45-54</a></div>`;
   document.body.append(mobileMenu);
   const menuToggle = document.querySelector('.menu-toggle');
   const closeMobileMenu = ({ restoreFocus = false } = {}) => {
@@ -526,15 +526,31 @@
     menuToggle.setAttribute('aria-expanded', String(open));
     mobileMenu.setAttribute('aria-hidden', String(!open));
     mobileMenu.inert = !open;
-    if (open) mobileMenu.querySelector('button[data-menu-close]')?.focus({ preventScroll: true });
+    if (open) mobileMenu.querySelector('nav a')?.focus({ preventScroll: true });
   });
   mobileMenu.querySelectorAll('[data-menu-close]').forEach((control) => control.addEventListener('click', () => closeMobileMenu({ restoreFocus: true })));
   mobileMenu.querySelectorAll('a').forEach((control) => control.addEventListener('click', () => closeMobileMenu()));
-  const closeMenuOnEscape = (event) => {
-    if (event.key === 'Escape' && document.body.classList.contains('menu-open')) closeMobileMenu({ restoreFocus: true });
+  const handleMobileMenuKeys = (event) => {
+    if (!document.body.classList.contains('menu-open')) return;
+    if (event.key === 'Escape') {
+      closeMobileMenu({ restoreFocus: true });
+      return;
+    }
+    if (event.key !== 'Tab') return;
+    const focusable = [...mobileMenu.querySelectorAll('a[href]')].filter((item) => !item.hidden);
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   };
-  document.addEventListener('keydown', closeMenuOnEscape);
-  registerPageCleanup(() => document.removeEventListener('keydown', closeMenuOnEscape));
+  document.addEventListener('keydown', handleMobileMenuKeys);
+  registerPageCleanup(() => document.removeEventListener('keydown', handleMobileMenuKeys));
 
   if (page === 'Контакты') {
     // Mark the authored map before the shared live-map branch below runs.

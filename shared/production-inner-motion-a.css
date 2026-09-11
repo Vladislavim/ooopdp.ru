@@ -1,3 +1,5 @@
+@import url("./motion-tokens.css");
+
 /*
  * PDP inner motion A
  *
@@ -5,11 +7,11 @@
  * this file and therefore keeps its original design and timing untouched.
  */
 body.production-page {
-  --pdp-motion-fast: 160ms;
-  --pdp-motion-ui: 280ms;
-  --pdp-motion-content: 480ms;
-  --pdp-motion-image: 600ms;
-  --pdp-motion-ease: cubic-bezier(.22, 1, .36, 1);
+  --pdp-motion-fast: var(--motion-duration-fast);
+  --pdp-motion-ui: var(--motion-duration-ui);
+  --pdp-motion-content: var(--motion-duration-content);
+  --pdp-motion-image: var(--motion-duration-image);
+  --pdp-motion-ease: var(--motion-ease-standard);
 
   /* Existing inner aliases resolve to one motion language. */
   --inner-ease: var(--pdp-motion-ease);
@@ -29,21 +31,6 @@ html.inner-motion-a-ready body.production-page .inner-motion-a-reveal {
 }
 
 html.inner-motion-a-ready body.production-page .inner-motion-a-reveal.is-inner-motion-a-visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* Services already has a data-reveal controller. Keep it, but make it use the
-   same distance, duration and easing as the section controller. */
-html.inner-motion-a-ready body.production-services.svc-motion-ready [data-reveal] {
-  opacity: 0;
-  transform: translate3d(0, 18px, 0);
-  transition: opacity var(--pdp-motion-content) var(--pdp-motion-ease),
-    transform var(--pdp-motion-content) var(--pdp-motion-ease);
-  transition-delay: var(--svc-reveal-delay, 0ms);
-}
-
-html.inner-motion-a-ready body.production-services.svc-motion-ready [data-reveal].is-visible {
   opacity: 1;
   transform: none;
 }
@@ -85,8 +72,26 @@ body.production-page :where(
   .pcp-project-card,
   .svc-service-card,
   .svc-industry-card
-):is(:hover, :focus-visible, :active) {
+):is(:hover, :focus-visible) {
   transform: none;
+}
+
+body.production-page :where(
+  .form-submit,
+  .prod-actions-button,
+  .prod-link,
+  .prod-text-link,
+  .pcp-text-link,
+  .pcp-outline-link,
+  .articles-index-button,
+  .articles-index-link,
+  .pdp-articles-button,
+  .svc-button,
+  .svc-text-action,
+  .svc-card-action
+):active {
+  transform: scale(.975);
+  transition: transform var(--pdp-motion-fast) var(--pdp-motion-ease);
 }
 
 body.production-page :where(
@@ -263,17 +268,10 @@ html.inner-motion-a-ready body.production-page .prod-card:is(:hover, :focus-with
   }
 }
 
-/* Final inner-page normalization. Existing motion families stay intact; this
-   only removes legacy timing/easing drift and layout-moving hover states. */
-body.production-page :where(*, *::before, *::after) {
-  transition-timing-function: var(--pdp-motion-ease) !important;
-}
-
 html.inner-motion-a-ready body.production-page :where(
   .top .brand,
   .top .brand-logo,
   .top .nav a,
-  .top .nav a::after,
   .top .top-cta,
   .form-submit,
   .prod-actions-button,
@@ -474,13 +472,6 @@ html.inner-motion-a-ready body.production-page .footer-map-embed iframe {
   transition: none !important;
 }
 
-/* Existing service scroll-reveal is content motion; only its timing is
-   synchronized with the canonical content family. */
-html.inner-motion-a-ready body.production-services.svc-motion-ready [data-reveal].is-visible {
-  transition-duration: var(--pdp-motion-content) !important;
-  transition-timing-function: var(--pdp-motion-ease) !important;
-}
-
 /* Final pass for the remaining page-specific controls. These selectors keep
    the existing interactions, but remove their legacy 200-520ms split timing. */
 html.inner-motion-a-ready body.production-page :where(
@@ -512,8 +503,7 @@ html.inner-motion-a-ready body.production-page :where(
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html.inner-motion-a-ready body.production-page .inner-motion-a-reveal,
-  html.inner-motion-a-ready body.production-services.svc-motion-ready [data-reveal] {
+  html.inner-motion-a-ready body.production-page .inner-motion-a-reveal {
     opacity: 1;
     transform: none;
     transition: none !important;

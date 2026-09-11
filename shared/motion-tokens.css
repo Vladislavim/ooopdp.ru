@@ -1,0 +1,12 @@
+:root {
+  --motion-duration-fast: 180ms;
+  --motion-duration-ui: 280ms;
+  --motion-duration-base: 420ms;
+  --motion-duration-content: 480ms;
+  --motion-duration-image: 600ms;
+  --motion-duration-slow: 650ms;
+  --motion-stagger: 45ms;
+  --motion-ease-standard: cubic-bezier(.22, 1, .36, 1);
+  --motion-ease-media: cubic-bezier(.22, .72, .18, 1);
+  --motion-ease-exit: cubic-bezier(.4, 0, 1, 1);
+}

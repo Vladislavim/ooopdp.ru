@@ -494,11 +494,11 @@ body.production-cases .pdp-cases-hero {
   min-width: 0;
   padding: 30px 24px;
   border-right: 1px solid var(--cases-line);
-  transition: background-color .3s ease, padding-left .4s cubic-bezier(.2,.75,.2,1);
+  transition: background-color .3s ease;
 }
 
 .pdp-cases-materials__list a:last-child { border-right: 0; }
-.pdp-cases-materials__list a:hover { padding-left: 30px; background: rgba(244, 81, 22, .045); }
+.pdp-cases-materials__list a:hover { background: rgba(244, 81, 22, .045); }
 .pdp-cases-materials__list strong { font: 700 11px/1.2 Geologica, Arial, sans-serif; text-transform: uppercase; }
 .pdp-cases-materials__list small { color: var(--cases-orange); font-size: 10px; }
 
@@ -593,7 +593,6 @@ body.production-cases [data-cta] { margin-top: 0; }
   .pdp-cases-materials__list { grid-template-columns: 1fr; }
   .pdp-cases-materials__list a { min-height: 112px; padding-inline: 0; border-right: 0; border-bottom: 1px solid var(--cases-line); }
   .pdp-cases-materials__list a:last-child { border-bottom: 0; }
-  .pdp-cases-materials__list a:hover { padding-left: 6px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

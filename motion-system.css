@@ -1,11 +1,7 @@
+@import url("./shared/motion-tokens.css");
+
 /* /orig desktop motion system — shared tokens and restrained interaction rules. */
 :root {
-  --motion-duration-fast: 180ms;
-  --motion-duration-base: 420ms;
-  --motion-duration-slow: 650ms;
-  --motion-stagger: 45ms;
-  --motion-ease-standard: cubic-bezier(.22, 1, .36, 1);
-  --motion-ease-exit: cubic-bezier(.4, 0, 1, 1);
   --motion-slider-interval: 7000ms;
   --motion-slider-transition: 460ms;
   --motion-form-feedback: 1200ms;

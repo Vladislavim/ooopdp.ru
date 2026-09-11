@@ -180,25 +180,6 @@
     transition-timing-function: var(--pdp-motion-ease) !important;
   }
 
-  .nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -8px;
-    height: 1px;
-    background: var(--o);
-    transform: scaleX(0);
-    transform-origin: right center;
-    transition: transform var(--pdp-motion-fast) var(--pdp-motion-ease);
-  }
-
-  .nav a:hover::after,
-  .nav a:focus-visible::after {
-    transform: scaleX(1);
-    transform-origin: left center;
-  }
-
   .btn,
   .project-showcase-discuss,
   .form-submit,
@@ -587,23 +568,13 @@
   }
 
   .contact-direct a,
-  .footer a,
   .more,
   .about-action,
   .project-showcase-link {
     position: relative;
   }
 
-  /* Footer navigation keeps its text-sized interaction rail. The former
-     block-width pseudo underline made a hovered link draw across a whole
-     column, unlike the canonical inner-page footer. */
-  .footer a:not(.footer-map-link) {
-    width: fit-content;
-    max-width: 100%;
-  }
-
   .contact-direct a::after,
-  .footer a::after,
   .more::after,
   .about-action::after,
   .project-showcase-link::after {
@@ -621,8 +592,6 @@
 
   .contact-direct a:hover::after,
   .contact-direct a:focus-visible::after,
-  .footer a:hover::after,
-  .footer a:focus-visible::after,
   .more:hover::after,
   .more:focus-visible::after,
   .about-action:hover::after,

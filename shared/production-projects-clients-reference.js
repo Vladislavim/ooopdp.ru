@@ -150,7 +150,7 @@
     const animation = featureImage.animate([
       { clipPath: 'inset(0 100% 0 0)', transform: 'scale(1.02)', filter: 'brightness(1.12)' },
       { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)', filter: 'brightness(1)' }
-    ], {duration: 600, easing: motionEase, fill: 'both'});
+    ], {duration: 280, easing: motionEase, fill: 'both'});
     activeAnimations.push(animation);
     featureImage.style.opacity = '1';
     animation.finished.catch(() => {}).finally(() => {
@@ -223,9 +223,10 @@
   runHeroMotion();
   updateParallax();
 
-  window.addEventListener('pagehide', () => {
+  window.addEventListener('pagehide', (event) => {
+    if (event.persisted) return;
     interactionController.abort();
     stopAnimations();
     if (parallaxFrame) window.cancelAnimationFrame(parallaxFrame);
-  }, { once: true });
+  });
 })();

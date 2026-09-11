@@ -21,35 +21,6 @@
 .footer-company small,.footer a{display:block;color:#b6bab2;font:400 10px/1.7 "Golos Text",Golos,Arial,sans-serif}
 .footer b{display:block;margin-bottom:12px;color:#f3f2ed;font:700 11px/normal "Golos Text",Golos,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}
 .footer a:hover,.footer a:focus-visible{color:#fff}
-.footer > div:nth-child(2) > a,
-.footer > div:nth-child(3) > a{
-  position:relative;
-  width:max-content;
-  max-width:100%;
-  padding-bottom:0;
-  margin-bottom:0;
-  border-bottom:0;
-}
-.footer > div:nth-child(2) > a::after,
-.footer > div:nth-child(3) > a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:100%;
-  height:1px;
-  background:currentColor;
-  transform:scaleX(0);
-  transform-origin:left center;
-  transition:transform 280ms cubic-bezier(.22,.72,.18,1);
-  pointer-events:none;
-}
-.footer > div:nth-child(2) > a:hover::after,
-.footer > div:nth-child(2) > a:focus-visible::after,
-.footer > div:nth-child(3) > a:hover::after,
-.footer > div:nth-child(3) > a:focus-visible::after{
-  transform:scaleX(1);
-}
 .footer-contact-copy b{margin-bottom:22px}
 .footer-contact-copy > a:not(.phone2){font:400 10px/1.45 "Golos Text",Golos,Arial,sans-serif}
 .footer-contacts{display:grid;grid-template-columns:minmax(145px,.62fr) minmax(0,1.38fr);gap:24px;align-items:stretch;border-left:1px solid #454743;padding-left:28px}

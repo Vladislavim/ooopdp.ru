@@ -6,25 +6,25 @@ body.production-services .svc-service-card {
     color var(--pdp-motion-ui, 280ms) var(--pdp-motion-ease, cubic-bezier(.22, .72, .18, 1));
 }
 
-body.production-services .svc-service-card:is(:hover, :focus-within) {
+body.production-services .svc-service-card:focus-within {
   background: var(--svc-orange, #f45116) !important;
   border-color: var(--svc-orange, #f45116) !important;
   color: #fff;
   transform: none !important;
 }
 
-body.production-services .svc-service-card:is(:hover, :focus-within) .svc-service-card__head > span,
-body.production-services .svc-service-card:is(:hover, :focus-within) h3,
-body.production-services .svc-service-card:is(:hover, :focus-within) p,
-body.production-services .svc-service-card:is(:hover, :focus-within) .svc-card-action {
+body.production-services .svc-service-card:focus-within .svc-service-card__head > span,
+body.production-services .svc-service-card:focus-within h3,
+body.production-services .svc-service-card:focus-within p,
+body.production-services .svc-service-card:focus-within .svc-card-action {
   color: #fff;
 }
 
-body.production-services .svc-service-card:is(:hover, :focus-within) .svc-service-card__head img {
+body.production-services .svc-service-card:focus-within .svc-service-card__head img {
   filter: brightness(0) invert(1);
 }
 
-body.production-services .svc-service-card:is(:hover, :focus-within) .svc-card-action span {
+body.production-services .svc-service-card:focus-within .svc-card-action span {
   color: #fff;
 }
 
@@ -34,35 +34,38 @@ body.production-services .svc-industry-card {
   transition: background-color var(--pdp-motion-ui, 280ms) var(--pdp-motion-ease, cubic-bezier(.22, .72, .18, 1));
 }
 
-body.production-services .svc-industry-card:is(:hover, :focus-visible) {
+body.production-services .svc-industry-card:focus-visible {
   background: var(--svc-orange, #f45116) !important;
 }
 
-body.production-services .svc-industry-card:is(:hover, :focus-visible) > img:first-child {
+body.production-services .svc-industry-card:focus-visible > img:first-child {
   opacity: 0 !important;
   transform: none !important;
   filter: none !important;
 }
 
 body.production-services .svc-industry-card::before {
-  background: var(--svc-orange, #f45116) !important;
-  transition: height var(--pdp-motion-ui, 280ms) var(--pdp-motion-ease, cubic-bezier(.22, .72, .18, 1));
-}
-
-body.production-services .svc-industry-card:is(:hover, :focus-visible)::before {
   height: 100% !important;
+  background: var(--svc-orange, #f45116) !important;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  transition: transform var(--pdp-motion-ui, 280ms) var(--pdp-motion-ease, cubic-bezier(.22, 1, .36, 1));
 }
 
-body.production-services .svc-industry-card:is(:hover, :focus-visible) .svc-industry-card__veil {
+body.production-services .svc-industry-card:focus-visible::before {
+  transform: scaleY(1);
+}
+
+body.production-services .svc-industry-card:focus-visible .svc-industry-card__veil {
   background: transparent !important;
 }
 
-body.production-services .svc-industry-card:is(:hover, :focus-visible) .svc-industry-card__content strong,
-body.production-services .svc-industry-card:is(:hover, :focus-visible) .svc-industry-card__content small {
+body.production-services .svc-industry-card:focus-visible .svc-industry-card__content strong,
+body.production-services .svc-industry-card:focus-visible .svc-industry-card__content small {
   color: #fff !important;
 }
 
-body.production-services .svc-industry-card:is(:hover, :focus-visible) .svc-industry-card__content img {
+body.production-services .svc-industry-card:focus-visible .svc-industry-card__content img {
   filter: brightness(0) invert(1) !important;
 }
 
@@ -73,8 +76,109 @@ body.production-services .svc-industry-card::after {
   bottom: 14px;
 }
 
-body.production-services .svc-industry-card:is(:hover, :focus-visible)::after {
+body.production-services .svc-industry-card:focus-visible::after {
   color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.production-services .svc-service-card:hover {
+    background: var(--svc-orange, #f45116) !important;
+    border-color: var(--svc-orange, #f45116) !important;
+    color: #fff;
+    transform: none !important;
+  }
+
+  body.production-services .svc-service-card:hover :where(.svc-service-card__head > span, h3, p, .svc-card-action, .svc-card-action span) {
+    color: #fff;
+  }
+
+  body.production-services .svc-service-card:hover .svc-service-card__head img,
+  body.production-services .svc-industry-card:hover .svc-industry-card__content img {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  body.production-services .svc-industry-card:hover {
+    background: var(--svc-orange, #f45116) !important;
+  }
+
+  body.production-services .svc-industry-card:hover > img:first-child {
+    opacity: 0 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  body.production-services .svc-industry-card:hover::before {
+    transform: scaleY(1);
+  }
+
+  body.production-services .svc-industry-card:hover .svc-industry-card__veil {
+    background: transparent !important;
+  }
+
+  body.production-services .svc-industry-card:hover :where(.svc-industry-card__content strong, .svc-industry-card__content small),
+  body.production-services .svc-industry-card:hover::after {
+    color: #fff !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  body.production-services .svc-service-card:hover:not(:focus-within) {
+    border-color: var(--svc-line) !important;
+    background: rgba(255, 255, 255, .22) !important;
+    color: var(--svc-ink);
+  }
+
+  body.production-services .svc-service-card:hover:not(:focus-within) .svc-service-card__head > span,
+  body.production-services .svc-service-card:hover:not(:focus-within) .svc-card-action span {
+    color: var(--svc-orange);
+  }
+
+  body.production-services .svc-service-card:hover:not(:focus-within) h3,
+  body.production-services .svc-service-card:hover:not(:focus-within) .svc-card-action {
+    color: var(--svc-ink);
+  }
+
+  body.production-services .svc-service-card:hover:not(:focus-within) p {
+    color: var(--svc-muted);
+  }
+
+  body.production-services .svc-service-card:hover:not(:focus-within) .svc-service-card__head img {
+    filter: brightness(0) saturate(100%) !important;
+  }
+
+  body.production-services .svc-industry-card:hover:not(:focus-visible) {
+    background: #202321 !important;
+  }
+
+  body.production-services .svc-industry-card:hover:not(:focus-visible)::before {
+    transform: scaleY(0);
+  }
+
+  body.production-services .svc-industry-card:hover:not(:focus-visible) > img:first-child {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  body.production-services .svc-industry-card:hover:not(:focus-visible) .svc-industry-card__veil {
+    background: rgba(8, 10, 9, .56) !important;
+  }
+
+  body.production-services .svc-industry-card:hover:not(:focus-visible) .svc-industry-card__content strong {
+    color: #f7f7f3 !important;
+  }
+
+  body.production-services .svc-industry-card:hover:not(:focus-visible) .svc-industry-card__content small {
+    color: rgba(247, 247, 243, .72) !important;
+  }
+
+  body.production-services .svc-industry-card:hover:not(:focus-visible) .svc-industry-card__content img {
+    filter: brightness(0) saturate(100%) invert(37%) sepia(96%) saturate(2475%) hue-rotate(348deg) brightness(101%) contrast(96%) !important;
+  }
+
+  body.production-services .svc-industry-card:hover:not(:focus-visible)::after {
+    color: var(--svc-orange) !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

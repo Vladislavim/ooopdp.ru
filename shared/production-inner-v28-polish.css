@@ -744,10 +744,6 @@ body.production-services .svc-service-card {
   transition: opacity 700ms ease, transform 520ms var(--v28-ease), background-color 520ms var(--v28-ease), border-color 320ms ease, color 320ms ease;
 }
 
-body.production-services.svc-motion-ready .svc-service-card[data-reveal].is-visible {
-  transition: opacity 700ms ease, transform 520ms var(--v28-ease), background-color 520ms var(--v28-ease), border-color 320ms ease, color 320ms ease;
-}
-
 body.production-services .svc-service-card__head > span,
 body.production-services .svc-service-card h3,
 body.production-services .svc-service-card p,
@@ -783,10 +779,6 @@ body.production-services .svc-service-card:focus-within .svc-service-card__head 
 }
 
 body.production-services .svc-industry-card {
-  transition: opacity 700ms ease, transform 700ms cubic-bezier(.2, .75, .2, 1), background-color 520ms var(--v28-ease), color 320ms ease;
-}
-
-body.production-services.svc-motion-ready .svc-industry-card[data-reveal].is-visible {
   transition: opacity 700ms ease, transform 700ms cubic-bezier(.2, .75, .2, 1), background-color 520ms var(--v28-ease), color 320ms ease;
 }
 
@@ -909,10 +901,12 @@ body.production-services .svc-industry-card::before {
   position: absolute;
   inset: auto 0 0;
   z-index: 2;
-  height: 0;
+  height: var(--industry-hover-panel);
   background: var(--v28-orange);
   pointer-events: none;
-  transition: height 520ms var(--v28-ease);
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  transition: transform 520ms var(--v28-ease);
 }
 
 body.production-services .svc-industry-card__content {
@@ -921,7 +915,7 @@ body.production-services .svc-industry-card__content {
 
 body.production-services .svc-industry-card:hover::before,
 body.production-services .svc-industry-card:focus-visible::before {
-  height: var(--industry-hover-panel);
+  transform: scaleY(1);
 }
 
 body.production-services .svc-industry-card:hover .svc-industry-card__veil,

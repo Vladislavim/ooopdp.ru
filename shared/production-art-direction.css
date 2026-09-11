@@ -421,8 +421,8 @@ body:not(:has(.hero)) .not-found-actions { gap: 12px; margin-top: 34px; }
 
 body:not(:has(.hero)) .privacy-layout { gap: 64px; }
 body:not(:has(.hero)) .privacy-sidebar { border-right-color: var(--art-line); }
-body:not(:has(.hero)) .privacy-sidebar a { transition: color .35s var(--art-ease), padding-left .35s var(--art-ease); }
-body:not(:has(.hero)) .privacy-sidebar a:hover { padding-left: 5px; color: var(--art-orange); }
+body:not(:has(.hero)) .privacy-sidebar a { transition: color .35s var(--art-ease); }
+body:not(:has(.hero)) .privacy-sidebar a:hover { color: var(--art-orange); }
 body:not(:has(.hero)) .privacy-content section { padding-bottom: 28px; margin-bottom: 28px; border-bottom-color: var(--art-line-soft); }
 
 @media (min-width: 701px) {

@@ -50,5 +50,7 @@
     section.style.removeProperty('--contact-p-mark-y');
   };
 
-  window.addEventListener('pagehide', dispose, { once: true });
+  window.addEventListener('pagehide', (event) => {
+    if (!event.persisted) dispose();
+  });
 })();

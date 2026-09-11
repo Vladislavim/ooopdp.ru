@@ -44,5 +44,7 @@
     cleanupTasks.splice(0).forEach((cleanup) => cleanup());
   };
 
-  window.addEventListener('pagehide', dispose, { once: true });
+  window.addEventListener('pagehide', (event) => {
+    if (!event.persisted) dispose();
+  });
 })();

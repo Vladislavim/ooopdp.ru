@@ -19,9 +19,15 @@ export async function renderDocument({
   manifest,
   canonicalBlocks = {},
   optimizedAssets = {},
+  templateContext = {},
+  shell = {},
 }) {
   const read = (relativePath) => readFile(path.join(rootDir, relativePath), 'utf8');
   const optimize = (markup) => optimizeMarkup(markup, optimizedAssets);
+  const compile = (markup, source = manifest.id) => markup.replace(/\{\{([A-Z_]+)\}\}/g, (token, key) => {
+    if (!(key in templateContext)) throw new Error(`Unknown token ${token} in ${source}`);
+    return templateContext[key];
+  });
   // Keep the source document byte-stable when the build marker is stripped.
   // Appending the marker inside <head> avoids introducing a leading blank line.
   const head = `${optimize(document.headInner)}${GENERATED_MARKER}`;
@@ -37,18 +43,28 @@ export async function renderDocument({
       ?? sharedParts[part]
       ?? pageCanonicalBlocks[part]
       ?? partMeta.file;
-    fragments.push(optimize(await read(source)));
+    fragments.push(optimize(compile(await read(source), source)));
   }
 
-  const bodyBeforeMain = optimize(document.bodyBeforeMain);
+  let bodyBeforeMain = optimize(compile(document.bodyBeforeMain));
+  let mainInner = fragments.join('');
+  if (manifest.kind !== 'home') {
+    bodyBeforeMain = bodyBeforeMain.replace(/<div\s+data-site-header\s*><\/div>/, optimize(shell.header || ''));
+    const contactSlot = /<div\s+data-cta(?:\s+data-title="[^"]*")?\s*><\/div>/g;
+    const footerSlot = /<div\s+data-site-footer\s*><\/div>/g;
+    const hasContactSlot = contactSlot.test(mainInner);
+    contactSlot.lastIndex = 0;
+    mainInner = mainInner.replace(contactSlot, optimize(shell.contact || ''));
+    if (!hasContactSlot && footerSlot.test(mainInner)) {
+      footerSlot.lastIndex = 0;
+      mainInner = mainInner.replace(footerSlot, `${optimize(shell.contact || '')}${optimize(shell.footer || '')}`);
+    } else {
+      footerSlot.lastIndex = 0;
+      mainInner = mainInner.replace(footerSlot, optimize(shell.footer || ''));
+    }
+  }
   const mainInnerTrailing = optimize(document.mainInnerTrailing);
-  const bodyAfterMain = manifest.kind === 'inner' && document.bodyAfterMain.includes('../shared/production-site-shell.js')
-    ? optimize(document.bodyAfterMain)
-      .replace(
-      '<script src="../shared/production-site-shell.js',
-      '<script src="../shared/inner-shell-markup.js?v=20260831-cache-v4"></script>\n    <script src="../shared/production-site-shell.js'
-      )
-    : optimize(document.bodyAfterMain);
+  const bodyAfterMain = optimize(document.bodyAfterMain);
 
   return [
     document.doctype,
@@ -61,7 +77,7 @@ export async function renderDocument({
     document.bodyOpen,
     bodyBeforeMain,
     document.mainOpen,
-    fragments.join(''),
+    mainInner,
     mainInnerTrailing,
     document.mainClose,
     bodyAfterMain,

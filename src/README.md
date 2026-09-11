@@ -5,12 +5,12 @@
 ## Where to change things
 
 - `data/site-data.js` — brand data, routes, motion tokens and the canonical block registry.
-- `blocks/<name>/` — reusable block contracts plus canonical source markup for shared header, footer and CTA blocks. Inner shell templates live beside them as `inner-template.html`.
+- `blocks/<name>/` — reusable block contracts plus one path-aware canonical source template for the shared header, footer and contact form.
 - `content/<page-id>/parts/` — exact top-level DOM fragments migrated from each existing page.
 - `pages/<page-id>.page.js` — page manifest and block order. To move a block, change the `order` array; to reuse a canonical block on another page, add a `blocks` source override. Do not edit generated HTML.
 - `build.mjs` — deterministic, dependency-free static builder.
 
-The build resolves a block in this order: manifest `blocks` override, manifest `shared` source, the `data/site-data.js` canonical registry, then the migrated page fragment. This makes reuse and reordering a source edit rather than a manual edit in several generated files. `shared/inner-shell-markup.js` is generated from the inner header, CTA and footer templates and consumed by the existing inner-page runtime shell.
+The build resolves a block in this order: manifest `blocks` override, manifest `shared` source, the `data/site-data.js` canonical registry, then the migrated page fragment. It compiles the same header, contact-form and footer templates with route-aware paths for the homepage and inner pages, so shared UI is present in the generated HTML before JavaScript runs.
 
 The current production CSS/JS remains the visual source of truth during this first migration pass. The architecture is deliberately additive: it gives the pages one assembly path without introducing a framework, new runtime dependency, or global CSS rewrite.
 

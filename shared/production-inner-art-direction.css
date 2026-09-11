@@ -141,12 +141,11 @@ body.production-page .prod-service-row {
   min-height: 112px;
   padding: 18px 20px;
   border-bottom-color: var(--inner-line);
-  transition: background-color .45s var(--inner-ease), padding-left .55s var(--inner-ease), color .35s ease;
+  transition: background-color .45s var(--inner-ease), color .35s ease;
 }
 
 body.production-page .prod-service-row:hover,
 body.production-page .prod-service-row:focus-visible {
-  padding-left: 27px;
   background: rgba(244, 81, 22, .075);
 }
 
@@ -2349,15 +2348,17 @@ body.production-catalog .prod-catalog-row::before {
   position: absolute;
   top: -1px;
   left: 0;
-  width: 0;
+  width: 96px;
   height: 2px;
   background: var(--inner-orange);
-  transition: width .62s var(--inner-ease);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--motion-duration-base, 420ms) var(--motion-ease-standard, cubic-bezier(.22, 1, .36, 1));
 }
 
 body.production-catalog .prod-catalog-row:hover::before,
 body.production-catalog .prod-catalog-row:focus-within::before {
-  width: 96px;
+  transform: scaleX(1);
 }
 
 body.production-catalog .prod-catalog-row__link {
@@ -3670,21 +3671,6 @@ body.production-projects .prod-client-focus__media img {
   }
 }
 
-/* Soft clip reveals and hard-grid hover language across all inner editorial
-   surfaces. */
-body.production-page .v25-reveal {
-  opacity: 1;
-  clip-path: inset(0);
-  transform: none;
-  transition: none;
-}
-
-body.production-page .v25-reveal.is-v25-visible {
-  opacity: 1;
-  clip-path: inset(0);
-  transform: translateY(0);
-}
-
 body.production-page .prod-project-row__image,
 body.production-page .prod-news-feature__image,
 body.production-page .prod-news-card > img,
@@ -4027,11 +4013,6 @@ body.production-404-page .prod-404__copy {
     font-size: 250px;
   }
 
-  body.production-page .v25-reveal {
-    clip-path: inset(0 0 5% 0);
-    transform: translateY(10px);
-    transition-delay: 0ms;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -4040,15 +4021,8 @@ body.production-404-page .prod-404__copy {
   body.production-page .prod-service-row::before,
   body.production-page .prod-composition__item::after,
   body.production-page .prod-client::after,
-  body.production-page .prod-client-focus__media img,
-  body.production-page .v25-reveal {
+  body.production-page .prod-client-focus__media img {
     transition: none !important;
-  }
-
-  body.production-page .v25-reveal {
-    opacity: 1;
-    clip-path: inset(0);
-    transform: none;
   }
 }
 
@@ -4079,7 +4053,7 @@ body.production-services .prod-service-row {
   padding: 22px 22px 22px 24px;
   border-bottom-color: var(--inner-line);
   background: transparent;
-  transition: background-color .5s var(--inner-ease), padding-left .55s var(--inner-ease);
+  transition: background-color .5s var(--inner-ease);
 }
 
 body.production-services .prod-service-row::before {
@@ -4241,11 +4215,14 @@ body.production-services .prod-process-pin .prod-process::after {
   position: absolute;
   top: 25px;
   left: 10%;
+  right: 10%;
   z-index: 1;
-  width: var(--process-progress);
+  width: auto;
   height: 2px;
   background: var(--inner-orange);
-  transition: width .68s var(--inner-ease);
+  transform: scaleX(var(--process-progress, 0));
+  transform-origin: left center;
+  transition: transform var(--motion-duration-base, 420ms) var(--motion-ease-standard, cubic-bezier(.22, 1, .36, 1));
 }
 
 body.production-services .prod-process__item {
@@ -4474,7 +4451,7 @@ body.production-contacts .prod-contact-map:focus-visible .prod-contact-map__open
 
 body.production-contacts .prod-contact-fact {
   position: relative;
-  transition: color .35s ease, padding-left .45s var(--inner-ease);
+  transition: color .35s ease;
 }
 
 body.production-contacts a.prod-contact-fact::after {

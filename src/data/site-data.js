@@ -1,5 +1,11 @@
 import { innerOptimizedAssets } from './asset-variants.js';
 
+const sharedBlocks = Object.freeze({
+  header: 'blocks/header/template.html',
+  contact: 'blocks/contact-form/template.html',
+  footer: 'blocks/footer/template.html',
+});
+
 /**
  * Single source of truth for page-level content and paths.
  *
@@ -20,10 +26,14 @@ export const siteData = Object.freeze({
   ]),
   routes: Object.freeze({
     home: 'index.html',
-    pages: 'pages/',
-    assets: 'assets/',
-    shared: 'shared/',
+    services: 'pages/02-services.html',
+    cases: 'pages/06-completed-works.html',
+    projects: 'pages/04-projects-clients.html',
+    articles: 'pages/07-news-articles.html',
+    contacts: 'pages/10-contacts.html',
+    privacy: 'pages/12-privacy-policy.html',
   }),
+  sharedBlocks,
   pageIds: Object.freeze([
     'home',
     'page-index',
@@ -46,7 +56,7 @@ export const siteData = Object.freeze({
   // shared and homepage sections resolve from this registry first.
   canonicalBlocks: Object.freeze({
     home: Object.freeze({
-      header: 'blocks/header/template.html',
+      header: sharedBlocks.header,
       'header-2': 'content/home/parts/002-header-2.html',
       services: 'content/home/parts/003-services.html',
       directions: 'content/home/parts/004-directions.html',
@@ -55,15 +65,20 @@ export const siteData = Object.freeze({
       'clients-trust-title': 'content/home/parts/007-clients-trust-title.html',
       about: 'content/home/parts/008-about.html',
       articles: 'content/home/parts/009-articles.html',
-      contacts: 'blocks/contact-form/template.html',
-      footer: 'blocks/footer/template.html',
+      contacts: sharedBlocks.contact,
+      footer: sharedBlocks.footer,
     }),
   }),
 });
 
 export const motionTokens = Object.freeze({
-  fast: '160ms',
+  fast: '180ms',
   ui: '280ms',
+  base: '420ms',
   content: '480ms',
+  image: '600ms',
+  slow: '650ms',
+  stagger: '45ms',
   easing: 'cubic-bezier(.22, 1, .36, 1)',
+  mediaEasing: 'cubic-bezier(.22, .72, .18, 1)',
 });

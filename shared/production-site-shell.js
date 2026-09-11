@@ -12,7 +12,9 @@
       try { cleanup(); } catch (error) { /* teardown must never block navigation */ }
     });
   };
-  window.addEventListener('pagehide', disposePage, { once: true });
+  window.addEventListener('pagehide', (event) => {
+    if (!event.persisted) disposePage();
+  });
 
   const setupSharedScroll = () => {
     if (!document.body?.classList.contains('production-page') || window.__pdpInnerScrollBoot) return;
@@ -71,7 +73,7 @@
   document.head.append(shellStyles);
   const headerStyles = document.createElement('link');
   headerStyles.rel = 'stylesheet';
-  headerStyles.href = `../shared/production-header-shell.css?v=${CACHE_VERSION}`;
+  headerStyles.href = `../shared/header-shell.css?v=${CACHE_VERSION}`;
   document.head.append(headerStyles);
   const footerStyles = document.createElement('link');
   footerStyles.rel = 'stylesheet';
@@ -93,6 +95,10 @@
   ctaSurfaceStyles.rel = 'stylesheet';
   ctaSurfaceStyles.href = `../shared/production-cta-surface.css?v=20260829-cta-surface-v1`;
   document.head.append(ctaSurfaceStyles);
+  const shellHoverStyles = document.createElement('link');
+  shellHoverStyles.rel = 'stylesheet';
+  shellHoverStyles.href = `../shared/shell-hover-motion.css?v=${CACHE_VERSION}`;
+  document.head.append(shellHoverStyles);
 
   if (document.body?.classList.contains('production-page')) {
     const main = document.querySelector('main');
@@ -424,89 +430,6 @@
   };
   prepareEditorialHero();
 
-  const innerShellTemplates = window.PDP_INNER_SHELL_TEMPLATES || {};
-  const compileInnerShellMarkup = (name, fallback, replacements) => {
-    const template = innerShellTemplates[name] || fallback;
-    return Object.entries(replacements).reduce((markup, [token, value]) => (
-      markup.replaceAll(`{{${token}}}`, String(value ?? ''))
-    ), template);
-  };
-
-  const headerFallbackMarkup = `
-    <header class="top">
-      <a class="brand" href="${routes.home}" aria-label="ПДП — Поволжское деловое партнёрство. Архитектура возможностей">
-        <img class="brand-logo" src="${asset('pdp-official-logo.svg')}" width="150" height="50" alt="ПДП — Поволжское деловое партнёрство">
-        <span class="brand-slogan">Архитектура<br>возможностей</span>
-      </a>
-      <nav class="nav" aria-label="Основная навигация">
-        <a href="${routes.home}">Главная</a>
-        <a class="${page === 'Услуги' ? 'active' : ''}" href="${routes.services}">Услуги</a>
-        <a class="${page === 'Кейсы' ? 'active' : ''}" href="${routes.cases}">Кейсы</a>
-        <a class="${page === 'Контакты' ? 'active' : ''}" href="${routes.contacts}">Контакты</a>
-        <a class="${page === 'Статьи' ? 'active' : ''}" href="${routes.articles}">Статьи</a>
-      </nav>
-      <a class="tel" href="tel:+78442564554" aria-label="Позвонить: 8 8442 56-45-54">
-        <svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg>
-        <span>8 (8442) 56-45-54</span>
-      </a>
-      <a class="top-cta" href="${routes.contacts}" data-desktop-label="Получить предварительный расчёт" data-tablet-label="Получить расчёт" aria-label="Получить предварительный расчёт">Получить предварительный расчёт</a>
-    </header>`;
-  const headerMarkup = compileInnerShellMarkup('header', headerFallbackMarkup, {
-    HOME: routes.home,
-    SERVICES: routes.services,
-    CASES: routes.cases,
-    CONTACTS: routes.contacts,
-    ARTICLES: routes.articles,
-    ACTIVE_SERVICES: page === 'Услуги' ? 'active' : '',
-    ACTIVE_CASES: page === 'Кейсы' ? 'active' : '',
-    ACTIVE_CONTACTS: page === 'Контакты' ? 'active' : '',
-    ACTIVE_ARTICLES: page === 'Статьи' ? 'active' : '',
-  });
-
-  const contactFallbackMarkup = `
-    <section class="contact-form-section shared-contact-form-section" id="contacts">
-      <img class="contact-form-p-mark" src="../assets/patterns/pdp-logo-parallax.png" width="1254" height="1254" alt="" aria-hidden="true">
-      <div class="contact-form-intro">
-        <span class="label">Предварительный разбор</span>
-        <h2><span>Доведём ваш объект</span><span>от проекта до ввода</span></h2>
-        <p>Организуем работу проектировщиков и подрядчиков, следим за сроками, качеством и документами. Вы в любой момент понимаете, что происходит на объекте и что нужно для следующего этапа.</p>
-        <div class="contact-direct">
-          <a href="tel:+78442564554"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a>
-          <a href="mailto:mail@ooopdp.ru">mail@ooopdp.ru</a>
-          <a class="contact-presentation" href="../assets/documents/pdp-presentation.pdf" download>Скачать презентацию PDF <small>15,4 МБ</small></a>
-        </div>
-      </div>
-      <form class="contact-form" data-contact-form novalidate>
-        <div class="form-field"><label for="contact-name">Имя <span aria-hidden="true">*</span></label><input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться…" required><small class="form-error" data-error-for="name"></small></div>
-        <div class="form-field"><label for="contact-value"><span data-contact-label>Телефон</span> <span aria-hidden="true">*</span></label><input id="contact-value" name="contact" type="tel" autocomplete="tel" inputmode="tel" spellcheck="false" placeholder="+7 999 000-00-00" required><small class="form-error" data-error-for="contact"></small></div>
-        <fieldset class="contact-channel"><legend>Как удобнее ответить</legend><label><input type="radio" name="channel" value="phone" checked> Телефон</label><label><input type="radio" name="channel" value="email"> Email</label><label><input type="radio" name="channel" value="messenger"> Мессенджер</label></fieldset>
-        <label class="form-consent form-consent-note"><input name="consent" type="checkbox" required><span>Нажимая на кнопку «Получить предварительный разбор проекта», вы соглашаетесь на <a href="${routes.privacy}" target="_blank" rel="noreferrer">обработку персональных данных</a>.</span></label><small class="form-error form-consent-error" data-error-for="consent"></small>
-        <button class="form-submit" type="submit"><span>Получить предварительный разбор проекта</span><i aria-hidden="true">→</i></button><p class="form-status" data-form-status aria-live="polite"></p>
-      </form>
-    </section>`;
-  const contactMarkup = compileInnerShellMarkup('contact', contactFallbackMarkup, {
-    PRIVACY: routes.privacy,
-  });
-
-  const footerFallbackMarkup = `
-    <footer class="footer">
-      <div class="footer-company"><div class="footer-lockup"><img class="footer-official-logo" src="${asset('pdp-official-logo-footer.svg')}" width="150" height="50" alt="ПДП — Поволжское деловое партнёрство"><span class="footer-slogan">Архитектура<br>возможностей</span></div><small>Берём объект под управление:<br>от проектных решений до ввода.<br><br>© ПДП, 2026</small></div>
-      <div><b>Навигация</b><a href="${routes.home}">Главная</a><a href="${routes.services}">Услуги</a><a href="${routes.projects}">Проекты</a><a href="${routes.articles}">Материалы</a><a href="${routes.contacts}">Контакты</a></div>
-      <div><b>Услуги</b><a href="${routes.services}">Технический заказчик</a><a href="${routes.services}">Проектирование</a><a href="${routes.services}">Строительные работы</a><a href="${routes.services}">Монтаж инженерных систем</a><a href="${routes.services}">Ремонтные работы</a></div>
-      <div class="footer-contacts"><div class="footer-contact-copy"><b>Контакты</b><a class="phone2" href="tel:+78442564554"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a><a href="mailto:mail@ooopdp.ru">mail@ooopdp.ru</a><a class="footer-address" href="https://yandex.ru/maps/38/volgograd/house/barrikadnaya_ulitsa_1k/YE0Ycg5lTEcEQFpifXp5eHpqbA==/?ll=44.495523%2C48.689697&amp;z=16" target="_blank" rel="noreferrer">Волгоград, ул. Баррикадная,<br>дом 1К, офис 5</a></div><div class="footer-map" aria-label="Карта расположения офиса ПДП"><div class="footer-map-embed"><iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;source=constructor-api&amp;um=constructor%3Ae6e6ea17780f6cf7b5b20ca42957b3a0e608287bd7129a93a53a53f6f5ba90f2667" frameborder="0" allowfullscreen="true" allow="geolocation" width="500" height="400" loading="eager" title="Карта расположения офиса ПДП"></iframe></div><a class="footer-map-link" href="https://yandex.ru/maps/38/volgograd/house/barrikadnaya_ulitsa_1k/YE0Ycg5lTEcEQFpifXp5eHpqbA==/?ll=44.495523%2C48.689697&amp;z=16" target="_blank" rel="noreferrer">Открыть карту <span aria-hidden="true">↗</span></a></div></div>
-    </footer>`;
-  let footerMarkup = compileInnerShellMarkup('footer', footerFallbackMarkup, {
-    HOME: routes.home,
-    SERVICES: routes.services,
-    PROJECTS: routes.projects,
-    ARTICLES: routes.articles,
-    CONTACTS: routes.contacts,
-  });
-  // Keep the inner-page widget pointed at the exact constructor used by the
-  // approved homepage. The extra segment in the copied URL resolves to a
-  // different/empty map on some browser sessions.
-  footerMarkup = footerMarkup.replaceAll('a93a53a53f6', 'a93a53f6');
-
   // The source mockups use clickable cards. Browsers repair nested anchors by
   // splitting those cards into detached fragments, so rebuild the two affected
   // editorial groups before the shared shell is mounted.
@@ -519,7 +442,7 @@
       const innerFeature = copyShell?.querySelector(':scope > .article-feature');
       if (mediaAnchor && copyShell && innerFeature) {
         const feature = document.createElement('a');
-        feature.className = 'article-feature motion-item';
+        feature.className = 'article-feature';
         feature.href = mediaAnchor.getAttribute('href') || innerFeature.getAttribute('href') || '#';
         const media = mediaAnchor.querySelector(':scope > .media');
         if (media) feature.append(media);
@@ -557,7 +480,7 @@
         const innerFeature = copyShell?.querySelector(':scope > .catalog-feature');
         if (!mediaAnchor?.matches('.catalog-feature') || !innerFeature) continue;
         const row = document.createElement('a');
-        row.className = 'catalog-feature motion-item';
+        row.className = 'catalog-feature';
         row.href = mediaAnchor.getAttribute('href') || innerFeature.getAttribute('href') || '#';
         const media = mediaAnchor.querySelector(':scope > .media');
         if (media) row.append(media);
@@ -581,9 +504,6 @@
   };
   repairSplitAnchorCards();
 
-  document.querySelector('[data-site-header]')?.insertAdjacentHTML('beforebegin', headerMarkup);
-  document.querySelector('[data-site-header]')?.remove();
-
   const header = document.querySelector('header.top');
   header?.insertAdjacentHTML('beforeend', '<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu"><span>Меню</span><i aria-hidden="true"></i></button>');
   const mobileMenu = document.createElement('div');
@@ -592,11 +512,12 @@
   mobileMenu.innerHTML = `<div class="mobile-menu__backdrop" data-menu-close></div><div class="mobile-menu__panel"><div class="mobile-menu__head"><span>Навигация</span><button type="button" data-menu-close aria-label="Закрыть меню">×</button></div><nav aria-label="Мобильная навигация"><a href="${routes.home}">Главная</a><a href="${routes.services}">Услуги</a><a href="${routes.cases}">Кейсы</a><a href="${routes.contacts}">Контакты</a><a href="${routes.articles}">Статьи</a></nav><a class="mobile-menu__phone" href="tel:+78442564554">8 (8442) 56-45-54</a></div>`;
   document.body.append(mobileMenu);
   const menuToggle = document.querySelector('.menu-toggle');
-  const closeMobileMenu = () => {
+  const closeMobileMenu = ({ restoreFocus = false } = {}) => {
     document.body.classList.remove('menu-open');
     menuToggle?.setAttribute('aria-expanded', 'false');
     mobileMenu.setAttribute('aria-hidden', 'true');
     mobileMenu.inert = true;
+    if (restoreFocus) menuToggle?.focus({ preventScroll: true });
   };
   closeMobileMenu();
   menuToggle?.addEventListener('click', () => {
@@ -605,15 +526,15 @@
     menuToggle.setAttribute('aria-expanded', String(open));
     mobileMenu.setAttribute('aria-hidden', String(!open));
     mobileMenu.inert = !open;
+    if (open) mobileMenu.querySelector('button[data-menu-close]')?.focus({ preventScroll: true });
   });
-  mobileMenu.querySelectorAll('[data-menu-close], a').forEach((control) => control.addEventListener('click', closeMobileMenu));
-
-  const ctaSlots = [...document.querySelectorAll('[data-cta]')];
-  if (ctaSlots.length) ctaSlots.forEach((slot) => slot.outerHTML = contactMarkup);
-  else document.querySelector('[data-site-footer]')?.insertAdjacentHTML('beforebegin', contactMarkup);
-  // Preserve the live map iframe from the shared footer on every inner page.
-  document.querySelector('[data-site-footer]')?.insertAdjacentHTML('beforebegin', footerMarkup);
-  document.querySelector('[data-site-footer]')?.remove();
+  mobileMenu.querySelectorAll('[data-menu-close]').forEach((control) => control.addEventListener('click', () => closeMobileMenu({ restoreFocus: true })));
+  mobileMenu.querySelectorAll('a').forEach((control) => control.addEventListener('click', () => closeMobileMenu()));
+  const closeMenuOnEscape = (event) => {
+    if (event.key === 'Escape' && document.body.classList.contains('menu-open')) closeMobileMenu({ restoreFocus: true });
+  };
+  document.addEventListener('keydown', closeMenuOnEscape);
+  registerPageCleanup(() => document.removeEventListener('keydown', closeMenuOnEscape));
 
   if (page === 'Контакты') {
     // Mark the authored map before the shared live-map branch below runs.
@@ -974,7 +895,7 @@
       const safeIndex = Math.max(0, Math.min(index, processSteps.length - 1));
       process.dataset.activeStep = String(safeIndex + 1).padStart(2, '0');
       processSteps.forEach((step, stepIndex) => step.classList.toggle('is-active', stepIndex === safeIndex));
-      process.style.setProperty('--process-progress', `${(safeIndex / Math.max(processSteps.length - 1, 1)) * 100}%`);
+      process.style.setProperty('--process-progress', String(safeIndex / Math.max(processSteps.length - 1, 1)));
     };
     setProcessActive(0);
     if ('IntersectionObserver' in window && window.matchMedia('(min-width: 701px)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -1138,18 +1059,6 @@
     viewer.querySelector('[data-gallery-next]')?.addEventListener('click', () => { current = (current + 1) % images.length; render(); });
     document.addEventListener('keydown', (event) => { if (viewer.hidden) return; if (event.key === 'Escape') close(); if (event.key === 'ArrowLeft') { current = (current - 1 + images.length) % images.length; render(); } if (event.key === 'ArrowRight') { current = (current + 1) % images.length; render(); } });
     render();
-  };
-
-  const setupV25Reveal = () => {
-    if (['production-services', 'production-contacts', 'production-news'].some((className) => document.body.classList.contains(className))) return;
-    const targets = [...document.querySelectorAll('.prod-project-row, .prod-news-feature, .prod-news-card, .prod-news-row, .prod-document-row, .prod-material, .prod-catalog-feature, .prod-catalog-card, .prod-gallery figure, .prod-process__item')];
-    if (!targets.length) return;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    targets.forEach((target, index) => { target.classList.add('v25-reveal'); target.style.setProperty('--v25-index', String(index % 5)); });
-    if (reduced || !('IntersectionObserver' in window)) { targets.forEach((target) => target.classList.add('is-v25-visible')); return; }
-    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-v25-visible'); observer.unobserve(entry.target); } }), { threshold: .08, rootMargin: '0px 0px -7% 0px' });
-    targets.forEach((target) => observer.observe(target));
-    registerPageCleanup(() => observer.disconnect());
   };
 
   const setupWorksHoverGrid = () => {
@@ -1425,7 +1334,6 @@
   setupV25CaseStory();
   setupV25Clients();
   setupV25Gallery();
-  setupV25Reveal();
   setupWorksHoverGrid();
   setupContactsMapMotion();
   setupNewsEditorial();
@@ -1456,6 +1364,7 @@
 
     let hosts = [];
     let raf = 0;
+    let scrollBound = false;
     const enabled = () => !reducedQuery.matches && desktopQuery.matches;
     const removeHosts = () => {
       hosts.forEach(({ host, object }) => {
@@ -1492,7 +1401,6 @@
         ctaSections.forEach((section) => section.style.removeProperty('--contacts-cta-parallax-y'));
         return;
       }
-      ensureHosts();
       for (const { host, object, factor } of hosts) {
         const rect = host.getBoundingClientRect();
         const centerDelta = window.innerHeight * .5 - (rect.top + rect.height * .5);
@@ -1507,19 +1415,40 @@
       }
     };
     const requestRender = () => {
-      if (!raf) raf = window.requestAnimationFrame(render);
+      if (enabled() && !raf) raf = window.requestAnimationFrame(render);
     };
-    const refresh = () => {
-      ensureHosts();
-      requestRender();
+    const bindScroll = () => {
+      if (scrollBound) return;
+      window.addEventListener('scroll', requestRender, { passive: true });
+      scrollBound = true;
     };
-    window.addEventListener('scroll', requestRender, { passive: true });
-    window.addEventListener('resize', refresh, { passive: true });
-    ensureHosts();
-    requestRender();
-    registerPageCleanup(() => {
+    const unbindScroll = () => {
+      if (!scrollBound) return;
       window.removeEventListener('scroll', requestRender);
-      window.removeEventListener('resize', refresh);
+      scrollBound = false;
+    };
+    const syncEnabledState = () => {
+      if (enabled()) {
+        ensureHosts();
+        bindScroll();
+        requestRender();
+        return;
+      }
+      unbindScroll();
+      if (raf) window.cancelAnimationFrame(raf);
+      raf = 0;
+      removeHosts();
+      ctaSections.forEach((section) => section.style.removeProperty('--contacts-cta-parallax-y'));
+    };
+    window.addEventListener('resize', syncEnabledState, { passive: true });
+    reducedQuery.addEventListener('change', syncEnabledState);
+    desktopQuery.addEventListener('change', syncEnabledState);
+    syncEnabledState();
+    registerPageCleanup(() => {
+      unbindScroll();
+      window.removeEventListener('resize', syncEnabledState);
+      reducedQuery.removeEventListener('change', syncEnabledState);
+      desktopQuery.removeEventListener('change', syncEnabledState);
       if (raf) window.cancelAnimationFrame(raf);
       removeHosts();
       ctaSections.forEach((section) => section.style.removeProperty('--contacts-cta-parallax-y'));
@@ -1534,30 +1463,4 @@
     startInnerParallax();
   }
 
-  const setupMotion = () => {
-    /* Inner pages use the dedicated motion-A controller. Keeping the older
-       broad selector off this branch prevents every child from animating and
-       leaves the homepage path completely unchanged. */
-    if (document.body.classList.contains('production-page')) return;
-    const targets = [...document.querySelectorAll('.page-hero .hero-copy > *, .section > *, .feature-split > *, .service-row, .process-item, .project-card, .catalog-feature, .article-feature, .article-card, .article-wide, .document-row, .detail-grid > *, .steps .step, .gallery-5 .media, .contact-fact, .contact-form > *, .contact-form-intro > *, .footer > *, .footer-company, .footer-contacts')];
-    targets.forEach((target, index) => { target.classList.add('motion-item'); target.style.setProperty('--motion-index', String(Math.min(index % 8, 7))); });
-    document.documentElement.classList.add('motion-ready');
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const reveal = (target) => target.classList.add('is-visible');
-    if (reduced || !('IntersectionObserver' in window)) targets.forEach(reveal);
-    else {
-      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { reveal(entry.target); observer.unobserve(entry.target); } }), {threshold: .12, rootMargin: '0px 0px -8% 0px'});
-      targets.forEach((target) => observer.observe(target));
-    }
-  };
-  setupMotion();
-
-  const pressController = new AbortController();
-  document.querySelectorAll('a,button').forEach((control) => {
-    const options = { signal: pressController.signal };
-    control.addEventListener('pointerdown', () => control.classList.add('is-pressed'), options);
-    control.addEventListener('pointerup', () => control.classList.remove('is-pressed'), options);
-    control.addEventListener('pointercancel', () => control.classList.remove('is-pressed'), options);
-  });
-  registerPageCleanup(() => pressController.abort());
 })();

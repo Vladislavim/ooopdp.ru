@@ -2,7 +2,7 @@ export default {
   "id": "page-index",
   "output": "pages/index.html",
   "sourceDir": "content/page-index",
-  "kind": "index",
+  "kind": "inner",
   "order": [
     "section",
     "div"

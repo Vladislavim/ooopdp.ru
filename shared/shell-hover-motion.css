@@ -1,0 +1,72 @@
+/* Canonical desktop hover motion for the shared header and footer. */
+@media (min-width: 701px) {
+  .top .nav a:not(.active)::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    height: 1px;
+    background: var(--o, #f45116);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform var(--pdp-motion-fast, 180ms) var(--pdp-motion-ease, cubic-bezier(.22, 1, .36, 1));
+    pointer-events: none;
+  }
+
+  .top .nav a:not(.active):focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  body .footer a:not(.footer-map-link) {
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+    transition: color var(--pdp-motion-fast, 180ms) var(--pdp-motion-ease, cubic-bezier(.22, 1, .36, 1));
+  }
+
+  body .footer a:not(.footer-map-link)::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 260ms var(--pdp-motion-ease, cubic-bezier(.22, 1, .36, 1));
+    pointer-events: none;
+  }
+
+  body .footer a:not(.footer-map-link):focus-visible {
+    color: #fff;
+  }
+
+  body .footer a:not(.footer-map-link):focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+@media (min-width: 701px) and (hover: hover) and (pointer: fine) {
+  .top .nav a:not(.active):hover::after,
+  body .footer a:not(.footer-map-link):hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  body .footer a:not(.footer-map-link):hover {
+    color: #fff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .top .nav a:not(.active)::after,
+  body .footer a:not(.footer-map-link)::after {
+    transition-duration: .01ms !important;
+  }
+}

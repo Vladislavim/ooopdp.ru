@@ -7,12 +7,18 @@ const sharedBlocks = Object.freeze({
 });
 
 const projectPortfolioBlocks = Object.freeze({
-  'pcp-hero-title': 'content/completed-works/parts/001-pcp-hero-title.html',
-  'pcp-featured': 'content/completed-works/parts/002-pcp-featured.html',
-  'pcp-archive-title': 'content/completed-works/parts/003-pcp-archive-title.html',
-  'pcp-materials-title': 'content/completed-works/parts/004-pcp-materials-title.html',
-  div: 'content/completed-works/parts/005-div.html',
-  'div-2': 'content/completed-works/parts/006-div-2.html',
+  'pcp-hero-title': 'content/projects-clients/parts/001-pcp-hero-title.html',
+  'pcp-featured': 'content/projects-clients/parts/002-pcp-featured.html',
+  'pcp-archive-title': 'content/projects-clients/parts/003-pcp-archive-title.html',
+  'pcp-materials-title': 'content/projects-clients/parts/004-pcp-materials-title.html',
+  div: 'content/projects-clients/parts/005-div.html',
+  'div-2': 'content/projects-clients/parts/006-div-2.html',
+});
+
+const completedWorksCatalogBlocks = Object.freeze({
+  'catalog-hero': 'content/completed-works/parts/001-catalog-hero.html',
+  'catalog-list': 'content/completed-works/parts/002-catalog-list.html',
+  'catalog-cta': 'content/completed-works/parts/003-catalog-cta.html',
 });
 
 /**
@@ -78,7 +84,7 @@ export const siteData = Object.freeze({
       footer: sharedBlocks.footer,
     }),
     'projects-clients': projectPortfolioBlocks,
-    'completed-works': projectPortfolioBlocks,
+    'completed-works': completedWorksCatalogBlocks,
   }),
 });
 

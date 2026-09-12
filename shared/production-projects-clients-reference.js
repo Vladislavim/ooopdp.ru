@@ -218,8 +218,51 @@
   window.addEventListener('scroll', onScroll, {passive: true, signal: interactionController.signal});
   window.addEventListener('resize', updateParallax, {passive: true, signal: interactionController.signal});
 
+  const setupDocumentRegister = () => {
+    const register = document.querySelector('.pcp-document-register');
+    if (!register) return;
+    const rows = [...register.querySelectorAll('.pcp-document-register__row')];
+    const image = register.querySelector('[data-document-preview]');
+    const title = register.querySelector('[data-document-title]');
+    const type = register.querySelector('[data-document-type]');
+    const date = register.querySelector('[data-document-date]');
+    const download = register.querySelector('[data-document-download]');
+    if (!rows.length || !image) return;
+
+    const render = (row) => {
+      rows.forEach((item) => item.classList.toggle('is-active', item === row));
+      const nextImage = row.dataset.preview;
+      const update = () => {
+        image.src = nextImage;
+        image.alt = `Превью документа ${row.dataset.title || ''}`.trim();
+        if (title) title.textContent = row.dataset.title || '';
+        if (type) type.textContent = row.dataset.type || '';
+        if (date) date.textContent = row.dataset.date || '';
+        if (download) download.href = row.href;
+        image.style.opacity = '1';
+      };
+      if (prefersReducedMotion.matches) {
+        update();
+        return;
+      }
+      image.style.opacity = '0';
+      const preloadImage = new Image();
+      preloadImage.onload = update;
+      preloadImage.onerror = update;
+      preloadImage.src = nextImage;
+    };
+
+    rows.forEach((row) => {
+      row.addEventListener('pointerenter', () => render(row), {signal: interactionController.signal});
+      row.addEventListener('focusin', () => render(row), {signal: interactionController.signal});
+      row.addEventListener('click', () => render(row), {signal: interactionController.signal});
+    });
+    render(rows.find((row) => row.classList.contains('is-active')) || rows[0]);
+  };
+
   renderProject(projects[0]);
   setSelectedState(0);
+  setupDocumentRegister();
   runHeroMotion();
   updateParallax();
 

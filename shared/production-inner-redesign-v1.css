@@ -1036,3 +1036,56 @@ body.production-404-page .prod-404::after {
     margin-top: 24px !important;
   }
 }
+
+/* Articles index desktop flow: the reading catalogue should move as one
+   continuous sequence.  The global inner rhythm is intentionally removed
+   here so each module keeps its own measured padding instead of accumulating
+   a blank band above and below every section. */
+@media (min-width: 701px) {
+  body.production-news :where(
+    .articles-index-featured,
+    .articles-index-rail,
+    .articles-index-catalog,
+    .articles-index-editorial,
+    .articles-index-documents,
+    .articles-index-quote
+  ) {
+    padding-block: 0 !important;
+  }
+
+  body.production-news .articles-index-featured { margin-top: 32px !important; }
+  body.production-news .articles-index-rail {
+    margin-top: 22px !important;
+    padding-bottom: 12px !important;
+  }
+  body.production-news .articles-index-catalog { margin-top: 18px !important; }
+  body.production-news .articles-index-editorial { margin-top: 32px !important; }
+  body.production-news .articles-index-documents {
+    min-height: 174px !important;
+    margin-top: 32px !important;
+  }
+  body.production-news .articles-index-quote {
+    min-height: 250px !important;
+    margin-top: 32px !important;
+  }
+  body.production-news .articles-index-quote__copy { min-height: 250px !important; }
+
+  /* Match the case to the actual three-row rail height; the inherited
+     620px/198px pair created a visible void under the case metrics. */
+  body.production-news .articles-index-case { min-height: 576px !important; }
+  body.production-news .articles-index-side-card { min-height: 184px !important; }
+
+  /* Keep the featured case aligned with its three-card rail without leaving
+     a dark, unintentional strip below the metrics row. */
+  body.production-news .articles-index-case__content {
+    flex: 1 1 auto !important;
+    justify-content: space-between !important;
+  }
+
+  /* Read mode keeps the catalogue visible in a full-page review and avoids
+     a long empty canvas before the observer has had a chance to reveal it. */
+  html.inner-motion-a-ready body.production-news .inner-motion-a-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

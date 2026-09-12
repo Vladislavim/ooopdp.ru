@@ -74,7 +74,7 @@ export async function renderDocument({
     ? ''
     : '\n  <script src="../shared/vendor/motion-13.2.0.min.js?v=20260911-cache-v10"></script>';
   const innerRedesignStyles = isRedesignedInner
-    ? '<link rel="stylesheet" href="../shared/production-inner-redesign-v1.css?v=20260912-inner-redesign-v32">'
+    ? '<link rel="stylesheet" href="../shared/production-inner-redesign-v1.css?v=20260912-inner-redesign-v33">'
     : '';
   // Keep render-blocking styles in <head>. Some legacy manifests still store
   // these links beside the closing scripts, which otherwise causes a visible

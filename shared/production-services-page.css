@@ -184,7 +184,7 @@ body.production-services .svc-hero__slide-data { display: none; }
 
 body.production-services .svc-services,
 body.production-services .svc-project {
-  padding: 76px 0 84px;
+  padding: 34px 0 84px;
   background: var(--svc-paper);
   border-bottom: 1px solid var(--svc-line);
 }
@@ -365,6 +365,7 @@ body.production-services .svc-project__arrows button:focus-visible { border-colo
   body.production-services .svc-services,
   body.production-services .svc-project,
   body.production-services .svc-industries { padding: 68px 0 72px; }
+  body.production-services .svc-services { padding-top: 24px; }
   body.production-services .svc-section-intro { display: block; margin-bottom: 28px; }
   body.production-services .svc-section-intro h2 { font-size: clamp(41px, 11vw, 58px); }
   body.production-services .svc-section-intro > p { max-width: 340px; margin-top: 25px; }
@@ -396,7 +397,7 @@ body.production-services .svc-hero {
   min-height: clamp(500px, 45vw, 680px);
   background: var(--svc-paper);
   color: var(--svc-ink);
-  border-bottom: 1px solid var(--svc-line);
+  border-bottom: 0;
 }
 
 body.production-services .svc-hero__copy {
@@ -526,5 +527,55 @@ body.production-page.production-services .svc-hero .svc-eyebrow {
   }
   body.production-page.production-services .svc-hero .svc-eyebrow {
     margin-top: 36px !important;
+  }
+}
+
+/* Keep the first service cards readable in the hero fold after the former
+   section heading is removed; deeper sections retain the shared reveal rhythm. */
+html.inner-motion-a-ready body.production-page.production-services .svc-services.inner-motion-a-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Restore the shared PDP mark in the hero's quiet right-hand field. The
+   existing inner parallax controller supplies the scroll-linked transform. */
+body.production-page.production-services .svc-hero__art {
+  display: none;
+}
+
+@media (min-width: 761px) {
+  body.production-page.production-services .svc-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, .62fr) !important;
+  }
+
+  body.production-page.production-services .svc-hero__copy {
+    min-width: 0;
+  }
+
+  body.production-page.production-services .svc-hero__art {
+    display: block;
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    border-left: 1px solid var(--svc-line);
+    background: var(--svc-paper);
+    isolation: isolate;
+  }
+
+  body.production-page.production-services .svc-hero__art > .inner-parallax-object--logo {
+    position: absolute;
+    z-index: 0;
+    top: -18%;
+    right: -12%;
+    display: block;
+    width: min(620px, 74%);
+    aspect-ratio: 1;
+    background: url('../assets/inner-optimized/pdp-logo-parallax.webp') center / contain no-repeat;
+    opacity: .14;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    user-select: none;
+    will-change: transform;
+    transition: none;
   }
 }

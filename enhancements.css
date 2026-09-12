@@ -1749,7 +1749,8 @@
 
   .services {
     grid-template-columns: minmax(330px,.92fr) minmax(300px,.78fr) minmax(0,1.3fr);
-    min-height: 390px;
+    /* Seven service rows need the same authored row rhythm without clipping. */
+    min-height: 435px;
     padding-top: 42px;
     padding-bottom: 42px;
   }

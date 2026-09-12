@@ -27,6 +27,22 @@ html:has(body.production-page)::-webkit-scrollbar-thumb:hover {
   background: #ff6a32;
 }
 
+/* Keep the open hero variants from visually collapsing after their optional
+   eyebrow was removed: breadcrumbs and the main title share one rhythm. */
+body.production-page {
+  --pdp-inner-hero-breadcrumb-gap: clamp(24px, 2.4vw, 34px);
+}
+
+body.production-page :is(.svc-hero__copy, .pcp-hero__copy, .articles-index-hero__copy, .prod-contact-reference__hero-inner)
+  :is(.svc-breadcrumb, .pcp-breadcrumb, .prod-breadcrumb) {
+  margin-bottom: var(--pdp-inner-hero-breadcrumb-gap) !important;
+}
+
+body.production-page :is(.svc-hero__copy, .pcp-hero__copy, .articles-index-hero__copy, .prod-contact-reference__hero-inner)
+  :is(.svc-breadcrumb, .pcp-breadcrumb, .prod-breadcrumb) + h1 {
+  margin-top: 0 !important;
+}
+
 @media (min-width: 1200px) {
   body.production-page .top {
     border-bottom-color: #d3d1cb !important;

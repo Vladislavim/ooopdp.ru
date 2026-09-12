@@ -89,7 +89,7 @@
   document.head.append(productionStyles);
   const innerArtStyles = document.createElement('link');
   innerArtStyles.rel = 'stylesheet';
-  innerArtStyles.href = `../shared/production-inner-art-direction.css?v=${CACHE_VERSION}`;
+  innerArtStyles.href = '../shared/production-inner-art-direction.css?v=20260912-inner-hero-rhythm-v5';
   document.head.append(innerArtStyles);
   const ctaSurfaceStyles = document.createElement('link');
   ctaSurfaceStyles.rel = 'stylesheet';
@@ -1410,6 +1410,7 @@
     const desktopQuery = window.matchMedia('(min-width: 701px)');
 
     const objects = [
+      ['body.production-services .svc-hero__art', 'logo', .095],
       ['body.production-services .prod-service-board', 'logo', .13],
       ['body.production-service-detail .prod-composition', 'wireframe', .11],
       ['body.production-service-detail .prod-step-grid', 'logo', .085],

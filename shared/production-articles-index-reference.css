@@ -294,3 +294,47 @@ body.pdp-articles-index .articles-index-editorial-card .articles-index-link {
   align-self: flex-end;
   margin-left: auto;
 }
+
+/* The article index keeps the reading surface light through its final shell.
+   Reuse the canonical footer geometry, but invert only this page's surface so
+   the map, navigation and contact details remain legible on paper. */
+body.production-page.pdp-articles-index .footer {
+  background: var(--article-index-panel) !important;
+  color: var(--article-index-ink) !important;
+  border-top-color: var(--article-index-line) !important;
+}
+
+body.production-page.pdp-articles-index .footer-official-logo {
+  content: url('../assets/pdp-official-logo.svg');
+  filter: none !important;
+}
+
+body.production-page.pdp-articles-index .footer-slogan {
+  border-left-color: var(--article-index-line);
+  color: var(--article-index-orange);
+}
+
+body.production-page.pdp-articles-index .footer-company small,
+body.production-page.pdp-articles-index .footer a {
+  color: var(--article-index-muted) !important;
+}
+
+body.production-page.pdp-articles-index .footer b,
+body.production-page.pdp-articles-index .footer-contact-copy .phone2,
+body.production-page.pdp-articles-index .footer-contact-copy .phone2 .phone-icon {
+  color: var(--article-index-ink) !important;
+}
+
+body.production-page.pdp-articles-index .footer-contacts {
+  border-left-color: var(--article-index-line);
+}
+
+body.production-page.pdp-articles-index .footer-map {
+  border-color: var(--article-index-line) !important;
+  background-color: #e8e6df;
+}
+
+body.production-page.pdp-articles-index .footer-bottom {
+  border-top-color: var(--article-index-line);
+  color: var(--article-index-muted);
+}

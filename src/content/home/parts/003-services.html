@@ -1,2 +1,59 @@
 
-<section class="services" id="services"><div><div class="label">Услуги</div><div class="service-list" role="tablist" aria-label="Направления услуг"><button type="button" class="service-row active" role="tab" aria-selected="true"><b>01</b><span>Технический заказчик</span><span aria-hidden="true">→</span></button><button type="button" class="service-row" role="tab" aria-selected="false"><b>02</b><span>Проектирование</span></button><button type="button" class="service-row" role="tab" aria-selected="false"><b>03</b><span>Строительные работы</span></button><button type="button" class="service-row" role="tab" aria-selected="false"><b>04</b><span>Монтаж инженерных систем</span></button><button type="button" class="service-row" role="tab" aria-selected="false"><b>05</b><span>Ремонтные работы</span></button><button type="button" class="service-row" role="tab" aria-selected="false"><b>06</b><span>Модернизация производства</span></button></div></div><div class="service-copy" aria-live="polite"><h3>Технический заказчик</h3><p>Организуем управление проектом, координируем участников, контролируем сроки, качество, документацию и готовность объекта.</p><a class="more" href="#contacts">Получить предварительный разбор проекта →</a></div><div class="service-wire" aria-hidden="true"></div></section>
+<section class="services" id="services"><div><div class="label">Услуги</div><div class="service-list" role="tablist" aria-label="Направления услуг"><button type="button" class="service-row active" role="tab" aria-selected="true"><b>01</b><span>Технический заказчик</span><span aria-hidden="true">→</span></button><button type="button" class="service-row" role="tab" aria-selected="false"><b>02</b><span>Проектирование</span></button><button type="button" class="service-row" role="tab" aria-selected="false"><b>03</b><span>Строительные работы</span></button><button type="button" class="service-row" role="tab" aria-selected="false"><b>04</b><span>Монтаж инженерных систем</span></button><button type="button" class="service-row" role="tab" aria-selected="false"><b>05</b><span>Ремонтные работы</span></button><button type="button" class="service-row" role="tab" aria-selected="false"><b>06</b><span>Модернизация производства</span></button><button type="button" class="service-row" data-service="operations" role="tab" aria-selected="false"><b>07</b><span>Эксплуатация зданий и сооружений</span></button></div></div><div class="service-copy" aria-live="polite"><h3>Технический заказчик</h3><p>Организуем управление проектом, координируем участников, контролируем сроки, качество, документацию и готовность объекта.</p><a class="more" href="#contacts">Получить предварительный разбор проекта →</a></div><div class="service-wire" aria-hidden="true"></div></section>
+
+<script>
+(() => {
+  const row = document.querySelector('.service-row[data-service="operations"]');
+  const title = document.querySelector('.service-copy h3');
+  const text = document.querySelector('.service-copy p');
+  const wire = document.querySelector('.service-wire');
+  if (!row || !title || !text || !wire) return;
+
+  const content = {
+    title: 'Эксплуатация зданий и сооружений',
+    text: 'Остаёмся рядом после ввода: поддерживаем объект и инженерные системы.',
+    image: 'assets/inner-optimized/wireframe-building.webp'
+  };
+  let timer;
+  const activate = (event) => {
+    event?.preventDefault();
+    event?.stopImmediatePropagation();
+    document.querySelectorAll('.service-row').forEach((item) => {
+      item.classList.remove('active');
+      item.setAttribute('aria-selected', 'false');
+    });
+    row.classList.add('active');
+    row.setAttribute('aria-selected', 'true');
+    title.textContent = content.title;
+    text.textContent = content.text;
+    wire.classList.add('changing');
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => {
+      wire.style.backgroundImage = `url("${content.image}")`;
+      wire.style.backgroundPosition = 'center';
+      wire.classList.remove('changing');
+    }, 180);
+  };
+
+  row.addEventListener('click', activate);
+  row.addEventListener('keydown', (event) => {
+    const keys = ['Enter', ' ', 'ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft', 'Home', 'End'];
+    if (!keys.includes(event.key)) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    if (event.key === 'Enter' || event.key === ' ') {
+      activate(event);
+      return;
+    }
+    const rows = [...document.querySelectorAll('.service-row')];
+    const index = rows.indexOf(row);
+    const delta = event.key === 'ArrowDown' || event.key === 'ArrowRight' ? 1 : -1;
+    let next = index + delta;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = rows.length - 1;
+    next = (next + rows.length) % rows.length;
+    rows[next]?.focus();
+    rows[next]?.click();
+  });
+})();
+</script>

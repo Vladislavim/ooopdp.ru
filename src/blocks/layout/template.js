@@ -65,7 +65,13 @@ export async function renderDocument({
   const stylesheetPattern = /<link\b(?=[^>]*\brel=(["'])stylesheet\1)[^>]*>/gi;
   const isRedesignedInner = manifest.kind !== 'home' && !restoredInnerPages.has(manifest.id);
   let bodyAfterMainSource = optimize(document.bodyAfterMain)
-    .replace(/production-site-shell\.js\?v=[^\"]+/g, 'production-site-shell.js?v=20260912-inner-redesign-v4');
+    .replace(/production-site-shell\.js\?v=[^\"]+/g, 'production-site-shell.js?v=20260912-inner-hero-rhythm-v5');
+  if (manifest.id === 'services') {
+    bodyAfterMainSource = bodyAfterMainSource.replace(
+      /production-services-page\.css\?v=[^\"]+/g,
+      'production-services-page.css?v=20260912-services-hero-p'
+    );
+  }
   if (isRedesignedInner) bodyAfterMainSource = bodyAfterMainSource.replace(/> Email</g, '> Почта<');
   const deferredStyles = bodyAfterMainSource.match(stylesheetPattern) ?? [];
   const bodyAfterMain = bodyAfterMainSource.replace(stylesheetPattern, '').replace(/^[ \t]+$/gm, '');
@@ -76,10 +82,20 @@ export async function renderDocument({
   const innerRedesignStyles = isRedesignedInner
     ? '<link rel="stylesheet" href="../shared/production-inner-redesign-v1.css?v=20260912-inner-redesign-v33">'
     : '';
+  const homeServicesLayoutGuard = manifest.kind === 'home'
+    ? '<style id="homepage-services-07-layout">@media (min-width:1200px){main.site > .services{min-height:435px;height:auto;}}</style>'
+    : '';
   // Keep render-blocking styles in <head>. Some legacy manifests still store
   // these links beside the closing scripts, which otherwise causes a visible
   // first-paint layout shift before the final inner-page geometry arrives.
-  const head = `${optimize(document.headInner)}${deferredStyles.length ? `${deferredStyles.join('\n')}\n` : ''}${innerRedesignStyles}${GENERATED_MARKER}`;
+  let headInnerSource = optimize(document.headInner);
+  if (manifest.id === 'news-articles') {
+    headInnerSource = headInnerSource.replace(
+      /production-articles-index-reference\.css\?v=[^\"]+/g,
+      'production-articles-index-reference.css?v=20260912-footer-white-v1'
+    );
+  }
+  const head = [headInnerSource, deferredStyles.length ? deferredStyles.join('\n') + '\n' : '', innerRedesignStyles, homeServicesLayoutGuard, GENERATED_MARKER].join('');
 
   return [
     document.doctype,

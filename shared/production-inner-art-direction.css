@@ -5664,3 +5664,136 @@ body.production-page .shared-contact-form-section .form-submit i {
     transition: none !important;
   }
 }
+
+/* Shared inner hero rhythm: every non-homepage opening uses the same
+   breadcrumb/title/subtitle cadence and the same quiet right inset. The
+   homepage has no .production-page class, so its approved geometry remains
+   completely outside this primitive. */
+body.production-page {
+  --pdp-inner-hero-copy-end: clamp(24px, 3.2vw, 48px);
+  --pdp-inner-hero-breadcrumb-gap: clamp(32px, 2.7vw, 40px);
+  --pdp-inner-hero-eyebrow-gap: clamp(18px, 1.7vw, 24px);
+  --pdp-inner-hero-title-gap: clamp(26px, 2vw, 30px);
+  --pdp-inner-hero-action-gap: clamp(30px, 2.4vw, 36px);
+}
+
+body.production-page :where(.prod-hero, .prod-hero--editorial) .prod-hero__inner {
+  align-items: flex-start !important;
+  min-height: clamp(420px, 30vw, 500px) !important;
+  padding-block: 46px 64px !important;
+}
+
+/* Keep the section shell in the same compact rhythm as its inner grid. */
+body.production-page :where(.prod-hero, .prod-hero--editorial) {
+  min-height: clamp(420px, 30vw, 500px) !important;
+}
+
+body.production-page :where(.prod-hero, .prod-hero--editorial) .prod-hero__copy {
+  align-self: flex-start !important;
+}
+
+body.production-page :is(
+  .prod-hero__copy,
+  .articles-index-hero__copy,
+  .pcp-hero__copy,
+  .svc-hero__copy-inner,
+  .prod-contact-reference__hero-inner
+) {
+  padding-inline-end: var(--pdp-inner-hero-copy-end) !important;
+}
+
+/* Services has a page-level zero-right-inset rule for its legacy split hero;
+   the shared inset wins here so its title and subtitle align with Articles. */
+body.production-page.production-services .svc-hero__copy-inner {
+  padding-inline-end: var(--pdp-inner-hero-copy-end) !important;
+}
+
+body.production-page :is(
+  .prod-hero__copy,
+  .articles-index-hero__copy,
+  .pcp-hero__copy,
+  .svc-hero__copy-inner,
+  .prod-contact-reference__hero-inner
+) :is(.prod-breadcrumb, .pcp-breadcrumb, .svc-breadcrumb) {
+  margin-block-end: var(--pdp-inner-hero-breadcrumb-gap) !important;
+}
+
+body.production-page :is(
+  .prod-hero__copy,
+  .articles-index-hero__copy,
+  .pcp-hero__copy,
+  .svc-hero__copy-inner,
+  .prod-contact-reference__hero-inner
+) :is(.prod-eyebrow, .pcp-eyebrow, .svc-eyebrow) {
+  margin-block-end: var(--pdp-inner-hero-eyebrow-gap) !important;
+}
+
+body.production-page :is(
+  .prod-hero__copy,
+  .articles-index-hero__copy,
+  .pcp-hero__copy,
+  .svc-hero__copy-inner,
+  .prod-contact-reference__hero-inner
+) > h1 {
+  margin-block-start: 0 !important;
+  margin-block-end: var(--pdp-inner-hero-title-gap) !important;
+}
+
+body.production-page :is(
+  .prod-hero__copy,
+  .articles-index-hero__copy,
+  .pcp-hero__copy,
+  .svc-hero__copy-inner,
+  .prod-contact-reference__hero-inner
+) > p {
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+}
+
+body.production-page :is(
+  .prod-hero__copy,
+  .articles-index-hero__copy,
+  .pcp-hero__copy,
+  .svc-hero__copy-inner,
+  .prod-contact-reference__hero-inner
+) > p + p {
+  margin-block-start: 10px !important;
+}
+
+body.production-page .svc-hero__actions,
+body.production-page .articles-index-button {
+  margin-block-start: var(--pdp-inner-hero-action-gap) !important;
+}
+
+@media (max-width: 700px) {
+  body.production-page {
+    --pdp-inner-hero-copy-end: 18px;
+    --pdp-inner-hero-breadcrumb-gap: 28px;
+    --pdp-inner-hero-eyebrow-gap: 16px;
+    --pdp-inner-hero-title-gap: 22px;
+    --pdp-inner-hero-action-gap: 24px;
+  }
+
+  body.production-page :is(
+    .prod-hero__copy,
+    .articles-index-hero__copy,
+    .pcp-hero__copy,
+    .svc-hero__copy-inner,
+    .prod-contact-reference__hero-inner
+  ) {
+    padding-inline-end: var(--pdp-inner-hero-copy-end) !important;
+  }
+
+  body.production-page :where(.prod-hero, .prod-hero--editorial) .prod-hero__inner {
+    min-height: 0 !important;
+    padding-block: 26px 42px !important;
+  }
+
+  body.production-page :where(.prod-hero, .prod-hero--editorial) {
+    min-height: 0 !important;
+  }
+
+  body.production-page :where(.prod-hero, .prod-hero--editorial) .prod-hero__copy {
+    align-self: flex-start !important;
+  }
+}

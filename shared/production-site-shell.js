@@ -1,5 +1,5 @@
 (() => {
-  const CACHE_VERSION = '20260831-cache-v4';
+  const CACHE_VERSION = '20260911-cache-v10';
   'use strict';
 
   const pageCleanupTasks = [];
@@ -400,7 +400,7 @@
       'production-services': 'web/pexels-factory-15866139.jpg',
       'production-service-detail': 'web/pexels-workers-site-10202856.jpg',
       'production-projects': 'cases/red-october.jpg',
-      'production-case': 'cases/red-october.jpg',
+      'production-case': 'cases/red-october-render-user.jpg',
       'production-catalog': 'cases/red-october.jpg',
       'production-news': 'cases/bombonera.jpg',
       'production-article': 'about-project-planning.png',
@@ -526,7 +526,14 @@
     menuToggle.setAttribute('aria-expanded', String(open));
     mobileMenu.setAttribute('aria-hidden', String(!open));
     mobileMenu.inert = !open;
-    if (open) mobileMenu.querySelector('nav a')?.focus({ preventScroll: true });
+    if (open) {
+      window.setTimeout(() => mobileMenu.querySelector('nav a')?.focus({ preventScroll: true }), 0);
+    }
+  });
+  menuToggle?.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    menuToggle.click();
   });
   mobileMenu.querySelectorAll('[data-menu-close]').forEach((control) => control.addEventListener('click', () => closeMobileMenu({ restoreFocus: true })));
   mobileMenu.querySelectorAll('a').forEach((control) => control.addEventListener('click', () => closeMobileMenu()));
@@ -837,11 +844,31 @@
         });
         window.dispatchEvent(new CustomEvent('pdp:catalog-filter'));
       };
+      const visibleCatalogItems = '.prod-catalog-row:not(.is-filtered-out), .prod-catalog-feature:not(.is-filtered-out), .prod-catalog-card:not(.is-filtered-out)';
       productionCatalogTabs.forEach((tab) => tab.addEventListener('click', (event) => {
         event.preventDefault();
-        productionCatalogTabs.forEach((item) => item.removeAttribute('aria-current'));
-        tab.setAttribute('aria-current', 'page');
-        applyCatalogFilter((tab.getAttribute('href') || '#all').slice(1) || 'all');
+        const update = () => {
+          productionCatalogTabs.forEach((item) => item.removeAttribute('aria-current'));
+          tab.setAttribute('aria-current', 'page');
+          applyCatalogFilter((tab.getAttribute('href') || '#all').slice(1) || 'all');
+        };
+        const motion = window.Motion;
+        const shouldAnimate = event.detail !== 0
+          && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+          && typeof motion?.animateView === 'function';
+        if (!shouldAnimate) {
+          update();
+          return;
+        }
+        motion.animateView(update, {
+          duration: 0.28,
+          ease: [0.22, 1, 0.36, 1],
+          interrupt: 'immediate'
+        })
+          .add(visibleCatalogItems)
+          .layout({ duration: 0.28, ease: [0.22, 1, 0.36, 1] })
+          .exit({ opacity: 0, transform: 'translate3d(0, -8px, 0)' }, { duration: 0.16 })
+          .enter({ opacity: [0, 1], transform: ['translate3d(0, 8px, 0)', 'translate3d(0, 0, 0)'] }, { duration: 0.24 });
       }));
     }
     const catalogTabs = [...document.querySelectorAll('.catalog-tabs button')];
@@ -936,9 +963,27 @@
       const safeIndex = Math.max(0, Math.min(index, steps.length - 1));
       timeline.dataset.activeStep = String(safeIndex + 1).padStart(2, '0');
       steps.forEach((step, stepIndex) => step.classList.toggle('is-active', stepIndex === safeIndex));
-      progress.style.setProperty('--timeline-progress', `${((safeIndex + 1) / steps.length) * 100}%`);
+      progress.style.setProperty('--timeline-progress-scale', String((safeIndex + 1) / steps.length));
     };
     setActive(0);
+    const motion = window.Motion;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const desktop = window.matchMedia('(min-width: 701px)').matches;
+    if (!reduced && desktop && typeof motion?.animate === 'function' && typeof motion?.scroll === 'function') {
+      const progressAnimation = motion.animate(progress, {
+        transform: ['scaleX(0)', 'scaleX(1)']
+      }, { ease: 'linear' });
+      const stopProgress = motion.scroll(progressAnimation, {
+        target: timeline,
+        offset: ['start 70%', 'end 40%'],
+        trackContentSize: true
+      });
+      window.dispatchEvent(new Event('scroll'));
+      registerPageCleanup(() => {
+        stopProgress?.();
+        progressAnimation?.cancel?.();
+      });
+    }
     if ('IntersectionObserver' in window && window.matchMedia('(min-width: 701px)').matches) {
       const observer = new IntersectionObserver((entries) => {
         entries.filter((entry) => entry.isIntersecting).forEach((entry) => setActive(steps.indexOf(entry.target)));

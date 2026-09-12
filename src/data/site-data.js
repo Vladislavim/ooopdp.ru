@@ -6,6 +6,15 @@ const sharedBlocks = Object.freeze({
   footer: 'blocks/footer/template.html',
 });
 
+const projectPortfolioBlocks = Object.freeze({
+  'pcp-hero-title': 'content/completed-works/parts/001-pcp-hero-title.html',
+  'pcp-featured': 'content/completed-works/parts/002-pcp-featured.html',
+  'pcp-archive-title': 'content/completed-works/parts/003-pcp-archive-title.html',
+  'pcp-materials-title': 'content/completed-works/parts/004-pcp-materials-title.html',
+  div: 'content/completed-works/parts/005-div.html',
+  'div-2': 'content/completed-works/parts/006-div-2.html',
+});
+
 /**
  * Single source of truth for page-level content and paths.
  *
@@ -68,6 +77,8 @@ export const siteData = Object.freeze({
       contacts: sharedBlocks.contact,
       footer: sharedBlocks.footer,
     }),
+    'projects-clients': projectPortfolioBlocks,
+    'completed-works': projectPortfolioBlocks,
   }),
 });
 

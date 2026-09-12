@@ -127,8 +127,28 @@ body.production-page :where(
   .svc-card-action,
   .prod-card,
   .pcp-project-card
-):is(:hover, :focus-visible) :where(span, i) {
+):focus-visible :where(span, i) {
   transform: translate3d(4px, 0, 0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.production-page :where(
+    .prod-actions-button,
+    .prod-link,
+    .prod-text-link,
+    .pcp-text-link,
+    .pcp-outline-link,
+    .articles-index-button,
+    .articles-index-link,
+    .pdp-articles-button,
+    .svc-button,
+    .svc-text-action,
+    .svc-card-action,
+    .prod-card,
+    .pcp-project-card
+  ):hover :where(span, i) {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 /* Image movement stays nearly still: the image is the visual anchor, not a
@@ -171,7 +191,7 @@ body.production-page :where(
   .articles-index-editorial-card,
   .pdp-articles-feature,
   .pdp-articles-story
-):is(:hover, :focus-within) > :where(img, .prod-card__media, .pcp-project-card__media) img,
+):focus-within > :where(img, .prod-card__media, .pcp-project-card__media) img,
 body.production-page :where(
   .prod-card,
   .prod-project-row,
@@ -188,8 +208,47 @@ body.production-page :where(
   .articles-index-editorial-card,
   .pdp-articles-feature,
   .pdp-articles-story
-):is(:hover, :focus-within) > :where(img, .prod-card__media, .pcp-project-card__media) > img {
+):focus-within > :where(img, .prod-card__media, .pcp-project-card__media) > img {
   transform: scale(1.018);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.production-page :where(
+    .prod-card,
+    .prod-project-row,
+    .prod-news-feature,
+    .prod-news-card,
+    .prod-news-row,
+    .prod-catalog-card,
+    .prod-document-row,
+    .prod-material,
+    .svc-service-card,
+    .svc-industry-card,
+    .pcp-project-card,
+    .articles-index-featured,
+    .articles-index-editorial-card,
+    .pdp-articles-feature,
+    .pdp-articles-story
+  ):hover > :where(img, .prod-card__media, .pcp-project-card__media) img,
+  body.production-page :where(
+    .prod-card,
+    .prod-project-row,
+    .prod-news-feature,
+    .prod-news-card,
+    .prod-news-row,
+    .prod-catalog-card,
+    .prod-document-row,
+    .prod-material,
+    .svc-service-card,
+    .svc-industry-card,
+    .pcp-project-card,
+    .articles-index-featured,
+    .articles-index-editorial-card,
+    .pdp-articles-feature,
+    .pdp-articles-story
+  ):hover > :where(img, .prod-card__media, .pcp-project-card__media) > img {
+    transform: scale(1.018);
+  }
 }
 
 /* Covers the actual direct-image markup used by the inner templates. */
@@ -209,8 +268,30 @@ body.production-page :where(
   .articles-index-editorial-card,
   .pdp-articles-feature,
   .pdp-articles-story
-):is(:hover, :focus-within) img {
+):focus-within img {
   transform: scale(1.018);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.production-page :where(
+    .prod-card,
+    .prod-project-row,
+    .prod-news-feature,
+    .prod-news-card,
+    .prod-news-row,
+    .prod-catalog-card,
+    .prod-document-row,
+    .prod-material,
+    .svc-service-card,
+    .svc-industry-card,
+    .pcp-project-card,
+    .articles-index-featured,
+    .articles-index-editorial-card,
+    .pdp-articles-feature,
+    .pdp-articles-story
+  ):hover img {
+    transform: scale(1.018);
+  }
 }
 
 /* The RAF parallax owns this transform; do not let a legacy transition create
@@ -247,19 +328,38 @@ html.inner-motion-a-ready body.production-services .svc-service-card .svc-card-a
   transition-timing-function: var(--pdp-motion-ease);
 }
 
-html.inner-motion-a-ready body.production-services .svc-service-card:is(:hover, :focus-within),
-html.inner-motion-a-ready body.production-projects .pcp-project-card:is(:hover, :focus-visible),
-html.inner-motion-a-ready body.production-page .prod-card:is(:hover, :focus-within) {
+html.inner-motion-a-ready body.production-services .svc-service-card:focus-within,
+html.inner-motion-a-ready body.production-projects .pcp-project-card:focus-visible,
+html.inner-motion-a-ready body.production-page .prod-card:focus-within {
   transform: none !important;
 }
 
-html.inner-motion-a-ready body.production-services .svc-service-card:is(:hover, :focus-within) img,
-html.inner-motion-a-ready body.production-services .svc-industry-card:is(:hover, :focus-within) > img:first-child,
-html.inner-motion-a-ready body.production-projects .pcp-project-card:is(:hover, :focus-visible) .pcp-project-card__media img,
-html.inner-motion-a-ready body.production-page .prod-card:is(:hover, :focus-within) img {
+@media (hover: hover) and (pointer: fine) {
+  html.inner-motion-a-ready body.production-services .svc-service-card:hover,
+  html.inner-motion-a-ready body.production-projects .pcp-project-card:hover,
+  html.inner-motion-a-ready body.production-page .prod-card:hover {
+    transform: none !important;
+  }
+}
+
+html.inner-motion-a-ready body.production-services .svc-service-card:focus-within img,
+html.inner-motion-a-ready body.production-services .svc-industry-card:focus-within > img:first-child,
+html.inner-motion-a-ready body.production-projects .pcp-project-card:focus-visible .pcp-project-card__media img,
+html.inner-motion-a-ready body.production-page .prod-card:focus-within img {
   transform: scale(1.018) !important;
   transition-duration: var(--pdp-motion-ui);
   transition-timing-function: var(--pdp-motion-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html.inner-motion-a-ready body.production-services .svc-service-card:hover img,
+  html.inner-motion-a-ready body.production-services .svc-industry-card:hover > img:first-child,
+  html.inner-motion-a-ready body.production-projects .pcp-project-card:hover .pcp-project-card__media img,
+  html.inner-motion-a-ready body.production-page .prod-card:hover img {
+    transform: scale(1.018) !important;
+    transition-duration: var(--pdp-motion-ui);
+    transition-timing-function: var(--pdp-motion-ease);
+  }
 }
 
 @media (max-width: 700px) {
@@ -503,6 +603,15 @@ html.inner-motion-a-ready body.production-page :where(
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html.inner-motion-a-ready body.production-page :where(
+    .mobile-menu,
+    .mobile-menu__panel,
+    .mobile-menu__backdrop
+  ) {
+    transition-duration: .01ms !important;
+    transition-delay: 0s !important;
+  }
+
   html.inner-motion-a-ready body.production-page .inner-motion-a-reveal {
     opacity: 1;
     transform: none;

@@ -3365,7 +3365,9 @@ body.production-service-detail .prod-timeline-progress {
   z-index: 3;
   height: 2px;
   pointer-events: none;
-  background: linear-gradient(90deg, var(--inner-orange) var(--timeline-progress, 20%), transparent var(--timeline-progress, 20%));
+  background: var(--inner-orange);
+  transform: scaleX(var(--timeline-progress-scale, .2));
+  transform-origin: left center;
 }
 
 body.production-service-detail .prod-step-grid {

@@ -852,6 +852,11 @@ body.production-projects .footer {
     flex: 0 0 auto;
   }
 
+  body.production-projects .pcp-project-nav__controls button {
+    width: 44px;
+    height: 44px;
+  }
+
   body.production-projects .pcp-archive,
   body.production-projects .pcp-materials {
     margin-top: 54px;
@@ -891,6 +896,13 @@ body.production-projects .footer {
     min-height: 91px;
     padding-inline: 0;
     border-right: 0;
+  }
+}
+
+@media (max-width: 900px) and (max-height: 500px) {
+  body.production-projects .pcp-project-nav__controls button {
+    width: 44px;
+    height: 44px;
   }
 }
 

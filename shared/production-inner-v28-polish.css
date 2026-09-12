@@ -251,6 +251,22 @@ body.production-page .prod-result-split img {
   object-fit: cover;
 }
 
+/* Long editorial titles stay monumental without breaking a Russian word into
+   arbitrary fragments. The approved homepage typography is out of scope. */
+@media (min-width: 701px) {
+  body.production-page.production-article .prod-hero--editorial .prod-hero__copy h1,
+  body.production-page.production-privacy .prod-hero--editorial .prod-hero__copy h1 {
+    max-width: 940px !important;
+    font-size: clamp(54px, 6.2vw, 92px) !important;
+    line-height: .9 !important;
+    letter-spacing: -.04em !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    text-wrap: balance;
+  }
+}
+
 /* Articles: keep editorial hierarchy, but prevent a headline or feature image
    from creating a second width. */
 body.production-news :where(.articles-index-hero__copy, .articles-index-featured__copy, .pdp-articles-hero__copy, .pdp-articles-feature__copy) {

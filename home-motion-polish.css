@@ -454,6 +454,63 @@ body:not(.production-page) main.site > .contact-form-section#contacts :is(.conta
 }
 
 @media (max-width: 700px) {
+  .contact-form-section .contact-channel label,
+  .contact-form-section .form-consent {
+    min-height: 44px;
+  }
+
+  main.site > .about .about-action {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  main.site > .hero .btn {
+    min-height: 48px;
+    height: 48px;
+  }
+
+  main.site > .services .service-row,
+  main.site > .services .service-row.active {
+    min-height: 44px;
+    height: 44px;
+  }
+
+  main.site > .projects .project-showcase-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  main.site > .projects .project-showcase-tab {
+    min-height: 76px;
+    padding: 10px;
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  main.site > .projects .project-showcase-tab img {
+    width: 52px;
+    height: 54px;
+  }
+
+  main.site > .projects .project-showcase-tab b {
+    font-size: 9px;
+    line-height: 1.08;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  main.site > .projects .project-showcase-controls {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-top: 1px solid var(--l);
+  }
+
+  main.site > .projects .project-showcase-controls button {
+    width: 44px;
+    height: 44px;
+  }
+
   main.site > .articles .article-grid {
     grid-template-columns: minmax(0, 1fr) !important;
     grid-template-rows: none;
@@ -498,6 +555,30 @@ body:not(.production-page) main.site > .contact-form-section#contacts :is(.conta
     opacity: .09;
     transform: none;
     will-change: auto;
+  }
+}
+
+@media (max-width: 900px) and (max-height: 500px) {
+  .contact-form-section .contact-channel label,
+  .contact-form-section .form-consent,
+  main.site > .about .about-action {
+    min-height: 44px;
+  }
+
+  main.site > .about .about-action {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  main.site > .services .service-row,
+  main.site > .services .service-row.active {
+    min-height: 44px;
+    height: 44px;
+  }
+
+  main.site > .projects .project-showcase-controls button {
+    width: 44px;
+    height: 44px;
   }
 }
 

@@ -75,6 +75,13 @@ body.production-page .shared-contact-form-section > * {
   }
 }
 
+@media (max-width: 900px) and (max-height: 500px) {
+  body.production-page .shared-contact-form-section .contact-channel label,
+  body.production-page .shared-contact-form-section .form-consent {
+    min-height: 44px !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   body:not(.production-page) .contact-form-section#contacts::after,
   body.production-page .shared-contact-form-section::after {
@@ -337,9 +344,9 @@ body.production-page.production-contacts .shared-contact-form-section > .contact
     display: grid !important;
     grid-template-columns: repeat(3, max-content) !important;
     gap: 12px 18px !important;
-    min-height: 58px !important;
+    min-height: 85px !important;
     padding: 14px 0 2px !important;
-    height: 58px !important;
+    height: auto !important;
     box-sizing: border-box !important;
     align-content: start !important;
   }
@@ -352,8 +359,8 @@ body.production-page.production-contacts .shared-contact-form-section > .contact
   }
 
   body.production-page .shared-contact-form-section .contact-channel label {
-    min-height: 0 !important;
-    height: 17px !important;
+    min-height: 44px !important;
+    height: 44px !important;
     font: 500 11px / 11px "Golos Text", "Segoe UI", sans-serif !important;
   }
 
@@ -366,7 +373,7 @@ body.production-page.production-contacts .shared-contact-form-section > .contact
   }
 
   body.production-page .shared-contact-form-section .form-consent {
-    min-height: 0 !important;
+    min-height: 44px !important;
     font-size: 10px !important;
     line-height: 14px !important;
   }

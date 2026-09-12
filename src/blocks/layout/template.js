@@ -28,9 +28,6 @@ export async function renderDocument({
     if (!(key in templateContext)) throw new Error(`Unknown token ${token} in ${source}`);
     return templateContext[key];
   });
-  // Keep the source document byte-stable when the build marker is stripped.
-  // Appending the marker inside <head> avoids introducing a leading blank line.
-  const head = `${optimize(document.headInner)}${GENERATED_MARKER}`;
   const fragments = [];
   const sharedParts = manifest.shared ?? {};
   const pageCanonicalBlocks = canonicalBlocks[manifest.id] ?? {};
@@ -64,7 +61,18 @@ export async function renderDocument({
     }
   }
   const mainInnerTrailing = optimize(document.mainInnerTrailing);
-  const bodyAfterMain = optimize(document.bodyAfterMain);
+  const stylesheetPattern = /<link\b(?=[^>]*\brel=(["'])stylesheet\1)[^>]*>/gi;
+  const bodyAfterMainSource = optimize(document.bodyAfterMain);
+  const deferredStyles = bodyAfterMainSource.match(stylesheetPattern) ?? [];
+  const bodyAfterMain = bodyAfterMainSource.replace(stylesheetPattern, '').replace(/^[ \t]+$/gm, '');
+  const innerMotionPages = new Set(['news-articles', 'service-detail']);
+  const innerMotionRuntime = !innerMotionPages.has(manifest.id)
+    ? ''
+    : '\n  <script src="../shared/vendor/motion-13.2.0.min.js?v=20260911-cache-v10"></script>';
+  // Keep render-blocking styles in <head>. Some legacy manifests still store
+  // these links beside the closing scripts, which otherwise causes a visible
+  // first-paint layout shift before the final inner-page geometry arrives.
+  const head = `${optimize(document.headInner)}${deferredStyles.length ? `${deferredStyles.join('\n')}\n` : ''}${GENERATED_MARKER}`;
 
   return [
     document.doctype,
@@ -80,6 +88,7 @@ export async function renderDocument({
     mainInner,
     mainInnerTrailing,
     document.mainClose,
+    innerMotionRuntime,
     bodyAfterMain,
     document.bodyClose,
     '\n',

@@ -1415,6 +1415,7 @@
       ['body.production-service-detail .prod-step-grid', 'logo', .085],
       ['body.production-case .prod-step-grid', 'wireframe', .12],
       ['body.production-documents .prod-process', 'logo', .075],
+      ['body.production-news .articles-index-hero__art', 'logo', .095],
       ['body.production-contacts .prod-contact-next', 'wireframe', .085],
       ['body.production-404-page .prod-404', 'logo', .105]
     ];

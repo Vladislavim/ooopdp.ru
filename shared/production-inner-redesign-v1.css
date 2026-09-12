@@ -1089,3 +1089,64 @@ body.production-404-page .prod-404::after {
     transform: none !important;
   }
 }
+
+/* Article hero: keep the reading copy left-aligned and restore a quiet right
+   field for the shared PDP mark. The mark is inserted by the existing inner
+   parallax controller, so it follows the same scroll rhythm as the homepage
+   form without introducing another motion primitive. */
+@media (min-width: 701px) {
+  body.production-news .articles-index-hero__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, .72fr) !important;
+    min-height: clamp(380px, 30vw, 440px) !important;
+  }
+
+  body.production-news .articles-index-hero__art {
+    display: block !important;
+    position: relative;
+    min-width: 0;
+    min-height: inherit !important;
+    overflow: hidden;
+    border-left: 1px solid var(--pdp-inner-line) !important;
+    background: var(--pdp-inner-paper) !important;
+    isolation: isolate;
+  }
+
+  body.production-news .articles-index-hero__art.inner-parallax-host {
+    position: relative;
+  }
+
+  body.production-news .articles-index-hero__art > .inner-parallax-object--logo {
+    position: absolute;
+    z-index: 0;
+    top: -18%;
+    right: -12%;
+    display: block !important;
+    width: min(620px, 74%);
+    aspect-ratio: 1;
+    background: url('../assets/inner-optimized/pdp-logo-parallax.webp') center / contain no-repeat;
+    opacity: .14;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    user-select: none;
+    will-change: transform;
+    transition: none;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 701px) {
+  body.production-news .articles-index-hero__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, .58fr) !important;
+  }
+
+  body.production-news .articles-index-hero__art > .inner-parallax-object--logo {
+    top: -12%;
+    right: -16%;
+    width: min(390px, 86%);
+  }
+}
+
+@media (max-width: 700px) {
+  body.production-news .articles-index-hero__art {
+    display: none !important;
+  }
+}

@@ -16,10 +16,11 @@
   .motion-ready main.site>section.is-visible,.motion-ready main.site>footer.is-visible{opacity:1;transform:none}
   .hero-proof img,.trust-logo img{will-change:transform,filter;transition:filter .65s var(--motion-soft),opacity .65s var(--motion-soft),transform .65s var(--motion-soft)}
   .hero-proof img:hover,.trust-logo:hover img{transform:translateY(-3px)}
-  @keyframes shell-drop{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
-  @keyframes hero-settle{from{opacity:.7;transform:scale(1.018);filter:saturate(.92) contrast(.96) brightness(1.04)}to{opacity:1;transform:none;filter:saturate(1) contrast(1.02) brightness(1.01)}}
-  @keyframes hero-copy-in{from{opacity:0;transform:translate3d(-18px,8px,0)}to{opacity:1;transform:none}}
-  @keyframes hero-element-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
-  @keyframes metric-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  /* Keep the approved first frame fully rendered; entrance motion is transform-only. */
+  @keyframes shell-drop{from{opacity:1;transform:translateY(-14px)}to{opacity:1;transform:none}}
+  @keyframes hero-settle{from{opacity:1;transform:scale(1.018);filter:saturate(1.14) contrast(1.1) brightness(.99)}to{opacity:1;transform:none;filter:saturate(1.14) contrast(1.1) brightness(.99)}}
+  @keyframes hero-copy-in{from{opacity:1;transform:translate3d(-18px,8px,0)}to{opacity:1;transform:none}}
+  @keyframes hero-element-in{from{opacity:1;transform:translateY(9px)}to{opacity:1;transform:none}}
+  @keyframes metric-in{from{opacity:1;transform:translateY(12px)}to{opacity:1;transform:none}}
 }
 @media (prefers-reduced-motion:reduce){.motion-on .top,.motion-on .hero-img,.motion-on .hero-copy,.motion-on .hero h1,.motion-on .hero-line,.motion-on .hero-subline,.motion-on .hero-subtitle,.motion-on .hero .buttons,.motion-on .hero .metric{animation:none!important}.motion-ready main.site>section,.motion-ready main.site>footer{opacity:1!important;transform:none!important;transition:none!important}}

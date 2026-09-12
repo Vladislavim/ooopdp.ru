@@ -492,10 +492,39 @@ body.production-services .svc-hero__slide-data {
   }
 }
 
-@media (max-width: 700px) {
-  /* The shared inner mobile layer hides decorative wireframes globally; this
-     page keeps them as the hero's only visual, with stronger page scope. */
-  body.production-page.production-services .svc-hero__wire {
-    display: block !important;
+/* The services hero is now typographic and image-free, matching the calm
+   inner-page openings. Collapse the former media column so its empty space
+   does not survive after the wireframe art is removed. */
+body.production-page.production-services .svc-hero {
+  grid-template-columns: 1fr !important;
+  min-height: clamp(470px, 34vw, 540px) !important;
+}
+body.production-page.production-services .svc-hero__media,
+body.production-page.production-services .svc-hero__wire {
+  display: none !important;
+}
+body.production-page.production-services .svc-hero__copy-inner {
+  width: min(calc(100% - 2 * var(--v28-gutter)), var(--v28-max)) !important;
+  margin-inline: auto !important;
+  max-width: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 42px !important;
+  padding-bottom: 58px !important;
+}
+body.production-page.production-services .svc-hero .svc-eyebrow {
+  margin-top: 42px !important;
+}
+
+@media (max-width: 760px) {
+  body.production-page.production-services .svc-hero {
+    min-height: 0 !important;
+  }
+  body.production-page.production-services .svc-hero__copy-inner {
+    min-height: 0 !important;
+    padding: 30px 18px 48px !important;
+  }
+  body.production-page.production-services .svc-hero .svc-eyebrow {
+    margin-top: 36px !important;
   }
 }

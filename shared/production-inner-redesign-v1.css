@@ -48,9 +48,7 @@ body.production-page .pcp-container {
 
 body.production-page :where(.prod-section, .prod-stats, .prod-case-facts,
   .svc-services, .svc-industries, .svc-project, .pcp-featured-wrap,
-  .pcp-archive, .pcp-materials, .articles-index-featured,
-  .articles-index-rail, .articles-index-catalog, .articles-index-editorial,
-  .articles-index-documents, .articles-index-quote, .prod-contact-reference__details,
+  .pcp-archive, .pcp-materials, .prod-contact-reference__details,
   .prod-contact-reference__request) {
   border-color: var(--pdp-inner-line) !important;
 }
@@ -227,9 +225,7 @@ body.production-service-detail .prod-service-detail-hero__wireframe {
 /* Section rhythm and open editorial headers. */
 body.production-page :where(.prod-section, .prod-stats, .prod-case-facts,
   .svc-services, .svc-industries, .svc-project, .pcp-featured-wrap,
-  .pcp-archive, .pcp-materials, .articles-index-featured,
-  .articles-index-rail, .articles-index-catalog, .articles-index-editorial,
-  .articles-index-documents, .articles-index-quote) {
+  .pcp-archive, .pcp-materials) {
   padding-block: clamp(72px, 8vw, 128px) !important;
 }
 
@@ -501,29 +497,6 @@ body.production-case .prod-gallery figure:nth-child(4) { grid-column: 3; }
 body.production-case .prod-gallery figure:nth-child(5) { grid-column: 1 / -1; }
 body.production-case .prod-gallery img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.72); }
 
-/* Editorial index: one featured read, then a catalogue that has a clear
-   primary/secondary/archive hierarchy. */
-body.production-news .articles-index-hero { min-height: clamp(560px, 54vw, 700px) !important; background: var(--pdp-inner-paper) !important; border-block: 1px solid var(--pdp-inner-line) !important; }
-body.production-news .articles-index-hero__inner { grid-template-columns: minmax(0, 1fr) minmax(300px, .72fr) !important; }
-body.production-news .articles-index-hero__copy h1 { font-size: clamp(70px, 8vw, 126px) !important; line-height: .84 !important; letter-spacing: -.065em !important; }
-body.production-news .articles-index-hero__copy p { max-width: 460px !important; color: var(--pdp-inner-muted) !important; font-size: 17px !important; line-height: 1.5 !important; }
-body.production-news .articles-index-hero__art { background: transparent !important; border-left: 0 !important; }
-body.production-news .articles-index-hero__art::before,
-body.production-news .articles-index-hero__art::after { content: none !important; display: none !important; }
-body.production-news .articles-index-hero__art > img,
-body.production-news .articles-index-hero__wire { display: none !important; }
-body.production-news .articles-index-featured { display: grid !important; grid-template-columns: minmax(0, 1.18fr) minmax(360px, .82fr) !important; min-height: 430px !important; border: 1px solid var(--pdp-inner-ink) !important; }
-body.production-news .articles-index-featured__media { min-height: 430px !important; }
-body.production-news .articles-index-featured__media img { filter: saturate(.72) contrast(1.06); }
-body.production-news .articles-index-featured__copy { padding: 36px !important; background: var(--pdp-inner-paper) !important; }
-body.production-news .articles-index-featured__copy h2 { max-width: 560px; font-size: clamp(38px, 4.4vw, 64px) !important; line-height: .9 !important; letter-spacing: -.055em !important; }
-body.production-news .articles-index-catalog { display: grid !important; grid-template-columns: 1.25fr .75fr !important; gap: 12px !important; }
-body.production-news .articles-index-case { min-height: 620px !important; }
-body.production-news .articles-index-side { display: grid !important; gap: 12px !important; }
-body.production-news .articles-index-side-card { min-height: 198px !important; border-bottom: 1px solid var(--pdp-inner-line) !important; background: transparent !important; }
-body.production-news .articles-index-editorial { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px !important; }
-body.production-news .articles-index-editorial-card { display: grid !important; grid-template-columns: .8fr 1.2fr !important; min-height: 238px !important; border: 1px solid var(--pdp-inner-line) !important; background: transparent !important; }
-
 /* Article detail: reading column first, support rails second. */
 body.production-article .prod-article-layout { display: grid !important; grid-template-columns: minmax(170px, .28fr) minmax(0, .92fr) minmax(180px, .3fr) !important; gap: clamp(28px, 5vw, 84px) !important; align-items: start !important; }
 body.production-article .prod-aside { position: sticky; top: 116px; }
@@ -628,8 +601,7 @@ body.production-page .shared-contact-form-section .contact-form-intro h2 { text-
   body.production-page :where(.prod-hero, .prod-hero--editorial) .prod-hero__inner { grid-template-columns: minmax(0, 1.1fr) minmax(220px, .9fr) !important; }
   body.production-page :where(.prod-hero, .prod-hero--editorial) h1,
   body.production-services .svc-hero__copy h1,
-  body.production-projects .pcp-hero__copy h1,
-  body.production-news .articles-index-hero__copy h1 { font-size: clamp(48px, 5.2vw, 82px) !important; }
+  body.production-projects .pcp-hero__copy h1 { font-size: clamp(48px, 5.2vw, 82px) !important; }
   body.production-about .prod-card-grid--six { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
   body.production-about .prod-card-grid--five { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   body.production-service-detail .prod-composition { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
@@ -643,9 +615,7 @@ body.production-page .shared-contact-form-section .contact-form-intro h2 { text-
   body.production-page { --pdp-inner-gutter: 18px; }
   body.production-page :where(.prod-section, .prod-stats, .prod-case-facts,
     .svc-services, .svc-industries, .svc-project, .pcp-featured-wrap,
-    .pcp-archive, .pcp-materials, .articles-index-featured,
-    .articles-index-rail, .articles-index-catalog, .articles-index-editorial,
-    .articles-index-documents, .articles-index-quote) { padding-block: 58px !important; }
+    .pcp-archive, .pcp-materials) { padding-block: 58px !important; }
   body.production-page :where(.prod-hero, .prod-hero--editorial) { min-height: 590px !important; }
   body.production-page :where(.prod-hero, .prod-hero--editorial)::before { inset: auto 0 0 0 !important; height: 150px; border-top: 1px solid var(--pdp-inner-line); border-left: 0 !important; }
   body.production-page :where(.prod-hero, .prod-hero--editorial)::after { right: 18px !important; bottom: 20px !important; width: calc(100% - 36px) !important; }
@@ -723,20 +693,6 @@ body.production-page .shared-contact-form-section .contact-form-intro h2 { text-
   body.production-case .prod-gallery { grid-template-columns: 1fr 1fr !important; grid-auto-rows: 180px; }
   body.production-case .prod-gallery figure:first-child { grid-row: auto; grid-column: 1 / -1; }
   body.production-case .prod-gallery figure:nth-child(2), body.production-case .prod-gallery figure:nth-child(5) { grid-column: 1 / -1; }
-  body.production-news .articles-index-hero { min-height: 0 !important; }
-  body.production-news .articles-index-hero__inner { grid-template-columns: 1fr !important; }
-  body.production-news .articles-index-hero__copy { padding: 30px 18px 52px !important; }
-  body.production-news .articles-index-hero__copy h1 { font-size: clamp(56px, 15vw, 82px) !important; }
-  body.production-news .articles-index-hero__art { min-height: 250px !important; border-top: 1px solid var(--pdp-inner-ink) !important; border-left: 0 !important; }
-  body.production-news .articles-index-featured { grid-template-columns: 1fr !important; min-height: 0 !important; }
-  body.production-news .articles-index-featured__media { min-height: 230px !important; }
-  body.production-news .articles-index-featured__copy { padding: 24px !important; }
-  body.production-news .articles-index-featured__copy h2 { font-size: 38px !important; }
-  body.production-news .articles-index-catalog { grid-template-columns: 1fr !important; }
-  body.production-news .articles-index-case { min-height: 0 !important; }
-  body.production-news .articles-index-editorial { grid-template-columns: 1fr !important; }
-  body.production-news .articles-index-editorial-card { grid-template-columns: 1fr !important; }
-  body.production-news .articles-index-editorial-card__media { min-height: 180px; }
   body.production-article .prod-article-layout { grid-template-columns: 1fr !important; gap: 30px !important; }
   body.production-article .prod-aside { position: static; order: 2; }
   body.production-article .prod-article-copy { max-width: 100% !important; }
@@ -783,7 +739,7 @@ body.production-page .shared-contact-form-section .contact-form-intro h2 { text-
   body.production-page * { scroll-behavior: auto !important; }
 }
 
-:where(body.production-page) :where(.prod-hero, .prod-hero--editorial, .pcp-hero, .articles-index-hero, .prod-contact-reference__hero) h1,
+:where(body.production-page) :where(.prod-hero, .prod-hero--editorial, .pcp-hero, .prod-contact-reference__hero) h1,
 body.production-services .svc-hero h1 {
   overflow-wrap: normal !important;
   word-break: normal !important;
@@ -818,18 +774,10 @@ body.production-services .svc-hero h1 {
   }
   body.production-services .svc-hero__copy-inner { padding-block: 42px 60px !important; }
   body.production-services .svc-hero__media { min-height: clamp(480px, 42vw, 560px) !important; }
-  body.production-projects .pcp-hero__grid,
-  body.production-news .articles-index-hero {
+  body.production-projects .pcp-hero__grid {
     min-height: clamp(480px, 42vw, 560px) !important;
   }
   body.production-contacts .prod-contact-reference__hero { min-height: clamp(460px, 40vw, 540px) !important; }
-}
-
-@media (min-width: 1200px) {
-  body.production-news .articles-index-hero__copy h1 {
-    font-size: clamp(68px, 6vw, 90px) !important;
-    text-wrap: wrap !important;
-  }
 }
 
 /* The first block is part of the landing handoff, so it is visible even when
@@ -894,33 +842,6 @@ html.inner-motion-a-ready body.production-contacts .prod-contact-reference__hero
     left: 20px !important;
     bottom: 18px !important;
   }
-  body.production-news .articles-index-hero__copy {
-    padding-block: 26px 38px !important;
-  }
-  body.production-news .articles-index-hero__inner {
-    min-height: 0 !important;
-  }
-  body.production-news .articles-index-hero__copy {
-    min-height: 0 !important;
-  }
-  body.production-news .articles-index-hero__copy h1 {
-    max-width: 100% !important;
-    font-size: clamp(40px, 10.2vw, 52px) !important;
-    line-height: .88 !important;
-    letter-spacing: -.065em !important;
-    text-wrap: wrap !important;
-  }
-  body.production-news .articles-index-hero__art {
-    min-height: 154px !important;
-  }
-  body.production-news .articles-index-hero__art::before {
-    inset: 20px !important;
-    font-size: 10px !important;
-    line-height: 1.65 !important;
-  }
-  body.production-news .articles-index-hero__art::after {
-    inset: auto 20px 18px !important;
-  }
   body.production-contacts .prod-contact-reference__hero {
     min-height: 0 !important;
   }
@@ -932,16 +853,9 @@ html.inner-motion-a-ready body.production-contacts .prod-contact-reference__hero
   }
 }
 
-/* Keep the first content block close to the hero; later sections retain the
-   larger editorial breathing room. */
-body.production-news .articles-index-hero__inner {
-  min-height: 0 !important;
-}
-
 body.production-page .prod-hero + .prod-section,
 body.production-services .svc-hero + .svc-services,
 body.production-projects .pcp-hero + .pcp-featured-wrap,
-body.production-news .articles-index-hero + .articles-index-featured,
 body.production-contacts .prod-contact-reference__hero + .prod-contact-reference__details {
   padding-top: 32px !important;
 }
@@ -950,7 +864,6 @@ body.production-contacts .prod-contact-reference__hero + .prod-contact-reference
   body.production-page .prod-hero + .prod-section,
   body.production-services .svc-hero + .svc-services,
   body.production-projects .pcp-hero + .pcp-featured-wrap,
-  body.production-news .articles-index-hero + .articles-index-featured,
   body.production-contacts .prod-contact-reference__hero + .prod-contact-reference__details {
     padding-top: 24px !important;
   }
@@ -974,22 +887,17 @@ body.production-services .svc-hero {
   min-height: 0 !important;
 }
 body.production-services .svc-hero__media,
-body.production-projects .pcp-hero__media,
-body.production-news .articles-index-hero__art {
+body.production-projects .pcp-hero__media {
   display: none !important;
 }
 body.production-services .svc-hero__copy-inner {
   padding-block: 46px 64px !important;
 }
-body.production-projects .pcp-hero__grid,
-body.production-news .articles-index-hero__inner {
+body.production-projects .pcp-hero__grid {
   grid-template-columns: 1fr !important;
   min-height: 0 !important;
 }
 body.production-projects .pcp-hero__copy {
-  padding-block: 46px 64px !important;
-}
-body.production-news .articles-index-hero__copy {
   padding-block: 46px 64px !important;
 }
 
@@ -1010,143 +918,7 @@ body.production-404-page .prod-404::after {
   }
   body.production-services .svc-hero__copy-inner,
   body.production-projects .pcp-hero__copy,
-  body.production-news .articles-index-hero__copy,
   body.production-contacts .prod-contact-reference__hero-inner {
     padding-block: 26px 42px !important;
-  }
-}
-
-/* Articles index desktop cadence: keep the first read in the opening
-   viewport instead of leaving a large empty field below the CTA. */
-@media (min-width: 701px) {
-  body.production-news .articles-index-hero,
-  body.production-news .articles-index-hero__inner {
-    min-height: clamp(420px, 30vw, 440px) !important;
-  }
-  body.production-news .articles-index-hero__copy {
-    padding: 28px 48px 34px 0 !important;
-  }
-  body.production-news .articles-index-hero__copy .prod-breadcrumb {
-    margin-bottom: 42px !important;
-  }
-  body.production-news .articles-index-hero__copy h1 {
-    margin-bottom: 16px !important;
-  }
-  body.production-news .articles-index-button {
-    margin-top: 24px !important;
-  }
-}
-
-/* Articles index desktop flow: the reading catalogue should move as one
-   continuous sequence.  The global inner rhythm is intentionally removed
-   here so each module keeps its own measured padding instead of accumulating
-   a blank band above and below every section. */
-@media (min-width: 701px) {
-  body.production-news :where(
-    .articles-index-featured,
-    .articles-index-rail,
-    .articles-index-catalog,
-    .articles-index-editorial,
-    .articles-index-documents,
-    .articles-index-quote
-  ) {
-    padding-block: 0 !important;
-  }
-
-  body.production-news .articles-index-featured { margin-top: 32px !important; }
-  body.production-news .articles-index-rail {
-    margin-top: 22px !important;
-    padding-bottom: 12px !important;
-  }
-  body.production-news .articles-index-catalog { margin-top: 18px !important; }
-  body.production-news .articles-index-editorial { margin-top: 32px !important; }
-  body.production-news .articles-index-documents {
-    min-height: 174px !important;
-    margin-top: 32px !important;
-  }
-  body.production-news .articles-index-quote {
-    min-height: 250px !important;
-    margin-top: 32px !important;
-  }
-  body.production-news .articles-index-quote__copy { min-height: 250px !important; }
-
-  /* Match the case to the actual three-row rail height; the inherited
-     620px/198px pair created a visible void under the case metrics. */
-  body.production-news .articles-index-case { min-height: 576px !important; }
-  body.production-news .articles-index-side-card { min-height: 184px !important; }
-
-  /* Keep the featured case aligned with its three-card rail without leaving
-     a dark, unintentional strip below the metrics row. */
-  body.production-news .articles-index-case__content {
-    flex: 1 1 auto !important;
-    justify-content: space-between !important;
-  }
-
-  /* Read mode keeps the catalogue visible in a full-page review and avoids
-     a long empty canvas before the observer has had a chance to reveal it. */
-  html.inner-motion-a-ready body.production-news .inner-motion-a-reveal {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
-/* Article hero: keep the reading copy left-aligned and restore a quiet right
-   field for the shared PDP mark. The mark is inserted by the existing inner
-   parallax controller, so it follows the same scroll rhythm as the homepage
-   form without introducing another motion primitive. */
-@media (min-width: 701px) {
-  body.production-news .articles-index-hero__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(260px, .72fr) !important;
-    min-height: clamp(380px, 30vw, 440px) !important;
-  }
-
-  body.production-news .articles-index-hero__art {
-    display: block !important;
-    position: relative;
-    min-width: 0;
-    min-height: inherit !important;
-    overflow: hidden;
-    border-left: 1px solid var(--pdp-inner-line) !important;
-    background: var(--pdp-inner-paper) !important;
-    isolation: isolate;
-  }
-
-  body.production-news .articles-index-hero__art.inner-parallax-host {
-    position: relative;
-  }
-
-  body.production-news .articles-index-hero__art > .inner-parallax-object--logo {
-    position: absolute;
-    z-index: 0;
-    top: -18%;
-    right: -12%;
-    display: block !important;
-    width: min(620px, 74%);
-    aspect-ratio: 1;
-    background: url('../assets/inner-optimized/pdp-logo-parallax.webp') center / contain no-repeat;
-    opacity: .14;
-    mix-blend-mode: multiply;
-    pointer-events: none;
-    user-select: none;
-    will-change: transform;
-    transition: none;
-  }
-}
-
-@media (max-width: 1199px) and (min-width: 701px) {
-  body.production-news .articles-index-hero__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(240px, .58fr) !important;
-  }
-
-  body.production-news .articles-index-hero__art > .inner-parallax-object--logo {
-    top: -12%;
-    right: -16%;
-    width: min(390px, 86%);
-  }
-}
-
-@media (max-width: 700px) {
-  body.production-news .articles-index-hero__art {
-    display: none !important;
   }
 }

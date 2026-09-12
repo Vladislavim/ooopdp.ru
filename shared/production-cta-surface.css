@@ -239,6 +239,28 @@ body.production-page.production-contacts .shared-contact-form-section > .contact
   background: #181b17 !important;
 }
 
+/* Intermediate widths still use the canonical two-column CTA, but the
+   desktop form minimum cannot fit beside the intro below 1200px. Let both
+   columns share the available canvas so the intro never collapses to zero. */
+@media (max-width: 1199px) and (min-width: 701px) {
+  body.production-page .shared-contact-form-section,
+  body.production-page.production-contacts .shared-contact-form-section {
+    grid-template-columns: minmax(260px, .85fr) minmax(0, 1.15fr) !important;
+    gap: 40px !important;
+    padding: 64px 40px 68px !important;
+  }
+
+  body.production-page .shared-contact-form-section .contact-form,
+  body.production-page.production-contacts .shared-contact-form-section > .contact-form {
+    padding: 24px !important;
+  }
+
+  body.production-page .shared-contact-form-section .contact-form-intro h2 {
+    font-size: clamp(42px, 5vw, 54px) !important;
+    letter-spacing: -.06em !important;
+  }
+}
+
 @media (max-width: 700px) {
   body.production-page.production-contacts .shared-contact-form-section {
     grid-template-columns: 1fr !important;

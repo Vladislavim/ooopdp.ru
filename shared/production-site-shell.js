@@ -124,6 +124,10 @@
   };
 
   const page = document.body.dataset.page || '';
+  const legacyInnerSurface = document.body.classList.contains('production-services')
+    || document.body.classList.contains('production-projects')
+    || document.body.classList.contains('production-contacts');
+  const emailLabel = legacyInnerSurface ? 'Email' : 'Почта';
   const innerOptimizedMap = Object.freeze({
     'about-blueprints.png': 'about-blueprints.webp',
     'about-pdp-workers.jpg': 'about-pdp-workers.webp',
@@ -296,9 +300,10 @@
     const heroPhoto = [...document.body.classList]
       .map((className) => pageHeroPhotoMap[className])
       .find(Boolean);
-    if (hero && heroPhoto) {
-      hero.style.setProperty('--prod-hero-image', `url('${asset(heroPhoto)}')`, 'important');
-      hero.dataset.photoSource = heroPhoto.startsWith('cases/') || heroPhoto.startsWith('archive/') ? 'project-archive' : 'local';
+    if (hero) {
+      hero.style.removeProperty('--prod-hero-image');
+      hero.style.removeProperty('--hero-image');
+      delete hero.dataset.photoSource;
     }
 
     const notFound = document.querySelector('.prod-404');
@@ -382,10 +387,6 @@
       setEditorialPhoto('.prod-news-row img', 'cases/eurochem-office.jpg');
     }
     if (document.body.classList.contains('production-article')) {
-      const hero = document.querySelector('.prod-hero');
-      const heroImage = `url('${asset('about-project-planning.png')}')`;
-      hero?.style.setProperty('--prod-hero-image', heroImage, 'important');
-      hero?.style.setProperty('--hero-image', heroImage, 'important');
       setEditorialPhoto('.prod-related .prod-card:nth-child(1) img', 'cases/red-october.jpg');
       setEditorialPhoto('.prod-related .prod-card:nth-child(2) img', 'cases/industrial-production-user.png');
     }
@@ -395,6 +396,7 @@
   const prepareEditorialHero = () => {
     const hero = document.querySelector('body.production-page .prod-hero');
     if (!hero || document.body.classList.contains('production-404-page') || document.body.classList.contains('production-catalog')) return;
+    return;
     const heroPhotos = {
       'production-about': 'web/pexels-engineers-plan-8961026.jpg',
       'production-services': 'web/pexels-factory-15866139.jpg',
@@ -410,7 +412,8 @@
     };
     const pageClass = [...document.body.classList].find((className) => heroPhotos[className]);
     const photo = pageClass ? heroPhotos[pageClass] : '';
-    if (!photo || hero.querySelector('.prod-editorial-hero-media')) return;
+    const restoredEditorialHeroes = new Set(['production-services', 'production-service-detail', 'production-projects', 'production-case']);
+    if (!photo || !restoredEditorialHeroes.has(pageClass) || hero.querySelector('.prod-editorial-hero-media')) return;
     hero.classList.add('prod-hero--editorial');
     const figure = document.createElement('figure');
     figure.className = 'prod-editorial-hero-media';
@@ -680,7 +683,7 @@
     const contactLabel = form.querySelector('[data-contact-label]');
     const channelConfig = {
       phone: {label: 'Телефон', type: 'tel', placeholder: '+7 999 000-00-00'},
-      email: {label: 'Email', type: 'email', placeholder: 'mail@company.ru'},
+      email: {label: emailLabel, type: 'email', placeholder: 'mail@company.ru'},
       messenger: {label: 'Телефон для мессенджера', type: 'tel', placeholder: '+7 999 000-00-00'}
     };
     const syncChannel = () => {
@@ -732,7 +735,7 @@
     const contactLabel = contactForm.querySelector('[data-contact-label]');
     const contactConfigs = {
       phone: { label: 'Телефон', type: 'tel', inputMode: 'tel', autocomplete: 'tel', placeholder: '+7 999 000-00-00' },
-      email: { label: 'Email', type: 'email', inputMode: 'email', autocomplete: 'email', placeholder: 'mail@company.ru' },
+      email: { label: emailLabel, type: 'email', inputMode: 'email', autocomplete: 'email', placeholder: 'mail@company.ru' },
       messenger: { label: 'Телефон для мессенджера', type: 'tel', inputMode: 'tel', autocomplete: 'tel', placeholder: '+7 999 000-00-00' }
     };
     const contactDrafts = { phone: '', email: '', messenger: '' };
@@ -804,8 +807,8 @@
       const subject = `Запрос предварительного разбора проекта — ${name}`;
       const body = [
         `Имя: ${name}`,
-        `Предпочтительный способ связи: ${channel === 'email' ? 'Email' : channel === 'messenger' ? 'Мессенджер' : 'Телефон'}`,
-        `${channel === 'email' ? 'Email' : channel === 'messenger' ? 'Телефон для мессенджера' : 'Телефон'}: ${contact}`
+      `Предпочтительный способ связи: ${channel === 'email' ? emailLabel : channel === 'messenger' ? 'Мессенджер' : 'Телефон'}`,
+      `${channel === 'email' ? emailLabel : channel === 'messenger' ? 'Телефон для мессенджера' : 'Телефон'}: ${contact}`
       ].filter(Boolean).join('\n');
       queueMicrotask(() => {
         window.location.href = `mailto:mail@ooopdp.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

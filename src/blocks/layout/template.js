@@ -12,7 +12,6 @@ function optimizeMarkup(markup, optimizedAssets) {
     ].reduce((next, [from, to]) => next.split(from).join(to), result)
   ), markup);
 }
-
 export async function renderDocument({
   rootDir,
   document,
@@ -45,6 +44,7 @@ export async function renderDocument({
 
   let bodyBeforeMain = optimize(compile(document.bodyBeforeMain));
   let mainInner = fragments.join('');
+  const restoredInnerPages = new Set(['services', 'projects-clients', 'completed-works', 'contacts']);
   if (manifest.kind !== 'home') {
     bodyBeforeMain = bodyBeforeMain.replace(/<div\s+data-site-header\s*><\/div>/, optimize(shell.header || ''));
     const contactSlot = /<div\s+data-cta(?:\s+data-title="[^"]*")?\s*><\/div>/g;
@@ -59,20 +59,27 @@ export async function renderDocument({
       footerSlot.lastIndex = 0;
       mainInner = mainInner.replace(footerSlot, optimize(shell.footer || ''));
     }
+    if (!restoredInnerPages.has(manifest.id)) mainInner = mainInner.replace(/> Email</g, '> Почта<');
   }
   const mainInnerTrailing = optimize(document.mainInnerTrailing);
   const stylesheetPattern = /<link\b(?=[^>]*\brel=(["'])stylesheet\1)[^>]*>/gi;
-  const bodyAfterMainSource = optimize(document.bodyAfterMain);
+  const isRedesignedInner = manifest.kind !== 'home' && !restoredInnerPages.has(manifest.id);
+  let bodyAfterMainSource = optimize(document.bodyAfterMain)
+    .replace(/production-site-shell\.js\?v=[^\"]+/g, 'production-site-shell.js?v=20260912-inner-redesign-v4');
+  if (isRedesignedInner) bodyAfterMainSource = bodyAfterMainSource.replace(/> Email</g, '> Почта<');
   const deferredStyles = bodyAfterMainSource.match(stylesheetPattern) ?? [];
   const bodyAfterMain = bodyAfterMainSource.replace(stylesheetPattern, '').replace(/^[ \t]+$/gm, '');
   const innerMotionPages = new Set(['news-articles', 'service-detail']);
   const innerMotionRuntime = !innerMotionPages.has(manifest.id)
     ? ''
     : '\n  <script src="../shared/vendor/motion-13.2.0.min.js?v=20260911-cache-v10"></script>';
+  const innerRedesignStyles = isRedesignedInner
+    ? '<link rel="stylesheet" href="../shared/production-inner-redesign-v1.css?v=20260912-inner-redesign-v31">'
+    : '';
   // Keep render-blocking styles in <head>. Some legacy manifests still store
   // these links beside the closing scripts, which otherwise causes a visible
   // first-paint layout shift before the final inner-page geometry arrives.
-  const head = `${optimize(document.headInner)}${deferredStyles.length ? `${deferredStyles.join('\n')}\n` : ''}${GENERATED_MARKER}`;
+  const head = `${optimize(document.headInner)}${deferredStyles.length ? `${deferredStyles.join('\n')}\n` : ''}${innerRedesignStyles}${GENERATED_MARKER}`;
 
   return [
     document.doctype,
@@ -96,3 +103,4 @@ export async function renderDocument({
     '\n\r\n\r\n',
   ].join('');
 }
+

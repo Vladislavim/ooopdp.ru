@@ -997,15 +997,15 @@ body.production-contacts .prod-contact-reference__map-wrap .prod-contact-map > .
   pointer-events: auto !important;
 }
 
-/* Contacts process rail: compact connectors and optically centered numerals
-   on the same horizontal rhythm as the homepage's technical sections. */
+/* Contacts process rail: connectors are layout columns, so each line fills
+   the available gap between neighboring steps without touching their copy. */
 @media (min-width: 701px) {
   body.production-contacts .prod-contact-reference__steps {
     grid-template-columns:
       minmax(0, 1fr)
-      clamp(44px, 4.2vw, 78px)
+      minmax(clamp(56px, 6vw, 96px), .45fr)
       minmax(0, 1fr)
-      clamp(44px, 4.2vw, 78px)
+      minmax(clamp(56px, 6vw, 96px), .45fr)
       minmax(0, 1fr);
     column-gap: 0;
     min-height: 154px;

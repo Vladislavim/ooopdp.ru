@@ -15,12 +15,6 @@ const projectPortfolioBlocks = Object.freeze({
   'div-2': 'content/projects-clients/parts/006-div-2.html',
 });
 
-const completedWorksCatalogBlocks = Object.freeze({
-  'catalog-hero': 'content/completed-works/parts/001-catalog-hero.html',
-  'catalog-list': 'content/completed-works/parts/002-catalog-list.html',
-  'catalog-cta': 'content/completed-works/parts/003-catalog-cta.html',
-});
-
 /**
  * Single source of truth for page-level content and paths.
  *
@@ -84,7 +78,7 @@ export const siteData = Object.freeze({
       footer: sharedBlocks.footer,
     }),
     'projects-clients': projectPortfolioBlocks,
-    'completed-works': completedWorksCatalogBlocks,
+    'completed-works': projectPortfolioBlocks,
   }),
 });
 

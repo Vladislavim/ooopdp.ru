@@ -4,8 +4,11 @@ export default {
   "sourceDir": "content/completed-works",
   "kind": "inner",
   "order": [
-    "catalog-hero",
-    "catalog-list",
-    "catalog-cta"
+    "pcp-hero-title",
+    "pcp-featured",
+    "pcp-archive-title",
+    "pcp-materials-title",
+    "div",
+    "div-2"
   ]
 };

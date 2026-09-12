@@ -1015,3 +1015,24 @@ body.production-404-page .prod-404::after {
     padding-block: 26px 42px !important;
   }
 }
+
+/* Articles index desktop cadence: keep the first read in the opening
+   viewport instead of leaving a large empty field below the CTA. */
+@media (min-width: 701px) {
+  body.production-news .articles-index-hero,
+  body.production-news .articles-index-hero__inner {
+    min-height: clamp(420px, 30vw, 440px) !important;
+  }
+  body.production-news .articles-index-hero__copy {
+    padding: 28px 48px 34px 0 !important;
+  }
+  body.production-news .articles-index-hero__copy .prod-breadcrumb {
+    margin-bottom: 42px !important;
+  }
+  body.production-news .articles-index-hero__copy h1 {
+    margin-bottom: 16px !important;
+  }
+  body.production-news .articles-index-button {
+    margin-top: 24px !important;
+  }
+}

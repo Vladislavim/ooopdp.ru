@@ -92,7 +92,7 @@ export async function renderDocument({
   if (manifest.id === 'news-articles') {
     headInnerSource = headInnerSource.replace(
       /production-articles-index-reference\.css\?v=[^\"]+/g,
-      'production-articles-index-reference.css?v=20260912-footer-white-v1'
+      'production-articles-index-reference.css?v=20260912-hero-white-footer-dark-v2'
     );
   }
   const head = [headInnerSource, deferredStyles.length ? deferredStyles.join('\n') + '\n' : '', innerRedesignStyles, homeServicesLayoutGuard, GENERATED_MARKER].join('');

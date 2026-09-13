@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { renderDocument } from './blocks/layout/template.js';
 import { siteData } from './data/site-data.js';
+import { servicePages } from './data/service-pages.js';
 
 const srcDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)));
 const siteDir = path.resolve(srcDir, '..');
@@ -19,7 +20,7 @@ function shellContext(manifest) {
   const href = (target) => relativeHref(manifest.output, target);
   const active = {
     home: isHome,
-    services: ['services', 'service-detail'].includes(manifest.id),
+    services: ['services', 'service-detail', ...siteData.servicePageIds].includes(manifest.id),
     cases: ['projects-clients', 'project-red-october', 'completed-works'].includes(manifest.id),
     contacts: ['contacts', 'privacy-policy'].includes(manifest.id),
     articles: ['news-articles', 'article-detail', 'documents-materials', 'article-construction-control', 'article-executive-documentation'].includes(manifest.id),
@@ -91,6 +92,8 @@ async function renderManifest(manifest) {
   const document = JSON.parse(await readFile(documentPath, 'utf8'));
   if (document.headInner.includes(marker)) throw new Error(`${manifest.id} source already contains the generated marker.`);
   const context = shellContext(manifest);
+  const serviceData = manifest.serviceId ? servicePages[manifest.serviceId] : null;
+  const templateContext = Object.freeze({ ...context, ...(serviceData?.template ?? {}) });
   const shellEntries = await Promise.all(Object.entries(siteData.sharedBlocks).map(async ([name, source]) => [
     name,
     compileTemplate(await readFile(path.join(srcDir, source), 'utf8'), context, source),
@@ -101,7 +104,7 @@ async function renderManifest(manifest) {
     manifest,
     canonicalBlocks: siteData.canonicalBlocks,
     optimizedAssets: siteData.innerOptimizedAssets,
-    templateContext: context,
+    templateContext,
     shell: Object.fromEntries(shellEntries),
   });
 }

@@ -63,7 +63,7 @@ export async function renderDocument({
   }
   const mainInnerTrailing = optimize(document.mainInnerTrailing);
   const stylesheetPattern = /<link\b(?=[^>]*\brel=(["'])stylesheet\1)[^>]*>/gi;
-  const isRedesignedInner = manifest.kind !== 'home' && !restoredInnerPages.has(manifest.id);
+  const isRedesignedInner = manifest.kind !== 'home' && !restoredInnerPages.has(manifest.id) && !manifest.skipInnerRedesign;
   let bodyAfterMainSource = optimize(document.bodyAfterMain)
     .replace(/production-site-shell\.js\?v=[^\"]+/g, 'production-site-shell.js?v=20260912-inner-hero-rhythm-v5');
   if (manifest.id === 'services') {
@@ -88,14 +88,17 @@ export async function renderDocument({
   // Keep render-blocking styles in <head>. Some legacy manifests still store
   // these links beside the closing scripts, which otherwise causes a visible
   // first-paint layout shift before the final inner-page geometry arrives.
-  let headInnerSource = optimize(document.headInner);
+  let headInnerSource = optimize(compile(document.headInner));
   if (manifest.id === 'news-articles') {
     headInnerSource = headInnerSource.replace(
       /production-articles-index-reference\.css\?v=[^\"]+/g,
       'production-articles-index-reference.css?v=20260912-hero-white-footer-dark-v2'
     );
   }
-  const head = [headInnerSource, deferredStyles.length ? deferredStyles.join('\n') + '\n' : '', innerRedesignStyles, homeServicesLayoutGuard, GENERATED_MARKER].join('');
+  const pageStyles = (manifest.headStyles ?? [])
+    .map((href) => `<link rel="stylesheet" href="${href}">`)
+    .join('\n');
+  const head = [headInnerSource, deferredStyles.length ? deferredStyles.join('\n') + '\n' : '', innerRedesignStyles, pageStyles ? `${pageStyles}\n` : '', homeServicesLayoutGuard, GENERATED_MARKER].join('');
 
   return [
     document.doctype,

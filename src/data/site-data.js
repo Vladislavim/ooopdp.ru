@@ -42,6 +42,15 @@ export const siteData = Object.freeze({
     contacts: 'pages/10-contacts.html',
     privacy: 'pages/12-privacy-policy.html',
   }),
+  servicePageIds: Object.freeze([
+    'service-technical-customer',
+    'service-design',
+    'service-construction-installation',
+    'service-engineering-systems',
+    'service-repairs',
+    'service-production-modernization',
+    'service-building-operations',
+  ]),
   sharedBlocks,
   pageIds: Object.freeze([
     'home',

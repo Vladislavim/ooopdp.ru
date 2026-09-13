@@ -99,6 +99,13 @@
   shellHoverStyles.rel = 'stylesheet';
   shellHoverStyles.href = `../shared/shell-hover-motion.css?v=${CACHE_VERSION}`;
   document.head.append(shellHoverStyles);
+  if (document.body?.classList.contains('pdp-service-page')) {
+    const servicePageStyles = document.createElement('link');
+    servicePageStyles.rel = 'stylesheet';
+    servicePageStyles.href = '../shared/production-service-pages.css?v=20260912-service-pages';
+    servicePageStyles.dataset.pdpServicePageStyles = 'true';
+    document.head.append(servicePageStyles);
+  }
 
   if (document.body?.classList.contains('production-page')) {
     const main = document.querySelector('main');

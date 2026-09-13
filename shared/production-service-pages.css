@@ -1,0 +1,501 @@
+/* Shared service-page system. Content varies by data; shell remains canonical. */
+body.pdp-service-page {
+  --service-paper: #f7f6f2;
+  --service-ink: #171817;
+  --service-muted: #62645f;
+  --service-line: #d4d2cb;
+  --service-orange: #f45116;
+  background: var(--service-paper);
+  color: var(--service-ink);
+}
+
+body.pdp-service-page main {
+  background: var(--service-paper);
+}
+
+body.pdp-service-page .prod-container {
+  width: min(calc(100% - 2 * clamp(24px, 4.1vw, 78px)), 1500px);
+}
+
+body.pdp-service-page .pdp-service-hero {
+  min-height: clamp(500px, 42vw, 620px);
+  height: auto !important;
+  border-bottom: 1px solid var(--service-line);
+  background: var(--service-paper);
+}
+
+body.pdp-service-page .pdp-service-hero::before,
+body.pdp-service-page .pdp-service-hero::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.pdp-service-page .pdp-service-hero__wireframe {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: clamp(-80px, 1vw, 18px);
+  width: min(59vw, 900px);
+  height: min(90%, 560px);
+  object-fit: contain;
+  object-position: center;
+  opacity: .21;
+  pointer-events: none;
+  user-select: none;
+  transform: translateY(-50%);
+  filter: grayscale(1) contrast(1.14);
+}
+
+body.pdp-service-page .pdp-service-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(260px, .88fr);
+  align-items: stretch;
+  min-height: clamp(500px, 42vw, 620px);
+  padding-block: 46px 58px;
+}
+
+body.pdp-service-page .pdp-service-hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: min(760px, 100%);
+}
+
+body.pdp-service-page .pdp-service-hero .prod-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 58px;
+  color: #74736e;
+}
+
+body.pdp-service-page .pdp-service-hero .prod-breadcrumb a:hover,
+body.pdp-service-page .pdp-service-hero .prod-breadcrumb a:focus-visible {
+  color: var(--service-orange);
+}
+
+body.pdp-service-page .pdp-service-hero h1 {
+  max-width: 740px;
+  margin: 0;
+  color: var(--service-ink);
+  font: 800 clamp(58px, 6.2vw, 96px) / .86 "Geologica", Geologica, sans-serif;
+  letter-spacing: -.075em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+body.pdp-service-page .pdp-service-hero__copy > p {
+  max-width: 610px;
+  margin: 28px 0 0;
+  color: var(--service-muted);
+  font: 400 17px / 1.48 "Golos Text", Golos, Arial, sans-serif;
+}
+
+body.pdp-service-page .pdp-service-hero__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin-top: 34px;
+}
+
+body.pdp-service-page .pdp-service-hero__actions .prod-button {
+  min-height: 54px;
+  padding-inline: 20px 18px;
+  border-color: var(--service-orange);
+  background: var(--service-orange);
+  color: #fff;
+  gap: 24px;
+}
+
+body.pdp-service-page .pdp-service-hero__actions .prod-button span {
+  font-size: 20px;
+  line-height: .7;
+}
+
+body.pdp-service-page .pdp-service-hero__download {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 54px;
+  color: var(--service-ink);
+  font: 700 10px / 1 "Golos Text", Golos, Arial, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+body.pdp-service-page .pdp-service-hero__download span {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+body.pdp-service-page .pdp-service-hero__download:hover,
+body.pdp-service-page .pdp-service-hero__download:focus-visible {
+  color: var(--service-orange);
+}
+
+body.pdp-service-page .pdp-service-hero__note {
+  align-self: center;
+  justify-self: end;
+  max-width: 220px;
+  margin: 42px 24px 0 0;
+  padding-left: 18px;
+  border-left: 2px solid var(--service-orange);
+  color: var(--service-muted);
+}
+
+body.pdp-service-page .pdp-service-hero__note span {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--service-orange);
+  font: 700 9px / 1.2 "Golos Text", Golos, Arial, sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+body.pdp-service-page .pdp-service-hero__note b {
+  display: block;
+  color: var(--service-ink);
+  font: 700 12px / 1.2 "Geologica", Geologica, sans-serif;
+  text-transform: uppercase;
+}
+
+body.pdp-service-page .pdp-service-editorial {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  width: min(calc(100% - 2 * clamp(24px, 4.1vw, 78px)), 1500px);
+  margin-inline: auto;
+  min-height: 360px;
+  padding-block: 0;
+  border-top: 1px solid var(--service-line);
+  border-bottom: 0;
+}
+
+body.pdp-service-page .pdp-service-editorial:last-of-type {
+  border-bottom: 1px solid var(--service-line);
+}
+
+body.pdp-service-page .pdp-service-editorial__media {
+  min-height: 360px;
+  overflow: hidden;
+  background: #e5e3dc;
+}
+
+body.pdp-service-page .pdp-service-editorial__media img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  filter: saturate(.82) contrast(1.02);
+  transition: transform .6s cubic-bezier(.22, .72, .18, 1), filter .45s ease;
+}
+
+body.pdp-service-page .pdp-service-editorial:hover .pdp-service-editorial__media img {
+  transform: scale(1.025);
+  filter: saturate(.98) contrast(1.04);
+}
+
+body.pdp-service-page .pdp-service-editorial__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 54px clamp(28px, 5vw, 84px);
+}
+
+body.pdp-service-page .pdp-service-editorial--image-right .pdp-service-editorial__media { order: 2; }
+body.pdp-service-page .pdp-service-editorial--image-right .pdp-service-editorial__copy { order: 1; }
+
+body.pdp-service-page .pdp-service-editorial__index {
+  margin-bottom: 24px;
+  color: var(--service-orange);
+  font: 700 11px / 1 "Golos Text", Golos, Arial, sans-serif;
+  letter-spacing: .12em;
+}
+
+body.pdp-service-page .pdp-service-editorial h2,
+body.pdp-service-page .pdp-service-section-heading h2 {
+  max-width: 520px;
+  margin: 0;
+  color: var(--service-ink);
+  font: 800 clamp(36px, 3.25vw, 56px) / .91 "Geologica", Geologica, sans-serif;
+  letter-spacing: -.065em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+body.pdp-service-page .pdp-service-editorial__copy p {
+  max-width: 560px;
+  margin: 24px 0 0;
+  color: var(--service-muted);
+  font: 400 16px / 1.55 "Golos Text", Golos, Arial, sans-serif;
+}
+
+body.pdp-service-page .pdp-service-faq,
+body.pdp-service-page .pdp-service-result {
+  width: min(calc(100% - 2 * clamp(24px, 4.1vw, 78px)), 1500px);
+  margin-inline: auto;
+  padding-block: 76px 84px;
+  border-top: 1px solid var(--service-ink);
+  border-bottom: 1px solid var(--service-line);
+}
+
+body.pdp-service-page .pdp-service-section-heading {
+  display: grid;
+  grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr);
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 38px;
+}
+
+body.pdp-service-page .pdp-service-section-heading > span {
+  color: var(--service-orange);
+  font: 700 10px / 1.2 "Golos Text", Golos, Arial, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+body.pdp-service-page .pdp-service-section-heading h2 {
+  max-width: 820px;
+  font-size: clamp(42px, 4.3vw, 72px);
+}
+
+body.pdp-service-page .pdp-service-faq__list {
+  margin-left: max(0px, 24%);
+  border-top: 1px solid var(--service-line);
+}
+
+body.pdp-service-page .pdp-service-faq details {
+  border-bottom: 1px solid var(--service-line);
+}
+
+body.pdp-service-page .pdp-service-faq summary {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  list-style: none;
+  cursor: pointer;
+}
+
+body.pdp-service-page .pdp-service-faq summary::-webkit-details-marker { display: none; }
+body.pdp-service-page .pdp-service-faq summary:focus-visible { outline: 2px solid var(--service-orange); outline-offset: 4px; }
+
+body.pdp-service-page .pdp-service-faq__number {
+  color: var(--service-orange);
+  font: 800 15px / 1 "Geologica", Geologica, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+body.pdp-service-page .pdp-service-faq__question {
+  color: var(--service-ink);
+  font: 700 16px / 1.2 "Golos Text", Golos, Arial, sans-serif;
+}
+
+body.pdp-service-page .pdp-service-faq__plus {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  justify-self: end;
+}
+
+body.pdp-service-page .pdp-service-faq__plus::before,
+body.pdp-service-page .pdp-service-faq__plus::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+body.pdp-service-page .pdp-service-faq__plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  transition: transform .25s ease;
+}
+
+body.pdp-service-page .pdp-service-faq details[open] .pdp-service-faq__plus::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+body.pdp-service-page .pdp-service-faq__answer {
+  max-width: 690px;
+  padding: 0 40px 22px 60px;
+}
+
+body.pdp-service-page .pdp-service-faq__answer p {
+  margin: 0;
+  color: var(--service-muted);
+  font: 400 15px / 1.5 "Golos Text", Golos, Arial, sans-serif;
+}
+
+body.pdp-service-page .pdp-service-result {
+  border-top: 0;
+  padding-bottom: 72px;
+}
+
+body.pdp-service-page .pdp-service-result__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body.pdp-service-page .pdp-service-result__item figure {
+  aspect-ratio: 1.55 / 1;
+  margin: 0;
+  overflow: hidden;
+  background: #e5e3dc;
+}
+
+body.pdp-service-page .pdp-service-result__item figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.82);
+  transition: transform .6s cubic-bezier(.22, .72, .18, 1), filter .45s ease;
+}
+
+body.pdp-service-page .pdp-service-result__item:hover figure img {
+  transform: scale(1.035);
+  filter: saturate(1);
+}
+
+body.pdp-service-page .pdp-service-result__item h3 {
+  margin: 16px 0 0;
+  color: var(--service-ink);
+  font: 800 16px / 1.03 "Geologica", Geologica, sans-serif;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+}
+
+body.pdp-service-page .pdp-service-result__item p {
+  margin: 9px 0 0;
+  color: var(--service-muted);
+  font: 400 13px / 1.4 "Golos Text", Golos, Arial, sans-serif;
+}
+
+body.pdp-service-page .shared-contact-form-section {
+  margin-top: 0;
+}
+
+@media (max-width: 1199px) and (min-width: 701px) {
+  body.pdp-service-page .pdp-service-hero__inner { grid-template-columns: minmax(0, 1.18fr) minmax(200px, .82fr); }
+  body.pdp-service-page .pdp-service-hero h1 { font-size: clamp(54px, 7vw, 80px); }
+  body.pdp-service-page .pdp-service-hero__note { margin-right: 0; }
+  body.pdp-service-page .pdp-service-editorial__copy { padding-inline: 32px; }
+  body.pdp-service-page .pdp-service-editorial h2 { font-size: clamp(34px, 4.2vw, 48px); }
+  body.pdp-service-page .pdp-service-faq__list { margin-left: 16%; }
+}
+
+@media (max-width: 700px) {
+  body.pdp-service-page .prod-container,
+  body.pdp-service-page .pdp-service-editorial,
+  body.pdp-service-page .pdp-service-faq,
+  body.pdp-service-page .pdp-service-result { width: calc(100% - 36px); }
+
+  body.pdp-service-page .pdp-service-hero,
+  body.pdp-service-page .pdp-service-hero__inner { min-height: 0; }
+
+  body.pdp-service-page .pdp-service-hero { height: auto !important; padding-bottom: 0; }
+
+  body.pdp-service-page .pdp-service-hero__wireframe {
+    top: auto;
+    right: -74px;
+    bottom: 14px;
+    width: 100%;
+    height: 150px;
+    opacity: .15;
+    transform: none;
+  }
+
+  body.pdp-service-page .pdp-service-hero__inner {
+    display: block;
+    padding-block: 28px 178px;
+  }
+
+  body.pdp-service-page .pdp-service-hero .prod-breadcrumb {
+    gap: 7px;
+    margin-bottom: 42px;
+    font-size: 9px;
+  }
+
+  body.pdp-service-page .pdp-service-hero h1 {
+    max-width: 100%;
+    font-size: clamp(44px, 12.6vw, 64px);
+    line-height: .89;
+  }
+
+  body.pdp-service-page .pdp-service-hero__copy > p {
+    max-width: 100%;
+    margin-top: 22px;
+    font-size: 15px;
+  }
+
+  body.pdp-service-page .pdp-service-hero__actions {
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 26px;
+  }
+
+  body.pdp-service-page .pdp-service-hero__actions .prod-button { min-height: 52px; }
+  body.pdp-service-page .pdp-service-hero__download { min-height: 40px; }
+  body.pdp-service-page .pdp-service-hero__note { display: none; }
+
+  body.pdp-service-page .pdp-service-editorial {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  body.pdp-service-page .pdp-service-editorial--image-right .pdp-service-editorial__media { order: 2; }
+  body.pdp-service-page .pdp-service-editorial--image-right .pdp-service-editorial__copy { order: 1; }
+  body.pdp-service-page .pdp-service-editorial--image-left .pdp-service-editorial__media { order: 1; }
+  body.pdp-service-page .pdp-service-editorial--image-left .pdp-service-editorial__copy { order: 2; }
+
+  body.pdp-service-page .pdp-service-editorial__media,
+  body.pdp-service-page .pdp-service-editorial__media img { min-height: 220px; }
+
+  body.pdp-service-page .pdp-service-editorial__copy { padding: 30px 0 36px; }
+  body.pdp-service-page .pdp-service-editorial__index { margin-bottom: 18px; }
+  body.pdp-service-page .pdp-service-editorial h2 { font-size: clamp(36px, 10.6vw, 50px); }
+  body.pdp-service-page .pdp-service-editorial__copy p { margin-top: 18px; font-size: 15px; }
+
+  body.pdp-service-page .pdp-service-faq,
+  body.pdp-service-page .pdp-service-result { padding-block: 52px 56px; }
+
+  body.pdp-service-page .pdp-service-section-heading {
+    display: block;
+    margin-bottom: 28px;
+  }
+
+  body.pdp-service-page .pdp-service-section-heading > span { display: block; margin-bottom: 16px; }
+  body.pdp-service-page .pdp-service-section-heading h2 { font-size: clamp(38px, 11vw, 54px); }
+  body.pdp-service-page .pdp-service-faq__list { margin-left: 0; }
+  body.pdp-service-page .pdp-service-faq summary { grid-template-columns: 34px minmax(0, 1fr) 20px; gap: 10px; min-height: 60px; }
+  body.pdp-service-page .pdp-service-faq__question { font-size: 14px; }
+  body.pdp-service-page .pdp-service-faq__answer { padding: 0 24px 20px 44px; }
+  body.pdp-service-page .pdp-service-faq__answer p { font-size: 14px; }
+  body.pdp-service-page .pdp-service-result__grid { grid-template-columns: 1fr 1fr; gap: 22px 12px; }
+  body.pdp-service-page .pdp-service-result__item h3 { margin-top: 12px; font-size: 14px; }
+  body.pdp-service-page .pdp-service-result__item p { font-size: 12px; }
+}
+
+@media (max-width: 420px) {
+  body.pdp-service-page .pdp-service-result__grid { grid-template-columns: 1fr; gap: 26px; }
+  body.pdp-service-page .pdp-service-result__item figure { aspect-ratio: 1.62 / 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.pdp-service-page .pdp-service-editorial__media img,
+  body.pdp-service-page .pdp-service-result__item figure img { transition: none; }
+  body.pdp-service-page .pdp-service-hero__wireframe { transform: translateY(-50%); }
+}
+
+@media (max-width: 700px) and (prefers-reduced-motion: reduce) {
+  body.pdp-service-page .pdp-service-hero__wireframe { transform: none; }
+}

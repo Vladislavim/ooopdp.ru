@@ -615,3 +615,208 @@ main.site > .projects .project-showcase-visual figcaption {
     will-change: auto;
   }
 }
+
+/* Responsive parity: retain the small semantic marks and proof row from the
+   approved desktop composition while adapting their layout to the viewport. */
+@media (max-width: 1199px) {
+  main.site > .hero .hero-kicker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    color: #5f625d;
+    font-size: 8px;
+    font-weight: 520;
+    line-height: 1.25;
+    letter-spacing: .09em;
+  }
+
+  main.site > .hero .hero-kicker img {
+    display: block;
+    flex: 0 0 14px;
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+  }
+
+  main.site > .projects .projects-header-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+  }
+
+  main.site > .projects .projects-header-note img {
+    display: block;
+    flex: 0 0 14px;
+    width: 14px;
+    height: 14px;
+    margin-top: 2px;
+    object-fit: contain;
+  }
+
+  main.site > .projects .projects-header-note span {
+    display: block;
+    min-width: 0;
+  }
+}
+
+/* Tablet keeps all three metrics and the client marks in one compact,
+   two-tier rail instead of dropping the proof row altogether. */
+@media (max-width: 1199px) and (min-width: 701px) {
+  /* The desktop four-column header is too dense in landscape tablet widths.
+     Keep the canonical shell, but give the brand, nav, phone and CTA a
+     responsive budget so none of the shared controls overlap. */
+  body:has(main.site > .hero) .top {
+    grid-template-columns: 26% 39% 19% 16%;
+  }
+
+  body:has(main.site > .hero) .top .brand {
+    padding-inline: clamp(20px, 3vw, 24px);
+  }
+
+  body:has(main.site > .hero) .top .brand-logo {
+    width: clamp(132px, 18vw, 150px);
+    flex-basis: clamp(132px, 18vw, 150px);
+  }
+
+  body:has(main.site > .hero) .top .nav {
+    gap: clamp(12px, 2.1vw, 22px);
+  }
+
+  body:has(main.site > .hero) .top .nav a {
+    font-size: clamp(9px, 1.25vw, 11px);
+  }
+
+  body:has(main.site > .hero) .top .tel {
+    gap: 7px;
+    padding-inline: clamp(7px, 1.1vw, 12px);
+    font-size: clamp(12px, 1.5vw, 15px);
+  }
+
+  body:has(main.site > .hero) .top .top-cta {
+    padding-inline: clamp(8px, 1.2vw, 14px);
+  }
+
+  body:has(main.site > .hero) .top .top-cta::after {
+    font-size: clamp(9px, 1.1vw, 11px);
+  }
+
+  main.site > .hero .metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 72px 52px;
+    height: 124px;
+  }
+
+  main.site > .hero .metric {
+    min-width: 0;
+    align-items: center;
+    padding-inline: clamp(12px, 2vw, 24px);
+  }
+
+  main.site > .hero .hero-proof {
+    grid-column: 1 / -1;
+    min-width: 0;
+    min-height: 0;
+    padding: 7px clamp(16px, 2.2vw, 28px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    border-top: 1px solid #bbbcb7;
+    border-left: 0;
+  }
+
+  main.site > .hero .hero-proof > span {
+    font-size: 7px;
+    letter-spacing: .1em;
+  }
+
+  main.site > .hero .hero-proof > div {
+    grid-template-columns: .72fr 1.12fr 1fr 1.35fr;
+    gap: clamp(10px, 1.8vw, 22px);
+  }
+
+  main.site > .hero .hero-proof > div > b {
+    font-size: clamp(11px, 1.45vw, 15px);
+  }
+
+  main.site > .hero .hero-proof img {
+    max-width: clamp(78px, 11vw, 120px);
+    max-height: 28px;
+  }
+
+  main.site > .hero .hero-proof-severstal img {
+    width: 24px;
+    height: 24px;
+  }
+
+  main.site > .hero .hero-proof-severstal em {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 700px) {
+  main.site > .hero .hero-kicker {
+    gap: 7px;
+    margin-bottom: 12px;
+    font-size: 7px;
+    letter-spacing: .075em;
+  }
+
+  main.site > .hero .hero-kicker img {
+    flex-basis: 14px;
+    width: 14px;
+    height: 14px;
+  }
+
+  main.site > .projects .projects-header {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    margin-bottom: 22px;
+  }
+
+  main.site > .projects .projects-header > div {
+    min-width: 0;
+  }
+
+  main.site > .projects .projects-header-note {
+    width: 100%;
+    max-width: none;
+    padding-left: 0 !important;
+    border-left: 0 !important;
+  }
+
+  main.site > .projects .project-showcase {
+    overflow: hidden;
+  }
+
+  main.site > .projects .project-showcase-stage {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: clamp(220px, 58vw, 300px) minmax(0, auto);
+    height: auto;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  main.site > .projects .project-showcase-visual {
+    width: 100%;
+    height: clamp(220px, 58vw, 300px);
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid #3f403d;
+  }
+
+  main.site > .projects .project-slide-gallery {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  main.site > .projects .project-showcase-copy {
+    width: 100%;
+    height: auto;
+    min-height: 460px;
+    overflow: visible;
+    padding: 26px 22px 30px;
+  }
+}

@@ -31,9 +31,26 @@
 .direction[data-direction-route] { cursor: pointer; }
 .direction[data-direction-route]:focus-visible { outline: 2px solid var(--o); outline-offset: 5px; }
 
+/* Keep the PDP signature present on smaller screens as a restrained layout
+   layer. It uses the same asset and scroll primitive as desktop; only its
+   scale, crop and opacity adapt to the available canvas. */
+@media (max-width: 1199px) and (min-width: 701px) {
+  .projects-parallax-logo {
+    display: block;
+    top: clamp(22px, 4vw, 48px);
+    right: clamp(-128px, -7vw, -54px);
+    width: min(360px, 33vw);
+    opacity: .2;
+  }
+}
+
 @media (max-width: 700px) {
   .projects-parallax-logo {
-    display: none;
+    display: block;
+    top: clamp(12px, 5vw, 24px);
+    right: clamp(-86px, -18vw, -48px);
+    width: min(260px, 68vw);
+    opacity: .16;
   }
 }
 

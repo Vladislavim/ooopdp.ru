@@ -37,20 +37,20 @@
 @media (max-width: 1199px) and (min-width: 701px) {
   .projects-parallax-logo {
     display: block;
-    top: clamp(22px, 4vw, 48px);
-    right: clamp(-128px, -7vw, -54px);
-    width: min(360px, 33vw);
-    opacity: .2;
+    top: clamp(24px, 4vw, 48px);
+    right: clamp(-144px, -8vw, -58px);
+    width: min(390px, 38vw);
+    opacity: .22;
   }
 }
 
 @media (max-width: 700px) {
   .projects-parallax-logo {
     display: block;
-    top: clamp(12px, 5vw, 24px);
-    right: clamp(-86px, -18vw, -48px);
-    width: min(260px, 68vw);
-    opacity: .16;
+    top: clamp(10px, 4vw, 20px);
+    right: clamp(-70px, -16vw, -42px);
+    width: min(230px, 64vw);
+    opacity: .2;
   }
 }
 

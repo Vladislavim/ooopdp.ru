@@ -605,11 +605,13 @@
   }
 
   .hero-proof {
-    display: none;
+    display: flex;
   }
 
-  .hero-copy .buttons .btn:first-child {
-    min-width: 230px;
+  .hero-copy .buttons .btn:first-child,
+  .hero-copy .buttons .btn:last-child {
+    min-width: 0;
+    flex: 1 1 0;
   }
 
   .project-showcase-actions {
@@ -645,7 +647,7 @@
   }
 
   .hero {
-    height: 780px;
+    height: clamp(640px, 165vw, 700px);
   }
 
   .hero-copy .buttons {
@@ -717,6 +719,84 @@
 
   .hero-proof-severstal em {
     font-size: 6.5px;
+  }
+
+  .services {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 24px 16px 28px;
+  }
+
+  .service-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 44px;
+    gap: 1px;
+    min-height: 0;
+    border: 1px solid #3b3d39;
+  }
+
+  .service-row,
+  .service-row.active {
+    min-width: 0;
+    min-height: 44px;
+    height: 44px;
+    grid-template-columns: 28px minmax(0, 1fr) 14px;
+    gap: 5px;
+    padding: 0 8px;
+    font-size: 8px;
+  }
+
+  .service-row.active {
+    grid-column: 1 / -1;
+  }
+
+  .service-row b {
+    font-size: 14px;
+  }
+
+  .service-row > span:nth-of-type(1) {
+    min-width: 0;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: clip;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1.05;
+  }
+
+  .service-row::after {
+    font-size: 13px;
+  }
+
+  .service-copy {
+    min-width: 0;
+    padding: 0 2px;
+  }
+
+  .service-copy h3 {
+    max-width: 15ch;
+    font-size: clamp(21px, 7vw, 28px);
+    line-height: .94;
+  }
+
+  .service-copy p {
+    max-width: 34ch;
+    margin-top: 10px;
+    font-size: 9px;
+    line-height: 1.45;
+  }
+
+  .service-copy .more {
+    margin-top: 14px;
+    font-size: 8px;
+  }
+
+  .service-wire {
+    width: 100%;
+    height: clamp(180px, 54vw, 240px);
   }
 
   .project-showcase-facts div {

@@ -4,4 +4,41 @@
 <nav class="nav" aria-label="Основная навигация"><a class="active" href="#top">Главная</a><a href="#services">Услуги</a><a href="#projects">Кейсы</a><a href="#contacts">Контакты</a><a href="#articles">Статьи</a></nav>
   <a class="tel" href="tel:+78442564554" aria-label="Позвонить: 8 8442 56-45-54"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a>
   <a class="top-cta" href="#contacts" data-desktop-label="Поставить задачу" aria-label="Поставить задачу">Поставить задачу</a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="home-mobile-menu"><span>Открыть меню</span><i aria-hidden="true"></i></button>
 </header>
+<div class="mobile-menu" id="home-mobile-menu" aria-hidden="true">
+  <div class="mobile-menu__backdrop" data-menu-close></div>
+  <div class="mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Мобильная навигация">
+    <div class="mobile-menu__head"><span>Навигация</span><button type="button" data-menu-close aria-label="Закрыть меню">×</button></div>
+    <nav aria-label="Мобильная навигация">
+      <a href="#top">Главная</a><a href="#services">Услуги</a><a href="#projects">Кейсы</a><a href="#contacts">Контакты</a><a href="#articles">Статьи</a>
+    </nav>
+    <a class="mobile-menu__phone" href="tel:+78442564554">8 (8442) 56-45-54</a>
+  </div>
+</div>
+<script>
+(() => {
+  const menu = document.querySelector('#home-mobile-menu');
+  const toggle = document.querySelector('.top .menu-toggle');
+  if (!menu || !toggle) return;
+  const close = ({ restoreFocus = false } = {}) => {
+    document.body.classList.remove('home-menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+    if (restoreFocus) toggle.focus({ preventScroll: true });
+  };
+  toggle.addEventListener('click', () => {
+    const open = !document.body.classList.contains('home-menu-open');
+    document.body.classList.toggle('home-menu-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-hidden', String(!open));
+    if (open) menu.querySelector('nav a')?.focus({ preventScroll: true });
+    else toggle.focus({ preventScroll: true });
+  });
+  menu.querySelectorAll('[data-menu-close]').forEach((item) => item.addEventListener('click', () => close({ restoreFocus: true })));
+  menu.querySelectorAll('nav a, .mobile-menu__phone').forEach((item) => item.addEventListener('click', () => close()));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && document.body.classList.contains('home-menu-open')) close({ restoreFocus: true });
+  });
+})();
+</script>

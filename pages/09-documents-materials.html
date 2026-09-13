@@ -42,7 +42,15 @@
 
     <section class="prod-container prod-section">
       <div class="prod-documents-layout">
-        <aside class="prod-filter"><div class="prod-eyebrow">Фильтр</div><h3>Тип документа</h3><label><input type="checkbox"> Проектная документация</label><label><input type="checkbox"> Рабочая документация</label><label><input type="checkbox"> Дизайн-проект</label><label><input type="checkbox"> Проектные решения</label><label><input type="checkbox"> Эскизный проект</label><h3>Объект / проект</h3><label><input type="checkbox"> Красный Октябрь</label><label><input type="checkbox"> Поликлиника №31</label><label><input type="checkbox"> ЕвроХим-ВолгаКалий</label><label><input type="checkbox"> ЦРМО РМО</label><button class="prod-actions-button" type="reset">Сбросить фильтр</button></aside>
+        <aside class="prod-filter">
+          <div class="prod-filter__head">
+            <div><div class="prod-eyebrow">Фильтр</div><strong class="prod-filter__state" data-filter-state>Все документы</strong></div>
+            <button class="prod-filter__toggle" type="button" aria-expanded="false" aria-controls="documents-filter-body">Фильтр <span aria-hidden="true">+</span></button>
+          </div>
+          <div class="prod-filter__body" id="documents-filter-body" hidden>
+            <h3>Тип документа</h3><label><input type="checkbox"> Проектная документация</label><label><input type="checkbox"> Рабочая документация</label><label><input type="checkbox"> Дизайн-проект</label><label><input type="checkbox"> Проектные решения</label><label><input type="checkbox"> Эскизный проект</label><h3>Объект / проект</h3><label><input type="checkbox"> Красный Октябрь</label><label><input type="checkbox"> Поликлиника №31</label><label><input type="checkbox"> ЕвроХим-ВолгаКалий</label><label><input type="checkbox"> ЦРМО РМО</label><button class="prod-actions-button" type="button" data-filter-reset>Сбросить фильтр</button>
+          </div>
+        </aside>
         <div>
           <div class="prod-search"><input type="search" placeholder="Поиск по названию документа или объекту" aria-label="Поиск по документам"><button type="button">Сортировка&nbsp;&nbsp; По дате⌄</button></div>
           <div class="prod-eyebrow" style="margin-bottom:18px">Найдено 4 документа</div>
@@ -55,6 +63,7 @@
         </div>
       </div>
     </section>
+
 
     <section class="prod-container prod-section prod-section--tight">
       <div class="prod-section-head"><div><div class="prod-eyebrow">Дополнительные материалы</div><h2>Для работы с объектом</h2></div></div>

@@ -589,6 +589,8 @@
       if (!embed.querySelector('iframe')) {
         embed.innerHTML = `<iframe src="${mapSource}" frameborder="0" allowfullscreen="true" allow="geolocation" title="Карта расположения офиса ПДП" loading="eager"></iframe>`;
       }
+      const liveMapFrame = embed.querySelector('iframe');
+      liveMapFrame?.addEventListener('load', () => contactsMap.classList.add('is-map-loaded'), { once: true });
     }
   }
 
@@ -894,6 +896,53 @@
     }));
   };
   setupFilters();
+
+  const setupDocumentsFilter = () => {
+    if (!document.body.classList.contains('production-documents')) return;
+    const filter = document.querySelector('.prod-filter');
+    const toggle = filter?.querySelector('.prod-filter__toggle');
+    const filterBody = filter?.querySelector('.prod-filter__body');
+    const state = filter?.querySelector('[data-filter-state]');
+    const inputs = [...(filter?.querySelectorAll('input[type="checkbox"]') || [])];
+    const rows = [...document.querySelectorAll('.prod-document-row')];
+    if (!filter || !toggle || !filterBody) return;
+
+    const groupFor = (input) => {
+      let node = input.closest('label')?.previousElementSibling;
+      while (node && node.tagName !== 'H3') node = node.previousElementSibling;
+      return /объект/i.test(node?.textContent || '') ? 'object' : 'type';
+    };
+    const sync = () => {
+      const selected = inputs.filter((input) => input.checked);
+      const groups = selected.reduce((map, input) => {
+        const key = groupFor(input);
+        const value = input.closest('label')?.textContent?.replace(/\s+/g, ' ').trim() || '';
+        (map[key] ||= []).push(value);
+        return map;
+      }, {});
+      rows.forEach((row) => {
+        const text = row.textContent.replace(/\s+/g, ' ').trim().toLowerCase();
+        const visible = Object.values(groups).every((values) => values.some((value) => text.includes(value.toLowerCase())));
+        row.hidden = selected.length > 0 && !visible;
+      });
+      if (state) state.textContent = selected.length ? `${selected.length} выбрано` : 'Все документы';
+      filter.dataset.hasSelection = selected.length ? 'true' : 'false';
+    };
+
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(open));
+      filter.classList.toggle('is-open', open);
+      filterBody.hidden = !open;
+    });
+    inputs.forEach((input) => input.addEventListener('change', sync));
+    filter.querySelector('[data-filter-reset]')?.addEventListener('click', () => {
+      inputs.forEach((input) => { input.checked = false; });
+      sync();
+    });
+    sync();
+  };
+  setupDocumentsFilter();
 
   const setupV25Services = () => {
     if (!document.body.classList.contains('production-services')) return;

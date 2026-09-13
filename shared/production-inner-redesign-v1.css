@@ -535,6 +535,10 @@ body.production-documents .prod-process__item strong { display: block; margin-to
 body.production-documents .prod-process__item p { margin-top: 8px; color: #c2c6bc; font-size: 12px; }
 body.production-documents .prod-documents-layout { display: grid !important; grid-template-columns: 240px minmax(0, 1fr) !important; gap: 64px !important; }
 body.production-documents .prod-filter { padding: 0 24px 0 0 !important; border: 0 !important; border-right: 1px solid var(--pdp-inner-ink) !important; }
+body.production-documents .prod-filter__head { display: block; }
+body.production-documents .prod-filter__state,
+body.production-documents .prod-filter__toggle { display: none; }
+body.production-documents .prod-filter__body { display: block; }
 body.production-documents .prod-filter h3 { margin: 30px 0 12px !important; font-size: 18px !important; line-height: .96 !important; text-transform: uppercase; }
 body.production-documents .prod-filter label { display: block; min-height: 32px; padding: 5px 0; color: var(--pdp-inner-muted); font-size: 12px; }
 body.production-documents .prod-search { display: grid !important; grid-template-columns: minmax(0, 1fr) auto !important; gap: 12px !important; border-bottom: 1px solid var(--pdp-inner-ink) !important; }
@@ -712,13 +716,24 @@ body.production-page .shared-contact-form-section .contact-form-intro h2 { text-
   body.production-documents .prod-process__item { min-height: 112px; padding: 16px !important; }
   body.production-documents .prod-process__item strong { margin-top: 20px; font-size: 16px; }
   body.production-documents .prod-documents-layout { grid-template-columns: 1fr !important; gap: 38px !important; }
-  body.production-documents .prod-filter { padding: 0 0 22px !important; border-right: 0 !important; border-bottom: 1px solid var(--pdp-inner-ink) !important; }
+  body.production-documents .prod-filter { padding: 0 0 16px !important; border-right: 0 !important; border-bottom: 1px solid var(--pdp-inner-ink) !important; }
+  body.production-documents .prod-filter__head { display: flex; align-items: end; justify-content: space-between; gap: 18px; }
+  body.production-documents .prod-filter__state { display: block; margin-top: 8px; color: var(--pdp-inner-ink); font-size: 18px; line-height: 1; text-transform: uppercase; }
+  body.production-documents .prod-filter__toggle { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 42px; padding: 10px 0 9px 16px; border: 1px solid var(--pdp-inner-ink); background: transparent; color: var(--pdp-inner-ink); font: 700 11px/1 var(--pdp-inner-body); letter-spacing: .1em; text-transform: uppercase; }
+  body.production-documents .prod-filter__toggle span { color: var(--pdp-inner-orange); font-size: 20px; line-height: .8; }
+  body.production-documents .prod-filter__toggle[aria-expanded="true"] span { transform: rotate(45deg); }
+  body.production-documents .prod-filter__body[hidden] { display: none !important; }
+  body.production-documents .prod-filter__body { padding-top: 10px; }
+  body.production-documents .prod-filter[data-has-selection="true"] .prod-filter__state { color: var(--pdp-inner-orange); }
   body.production-documents .prod-search { grid-template-columns: 1fr !important; }
-  body.production-documents .prod-document-row { grid-template-columns: 28px 60px minmax(0, 1fr) !important; gap: 10px !important; }
-  body.production-documents .prod-document-row__type,
-  body.production-documents .prod-document-row__date,
-  body.production-documents .prod-document-row__download { display: none !important; }
-  body.production-documents .prod-document-row img { width: 60px !important; height: 74px !important; }
+  body.production-documents .prod-document-row { grid-template-columns: 24px 56px minmax(0, 1fr) auto !important; grid-template-rows: auto auto; gap: 8px 10px !important; min-height: 112px !important; padding: 14px 0 !important; align-items: start; }
+  body.production-documents .prod-document-row > span:nth-child(3) { grid-column: 3; grid-row: 1 / span 2; min-width: 0; font-size: 12px; line-height: 1.35; }
+  body.production-documents .prod-document-row > span:nth-child(3) strong { margin-bottom: 5px; font-size: 15px; line-height: 1; overflow-wrap: anywhere; }
+  body.production-documents .prod-document-row__number { grid-column: 1; grid-row: 1; padding-top: 3px; font-size: 12px; }
+  body.production-documents .prod-document-row img { grid-column: 2; grid-row: 1 / span 2; width: 56px !important; height: 72px !important; }
+  body.production-documents .prod-document-row__type { display: block !important; grid-column: 4; grid-row: 1; min-width: 42px; color: var(--pdp-inner-muted); font-size: 9px !important; line-height: 1.15; text-align: right; }
+  body.production-documents .prod-document-row__date { display: block !important; grid-column: 3; grid-row: 2; align-self: end; color: var(--pdp-inner-muted); font-size: 10px !important; line-height: 1; }
+  body.production-documents .prod-document-row__download { display: inline-flex !important; grid-column: 4; grid-row: 2; align-self: end; color: var(--pdp-inner-orange) !important; font-size: 9px !important; line-height: 1; white-space: nowrap; }
   body.production-documents .prod-material-grid { grid-template-columns: 1fr 1fr !important; }
   body.production-documents .prod-material:first-child { grid-column: 1 / -1; }
   body.production-contacts .prod-contact-reference__hero { min-height: 520px !important; }
@@ -728,7 +743,23 @@ body.production-page .shared-contact-form-section .contact-form-intro h2 { text-
   body.production-contacts .prod-contact-reference__details { grid-template-columns: 1fr !important; }
   body.production-contacts .prod-contact-reference__facts { padding-inline: 18px !important; }
   body.production-contacts .prod-contact-reference__map-wrap { border-top: 1px solid var(--pdp-inner-ink) !important; border-left: 0 !important; }
-  body.production-contacts .prod-contact-map { height: 330px !important; }
+  body.production-contacts .prod-contact-map {
+    height: 330px !important;
+    /* Keep the map area useful during the Yandex iframe's late mobile paint;
+       the live iframe remains on top and replaces this authored fallback. */
+    background: #e9e7e0 url("../assets/yandex-map-pdp-fallback.png") center/cover no-repeat !important;
+  }
+  body.production-contacts .prod-contact-map::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: #e9e7e0 url("../assets/yandex-map-pdp-fallback.png") center/cover no-repeat;
+    opacity: 1;
+    transition: opacity .22s ease;
+  }
+  body.production-contacts .prod-contact-map.is-map-loaded::after { opacity: 0; }
   body.production-contacts .prod-contact-reference__steps { grid-template-columns: 1fr !important; }
   body.production-contacts .prod-contact-reference__steps > i { display: none; }
   body.production-contacts .prod-contact-reference__steps > div { min-height: 116px; border-bottom: 1px solid var(--pdp-inner-line); }
@@ -930,6 +961,15 @@ body.production-404-page .prod-404::after {
     gap: 28px !important;
   }
 
+  /* Tablet article titles need an editorial measure of two to three lines;
+     retaining the desktop 72px scale turns long Russian titles into a tall
+     four-line tower even after the side rails have been removed. */
+  body.production-page.production-article .prod-hero h1 {
+    font-size: clamp(46px, 5.6vw, 58px) !important;
+    line-height: .9 !important;
+    letter-spacing: -.055em !important;
+  }
+
   body.production-page.production-article .prod-article-copy,
   body.production-page.production-article .prod-aside {
     width: 100% !important;
@@ -939,6 +979,19 @@ body.production-404-page .prod-404::after {
   body.production-page.production-article .prod-aside {
     position: static !important;
     order: 2;
+  }
+}
+
+/* At the compact end of tablet, related-project cards need real image area.
+   The desktop five-track strip becomes one featured card plus a readable
+   two-up archive; wider tablets keep the original desktop-inspired strip. */
+@media (max-width: 900px) and (min-width: 701px) {
+  body.production-page.production-service-detail .prod-project-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body.production-page.production-service-detail .prod-project-strip .prod-card:first-child {
+    grid-column: 1 / -1 !important;
   }
 }
 
@@ -1017,30 +1070,61 @@ body.production-404-page .prod-404::after {
   }
 }
 
-/* At the smallest phones a two-up technical grid turns long labels into
-   unreadable fragments. A compact single rail keeps each stage legible while
-   preserving the numbered sequence. */
-@media (max-width: 360px) {
+/* Phone art direction: when a second column would reduce the content to a
+   thumbnail, switch the process and project evidence to a readable sequence. */
+@media (max-width: 430px) {
+  body.production-page.production-article .prod-hero h1 {
+    font-size: clamp(32px, 9.2vw, 38px) !important;
+    line-height: .92 !important;
+  }
+  body.production-page.production-article .prod-article-copy h2 {
+    font-size: clamp(28px, 8.2vw, 34px) !important;
+    line-height: .95 !important;
+    letter-spacing: -.045em !important;
+  }
+
   body.production-page.production-service-detail .prod-composition,
   body.production-page.production-service-detail .prod-step-grid {
     grid-template-columns: minmax(0, 1fr) !important;
   }
-
   body.production-page.production-service-detail .prod-composition__item {
-    min-height: 150px !important;
-    padding: 16px 18px !important;
+    min-height: 0 !important;
+    padding: 20px 18px !important;
+    border-right: 0 !important;
   }
-
   body.production-page.production-service-detail .prod-composition__item strong {
     margin-top: 24px !important;
   }
-
-  body.production-page.production-service-detail .prod-step {
-    min-height: 140px !important;
-    padding: 16px 18px !important;
+  body.production-page.production-service-detail .prod-step-grid {
+    border-top: 1px solid var(--pdp-inner-ink);
   }
-
+  body.production-page.production-service-detail .prod-step {
+    min-height: 0 !important;
+    padding: 20px 18px !important;
+    border-right: 0 !important;
+  }
   body.production-page.production-service-detail .prod-step span {
-    margin-top: 36px !important;
+    margin-top: 24px !important;
+    text-align: left;
+  }
+  body.production-page.production-service-detail .prod-project-strip {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  body.production-page.production-service-detail .prod-project-strip .prod-card,
+  body.production-page.production-service-detail .prod-project-strip .prod-card:first-child {
+    grid-column: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 1.4 / 1 !important;
+  }
+  body.production-page.production-documents .prod-material-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* At the smallest phones even a two-up article process becomes too narrow;
+   keep one stage per row so its explanation remains comfortably scannable. */
+@media (max-width: 360px) {
+  body.production-page.production-article .pdp-article-process {
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 }

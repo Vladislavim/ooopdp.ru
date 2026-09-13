@@ -425,6 +425,24 @@ body.production-contacts .shared-contact-form-section > .contact-form {
 
   body.production-contacts .prod-contact-reference__map-wrap .prod-contact-map {
     height: min(86vw, 350px);
+    /* Keep the contact canvas useful while the live Yandex iframe paints on
+       narrow devices; the load state removes this surface automatically. */
+    background: #e9e7e0 url("../assets/yandex-map-pdp-fallback.png") center/cover no-repeat;
+  }
+
+  body.production-contacts .prod-contact-reference__map-wrap .prod-contact-map::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: #e9e7e0 url("../assets/yandex-map-pdp-fallback.png") center/cover no-repeat;
+    opacity: 1;
+    transition: opacity .22s ease;
+  }
+
+  body.production-contacts .prod-contact-reference__map-wrap .prod-contact-map.is-map-loaded::after {
+    opacity: 0;
   }
 
   body.production-contacts .prod-contact-reference__steps {

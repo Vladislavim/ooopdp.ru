@@ -718,11 +718,11 @@ main.site > .mobile-menu {
   }
 
   main.site > .articles .article {
-    min-height: 188px;
+    min-height: 164px;
   }
 
   main.site > .articles .article:first-child {
-    min-height: 290px;
+    min-height: 252px;
   }
 
   main.site > .articles .article > div {

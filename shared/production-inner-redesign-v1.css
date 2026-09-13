@@ -920,6 +920,28 @@ body.production-404-page .prod-404::after {
   display: none !important;
 }
 
+/* Tablet reading mode: an article's side rails should never squeeze the
+   primary measure into a narrow column. Keep the desktop three-rail layout
+   frozen above 1199px; below that breakpoint, let the article read as one
+   coherent column and move the contextual aside underneath it. */
+@media (max-width: 1199px) and (min-width: 701px) {
+  body.production-page.production-article .prod-article-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 28px !important;
+  }
+
+  body.production-page.production-article .prod-article-copy,
+  body.production-page.production-article .prod-aside {
+    width: 100% !important;
+    max-width: min(100%, 760px) !important;
+  }
+
+  body.production-page.production-article .prod-aside {
+    position: static !important;
+    order: 2;
+  }
+}
+
 @media (max-width: 700px) {
   body.production-page :where(.prod-hero, .prod-hero--editorial) .prod-hero__inner {
     min-height: 0 !important;
@@ -929,5 +951,96 @@ body.production-404-page .prod-404::after {
   body.production-projects .pcp-hero__copy,
   body.production-contacts .prod-contact-reference__hero-inner {
     padding-block: 26px 42px !important;
+  }
+}
+
+/* Narrow reading fields: retain the two-up rhythm only where the content can
+   actually breathe. Service-detail and case-study copy/media splits need a
+   full measure on phones; process cells keep two columns, but their tracks
+   must be allowed to shrink so long Russian labels wrap instead of escaping
+   the viewport. */
+@media (max-width: 700px) {
+  body.production-page :where(.prod-hero, .prod-hero--editorial) .prod-hero__copy {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  body.production-page.production-service-detail .prod-two-columns,
+  body.production-page.production-case .prod-two-columns {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body.production-page.production-service-detail .prod-composition,
+  body.production-page.production-service-detail .prod-step-grid,
+  body.production-page.production-case .prod-step-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body.production-page.production-service-detail .prod-composition__item,
+  body.production-page.production-service-detail .prod-step,
+  body.production-page.production-case .prod-step {
+    min-width: 0 !important;
+  }
+
+  body.production-page.production-service-detail .prod-composition__item {
+    padding-inline: 14px !important;
+  }
+
+  body.production-page.production-service-detail .prod-step {
+    padding-inline: 12px !important;
+  }
+
+  body.production-page.production-service-detail .prod-composition__item strong,
+  body.production-page.production-service-detail .prod-step span strong {
+    font-size: 15px !important;
+    letter-spacing: -.045em !important;
+    overflow-wrap: anywhere;
+  }
+
+  body.production-page.production-article .pdp-article-process {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  body.production-page.production-article .pdp-article-process__item {
+    min-width: 0 !important;
+  }
+  body.production-page.production-article .pdp-article-process__item h3,
+  body.production-page.production-article .pdp-article-process__item p {
+    overflow-wrap: anywhere;
+  }
+
+  body.production-page.production-documents .prod-material-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  body.production-page.production-documents .prod-material {
+    min-width: 0 !important;
+  }
+}
+
+/* At the smallest phones a two-up technical grid turns long labels into
+   unreadable fragments. A compact single rail keeps each stage legible while
+   preserving the numbered sequence. */
+@media (max-width: 360px) {
+  body.production-page.production-service-detail .prod-composition,
+  body.production-page.production-service-detail .prod-step-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body.production-page.production-service-detail .prod-composition__item {
+    min-height: 150px !important;
+    padding: 16px 18px !important;
+  }
+
+  body.production-page.production-service-detail .prod-composition__item strong {
+    margin-top: 24px !important;
+  }
+
+  body.production-page.production-service-detail .prod-step {
+    min-height: 140px !important;
+    padding: 16px 18px !important;
+  }
+
+  body.production-page.production-service-detail .prod-step span {
+    margin-top: 36px !important;
   }
 }

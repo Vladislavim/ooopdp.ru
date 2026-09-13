@@ -1,6 +1,6 @@
 /* Scoped editorial index for 07-news-articles.html only. */
 body.pdp-articles-index {
-  --article-index-paper: #f4f1ea;
+  --article-index-paper: #fff;
   --article-index-panel: #faf8f3;
   --article-index-ink: #11110f;
   --article-index-muted: #66645f;

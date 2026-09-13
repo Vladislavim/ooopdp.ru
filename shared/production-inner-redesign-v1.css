@@ -25,6 +25,15 @@ body.production-page {
   color: var(--pdp-inner-ink) !important;
 }
 
+/* The articles index is an intentionally white editorial field. */
+body.production-page.pdp-articles-index {
+  --pdp-inner-paper: #fff;
+  background: #fff !important;
+}
+body.production-page.pdp-articles-index main {
+  background: #fff !important;
+}
+
 body.production-page :where(h1, h2, h3, strong, b) {
   font-family: var(--pdp-inner-display) !important;
   text-wrap: balance;

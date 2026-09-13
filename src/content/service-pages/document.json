@@ -8,7 +8,7 @@
   "headOpen": "<head>",
   "headInner": "\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <meta name=\"description\" content=\"{{SERVICE_DESCRIPTION}}\">\n  <title>{{SERVICE_TITLE}} — ПДП</title>\n  <link rel=\"stylesheet\" href=\"../shared/production-base.css?v=20260911-cache-v10\">\n",
   "headClose": "</head>",
-  "bodyOpen": "<body class=\"production-page pdp-service-page\" data-page=\"Услуги\">",
+  "bodyOpen": "<body class=\"production-page pdp-service-page production-projects\" data-page=\"Услуги\">",
   "bodyBeforeMain": "\n  <div data-site-header></div>\n  ",
   "mainOpen": "<main id=\"main-content\">",
   "mainInnerTrailing": "\n  ",
@@ -21,7 +21,8 @@
     { "key": "service-editorial", "tagName": "div", "sourceIndex": 1, "file": "content/service-pages/parts/002-service-editorial.html" },
     { "key": "service-faq", "tagName": "div", "sourceIndex": 2, "file": "content/service-pages/parts/003-service-faq.html" },
     { "key": "service-result", "tagName": "div", "sourceIndex": 3, "file": "content/service-pages/parts/004-service-result.html" },
-    { "key": "contact", "tagName": "div", "sourceIndex": 4, "file": "content/service-pages/parts/005-contact.html" },
-    { "key": "footer", "tagName": "div", "sourceIndex": 5, "file": "content/service-pages/parts/006-footer.html" }
+    { "key": "service-projects", "tagName": "section", "sourceIndex": 4, "file": "content/service-pages/parts/005-service-projects.html" },
+    { "key": "contact", "tagName": "div", "sourceIndex": 5, "file": "content/service-pages/parts/005-contact.html" },
+    { "key": "footer", "tagName": "div", "sourceIndex": 6, "file": "content/service-pages/parts/006-footer.html" }
   ]
 }

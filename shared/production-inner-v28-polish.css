@@ -997,37 +997,6 @@ body.production-contacts .prod-contact-reference__map-wrap .prod-contact-map > .
   pointer-events: auto !important;
 }
 
-/* Contacts process rail: connectors are layout columns, so each line fills
-   the available gap between neighboring steps without touching their copy. */
-@media (min-width: 701px) {
-  body.production-contacts .prod-contact-reference__steps {
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(clamp(56px, 6vw, 96px), .45fr)
-      minmax(0, 1fr)
-      minmax(clamp(56px, 6vw, 96px), .45fr)
-      minmax(0, 1fr);
-    column-gap: 0;
-    min-height: 154px;
-    padding-block: 30px 32px;
-  }
-
-  body.production-contacts .prod-contact-reference__steps > div {
-    align-items: center;
-  }
-
-  body.production-contacts .prod-contact-reference__steps b {
-    align-self: center;
-  }
-
-  body.production-contacts .prod-contact-reference__steps i {
-    align-self: center;
-    width: 100%;
-    height: 1px;
-    margin-inline: 0;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   body.production-projects .pcp-project-card,
   body.production-projects .pcp-project-card__media,

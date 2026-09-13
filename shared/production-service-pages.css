@@ -18,7 +18,7 @@ body.pdp-service-page .prod-container {
 }
 
 body.pdp-service-page .pdp-service-hero {
-  min-height: clamp(500px, 42vw, 620px);
+  min-height: clamp(440px, 34vw, 520px);
   height: auto !important;
   border-bottom: 1px solid var(--service-line);
   background: var(--service-paper);
@@ -30,29 +30,13 @@ body.pdp-service-page .pdp-service-hero::after {
   display: none !important;
 }
 
-body.pdp-service-page .pdp-service-hero__wireframe {
-  position: absolute;
-  z-index: 0;
-  top: 50%;
-  right: clamp(-80px, 1vw, 18px);
-  width: min(59vw, 900px);
-  height: min(90%, 560px);
-  object-fit: contain;
-  object-position: center;
-  opacity: .21;
-  pointer-events: none;
-  user-select: none;
-  transform: translateY(-50%);
-  filter: grayscale(1) contrast(1.14);
-}
-
 body.pdp-service-page .pdp-service-hero__inner {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(260px, .88fr);
+  grid-template-columns: minmax(0, 820px);
   align-items: stretch;
-  min-height: clamp(500px, 42vw, 620px);
+  min-height: clamp(440px, 34vw, 520px);
   padding-block: 46px 58px;
 }
 
@@ -60,7 +44,7 @@ body.pdp-service-page .pdp-service-hero__copy {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: min(760px, 100%);
+  width: min(820px, 100%);
 }
 
 body.pdp-service-page .pdp-service-hero .prod-breadcrumb {
@@ -134,32 +118,6 @@ body.pdp-service-page .pdp-service-hero__download span {
 body.pdp-service-page .pdp-service-hero__download:hover,
 body.pdp-service-page .pdp-service-hero__download:focus-visible {
   color: var(--service-orange);
-}
-
-body.pdp-service-page .pdp-service-hero__note {
-  align-self: center;
-  justify-self: end;
-  max-width: 220px;
-  margin: 42px 24px 0 0;
-  padding-left: 18px;
-  border-left: 2px solid var(--service-orange);
-  color: var(--service-muted);
-}
-
-body.pdp-service-page .pdp-service-hero__note span {
-  display: block;
-  margin-bottom: 14px;
-  color: var(--service-orange);
-  font: 700 9px / 1.2 "Golos Text", Golos, Arial, sans-serif;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-
-body.pdp-service-page .pdp-service-hero__note b {
-  display: block;
-  color: var(--service-ink);
-  font: 700 12px / 1.2 "Geologica", Geologica, sans-serif;
-  text-transform: uppercase;
 }
 
 body.pdp-service-page .pdp-service-editorial {
@@ -384,9 +342,7 @@ body.pdp-service-page .shared-contact-form-section {
 }
 
 @media (max-width: 1199px) and (min-width: 701px) {
-  body.pdp-service-page .pdp-service-hero__inner { grid-template-columns: minmax(0, 1.18fr) minmax(200px, .82fr); }
   body.pdp-service-page .pdp-service-hero h1 { font-size: clamp(54px, 7vw, 80px); }
-  body.pdp-service-page .pdp-service-hero__note { margin-right: 0; }
   body.pdp-service-page .pdp-service-editorial__copy { padding-inline: 32px; }
   body.pdp-service-page .pdp-service-editorial h2 { font-size: clamp(34px, 4.2vw, 48px); }
   body.pdp-service-page .pdp-service-faq__list { margin-left: 16%; }
@@ -403,19 +359,9 @@ body.pdp-service-page .shared-contact-form-section {
 
   body.pdp-service-page .pdp-service-hero { height: auto !important; padding-bottom: 0; }
 
-  body.pdp-service-page .pdp-service-hero__wireframe {
-    top: auto;
-    right: -74px;
-    bottom: 14px;
-    width: 100%;
-    height: 150px;
-    opacity: .15;
-    transform: none;
-  }
-
   body.pdp-service-page .pdp-service-hero__inner {
     display: block;
-    padding-block: 28px 178px;
+    padding-block: 28px 64px;
   }
 
   body.pdp-service-page .pdp-service-hero .prod-breadcrumb {

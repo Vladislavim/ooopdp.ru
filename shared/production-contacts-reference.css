@@ -234,6 +234,7 @@ body.production-contacts .prod-contact-reference__steps > div {
   grid-template-rows: auto auto;
   column-gap: 15px;
   align-items: start;
+  min-width: 0;
 }
 
 body.production-contacts .prod-contact-reference__steps b {
@@ -260,10 +261,18 @@ body.production-contacts .prod-contact-reference__steps small {
 
 body.production-contacts .prod-contact-reference__steps i {
   display: block;
-  width: calc(100% - 20px);
+  width: calc(100% - clamp(48px, 4vw, 80px));
   height: 1px;
   margin: 0 auto;
+  justify-self: center;
   background: var(--contacts-orange);
+}
+
+@media (min-width: 701px) {
+  body.production-contacts .prod-contact-reference__steps b,
+  body.production-contacts .prod-contact-reference__steps i {
+    align-self: center;
+  }
 }
 
 /* The CTA is the existing inner-shell component; only its contacts-page

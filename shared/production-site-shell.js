@@ -105,6 +105,16 @@
     servicePageStyles.href = '../shared/production-service-pages.css?v=20260912-service-pages';
     servicePageStyles.dataset.pdpServicePageStyles = 'true';
     document.head.append(servicePageStyles);
+
+    // Keep the template-specific compact archive/result rules last in the cascade.
+    // The generated page links the stylesheet in <head>, while this shared shell
+    // appends service styles at runtime; appending the owner again prevents the
+    // runtime service defaults from widening the closing sections.
+    const serviceTemplateStyles = document.createElement('link');
+    serviceTemplateStyles.rel = 'stylesheet';
+    serviceTemplateStyles.href = '../shared/production-projects-clients-reference.css?v=20260914-template-compact-v3';
+    serviceTemplateStyles.dataset.pdpServiceTemplateStyles = 'true';
+    document.head.append(serviceTemplateStyles);
   }
 
   if (document.body?.classList.contains('production-page')) {

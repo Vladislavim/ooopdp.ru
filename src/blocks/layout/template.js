@@ -64,8 +64,11 @@ export async function renderDocument({
   const mainInnerTrailing = optimize(document.mainInnerTrailing);
   const stylesheetPattern = /<link\b(?=[^>]*\brel=(["'])stylesheet\1)[^>]*>/gi;
   const isRedesignedInner = manifest.kind !== 'home' && !restoredInnerPages.has(manifest.id) && !manifest.skipInnerRedesign;
+  const shellCacheVersion = manifest.id.startsWith('service-')
+    ? '20260914-template-compact-v3'
+    : '20260912-inner-hero-rhythm-v5';
   let bodyAfterMainSource = optimize(document.bodyAfterMain)
-    .replace(/production-site-shell\.js\?v=[^\"]+/g, 'production-site-shell.js?v=20260912-inner-hero-rhythm-v5');
+    .replace(/production-site-shell\.js\?v=[^\"]+/g, `production-site-shell.js?v=${shellCacheVersion}`);
   if (manifest.id === 'services') {
     bodyAfterMainSource = bodyAfterMainSource.replace(
       /production-services-page\.css\?v=[^\"]+/g,

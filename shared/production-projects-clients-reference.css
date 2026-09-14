@@ -600,6 +600,13 @@ body.production-projects .pcp-project-card__meta i {
   transition: transform .25s ease;
 }
 
+/* Service-page cards keep the PDP corner mark, without the fallback text glyph. */
+body.production-projects.pdp-service-page .pcp-project-card__meta i {
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+}
+
 body.production-projects .pcp-project-card:hover .pcp-project-card__meta i,
 body.production-projects .pcp-project-card:focus-visible .pcp-project-card__meta i {
   transform: translate(4px, -4px);
@@ -611,6 +618,87 @@ body.production-projects .pcp-section-heading--compact {
 
 body.production-projects .pcp-section-heading--compact h2 {
   font-size: clamp(35px, 3.6vw, 57px);
+}
+
+/* Inner service pages use the archive as a quiet closing proof point. */
+body.production-projects.pdp-service-page .pcp-archive {
+  margin-top: clamp(48px, 4.2vw, 64px);
+}
+
+body.production-projects.pdp-service-page .pcp-section-heading {
+  gap: 16px;
+  padding-bottom: 14px;
+}
+
+body.production-projects.pdp-service-page .pcp-section-heading h2 {
+  max-width: none;
+  font-size: clamp(26px, 2.4vw, 38px);
+  line-height: .9;
+  white-space: nowrap;
+}
+
+body.production-projects.pdp-service-page .pcp-section-heading > p {
+  display: none;
+}
+
+body.production-projects.pdp-service-page .pcp-archive__grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+body.production-projects.pdp-service-page .pcp-project-card__media {
+  aspect-ratio: 2.15;
+}
+
+body.production-projects.pdp-service-page .pcp-project-card__media > span {
+  top: 8px;
+  left: 10px;
+  font-size: 16px;
+}
+
+body.production-projects.pdp-service-page .pcp-project-card__meta {
+  gap: 4px;
+  padding: 10px 24px 11px 0;
+}
+
+body.production-projects.pdp-service-page .pcp-project-card__meta span {
+  font-size: 7px;
+}
+
+body.production-projects.pdp-service-page .pcp-project-card__meta strong {
+  font-size: 14px;
+  line-height: 1.06;
+}
+
+body.production-projects.pdp-service-page .pcp-project-card__meta i {
+  right: 0;
+  bottom: 10px;
+}
+
+/* Service result heading: a single compact line across the full breakpoint range. */
+body.pdp-service-page .pdp-service-section-heading {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(18px, 3.4vw, 48px);
+}
+
+body.pdp-service-page .pdp-service-section-heading h2 {
+  max-width: none;
+  font-size: clamp(26px, 2.4vw, 40px);
+  line-height: .92;
+  white-space: nowrap;
+}
+
+body.production-projects.pdp-service-page .pcp-project-card:hover .pcp-project-card__media img,
+body.production-projects.pdp-service-page .pcp-project-card:focus-visible .pcp-project-card__media img {
+  filter: none;
+  transform: scale(1.01);
+}
+
+body.production-projects.pdp-service-page .pcp-project-card:hover .pcp-project-card__meta i,
+body.production-projects.pdp-service-page .pcp-project-card:focus-visible .pcp-project-card__meta i {
+  transform: none;
 }
 
 body.production-projects .pcp-materials__grid {
@@ -940,6 +1028,20 @@ body.production-projects .footer {
   body.production-projects .pcp-material:nth-child(n + 3) {
     border-top: 1px solid var(--pcp-line);
   }
+
+  body.production-projects.pdp-service-page .pcp-archive__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  body.production-projects.pdp-service-page .pcp-section-heading h2 {
+    font-size: clamp(24px, 2.8vw, 34px);
+  }
+
+  body.pdp-service-page .pdp-service-result__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(10px, 1.8vw, 18px);
+  }
 }
 
 @media (max-width: 700px) {
@@ -1097,6 +1199,74 @@ body.production-projects .footer {
     min-height: 91px;
     padding-inline: 0;
     border-right: 0;
+  }
+
+  body.production-projects.pdp-service-page .pcp-section-heading h2 {
+    max-width: 300px;
+    font-size: clamp(22px, 7vw, 30px);
+    white-space: normal;
+  }
+
+  body.production-projects.pdp-service-page .pcp-archive__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+    margin-top: 14px;
+  }
+
+  body.production-projects.pdp-service-page .pcp-project-card + .pcp-project-card {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  body.production-projects.pdp-service-page .pcp-project-card__media {
+    aspect-ratio: 1.72;
+  }
+
+  body.production-projects.pdp-service-page .pcp-project-card__meta {
+    gap: 3px;
+    padding: 8px 18px 9px 0;
+  }
+
+  body.production-projects.pdp-service-page .pcp-project-card__meta span {
+    font-size: 6px;
+  }
+
+  body.production-projects.pdp-service-page .pcp-project-card__meta strong {
+    font-size: 12px;
+  }
+
+  body.production-projects.pdp-service-page .pcp-project-card__meta i {
+    bottom: 8px;
+  }
+
+  body.pdp-service-page .pdp-service-section-heading {
+    display: block;
+    padding-left: 0;
+    margin-bottom: 30px;
+  }
+
+  body.pdp-service-page .pdp-service-section-heading > span {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  body.pdp-service-page .pdp-service-section-heading h2 {
+    font-size: clamp(20px, 6.4vw, 30px);
+    white-space: nowrap;
+  }
+
+  /* Keep all four outcomes visible as a deliberate 2 × 2 phone grid. */
+  body.pdp-service-page .pdp-service-result__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  body.pdp-service-page .pdp-service-result__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 12px;
   }
 }
 

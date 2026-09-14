@@ -6,7 +6,7 @@
   "doctype": "<!doctype html>\n",
   "htmlOpen": "<html lang=\"ru\">",
   "headOpen": "<head>",
-  "headInner": "\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <meta name=\"description\" content=\"{{SERVICE_DESCRIPTION}}\">\n  <title>{{SERVICE_TITLE}} — ПДП</title>\n  <link rel=\"stylesheet\" href=\"../shared/production-base.css?v=20260911-cache-v10\">\n",
+  "headInner": "\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <meta name=\"description\" content=\"{{SERVICE_DESCRIPTION}}\">\n  <title>{{SERVICE_SEO_TITLE}}</title>\n  <link rel=\"stylesheet\" href=\"../shared/production-base.css?v=20260911-cache-v10\">\n",
   "headClose": "</head>",
   "bodyOpen": "<body class=\"production-page pdp-service-page production-projects\" data-page=\"Услуги\">",
   "bodyBeforeMain": "\n  <div data-site-header></div>\n  ",

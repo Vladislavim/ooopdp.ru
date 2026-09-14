@@ -19,11 +19,22 @@ const faq = (items, modifier = '') => `<section class="pdp-service-faq prod-sect
 
 const result = (items) => `<section class="pdp-service-result prod-section" data-reveal><div class="pdp-service-section-heading"><span>После работы</span><h2>Результат для заказчика</h2></div><div class="pdp-service-result__grid">${items.map((item) => `<article class="pdp-service-result__item"><figure><img data-keep-local src="${item.image}" alt="${escapeHtml(item.alt)}" width="900" height="560" loading="lazy" decoding="async"></figure><h3>${escapeHtml(item.title)}</h3>${paragraph(item.text)}</article>`).join('')}</div></section>`;
 
+const serviceOutputs = Object.freeze({
+  technical: 'service-technical-customer.html',
+  design: 'service-design.html',
+  construction: 'service-construction-installation.html',
+  engineering: 'service-engineering-systems.html',
+  repairs: 'service-repairs.html',
+  modernization: 'service-production-modernization.html',
+  operations: 'service-building-operations.html',
+});
+
 const makePage = ({ id, title, seoTitle, description, intro, blocks, faqItems, outcomes, faqModifier }) => Object.freeze({
   template: Object.freeze({
     SERVICE_TITLE: escapeHtml(title),
     SERVICE_SEO_TITLE: escapeHtml(seoTitle),
     SERVICE_DESCRIPTION: escapeHtml(description),
+    SERVICE_CANONICAL: `https://ooopdp.ru/pages/${serviceOutputs[id]}`,
     SERVICE_INTRO: escapeHtml(intro),
     SERVICE_EDITORIAL: editorial(blocks),
     SERVICE_FAQ: faq(faqItems, faqModifier),
@@ -92,8 +103,8 @@ export const servicePages = Object.freeze({
   construction: makePage({
     id: 'construction',
     title: 'Строительно-монтажные работы',
-    seoTitle: 'Строительно-монтажные работы на объектах — ПДП',
-    description: 'Строительно-монтажные работы на промышленных и общественных объектах: организация площадки, монтаж и сдача результата.',
+    seoTitle: 'Выполнение строительно-монтажных работ — ПДП',
+    description: 'Выполнение строительно-монтажных работ на промышленных и общественных объектах: организация площадки, монтаж, контроль качества и исполнительная документация.',
     wireframe: '../assets/service-wireframes/service-wire-03.png',
     intro: 'Выполняем строительно-монтажные работы по готовому или разработанному вместе с ПДП проекту. До выхода на площадку проверяем документацию и условия работ, затем связываем монтаж, поставки, контроль качества и исполнительные документы.',
     blocks: [
@@ -146,7 +157,7 @@ export const servicePages = Object.freeze({
   repairs: makePage({
     id: 'repairs',
     title: 'Ремонтные работы',
-    seoTitle: 'Ремонт зданий и сооружений — ПДП',
+    seoTitle: 'Ремонт промышленных и общественных зданий — ПДП',
     description: 'Ремонт промышленных и общественных объектов: обследование, поэтапные работы и передача обновлённого помещения.',
     wireframe: '../assets/service-wireframes/service-wire-05.png',
     intro: 'Выполняем ремонт зданий и помещений с учётом их фактического состояния и режима работы. До начала определяем, что действительно нужно менять, какие участки требуют проектного решения и в какой последовательности можно вести работы.',
@@ -201,7 +212,7 @@ export const servicePages = Object.freeze({
     id: 'operations',
     title: 'Эксплуатация зданий и сооружений',
     seoTitle: 'Техническая эксплуатация зданий и сооружений — ПДП',
-    description: 'Эксплуатация зданий и сооружений: регулярные осмотры, обслуживание инженерных систем и организация ремонта.',
+    description: 'Техническая эксплуатация зданий и сооружений: регулярные осмотры, обслуживание инженерных систем и планирование ремонта по состоянию объекта.',
     wireframe: '../assets/service-wireframes/service-wire-01.png',
     intro: 'Берём на себя техническую эксплуатацию зданий и сооружений: регулярные осмотры, состояние инженерных систем, обслуживание и ремонтные задачи. Заказчик видит не только текущие неисправности, но и то, что потребует внимания дальше.',
     blocks: [

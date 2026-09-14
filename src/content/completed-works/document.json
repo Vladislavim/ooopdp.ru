@@ -6,7 +6,7 @@
   "doctype": "<!doctype html>\n",
   "htmlOpen": "<html lang=\"ru\">",
   "headOpen": "<head>",
-  "headInner": "\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Проекты и партнёры — ПДП</title>\n  <link rel=\"stylesheet\" href=\"../shared/production-base.css?v=20260911-cache-v10\">\n",
+  "headInner": "\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Реализованные строительные проекты и партнёры — ПДП</title>\n  <meta name=\"description\" content=\"Проекты ПДП для промышленных, общественных, спортивных и офисных объектов: задача, роль команды и материалы по каждому кейсу.\">\n  <meta name=\"robots\" content=\"index,follow\">\n  <meta property=\"og:type\" content=\"website\">\n  <meta property=\"og:title\" content=\"Реализованные строительные проекты и партнёры — ПДП\">\n  <meta property=\"og:description\" content=\"Проектные и строительные кейсы ПДП с описанием задачи, роли команды и результата.\">\n  <meta property=\"og:url\" content=\"https://ooopdp.ru/pages/06-completed-works.html\">\n  <link rel=\"canonical\" href=\"https://ooopdp.ru/pages/06-completed-works.html\">\n  <link rel=\"stylesheet\" href=\"../shared/production-base.css?v=20260911-cache-v10\">\n",
   "headClose": "</head>",
   "bodyOpen": "<body class=\"production-page production-projects\" data-page=\"Кейсы\">",
   "bodyBeforeMain": "\n  <div data-site-header></div>\n\n  ",

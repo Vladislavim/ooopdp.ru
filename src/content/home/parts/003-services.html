@@ -7,6 +7,25 @@
   const title = document.querySelector('.service-copy h3');
   const text = document.querySelector('.service-copy p');
   const wire = document.querySelector('.service-wire');
+  const more = document.querySelector('.service-copy .more');
+  const serviceUrls = [
+    'pages/service-technical-customer.html',
+    'pages/service-design.html',
+    'pages/service-construction-installation.html',
+    'pages/service-engineering-systems.html',
+    'pages/service-repairs.html',
+    'pages/service-production-modernization.html',
+    'pages/service-building-operations.html'
+  ];
+  if (more) {
+    more.href = serviceUrls[0];
+    more.textContent = 'Подробнее об услуге →';
+  }
+  document.querySelectorAll('.service-row').forEach((serviceRow, index) => {
+    serviceRow.addEventListener('click', () => {
+      if (more && serviceUrls[index]) more.href = serviceUrls[index];
+    });
+  });
   if (!row || !title || !text || !wire) return;
 
   const content = {

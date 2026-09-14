@@ -112,11 +112,13 @@ async function renderManifest(manifest) {
 const mode = process.argv.includes('--write') ? 'write' : 'check';
 const files = await manifestFiles();
 let changed = 0;
+const renderedPages = [];
 
 for (const fileName of files) {
   const manifest = await loadManifest(fileName);
   const outputPath = assertInsideSite(manifest.output);
   const rendered = await renderManifest(manifest);
+  renderedPages.push({ manifest, rendered });
   let current = '';
   try {
     current = await readFile(outputPath, 'utf8');
@@ -126,6 +128,41 @@ for (const fileName of files) {
   if (current !== rendered) {
     changed += 1;
     if (mode === 'write') await writeFile(outputPath, rendered, 'utf8');
+  }
+}
+
+const canonicalUrls = [...new Set(renderedPages
+  .filter(({ rendered }) => !/<meta\s+name="robots"\s+content="[^"]*noindex/i.test(rendered))
+  .map(({ rendered }) => rendered.match(/<link\s+rel="canonical"\s+href="([^"]+)"/i)?.[1])
+  .filter(Boolean))];
+const sitemap = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ...canonicalUrls.map((url) => `  <url><loc>${url}</loc></url>`),
+  '</urlset>',
+  '',
+].join('\n');
+const robots = [
+  'User-agent: *',
+  'Allow: /',
+  'Disallow: /pages/index.html',
+  'Disallow: /pages/03-service-detail.html',
+  'Disallow: /pages/11-404.html',
+  'Sitemap: https://ooopdp.ru/sitemap.xml',
+  '',
+].join('\n');
+
+for (const [relativePath, content] of [['sitemap.xml', sitemap], ['robots.txt', robots]]) {
+  const outputPath = assertInsideSite(relativePath);
+  let current = '';
+  try {
+    current = await readFile(outputPath, 'utf8');
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+  }
+  if (current !== content) {
+    changed += 1;
+    if (mode === 'write') await writeFile(outputPath, content, 'utf8');
   }
 }
 

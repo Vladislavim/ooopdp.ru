@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f7f6f3">
 <title>ПДП — управление строительными проектами</title>
+<meta name="description" content="ПДП управляет проектированием, строительством, модернизацией и эксплуатацией промышленных и общественных объектов.">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ПДП — управление строительными проектами">
+<meta property="og:description" content="От проектных решений и координации подрядчиков до строительства и ввода объекта.">
+<meta property="og:url" content="https://ooopdp.ru/">
+<link rel="canonical" href="https://ooopdp.ru/">
 <link rel="icon" href="data:,">
 <link rel="preload" href="assets/fonts/Geologica-Variable.ttf?v=20260911-cache-v10" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="assets/fonts/GolosText-Variable.ttf?v=20260911-cache-v10" as="font" type="font/ttf" crossorigin>
@@ -282,7 +289,7 @@ html{scroll-padding-top:16px}
 <body><a class="skip-link" href="#main">Перейти к содержанию</a><main class="site" id="main">
 <header class="top">
   <a class="brand" href="#top" aria-label="ПДП — Поволжское деловое партнёрство. Архитектура возможностей"><img class="brand-logo" src="assets/pdp-official-logo.svg" width="150" height="50" alt="ПДП — Поволжское деловое партнёрство"><span class="brand-slogan">Архитектура<br>возможностей</span></a>
-<nav class="nav" aria-label="Основная навигация"><a class="active" href="#top">Главная</a><a href="#services">Услуги</a><a href="#projects">Кейсы</a><a href="#contacts">Контакты</a><a href="#articles">Статьи</a></nav>
+<nav class="nav" aria-label="Основная навигация"><a class="active" aria-current="page" href="#top">Главная</a><a href="#services">Услуги</a><a href="#projects">Кейсы</a><a href="#contacts">Контакты</a><a href="#articles">Статьи</a></nav>
   <a class="tel" href="tel:+78442564554" aria-label="Позвонить: 8 8442 56-45-54"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a>
   <a class="top-cta" href="#contacts" data-desktop-label="Поставить задачу" aria-label="Поставить задачу">Поставить задачу</a>
   <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="home-mobile-menu"><span>Открыть меню</span><i aria-hidden="true"></i></button>
@@ -321,6 +328,19 @@ html{scroll-padding-top:16px}
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && document.body.classList.contains('home-menu-open')) close({ restoreFocus: true });
   });
+
+  const primaryNavLinks = [...document.querySelectorAll('.top .nav a')];
+  const syncHomeNav = () => {
+    primaryNavLinks.forEach((link, index) => {
+      const isHome = index === 0;
+      link.classList.toggle('active', isHome);
+      if (isHome) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+  };
+  syncHomeNav();
+  const navStateObserver = new MutationObserver(syncHomeNav);
+  primaryNavLinks.forEach((link) => navStateObserver.observe(link, { attributes: true, attributeFilter: ['class', 'aria-current'] }));
 })();
 </script>
 
@@ -345,6 +365,25 @@ html{scroll-padding-top:16px}
   const title = document.querySelector('.service-copy h3');
   const text = document.querySelector('.service-copy p');
   const wire = document.querySelector('.service-wire');
+  const more = document.querySelector('.service-copy .more');
+  const serviceUrls = [
+    'pages/service-technical-customer.html',
+    'pages/service-design.html',
+    'pages/service-construction-installation.html',
+    'pages/service-engineering-systems.html',
+    'pages/service-repairs.html',
+    'pages/service-production-modernization.html',
+    'pages/service-building-operations.html'
+  ];
+  if (more) {
+    more.href = serviceUrls[0];
+    more.textContent = 'Подробнее об услуге →';
+  }
+  document.querySelectorAll('.service-row').forEach((serviceRow, index) => {
+    serviceRow.addEventListener('click', () => {
+      if (more && serviceUrls[index]) more.href = serviceUrls[index];
+    });
+  });
   if (!row || !title || !text || !wire) return;
 
   const content = {
@@ -472,7 +511,30 @@ html{scroll-padding-top:16px}
   </div>
 </section>
 <section class="about"><div class="about-copy"><div class="label">О компании</div><h2 class="title">Объединяем<br>проектирование,<br>строительство</h2><p>Управляем строительным проектом как единым процессом: координируем участников, контролируем решения, документацию и готовность объекта к следующему этапу.</p><a class="about-action" href="#documents">Компетенции и допуски →</a></div><div class="about-media about-media-single"><img src="assets/inner-optimized/archive-PDP-OBJ-100.webp" width="3840" height="2160" alt="Специалисты ПДП на промышленном объекте"></div></section>
-<section class="articles" id="articles"><header class="articles-header"><div><span class="label">Практические материалы</span><h2>Разбираем проект<br>по существу</h2></div><p>Короткие руководства для тех, кто отвечает за решения, документацию и контроль строительного проекта.</p></header><div class="article-grid"><a class="article" href="/articles/technical-customer-responsibility/"><span class="article-topic">Управление · 01</span><img src="assets/inner-optimized/cases-bombonera.webp" width="1800" height="440" loading="lazy" alt="Стадион Бомбонера"><div><b>Где начинается ответственность технического заказчика</b><p>Какие функции объединяют проектировщиков, подрядчиков и заказчика в одной системе управления.</p><small><span>6 минут</span><span>Читать материал →</span></small></div></a><a class="article" href="/articles/project-documentation-control/"><span class="article-topic">Документы · 02</span><img src="assets/inner-optimized/documents-red-october-11-2023-as-preview.webp" width="1200" height="850" loading="lazy" alt="Рабочая документация"><div><b>Как контролировать комплект проектной документации</b><p>Что проверять до согласований и передачи разделов в работу.</p><small><span>5 минут</span><span>Читать →</span></small></div></a><a class="article" href="/articles/construction-project-risks/"><span class="article-topic">Риски · 03</span><img src="assets/inner-optimized/cases-astana-arena.webp" width="850" height="620" loading="lazy" alt="Спортивный объект"><div><b>Риски строительного проекта: контрольные точки</b><p>Где проверять сроки, качество, бюджет и изменения до следующего этапа.</p><small><span>7 минут</span><span>Читать →</span></small></div></a><a class="article" href="/articles/managed-reconstruction/"><span class="article-topic">Реконструкция · 04</span><img src="assets/inner-optimized/cases-red-october.webp" width="1760" height="390" loading="lazy" alt="Проектная визуализация промышленного объекта"><div><b>Реконструкция действующего объекта без потери управляемости</b><p>Как связать обследование, проектные решения и последовательность работ.</p><small><span>6 минут</span><span>Читать материал →</span></small></div></a></div></section>
+<section class="articles" id="articles">
+  <header class="articles-header"><div><span class="label">Практические материалы</span><h2>Разбираем проект<br>по существу</h2></div><p>Короткие руководства для тех, кто отвечает за решения, документацию и контроль строительного проекта.</p></header>
+  <div class="article-grid">
+    <a class="article" href="pages/08-article-detail.html"><span class="article-topic">Управление · 01</span><img src="assets/inner-optimized/cases-bombonera.webp" width="1800" height="440" loading="lazy" alt="Стадион Бомбонера"><div><b>Где начинается ответственность технического заказчика</b><p>Какие функции объединяют проектировщиков, подрядчиков и заказчика в одной системе управления.</p><small><span>6 минут</span><span>Читать материал →</span></small></div></a>
+    <a class="article" href="pages/14-article-executive-documentation.html"><span class="article-topic">Документы · 02</span><img src="assets/inner-optimized/documents-red-october-11-2023-as-preview.webp" width="1200" height="850" loading="lazy" alt="Рабочая документация"><div><b>Как контролировать комплект проектной документации</b><p>Что проверять до согласований и передачи разделов в работу.</p><small><span>5 минут</span><span>Читать →</span></small></div></a>
+    <a class="article" href="pages/13-article-construction-control.html"><span class="article-topic">Риски · 03</span><img src="assets/inner-optimized/cases-astana-arena.webp" width="850" height="620" loading="lazy" alt="Спортивный объект"><div><b>Риски строительного проекта: контрольные точки</b><p>Где проверять сроки, качество, бюджет и изменения до следующего этапа.</p><small><span>7 минут</span><span>Читать →</span></small></div></a>
+    <a class="article" href="pages/05-project-red-october.html"><span class="article-topic">Реконструкция · 04</span><img src="assets/inner-optimized/cases-red-october.webp" width="1760" height="390" loading="lazy" alt="Проектная визуализация промышленного объекта"><div><b>Реконструкция действующего объекта без потери управляемости</b><p>Как связать обследование, проектные решения и последовательность работ.</p><small><span>6 минут</span><span>Смотреть кейс →</span></small></div></a>
+  </div>
+</section>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const articleRoutes = [
+    'pages/08-article-detail.html',
+    'pages/14-article-executive-documentation.html',
+    'pages/13-article-construction-control.html',
+    'pages/05-project-red-october.html'
+  ];
+  document.querySelectorAll('.articles .article').forEach((link, index) => {
+    if (articleRoutes[index]) link.href = articleRoutes[index];
+  });
+}, { once: true });
+</script>
+
 <section class="contact-form-section shared-contact-form-section" id="contacts">
   <img class="contact-form-p-mark" src="assets/inner-optimized/pdp-logo-parallax.webp" width="1254" height="1254" alt="" aria-hidden="true">
   <div class="contact-form-intro"><span class="label">Предварительный разбор</span><h2><span>Доведём ваш объект</span><span>от проекта до ввода</span></h2><p>Организуем работу проектировщиков и подрядчиков, следим за сроками, качеством и документами. Вы в любой момент понимаете, что происходит на объекте и что нужно для следующего этапа.</p><div class="contact-direct"><a href="tel:+78442564554"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a><a href="mailto:mail@ooopdp.ru">mail@ooopdp.ru</a><a class="contact-presentation" href="assets/documents/pdp-presentation.pdf" download>Скачать презентацию PDF <small>15,4 МБ</small></a></div></div>

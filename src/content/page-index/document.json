@@ -6,7 +6,7 @@
   "doctype": "<!doctype html>",
   "htmlOpen": "<html lang=\"ru\">",
   "headOpen": "<head>",
-  "headInner": "<meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>Страницы сайта — ПДП</title><meta name=\"description\" content=\"Навигация по основным разделам сайта Поволжского делового партнёрства.\"><link rel=\"stylesheet\" href=\"../shared/production-base.css?v=20260911-cache-v10\"><style>@media (max-width: 700px){body.page-index .grid-3{grid-template-columns:minmax(0,1fr);gap:12px}body.page-index .grid-3>a{min-width:0;max-width:100%;overflow:hidden}body.page-index .grid-3>a h3{overflow-wrap:anywhere}}</style>",
+  "headInner": "<meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"robots\" content=\"noindex,nofollow\"><title>Страницы сайта — ПДП</title><meta name=\"description\" content=\"Навигация по основным разделам сайта Поволжского делового партнёрства.\"><link rel=\"stylesheet\" href=\"../shared/production-base.css?v=20260911-cache-v10\"><style>@media (max-width: 700px){body.page-index .grid-3{grid-template-columns:minmax(0,1fr);gap:12px}body.page-index .grid-3>a{min-width:0;max-width:100%;overflow:hidden}body.page-index .grid-3>a h3{overflow-wrap:anywhere}}</style>",
   "headClose": "</head>",
   "bodyOpen": "<body class=\"production-page page-index\">",
   "bodyBeforeMain": "<div data-site-header></div>",

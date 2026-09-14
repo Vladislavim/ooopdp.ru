@@ -625,6 +625,13 @@ body.production-projects.pdp-service-page .pcp-archive {
   margin-top: clamp(48px, 4.2vw, 64px);
 }
 
+/* Keep the service hero on the same centered editorial measure as the
+   content rail below it.  The inner copy moves as one unit: breadcrumb,
+   title, lead and action keep a single left edge at every desktop width. */
+body.pdp-service-page .pdp-service-hero__inner {
+  width: min(calc(100% - 2 * var(--service-gutter)), 1500px) !important;
+}
+
 body.production-projects.pdp-service-page .pcp-section-heading {
   gap: 16px;
   padding-bottom: 14px;
@@ -1338,5 +1345,13 @@ body.production-projects .footer {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
+  }
+}
+
+/* Keep the projects hero copy on the same container line as the featured
+   project block below (including the ALAN KZ football project). */
+@media (min-width: 701px) {
+  body.production-page.production-projects .pcp-hero__copy {
+    padding-left: max(var(--v28-gutter), calc((100vw - var(--v28-max)) / 2)) !important;
   }
 }

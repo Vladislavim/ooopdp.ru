@@ -65,14 +65,20 @@ export async function renderDocument({
   const stylesheetPattern = /<link\b(?=[^>]*\brel=(["'])stylesheet\1)[^>]*>/gi;
   const isRedesignedInner = manifest.kind !== 'home' && !restoredInnerPages.has(manifest.id) && !manifest.skipInnerRedesign;
   const shellCacheVersion = manifest.id.startsWith('service-')
-    ? '20260914-template-compact-v3'
+    ? '20260914-template-compact-v5'
     : '20260912-inner-hero-rhythm-v5';
   let bodyAfterMainSource = optimize(document.bodyAfterMain)
     .replace(/production-site-shell\.js\?v=[^\"]+/g, `production-site-shell.js?v=${shellCacheVersion}`);
   if (manifest.id === 'services') {
     bodyAfterMainSource = bodyAfterMainSource.replace(
       /production-services-page\.css\?v=[^\"]+/g,
-      'production-services-page.css?v=20260912-services-hero-p'
+      'production-services-page.css?v=20260914-services-container-align-v2'
+    );
+  }
+  if (manifest.id === 'projects-clients' || manifest.id === 'completed-works') {
+    bodyAfterMainSource = bodyAfterMainSource.replace(
+      /production-projects-clients-reference\.css\?v=[^\"]+/g,
+      'production-projects-clients-reference.css?v=20260914-projects-container-align-v1'
     );
   }
   if (isRedesignedInner) bodyAfterMainSource = bodyAfterMainSource.replace(/> Email</g, '> Почта<');

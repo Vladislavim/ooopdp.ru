@@ -112,7 +112,7 @@
     // runtime service defaults from widening the closing sections.
     const serviceTemplateStyles = document.createElement('link');
     serviceTemplateStyles.rel = 'stylesheet';
-    serviceTemplateStyles.href = '../shared/production-projects-clients-reference.css?v=20260914-template-compact-v3';
+    serviceTemplateStyles.href = '../shared/production-projects-clients-reference.css?v=20260914-template-compact-v5';
     serviceTemplateStyles.dataset.pdpServiceTemplateStyles = 'true';
     document.head.append(serviceTemplateStyles);
   }

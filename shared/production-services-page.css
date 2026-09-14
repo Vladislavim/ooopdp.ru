@@ -498,15 +498,16 @@ body.production-services .svc-hero__slide-data {
    does not survive after the wireframe art is removed. */
 body.production-page.production-services .svc-hero {
   grid-template-columns: 1fr !important;
-  min-height: clamp(470px, 34vw, 540px) !important;
+  min-height: clamp(390px, 27vw, 440px) !important;
 }
 body.production-page.production-services .svc-hero__media,
 body.production-page.production-services .svc-hero__wire {
   display: none !important;
 }
 body.production-page.production-services .svc-hero__copy-inner {
-  width: min(calc(100% - 2 * var(--v28-gutter)), var(--v28-max)) !important;
-  margin-inline: auto !important;
+  margin-left: max(var(--v28-gutter), calc((100vw - var(--v28-max)) / 2)) !important;
+  margin-right: 0 !important;
+  width: auto !important;
   max-width: none !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -523,10 +524,16 @@ body.production-page.production-services .svc-hero .svc-eyebrow {
   }
   body.production-page.production-services .svc-hero__copy-inner {
     min-height: 0 !important;
-    padding: 30px 18px 48px !important;
+    padding: 30px 18px 48px 0 !important;
   }
   body.production-page.production-services .svc-hero .svc-eyebrow {
     margin-top: 36px !important;
+  }
+}
+
+@media (min-width: 761px) {
+  body.production-page.production-services .svc-services {
+    padding-top: 0 !important;
   }
 }
 
@@ -557,7 +564,7 @@ body.production-page.production-services .svc-hero__art {
     position: relative;
     min-width: 0;
     overflow: hidden;
-    border-left: 1px solid var(--svc-line);
+    border-left: 0;
     background: var(--svc-paper);
     isolation: isolate;
   }
@@ -565,7 +572,7 @@ body.production-page.production-services .svc-hero__art {
   body.production-page.production-services .svc-hero__art > .inner-parallax-object--logo {
     position: absolute;
     z-index: 0;
-    top: -18%;
+    top: calc(-18% + 150px);
     right: -12%;
     display: block;
     width: min(620px, 74%);

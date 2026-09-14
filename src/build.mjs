@@ -145,9 +145,6 @@ const sitemap = [
 const robots = [
   'User-agent: *',
   'Allow: /',
-  'Disallow: /pages/index.html',
-  'Disallow: /pages/03-service-detail.html',
-  'Disallow: /pages/11-404.html',
   'Sitemap: https://ooopdp.ru/sitemap.xml',
   '',
 ].join('\n');

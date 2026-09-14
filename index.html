@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f7f6f3">
+
 <title>ПДП — управление строительными проектами</title>
 <meta name="description" content="ПДП управляет проектированием, строительством, модернизацией и эксплуатацией промышленных и общественных объектов.">
 <meta name="robots" content="index,follow">
@@ -289,7 +290,7 @@ html{scroll-padding-top:16px}
 <body><a class="skip-link" href="#main">Перейти к содержанию</a><main class="site" id="main">
 <header class="top">
   <a class="brand" href="#top" aria-label="ПДП — Поволжское деловое партнёрство. Архитектура возможностей"><img class="brand-logo" src="assets/pdp-official-logo.svg" width="150" height="50" alt="ПДП — Поволжское деловое партнёрство"><span class="brand-slogan">Архитектура<br>возможностей</span></a>
-<nav class="nav" aria-label="Основная навигация"><a class="active" aria-current="page" href="#top">Главная</a><a href="#services">Услуги</a><a href="#projects">Кейсы</a><a href="#contacts">Контакты</a><a href="#articles">Статьи</a></nav>
+<nav class="nav" aria-label="Основная навигация"><a class="active" aria-current="page" href="#top">Главная</a><a href="pages/02-services.html">Услуги</a><a href="pages/06-completed-works.html">Кейсы</a><a href="pages/10-contacts.html">Контакты</a><a href="pages/07-news-articles.html">Статьи</a></nav>
   <a class="tel" href="tel:+78442564554" aria-label="Позвонить: 8 8442 56-45-54"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a>
   <a class="top-cta" href="#contacts" data-desktop-label="Поставить задачу" aria-label="Поставить задачу">Поставить задачу</a>
   <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="home-mobile-menu"><span>Открыть меню</span><i aria-hidden="true"></i></button>
@@ -329,18 +330,6 @@ html{scroll-padding-top:16px}
     if (event.key === 'Escape' && document.body.classList.contains('home-menu-open')) close({ restoreFocus: true });
   });
 
-  const primaryNavLinks = [...document.querySelectorAll('.top .nav a')];
-  const syncHomeNav = () => {
-    primaryNavLinks.forEach((link, index) => {
-      const isHome = index === 0;
-      link.classList.toggle('active', isHome);
-      if (isHome) link.setAttribute('aria-current', 'page');
-      else link.removeAttribute('aria-current');
-    });
-  };
-  syncHomeNav();
-  const navStateObserver = new MutationObserver(syncHomeNav);
-  primaryNavLinks.forEach((link) => navStateObserver.observe(link, { attributes: true, attributeFilter: ['class', 'aria-current'] }));
 })();
 </script>
 
@@ -435,7 +424,8 @@ html{scroll-padding-top:16px}
 })();
 </script>
 
-<section class="directions"><div class="line-title">Ключевые направления</div><div class="direction-grid"><article class="direction" data-direction-route="pages/04-projects-clients.html#projects"><img src="assets/inner-optimized/cases-industrial-production-user.webp" width="964" height="523" alt="Проектная визуализация промышленного производства"><div class="direction-copy"><em>01</em><strong>Промышленное<br>производство</strong><small>Проектная визуализация · подробнее →</small></div></article><article class="direction direction-collage" data-direction-route="pages/04-projects-clients.html#projects"><div class="direction-collage-grid" aria-hidden="true"><img src="assets/inner-optimized/cases-polyclinic-old-front.webp" width="655" height="317" alt=""><img src="assets/inner-optimized/cases-polyclinic-render-front.webp" width="656" height="317" alt=""><img src="assets/inner-optimized/cases-polyclinic-old-side.webp" width="655" height="196" alt=""><img src="assets/inner-optimized/cases-polyclinic-render-side.webp" width="656" height="196" alt=""></div><div class="direction-copy"><em>02</em><strong>Общественные<br>объекты</strong><small>Реконструкция поликлиники №31 · подробнее →</small></div></article><article class="direction" data-direction-route="pages/04-projects-clients.html#projects"><img src="assets/inner-optimized/cases-astana-arena.webp" width="850" height="620" alt="Реконструкция стадиона Астана Арена"><div class="direction-copy"><em>03</em><strong>Спортивные<br>сооружения</strong><small>Проектная визуализация · подробнее →</small></div></article><article class="direction" data-direction-route="pages/03-service-detail.html#service"><img src="assets/inner-optimized/cases-fountains.webp" width="1760" height="500" alt="Комплекс фонтанов в Волгограде"><div class="direction-copy"><em>04</em><strong>Инженерные<br>системы</strong><small>Фотография реализации · подробнее →</small></div></article></div></section>
+<section class="directions"><div class="line-title">Ключевые направления</div><div class="direction-grid"><article class="direction" data-direction-route="pages/06-completed-works.html"><img src="assets/inner-optimized/cases-industrial-production-user.webp" width="964" height="523" alt="Проектная визуализация промышленного производства"><div class="direction-copy"><em>01</em><strong>Промышленное<br>производство</strong><small>Проектная визуализация · подробнее →</small></div></article><article class="direction direction-collage" data-direction-route="pages/06-completed-works.html"><div class="direction-collage-grid" aria-hidden="true"><img src="assets/inner-optimized/cases-polyclinic-old-front.webp" width="655" height="317" alt=""><img src="assets/inner-optimized/cases-polyclinic-render-front.webp" width="656" height="317" alt=""><img src="assets/inner-optimized/cases-polyclinic-old-side.webp" width="655" height="196" alt=""><img src="assets/inner-optimized/cases-polyclinic-render-side.webp" width="656" height="196" alt=""></div><div class="direction-copy"><em>02</em><strong>Общественные<br>объекты</strong><small>Реконструкция поликлиники №31 · подробнее →</small></div></article><article class="direction" data-direction-route="pages/06-completed-works.html"><img src="assets/inner-optimized/cases-astana-arena.webp" width="850" height="620" alt="Реконструкция стадиона Астана Арена"><div class="direction-copy"><em>03</em><strong>Спортивные<br>сооружения</strong><small>Проектная визуализация · подробнее →</small></div></article><article class="direction" data-direction-route="pages/service-engineering-systems.html"><img src="assets/inner-optimized/cases-fountains.webp" width="1760" height="500" alt="Комплекс фонтанов в Волгограде"><div class="direction-copy"><em>04</em><strong>Инженерные<br>системы</strong><small>Фотография реализации · подробнее →</small></div></article></div></section>
+
 <section class="projects" id="projects">
   <img class="projects-parallax-logo" src="assets/inner-optimized/pdp-logo-parallax.webp" width="1254" height="1254" alt="" aria-hidden="true">
   <header class="projects-header"><div><span class="label">Реализованные проекты</span><h2>Наши работы</h2></div><p class="projects-header-note"><img src="assets/icons/info-mark-orange.svg" width="16" height="16" alt="" aria-hidden="true"><span>Можете ознакомиться с выполненными кейсами.</span></p></header>
@@ -515,25 +505,11 @@ html{scroll-padding-top:16px}
   <header class="articles-header"><div><span class="label">Практические материалы</span><h2>Разбираем проект<br>по существу</h2></div><p>Короткие руководства для тех, кто отвечает за решения, документацию и контроль строительного проекта.</p></header>
   <div class="article-grid">
     <a class="article" href="pages/08-article-detail.html"><span class="article-topic">Управление · 01</span><img src="assets/inner-optimized/cases-bombonera.webp" width="1800" height="440" loading="lazy" alt="Стадион Бомбонера"><div><b>Где начинается ответственность технического заказчика</b><p>Какие функции объединяют проектировщиков, подрядчиков и заказчика в одной системе управления.</p><small><span>6 минут</span><span>Читать материал →</span></small></div></a>
-    <a class="article" href="pages/14-article-executive-documentation.html"><span class="article-topic">Документы · 02</span><img src="assets/inner-optimized/documents-red-october-11-2023-as-preview.webp" width="1200" height="850" loading="lazy" alt="Рабочая документация"><div><b>Как контролировать комплект проектной документации</b><p>Что проверять до согласований и передачи разделов в работу.</p><small><span>5 минут</span><span>Читать →</span></small></div></a>
-    <a class="article" href="pages/13-article-construction-control.html"><span class="article-topic">Риски · 03</span><img src="assets/inner-optimized/cases-astana-arena.webp" width="850" height="620" loading="lazy" alt="Спортивный объект"><div><b>Риски строительного проекта: контрольные точки</b><p>Где проверять сроки, качество, бюджет и изменения до следующего этапа.</p><small><span>7 минут</span><span>Читать →</span></small></div></a>
-    <a class="article" href="pages/05-project-red-october.html"><span class="article-topic">Реконструкция · 04</span><img src="assets/inner-optimized/cases-red-october.webp" width="1760" height="390" loading="lazy" alt="Проектная визуализация промышленного объекта"><div><b>Реконструкция действующего объекта без потери управляемости</b><p>Как связать обследование, проектные решения и последовательность работ.</p><small><span>6 минут</span><span>Смотреть кейс →</span></small></div></a>
+    <a class="article" href="pages/14-article-executive-documentation.html"><span class="article-topic">Документы · 02</span><img src="assets/inner-optimized/documents-red-october-11-2023-as-preview.webp" width="1200" height="850" loading="lazy" alt="Рабочая документация"><div><b>Исполнительная документация в строительстве</b><p>Что проверить в комплекте перед передачей заказчику.</p><small><span>5 минут</span><span>Читать →</span></small></div></a>
+    <a class="article" href="pages/13-article-construction-control.html"><span class="article-topic">Риски · 03</span><img src="assets/inner-optimized/cases-astana-arena.webp" width="850" height="620" loading="lazy" alt="Спортивный объект"><div><b>Строительный контроль на промышленном объекте</b><p>Как связать проект, фактические работы и подтверждающие документы.</p><small><span>7 минут</span><span>Читать →</span></small></div></a>
+    <a class="article" href="pages/05-project-red-october.html"><span class="article-topic">Кейс · 04</span><img src="assets/inner-optimized/cases-red-october.webp" width="1760" height="390" loading="lazy" alt="Проектная визуализация промышленного объекта"><div><b>Проект модернизации травильного отделения</b><p>Задача и проектные решения для цеха «Красного Октября».</p><small><span>6 минут</span><span>Смотреть кейс →</span></small></div></a>
   </div>
 </section>
-
-<script>
-window.addEventListener('DOMContentLoaded', () => {
-  const articleRoutes = [
-    'pages/08-article-detail.html',
-    'pages/14-article-executive-documentation.html',
-    'pages/13-article-construction-control.html',
-    'pages/05-project-red-october.html'
-  ];
-  document.querySelectorAll('.articles .article').forEach((link, index) => {
-    if (articleRoutes[index]) link.href = articleRoutes[index];
-  });
-}, { once: true });
-</script>
 
 <section class="contact-form-section shared-contact-form-section" id="contacts">
   <img class="contact-form-p-mark" src="assets/inner-optimized/pdp-logo-parallax.webp" width="1254" height="1254" alt="" aria-hidden="true">
@@ -549,7 +525,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 <footer class="footer">
   <div class="footer-company"><div class="footer-lockup"><img class="footer-official-logo" src="assets/pdp-official-logo-footer.svg" width="150" height="50" alt="ПДП — Поволжское деловое партнёрство"><span class="footer-slogan">Архитектура<br>возможностей</span></div><small>Берём объект под управление:<br>от проектных решений до ввода.<br><br>© ПДП, 2026</small></div>
-  <div><b>Навигация</b><a href="#top">Главная</a><a href="pages/02-services.html">Услуги</a><a href="pages/04-projects-clients.html">Проекты</a><a href="pages/07-news-articles.html">Материалы</a><a href="pages/10-contacts.html">Контакты</a></div>
+  <div><b>Навигация</b><a href="#top">Главная</a><a href="pages/02-services.html">Услуги</a><a href="pages/06-completed-works.html">Проекты</a><a href="pages/07-news-articles.html">Материалы</a><a href="pages/10-contacts.html">Контакты</a></div>
   <div><b>Услуги</b><a href="pages/02-services.html">Технический заказчик</a><a href="pages/02-services.html">Проектирование</a><a href="pages/02-services.html">Строительные работы</a><a href="pages/02-services.html">Монтаж инженерных систем</a><a href="pages/02-services.html">Ремонтные работы</a></div>
   <div class="footer-contacts"><div class="footer-contact-copy"><b>Контакты</b><a class="phone2" href="tel:+78442564554"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a><a href="mailto:mail@ooopdp.ru">mail@ooopdp.ru</a><a class="footer-address" href="https://yandex.ru/maps/38/volgograd/house/barrikadnaya_ulitsa_1k/YE0Ycg5lTEcEQFpifXp5eHpqbA==/?ll=44.495523%2C48.689697&amp;z=16" target="_blank" rel="noreferrer">Волгоград, ул. Баррикадная,<br>дом 1К, офис 5</a></div><div class="footer-map" aria-label="Карта расположения офиса ПДП"><div class="footer-map-embed"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae6e6ea17780f6cf7b5b20ca42957b3a0e608287bd7129a93a53f6f5ba90f2667&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script></div><a class="footer-map-link" href="https://yandex.ru/maps/38/volgograd/house/barrikadnaya_ulitsa_1k/YE0Ycg5lTEcEQFpifXp5eHpqbA==/?ll=44.495523%2C48.689697&amp;z=16" target="_blank" rel="noreferrer">Открыть карту <span aria-hidden="true">↗</span></a></div></div>
 </footer>
@@ -588,22 +564,6 @@ window.addEventListener('DOMContentLoaded', () => {
     heading.setAttribute('role', 'heading');
     heading.setAttribute('aria-level', '2');
   });
-  const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
-  const navTargets = navLinks
-    .map((link) => document.querySelector(link.getAttribute('href')))
-    .filter(Boolean);
-  navLinks[0]?.setAttribute('aria-current', 'page');
-  const navObserver = new IntersectionObserver((entries) => {
-    const visible = entries.find((entry) => entry.isIntersecting);
-    if (!visible) return;
-    navLinks.forEach((link) => {
-      const active = link.getAttribute('href') === `#${visible.target.id}`;
-      if (active) link.setAttribute('aria-current', 'page');
-      else link.removeAttribute('aria-current');
-    });
-  }, { rootMargin: '-18% 0px -68% 0px', threshold: 0 });
-  navTargets.forEach((target) => navObserver.observe(target));
-  window.addEventListener('pagehide', () => navObserver.disconnect(), { once: true });
 
   const counterMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
   const counterNodes = [...document.querySelectorAll('[data-count]')];
@@ -1239,8 +1199,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const routes = {
     about: `${pages}01-about-company.html`,
     services: `${pages}02-services.html`,
-    serviceDetail: `${pages}03-service-detail.html`,
-    projects: `${pages}04-projects-clients.html`,
+    serviceDetail: `${pages}service-technical-customer.html`,
+    projects: `${pages}06-completed-works.html`,
     cases: `${pages}06-completed-works.html`,
     articles: `${pages}07-news-articles.html`,
     articleDetail: `${pages}08-article-detail.html`,
@@ -1249,19 +1209,12 @@ window.addEventListener('DOMContentLoaded', () => {
     privacy: `${pages}12-privacy-policy.html`
   };
 
-  const navLinks = document.querySelectorAll('.nav a');
-  [null, routes.services, routes.cases, routes.contacts, routes.articles].forEach((href, index) => {
-    if (href && navLinks[index]) navLinks[index].href = href;
-  });
 
   document.querySelectorAll('.top-cta, .hero .btn.hot, .project-showcase-discuss').forEach((link) => {
     link.href = routes.contacts;
   });
   document.querySelector('.hero .btn:not(.hot)')?.setAttribute('href', routes.projects);
   document.querySelector('.about-action')?.setAttribute('href', routes.about);
-  document.querySelectorAll('.articles .article').forEach((link) => {
-    link.href = routes.articleDetail;
-  });
   document.querySelectorAll('a[href^="/articles/"]').forEach((link) => {
     link.href = routes.articleDetail;
   });

@@ -37,7 +37,7 @@ export const siteData = Object.freeze({
     home: 'index.html',
     services: 'pages/02-services.html',
     cases: 'pages/06-completed-works.html',
-    projects: 'pages/04-projects-clients.html',
+    projects: 'pages/06-completed-works.html',
     articles: 'pages/07-news-articles.html',
     contacts: 'pages/10-contacts.html',
     privacy: 'pages/12-privacy-policy.html',

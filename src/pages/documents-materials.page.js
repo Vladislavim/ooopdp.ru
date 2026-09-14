@@ -4,7 +4,7 @@ export default {
   "sourceDir": "content/documents-materials",
   "kind": "inner",
   "seo": {
-    "title": "Проектная документация и материалы — ПДП",
+    "title": "Библиотека документов и материалов ПДП",
     "description": "Проектная, рабочая и сопутствующая документация по реализованным объектам ПДП: чертежи, схемы и комплекты для просмотра.",
     "canonical": "https://ooopdp.ru/pages/09-documents-materials.html"
   },

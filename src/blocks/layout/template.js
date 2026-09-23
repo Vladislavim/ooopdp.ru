@@ -65,7 +65,7 @@ export async function renderDocument({
 
   let bodyBeforeMain = optimize(compile(document.bodyBeforeMain));
   let mainInner = fragments.join('');
-  const restoredInnerPages = new Set(['services', 'projects-clients', 'completed-works', 'contacts']);
+  const restoredInnerPages = new Set(['services', 'contacts']);
   if (manifest.kind !== 'home') {
     bodyBeforeMain = bodyBeforeMain.replace(/<div\s+data-site-header\s*><\/div>/, optimize(shell.header || ''));
     const contactSlot = /<div\s+data-cta(?:\s+data-title="[^"]*")?\s*><\/div>/g;
@@ -99,7 +99,7 @@ export async function renderDocument({
   if (manifest.id === 'projects-clients' || manifest.id === 'completed-works') {
     bodyAfterMainSource = bodyAfterMainSource.replace(
       /production-projects-clients-reference\.css\?v=[^\"]+/g,
-      'production-projects-clients-reference.css?v=20260914-projects-container-align-v1'
+      'production-projects-clients-reference.css?v=20260923-projects-redesign-v35'
     );
   }
   if (isRedesignedInner) bodyAfterMainSource = bodyAfterMainSource.replace(/> Email</g, '> Почта<');
@@ -110,7 +110,7 @@ export async function renderDocument({
     ? ''
     : '\n  <script src="../shared/vendor/motion-13.2.0.min.js?v=20260911-cache-v10"></script>';
   const innerRedesignStyles = isRedesignedInner
-    ? '<link rel="stylesheet" href="../shared/production-inner-redesign-v1.css?v=20260912-inner-redesign-v33">'
+    ? '<link rel="stylesheet" href="../shared/production-inner-redesign-v1.css?v=20260923-redesign-v35">'
     : '';
   const homeServicesLayoutGuard = manifest.kind === 'home'
     ? '<style id="homepage-services-07-layout">@media (min-width:1200px){main.site > .services{min-height:435px;height:auto;}}</style>'

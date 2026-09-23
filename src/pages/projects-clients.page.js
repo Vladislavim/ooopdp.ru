@@ -10,10 +10,7 @@ export default {
     "robots": "noindex,follow"
   },
   "order": [
-    "pcp-hero-title",
     "pcp-featured",
-    "pcp-archive-title",
-    "pcp-materials-title",
     "div",
     "div-2"
   ]

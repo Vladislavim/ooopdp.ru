@@ -7,9 +7,9 @@ const escapeHtml = (value) => String(value)
 
 const paragraph = (value) => `<p>${escapeHtml(value)}</p>`;
 
-const editorial = (blocks) => blocks.map((block, index) => {
+const editorial = (blocks) => `<nav class="pdp-service-chapters" aria-label="Содержание услуги">${blocks.map((block, index) => `<a href="#service-chapter-${index + 1}"><span>${String(index + 1).padStart(2, '0')}</span>${escapeHtml(block.title)}</a>`).join('')}</nav>` + blocks.map((block, index) => {
   const imageSide = block.imageSide === 'right' ? 'pdp-service-editorial--image-right' : 'pdp-service-editorial--image-left';
-  return `<section class="pdp-service-editorial ${imageSide} prod-section" data-reveal>
+  return `<section class="pdp-service-editorial pdp-service-editorial--chapter pdp-service-editorial--chapter-${index + 1} ${imageSide} prod-section" id="service-chapter-${index + 1}" data-reveal>
   <div class="pdp-service-editorial__media"><img data-keep-local src="${block.image}" alt="${escapeHtml(block.alt)}" width="1200" height="760" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async"></div>
   <div class="pdp-service-editorial__copy"><div class="pdp-service-editorial__index">${String(index + 1).padStart(2, '0')}</div><h2>${escapeHtml(block.title)}</h2>${paragraph(block.text)}</div>
 </section>`;

@@ -94,3 +94,102 @@ body.production-contacts .prod-contact-map__address,
 body.production-contacts .prod-contact-map__open {
   display: none !important;
 }
+
+/* Canonical inner-content geometry. Desktop pages share an 80vw content frame:
+   10vw of breathing room on each side. Compact viewports keep practical fixed
+   gutters so the content does not become artificially narrow. */
+body.production-page:not(.production-contacts) {
+  --pdp-layout-gutter:10vw;
+  --pdp-layout-max:80vw;
+  --pdp-layout-section:72px;
+  --pdp-layout-compact:32px;
+  --pdp-layout-gap:32px;
+  --pdp-layout-panel:32px;
+  --pdp-layout-page-title:clamp(48px,5.4vw,96px);
+  --pdp-layout-section-title:clamp(38px,4.2vw,64px);
+  --pdp-layout-breadcrumb:32px;
+}
+body.production-page:not(.production-contacts) #main-content :is(.prod-container,.pcp-container,.svc-container,.pdp-service-editorial,.pdp-service-faq,.pdp-service-result,.pdp-service-chapters) {
+  width:min(calc(100% - 2 * var(--pdp-layout-gutter)),var(--pdp-layout-max))!important;
+  max-width:var(--pdp-layout-max)!important;
+  margin-inline:auto!important;
+}
+body.production-page:not(.production-contacts) #main-content .prod-container .prod-container {
+  width:100%!important; max-width:none!important;
+}
+body.production-page:not(.production-contacts) #main-content h1 {
+  overflow-wrap:break-word!important; hyphens:auto!important;
+  font-family:var(--display,"Geologica",sans-serif)!important;
+  font-size:var(--pdp-layout-page-title)!important;
+  font-weight:800!important; line-height:.94!important;
+  letter-spacing:-.045em!important; text-transform:uppercase;
+}
+body.production-page:not(.production-contacts) #main-content :is(.prod-section-head,.pcp-section-heading,.svc-section-intro,.pdp-service-section-heading) h2,
+body.production-page:not(.production-contacts) #main-content .pdp-case-section-title {
+  font-family:var(--display,"Geologica",sans-serif)!important;
+  font-size:var(--pdp-layout-section-title)!important;
+  line-height:.98!important; letter-spacing:-.045em!important;
+  font-weight:800!important; text-transform:uppercase;
+}
+body.production-page:not(.production-contacts) #main-content :is(.prod-breadcrumb,.pcp-breadcrumb,.svc-breadcrumb) {
+  margin-bottom:var(--pdp-layout-breadcrumb)!important;
+}
+body.production-page:not(.production-contacts) #main-content :is(.prod-section,.svc-services,.svc-industries,.svc-project,.pcp-archive,.pcp-materials,.pdp-service-faq,.pdp-service-result) {
+  padding-block:var(--pdp-layout-section)!important;
+}
+body.production-page:not(.production-contacts) #main-content .prod-section--tight {
+  padding-block:var(--pdp-layout-compact)!important;
+}
+body.production-page:not(.production-contacts) #main-content :is(.prod-section-head,.pcp-section-heading,.svc-section-intro,.pdp-service-section-heading) {
+  margin-bottom:var(--pdp-layout-gap)!important;
+}
+body.production-page:not(.production-contacts) #main-content :is(.prod-hero__inner,.pdp-service-hero__inner,.pdp-case-masthead) {
+  padding-block:var(--pdp-layout-compact)!important;
+}
+body.production-page:not(.production-contacts) #main-content :is(.svc-hero__copy-inner,.pcp-hero__copy) {
+  padding-left:max(var(--pdp-layout-gutter),calc((100vw - var(--pdp-layout-max))/2))!important;
+}
+body.production-page.production-services #main-content .svc-hero__copy-inner {
+  width:100%!important; max-width:none!important; margin:0!important;
+  padding-bottom:24px!important;
+}
+body.production-page.production-services #main-content .svc-hero {
+  min-height:0!important;
+}
+body.production-page.production-services #main-content .svc-services {
+  padding-top:24px!important;
+}
+body.production-page:not(.production-contacts) #main-content :is(.prod-two-columns,.prod-article-layout) {
+  column-gap:var(--pdp-layout-gap)!important;
+}
+body.production-page:not(.production-contacts) #main-content .pdp-service-editorial {
+  padding-block:0!important;
+}
+body.production-page:not(.production-contacts) #main-content .pdp-service-editorial__copy {
+  padding:var(--pdp-layout-panel)!important;
+}
+@media(max-width:1100px) {
+ body.production-page:not(.production-contacts) {
+  --pdp-layout-gutter:25px; --pdp-layout-section:48px; --pdp-layout-compact:24px;
+  --pdp-layout-gap:24px; --pdp-layout-panel:24px; --pdp-layout-page-title:48px;
+  --pdp-layout-section-title:38px; --pdp-layout-breadcrumb:28px;
+ }
+}
+body.production-page.production-privacy { --pdp-layout-page-title:clamp(36px,3.5vw,56px); }
+body.production-page:not(.production-contacts) #main-content { background:#f7f6f2!important; }
+body.production-page:not(.production-contacts) #main-content :is(.prod-hero,.prod-hero__inner) { min-height:0!important; height:auto!important; }
+body.production-page.pdp-articles-index #main-content :is(.articles-index-hero,.articles-index-hero__art) { background:#f7f6f2!important; }
+@media(min-width:701px) and (max-width:1100px) {
+ body.production-page.production-services #main-content .svc-hero__copy-inner { padding-right:16px!important; }
+}
+@media(max-width:700px) {
+ body.production-page:not(.production-contacts) {
+  --pdp-layout-section:40px; --pdp-layout-gap:16px; --pdp-layout-panel:20px;
+  --pdp-layout-page-title:42px; --pdp-layout-breadcrumb:24px;
+ }
+ body.production-page.production-article { --pdp-layout-page-title:32px; }
+ body.production-page.production-privacy { --pdp-layout-page-title:32px; }
+ body.production-page.production-404-page { --pdp-layout-page-title:36px; }
+ body.production-page:not(.production-contacts) #main-content :is(.prod-section-head,.pcp-section-heading,.svc-section-intro,.pdp-service-section-heading) { margin-bottom:24px!important; }
+ body.production-page:not(.production-contacts) #main-content .prod-hero__copy { width:100%!important; }
+}

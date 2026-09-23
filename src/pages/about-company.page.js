@@ -10,8 +10,8 @@ export default {
   },
   "order": [
     "prod-hero",
-    "prod-container",
     "prod-section",
+    "prod-container",
     "prod-container-2",
     "prod-container-3",
     "prod-container-4",

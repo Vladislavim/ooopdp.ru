@@ -8,9 +8,7 @@ export default {
     "materials",
     "prod-container",
     "catalog",
-    "prod-container-2",
     "documents",
-    "prod-container-3",
     "div",
     "div-2"
   ]

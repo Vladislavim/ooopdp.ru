@@ -273,3 +273,39 @@
     if (parallaxFrame) window.cancelAnimationFrame(parallaxFrame);
   });
 })();
+
+(() => {
+ const root=document.querySelector('[data-case-catalogue]'); if(!root)return;
+ const data=JSON.parse(root.querySelector('[data-case-data]').textContent);
+ const get=s=>root.querySelector(s), all=s=>[...root.querySelectorAll(s)];
+ const range=get('[data-case-range]'),stage=get('[data-case-compare]');
+ let current=0,filter='all';
+ const matching=()=>data.map((p,i)=>({p,i})).filter(({p})=>filter==='all'||p.category===filter).map(({i})=>i);
+ const split=()=>{stage.style.setProperty('--split',range.value+'%');range.setAttribute('aria-valuetext','Исходное состояние: '+range.value+' процентов');};
+ range.addEventListener('input',split);
+ function select(i){
+  current=i; const p=data[i];
+  get('[data-case-name]').textContent=p.name;get('[data-case-title]').textContent=p.title;
+  get('[data-case-description]').textContent=p.description;
+  get('[data-case-count]').textContent=String(i+1).padStart(2,'0')+' / '+String(data.length).padStart(2,'0');
+  get('[data-case-link]').href=p.href;
+  const facts=get('[data-case-facts]');facts.replaceChildren();
+  p.facts.forEach(([k,v])=>{const d=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=k;dd.textContent=v;d.append(dt,dd);facts.append(d)});
+  const after=get('[data-case-after]'),before=get('[data-case-before]');
+  after.src='../assets/'+(p.after||p.hero);after.alt=(p.after?'Проектное решение: ':'Материалы проекта: ')+p.name;
+  before.src='../assets/'+p.hero;before.alt='Исходное состояние: '+p.name;
+  [before,range,get('[data-case-divider]'),get('[data-case-before-label]')].forEach(el=>el.hidden=!p.after);
+  get('[data-case-after-label]').textContent=p.after?'Проектное решение':'Материалы проекта';
+  get('[data-case-hint]').textContent=p.after?'Перетащите линию, чтобы сравнить':p.title;
+  range.value=46;split();
+  all('[data-case-select]').forEach(b=>{b.hidden=!matching().includes(Number(b.dataset.caseSelect));b.setAttribute('aria-pressed',String(Number(b.dataset.caseSelect)===i))});
+  all('[data-case-card]').forEach(c=>c.hidden=Number(c.dataset.caseCard)===i||!matching().includes(Number(c.dataset.caseCard)));
+  const count=all('[data-case-card]').filter(c=>!c.hidden).length;
+  get('[data-case-total]').textContent=String(count).padStart(2,'0');get('#case-archive').hidden=count===0;
+ }
+ all('[data-case-select]').forEach(b=>b.addEventListener('click',()=>select(Number(b.dataset.caseSelect))));
+ all('[data-case-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.caseFilter;all('[data-case-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));select(matching().includes(current)?current:matching()[0])}));
+ function step(delta){const ids=matching();select(ids[(ids.indexOf(current)+delta+ids.length)%ids.length])}
+ get('[data-case-prev]').addEventListener('click',()=>step(-1));get('[data-case-next]').addEventListener('click',()=>step(1));
+ select(0);
+})();

@@ -103,7 +103,13 @@ export async function renderDocument({
     );
   }
   if (isRedesignedInner) bodyAfterMainSource = bodyAfterMainSource.replace(/> Email</g, '> Почта<');
-  const deferredStyles = bodyAfterMainSource.match(stylesheetPattern) ?? [];
+  let deferredStyles = bodyAfterMainSource.match(stylesheetPattern) ?? [];
+  if (manifest.id === 'contacts') {
+    deferredStyles = deferredStyles.map((link) => link.replace(
+      /production-contacts-reference\.css\?v=[^\"]+/g,
+      'production-contacts-reference.css?v=20260923-contacts-gutters-v2'
+    ));
+  }
   const bodyAfterMain = bodyAfterMainSource.replace(stylesheetPattern, '').replace(/^[ \t]+$/gm, '');
   const innerMotionPages = new Set(['news-articles', 'service-detail']);
   const innerMotionRuntime = !innerMotionPages.has(manifest.id)
@@ -115,6 +121,9 @@ export async function renderDocument({
   const homeServicesLayoutGuard = manifest.kind === 'home'
     ? '<style id="homepage-services-07-layout">@media (min-width:1200px){main.site > .services{min-height:435px;height:auto;}}</style>'
     : '';
+  const contactsGutterGuard = manifest.id === 'contacts'
+    ? '<style id="contacts-desktop-gutters">@media (min-width:1200px){html body.production-contacts main .prod-contact-reference__hero-inner.prod-container{width:100%!important;max-width:none!important;margin-inline:0!important;padding-inline:10vw!important;box-sizing:border-box!important;}body.production-contacts .prod-contact-reference__request>.prod-container{width:80vw!important;max-width:80vw!important;margin-inline:auto!important;}}</style>'
+    : '';
   // Keep render-blocking styles in <head>. Some legacy manifests still store
   // these links beside the closing scripts, which otherwise causes a visible
   // first-paint layout shift before the final inner-page geometry arrives.
@@ -124,13 +133,22 @@ export async function renderDocument({
   if (manifest.id === 'news-articles') {
     headInnerSource = headInnerSource.replace(
       /production-articles-index-reference\.css\?v=[^\"]+/g,
-      'production-articles-index-reference.css?v=20260912-hero-white-footer-dark-v2'
+      'production-articles-index-reference.css?v=20260923-editorial-minimal-v2'
+    );
+  }
+  if (manifest.id === 'contacts') {
+    headInnerSource = headInnerSource.replace(
+      /production-contacts-reference\.css\?v=[^\"]+/g,
+      'production-contacts-reference.css?v=20260923-contacts-gutters-v2'
     );
   }
   const pageStyles = (manifest.headStyles ?? [])
     .map((href) => `<link rel="stylesheet" href="${href}">`)
     .join('\n');
-  const head = [headInnerSource, deferredStyles.length ? deferredStyles.join('\n') + '\n' : '', innerRedesignStyles, pageStyles ? `${pageStyles}\n` : '', homeServicesLayoutGuard, GENERATED_MARKER].join('');
+  const standardStyles = manifest.kind !== 'home' && manifest.id !== 'contacts'
+    ? '<link rel="stylesheet" href="../shared/production-inner-shell-parity.css?v=20260923-site-frame-v2">\n'
+    : '';
+  const head = [headInnerSource, deferredStyles.length ? deferredStyles.join('\n') + '\n' : '', innerRedesignStyles, pageStyles ? `${pageStyles}\n` : '', standardStyles, homeServicesLayoutGuard, contactsGutterGuard, GENERATED_MARKER].join('');
 
   return [
     document.doctype,

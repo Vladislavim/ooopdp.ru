@@ -1,0 +1,52 @@
+/* Approved homepage: preserve the full-width hero, then use the same 80vw
+   editorial frame as Services, Cases, Contacts and Articles. */
+@media (min-width: 1200px) {
+  body:has(main.site > .hero) main.site > section:not(.hero) {
+    box-sizing: border-box;
+    width: 80vw;
+    margin-inline: auto;
+  }
+
+  /* Coloured section backgrounds remain full bleed. Their authored content
+     uses the same 10vw page inset, so the vertical site grid stays aligned. */
+  body:has(main.site > .hero) main.site > section:is(
+    .services,
+    .projects,
+    .home-materials,
+    .clients-trust
+  ) {
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 10vw;
+  }
+
+  /* The approved lead form keeps its original full-width composition. */
+  body:has(main.site > .hero) main.site > section.contact-form-section {
+    width: 100%;
+    margin-inline: 0;
+  }
+}
+
+@media (max-width: 1199px) {
+  body:has(main.site > .hero) main.site > section:not(.hero) {
+    width: auto;
+    margin-inline: 25px;
+  }
+
+  body:has(main.site > .hero) main.site > section:is(
+    .services,
+    .projects,
+    .home-materials,
+    .clients-trust,
+    .contact-form-section
+  ) {
+    width: 100%;
+    margin-inline: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  body:has(main.site > .hero) main.site > section:not(.hero) {
+    margin-inline: 0;
+  }
+}

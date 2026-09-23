@@ -15,6 +15,7 @@ body.pdp-service-page {
 body.pdp-service-page main { background: var(--service-paper); }
 
 body.pdp-service-page .prod-container,
+body.pdp-service-page .pdp-service-chapters,
 body.pdp-service-page .pdp-service-editorial,
 body.pdp-service-page .pdp-service-faq,
 body.pdp-service-page .pdp-service-result {
@@ -258,6 +259,36 @@ body.pdp-service-page .pdp-service-editorial__copy p {
   margin: 15px 0 0;
   color: rgba(255, 255, 255, .88);
   font: 400 14px / 1.5 "Golos Text", Golos, Arial, sans-serif;
+}
+
+/* Chapters vary in proportion and tone without changing the service content. */
+body.pdp-service-page .pdp-service-chapters { position:sticky; top:80px; z-index:8; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; padding:20px 0; background:var(--service-paper,#f7f6f2); border-block:1px solid var(--service-line); }
+body.pdp-service-page .pdp-service-chapters a { display:flex; gap:12px; font-size:12px; line-height:1.4; }
+body.pdp-service-page .pdp-service-chapters span { color:var(--service-orange); font-weight:700; }
+body.pdp-service-page .pdp-service-chapters a:hover { color:var(--service-orange); }
+body.pdp-service-page .pdp-service-editorial--chapter { --service-editorial-cut:0px; margin-top:48px; min-height:440px; background:transparent; border:0; scroll-margin-top:190px; }
+body.pdp-service-page .pdp-service-editorial--chapter::after { display:none; }
+body.pdp-service-page .pdp-service-editorial--chapter .pdp-service-editorial__copy { background:transparent; width:auto; margin:0; padding:40px; clip-path:none; }
+body.pdp-service-page .pdp-service-editorial--chapter h2 { color:var(--service-ink); }
+body.pdp-service-page .pdp-service-editorial--chapter h2::after { display:none; }
+body.pdp-service-page .pdp-service-editorial--chapter .pdp-service-editorial__copy p { color:var(--service-ink); font-size:16px; line-height:1.6; }
+body.pdp-service-page .pdp-service-editorial--chapter .pdp-service-editorial__media { clip-path:none; width:auto; margin:0; }
+body.pdp-service-page .pdp-service-editorial--chapter-1 { grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); }
+body.pdp-service-page .pdp-service-editorial--chapter-2 { grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); background:#111311; }
+body.pdp-service-page .pdp-service-editorial--chapter-2 h2,
+body.pdp-service-page .pdp-service-editorial--chapter-2 .pdp-service-editorial__copy p { color:#f7f6f2; }
+body.pdp-service-page .pdp-service-editorial--chapter-3 { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); min-height:360px; }
+@media(max-width:900px) {
+  body.pdp-service-page .pdp-service-chapters { position:static; gap:14px; }
+  body.pdp-service-page .pdp-service-editorial--chapter .pdp-service-editorial__copy { padding:28px; }
+}
+@media(max-width:700px) {
+  body.pdp-service-page .pdp-service-chapters { display:none; }
+  body.pdp-service-page .pdp-service-editorial--chapter { margin-top:32px; min-height:0; }
+  body.pdp-service-page .pdp-service-editorial--chapter .pdp-service-editorial__copy { width:100%; margin:0; padding:26px 0; }
+  body.pdp-service-page .pdp-service-editorial--chapter-2 .pdp-service-editorial__copy { padding:26px 22px; }
+  body.pdp-service-page .pdp-service-editorial--chapter .pdp-service-editorial__copy::before { display:none; }
+  body.pdp-service-page .pdp-service-editorial--chapter .pdp-service-editorial__copy p { font-size:15px; }
 }
 
 /* Shared section-heading rhythm. */

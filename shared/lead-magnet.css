@@ -1,0 +1,37 @@
+/* Lead magnet: shared CTA owner, retaining the site's paper/ink/orange system. */
+body .contact-form-section.pdp-lead,
+body.production-page.production-contacts .shared-contact-form-section.pdp-lead {
+  display:grid!important; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)!important;
+  gap:64px!important; padding:72px 10%!important; align-items:start!important;
+  background:#111311!important; color:#f7f6f2;
+}
+body .contact-form-section.pdp-lead::after {opacity:.08!important}
+body .pdp-lead .contact-form-intro h2,
+body.production-page.production-contacts .pdp-lead .contact-form-intro h2 {
+  font-size:clamp(32px,3.5vw,52px)!important;line-height:1.02!important;
+  letter-spacing:-.045em!important; margin:20px 0 24px!important;max-width:620px!important;
+}
+.pdp-lead .label {color:#ff692f;font:700 11px/1.5 "Golos Text",sans-serif;letter-spacing:.07em;text-transform:uppercase}
+body .pdp-lead .contact-form-intro>p {font:400 16px/1.55 "Golos Text",sans-serif!important;color:#c5c7c0!important;max-width:54ch!important}
+.pdp-lead__contents{list-style:none;padding:0;margin:28px 0;font:500 15px/1.5 "Golos Text",sans-serif}
+.pdp-lead__contents li{display:flex;gap:18px;padding:12px 0;border-bottom:1px solid #383b35}
+.pdp-lead__contents li span{color:#ff692f;font-size:11px;padding-top:3px}
+body .pdp-lead .contact-form-intro>p.pdp-lead__note{font-size:13px!important;color:#aeb1a8!important;margin:0 0 24px!important}
+.pdp-lead__download{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:56px;padding:16px 24px;background:#f45116;color:#fff;text-decoration:none;font:700 14px/1.4 "Golos Text",sans-serif;transition:background .2s}
+.pdp-lead__download:hover{background:#d83d08}.pdp-lead__download:focus-visible,.pdp-lead__preview a:focus-visible,.pdp-lead summary:focus-visible{outline:3px solid #fff;outline-offset:5px}
+.pdp-lead__download span{font-size:24px}.pdp-lead__meta{font:400 12px/1.5 "Golos Text",sans-serif;color:#aeb1a8;margin-top:10px}
+.pdp-lead__preview{margin:0!important;max-width:370px;width:100%;justify-self:center}
+.pdp-lead__preview>a{display:block;position:relative;color:#171817;text-decoration:none;background:#f7f6f2}
+.pdp-lead__preview img{display:block;width:100%;height:auto}
+.pdp-lead__preview-action{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-top:1px solid #d5d3ca;font:600 13px/1.5 "Golos Text",sans-serif}
+body .pdp-lead .pdp-lead__preview-action,body .pdp-lead .pdp-lead__preview-action span{color:#171817!important}
+body .pdp-lead__contact .form-field label,body .pdp-lead__contact [data-contact-label]{color:#f7f6f2!important}
+.pdp-lead__preview figcaption{margin:12px 0 0;color:#aeb1a8;font:400 12px/1.5 "Golos Text",sans-serif;max-width:35ch}
+.pdp-lead__contact{margin-top:28px;border-top:1px solid #383b35;padding-top:8px}
+.pdp-lead__contact summary{display:flex;justify-content:space-between;gap:16px;cursor:pointer;padding:16px 0;min-height:48px;font:600 14px/1.5 "Golos Text",sans-serif;list-style:none}
+.pdp-lead__contact summary::-webkit-details-marker{display:none}.pdp-lead__contact[open] summary span{transform:rotate(45deg)}
+.pdp-lead__contact>p{font:400 14px/1.55 "Golos Text",sans-serif;color:#c5c7c0;margin:0 0 20px}.pdp-lead__contact>p a{color:#fff}
+body .pdp-lead__contact .contact-form{width:100%;min-width:0;padding:20px!important;box-sizing:border-box}
+@media(max-width:1100px){body .contact-form-section.pdp-lead,body.production-page.production-contacts .shared-contact-form-section.pdp-lead{padding:48px 25px!important;gap:32px!important;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)!important}}
+@media(max-width:700px){body .contact-form-section.pdp-lead,body.production-page.production-contacts .shared-contact-form-section.pdp-lead{padding:40px 25px!important;grid-template-columns:minmax(0,1fr)!important;gap:32px!important}.pdp-lead__preview{max-width:280px}.pdp-lead__contents{margin:20px 0}.pdp-lead__download{padding-inline:18px}.pdp-lead__contact .contact-form{display:flex!important;flex-direction:column;gap:16px}.pdp-lead__contact .contact-form>*{width:100%;box-sizing:border-box}}
+@media(prefers-reduced-motion:reduce){.pdp-lead *{transition:none!important}}

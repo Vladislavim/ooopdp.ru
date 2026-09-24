@@ -62,7 +62,7 @@
 <section class="contact-form-section shared-contact-form-section pdp-lead" id="contacts" aria-labelledby="lead-title">
   <div class="contact-form-intro">
     <span class="label">Материал для заказчика · PDF, 6 страниц</span>
-    <h2 id="lead-title">Подготовьтесь<br>к разговору<br>о вашем объекте</h2>
+    <h2 id="lead-title">Какие документы<br>подготовить<br>по вашему объекту</h2>
     <p>Что собрать перед обследованием и проектированием: исходные документы, ограничения на объекте и вопросы подрядчику.</p>
     <ul class="pdp-lead__contents">
       <li><span>01</span> Список исходных материалов с пояснениями</li>
@@ -70,8 +70,8 @@
       <li><span>03</span> Шаблон первого письма подрядчику</li>
     </ul>
     <p class="pdp-lead__note">Можно заполнить от руки и передать коллегам. Если каких-то данных нет, отметьте это и обсудите с исполнителем.</p>
-    <a class="pdp-lead__download" href="../assets/documents/pdp-project-preparation.pdf" download="PDP-checklist.pdf">Скачать чек-лист <span aria-hidden="true">↓</span></a>
-    <div class="pdp-lead__meta">PDF · 101 КБ · без регистрации</div>
+    <button class="pdp-lead__download" type="button" data-lead-open aria-haspopup="dialog" aria-controls="lead-dialog">Получить чек-лист <span aria-hidden="true">→</span></button>
+    <div class="pdp-lead__meta">PDF · 6 страниц · чек-лист и шаблон письма</div>
     <details class="pdp-lead__contact">
       <summary>Уже есть задача? Обсудить с ПДП <span aria-hidden="true">+</span></summary>
       <p>Позвоните <a href="tel:+78442564554">8 (8442) 56-45-54</a> или подготовьте письмо через форму. Для отправки откроется ваша почтовая программа.</p>
@@ -85,13 +85,33 @@
     </details>
   </div>
   <figure class="pdp-lead__preview">
-    <a href="../assets/documents/pdp-project-preparation.pdf" target="_blank" rel="noopener" aria-label="Открыть чек-лист подготовки объекта, PDF, 6 страниц">
+    <button type="button" data-lead-open aria-haspopup="dialog" aria-controls="lead-dialog" aria-label="Получить полный чек-лист подготовки объекта">
       <img src="../assets/documents/pdp-project-preparation-1.png" width="745" height="1053" alt="Первая страница чек-листа ПДП: подготовка объекта к первому разговору" loading="lazy">
-      <span class="pdp-lead__preview-action">Посмотреть PDF <span aria-hidden="true">↗</span></span>
-    </a>
+      <span class="pdp-lead__preview-action">Получить все 6 страниц <span aria-hidden="true">↗</span></span>
+    </button>
     <figcaption>Чек-листы, вопросы подрядчику и место для ваших заметок.</figcaption>
   </figure>
 </section>
+
+<dialog class="pdp-lead-dialog" id="lead-dialog" aria-labelledby="lead-dialog-title" aria-describedby="lead-dialog-description">
+  <button type="button" class="pdp-lead-dialog__close" data-lead-close aria-label="Закрыть">×</button>
+  <span class="pdp-lead-dialog__eyebrow">Чек-лист для заказчика · 6 страниц</span>
+  <h2 id="lead-dialog-title">Получите список<br>исходных документов</h2>
+  <p id="lead-dialog-description">Оставьте email, чтобы получить чек-лист, вопросы подрядчику и шаблон первого письма.</p>
+  <form class="pdp-lead-form">
+    <label for="lead-email">Ваш email</label>
+    <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="name@company.ru" maxlength="254" required>
+    <label class="pdp-lead-form__consent"><input type="checkbox" name="consent" required><span>Даю согласие на <a href="12-privacy-policy.html" target="_blank" rel="noopener">обработку персональных данных</a> для получения материала.</span></label>
+    <button type="submit" class="pdp-lead__download">Получить чек-лист <span aria-hidden="true">→</span></button>
+    <p class="pdp-lead-form__status" data-lead-status role="status"></p>
+  </form>
+  <div data-lead-result hidden>
+    <p>Чек-лист готов к скачиванию.</p>
+    <a href="../assets/documents/pdp-project-preparation.pdf" download="PDP-checklist.pdf" class="pdp-lead__download">Скачать PDF <span aria-hidden="true">↓</span></a>
+  </div>
+  <p class="pdp-lead-dialog__demo" data-lead-demo hidden>Локальный просмотр: данные никуда не отправляются. Здесь можно проверить заполнение формы и получение файла.</p>
+</dialog>
+<script src="../shared/lead-magnet.js" defer></script>
 
     
 <footer class="footer">

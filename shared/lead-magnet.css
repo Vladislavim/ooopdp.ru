@@ -21,7 +21,7 @@ body .pdp-lead .contact-form-intro>p.pdp-lead__note{font-size:13px!important;col
 .pdp-lead__download:hover{background:#d83d08}.pdp-lead__download:focus-visible,.pdp-lead__preview a:focus-visible,.pdp-lead summary:focus-visible{outline:3px solid #fff;outline-offset:5px}
 .pdp-lead__download span{font-size:24px}.pdp-lead__meta{font:400 12px/1.5 "Golos Text",sans-serif;color:#aeb1a8;margin-top:10px}
 .pdp-lead__preview{margin:0!important;max-width:370px;width:100%;justify-self:center}
-.pdp-lead__preview>a{display:block;position:relative;color:#171817;text-decoration:none;background:#f7f6f2}
+.pdp-lead__preview>button{display:block;position:relative;color:#171817;text-decoration:none;background:#f7f6f2;border:0;padding:0;width:100%;text-align:left;cursor:pointer}
 .pdp-lead__preview img{display:block;width:100%;height:auto}
 .pdp-lead__preview-action{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-top:1px solid #d5d3ca;font:600 13px/1.5 "Golos Text",sans-serif}
 body .pdp-lead .pdp-lead__preview-action,body .pdp-lead .pdp-lead__preview-action span{color:#171817!important}
@@ -35,3 +35,21 @@ body .pdp-lead__contact .contact-form{width:100%;min-width:0;padding:20px!import
 @media(max-width:1100px){body .contact-form-section.pdp-lead,body.production-page.production-contacts .shared-contact-form-section.pdp-lead{padding:48px 25px!important;gap:32px!important;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)!important}}
 @media(max-width:700px){body .contact-form-section.pdp-lead,body.production-page.production-contacts .shared-contact-form-section.pdp-lead{padding:40px 25px!important;grid-template-columns:minmax(0,1fr)!important;gap:32px!important}.pdp-lead__preview{max-width:280px}.pdp-lead__contents{margin:20px 0}.pdp-lead__download{padding-inline:18px}.pdp-lead__contact .contact-form{display:flex!important;flex-direction:column;gap:16px}.pdp-lead__contact .contact-form>*{width:100%;box-sizing:border-box}}
 @media(prefers-reduced-motion:reduce){.pdp-lead *{transition:none!important}}
+.pdp-lead button.pdp-lead__download{border:0;width:100%;text-align:left;cursor:pointer}
+.pdp-lead__preview>button:focus-visible{outline:3px solid #f45116;outline-offset:5px}
+body .pdp-lead-dialog{position:fixed;inset:0;margin:auto;box-sizing:border-box;width:min(520px,calc(100% - 32px));max-height:calc(100dvh - 32px);padding:40px;border:0;background:#f7f6f2;color:#171817;overflow:auto;font:400 16px/1.5 "Golos Text",sans-serif}
+.pdp-lead-dialog::backdrop{background:rgb(10 12 10 / .76)}
+.pdp-lead-dialog__close{position:absolute;right:8px;top:8px;width:44px;height:44px;border:0;background:transparent;color:#171817;font-size:30px;cursor:pointer}
+.pdp-lead-dialog__eyebrow{display:block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#b53609;margin:8px 0 20px}
+body .pdp-lead-dialog h2{font:800 30px/1.08 Geologica,sans-serif;letter-spacing:-.04em;margin:0 0 18px;text-transform:none;color:#171817}
+.pdp-lead-dialog p{font-size:14px;line-height:1.55;margin:0 0 24px;color:#555750}
+.pdp-lead-form>label:first-child{display:block;font-weight:600;font-size:13px;margin-bottom:8px}
+.pdp-lead-form>input{display:block;box-sizing:border-box;width:100%;height:52px;padding:12px;border:1px solid #a2a49b;background:#fff;color:#171817;font:inherit;margin-bottom:20px;border-radius:0}
+.pdp-lead-form__consent{display:flex;align-items:start;gap:10px;font-size:12px;line-height:1.5;margin:0 0 24px}
+.pdp-lead-form__consent input{width:18px;height:18px;flex:0 0 18px;margin:0;accent-color:#f45116}.pdp-lead-form__consent a{color:inherit;text-decoration:underline}
+.pdp-lead-dialog .pdp-lead__download{width:100%;box-sizing:border-box;border:0;cursor:pointer}
+.pdp-lead-dialog [hidden]{display:none!important}
+.pdp-lead-dialog .pdp-lead-dialog__demo{font-size:11px;margin:20px 0 0;color:#66685f;padding-top:16px;border-top:1px solid #d5d3ca}
+.pdp-lead-dialog .pdp-lead-form__status{color:#a32d07;margin:12px 0 0}
+.pdp-lead-dialog :focus-visible{outline:2px solid #b53609;outline-offset:4px}
+@media(max-width:700px){body .pdp-lead-dialog{padding:28px 24px}body .pdp-lead-dialog h2{font-size:26px}}

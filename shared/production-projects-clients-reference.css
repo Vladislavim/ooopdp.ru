@@ -1478,25 +1478,25 @@ body.production-projects .footer {
 
 /* Keep the project, comparison and selector readable as one composition. */
 @media(min-width:1101px){
- .case-catalogue{max-width:1920px;padding:32px var(--pdp-layout-gutter,64px) var(--pdp-layout-section,72px)}
- .case-catalogue__intro{gap:32px;margin-bottom:32px}
- .case-catalogue__intro nav{margin-bottom:24px}
- .case-catalogue h1{font-size:clamp(52px,4.8vw,72px);line-height:.94;letter-spacing:-.045em;margin-bottom:24px}
+ .case-catalogue{max-width:1920px;padding:24px var(--pdp-layout-gutter,64px) var(--pdp-layout-section,72px)}
+ .case-catalogue__intro{gap:32px;margin-bottom:24px}
+ .case-catalogue__intro nav{margin-bottom:20px}
+ .case-catalogue h1{font-size:clamp(52px,4.8vw,72px);line-height:.94;letter-spacing:-.045em;margin-bottom:20px}
  .case-catalogue__intro p{font-size:16px;line-height:1.45}
- .case-catalogue__filters{margin-bottom:24px}
+ .case-catalogue__filters{margin-bottom:16px}
  .case-catalogue__filters button{min-height:42px;padding-block:10px}
  .case-catalogue__feature{grid-template-columns:minmax(240px,.9fr) minmax(0,3fr);gap:32px}
- .case-catalogue__copy{padding-top:16px}
+ .case-catalogue__copy{padding-top:8px}
  .case-catalogue__index{font-size:13px}
- .case-catalogue__copy h2{font:800 32px/1.02 var(--display);letter-spacing:-.045em;text-transform:uppercase;margin:16px 0}
- .case-catalogue__subtitle{font-size:16px;line-height:1.5;margin-bottom:16px}
- .case-catalogue__copy dl{margin-bottom:16px}
+ .case-catalogue__copy h2{font:800 32px/1.02 var(--display);letter-spacing:-.045em;text-transform:uppercase;margin:12px 0}
+ .case-catalogue__subtitle{font-size:16px;line-height:1.5;margin-bottom:12px}
+ .case-catalogue__copy dl{margin-bottom:8px}
  .case-catalogue__copy dt{margin-top:6px}
- .case-catalogue__description{padding-top:8px;font-size:14px;line-height:1.55}
+ .case-catalogue__description{margin:8px 0;padding-top:0;font-size:14px;line-height:1.5}
  .case-catalogue__link{margin-top:8px}
- .case-compare{aspect-ratio:auto;height:clamp(360px,42vh,460px)}
+ .case-compare{aspect-ratio:auto;height:clamp(260px,calc(100svh - 530px),420px)}
  .case-catalogue__caption{min-height:32px}
- .case-catalogue__rail{margin-top:20px;padding:20px 0 0;gap:0}
+ .case-catalogue__rail{margin-top:12px;padding:12px 0 0;gap:0}
  .case-catalogue__rail strong{font-size:13px;margin:6px 0 8px;min-height:32px}
  .case-catalogue__rail img{height:80px;aspect-ratio:auto}
  .case-catalogue__archive{margin-top:48px}
@@ -1551,3 +1551,22 @@ body.production-page .case-catalogue__intro nav a:hover{color:var(--ink)}
 @media(max-width:700px){.case-catalogue__copy h2{font-size:30px;line-height:1.02}.case-catalogue__card h3{font-size:20px}.case-catalogue__archive-head h2,.case-catalogue__clients h2{font-size:28px}.case-catalogue__intro nav{margin-bottom:24px}}
 @media(max-width:1100px){.case-catalogue__feature,.case-catalogue__grid{gap:24px}.case-catalogue__logos{gap:24px}.case-catalogue__logos img{height:48px}}
 @media(max-width:700px){.case-catalogue__feature{gap:12px}.case-catalogue__clients{margin-top:40px;padding-top:24px}.case-catalogue__logos{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.case-catalogue__logos a{min-height:80px;padding:8px}.case-catalogue__logos span{font-size:26px}}
+
+/* Short desktop viewports: keep the project selector in the arrival viewport. */
+@media(min-width:1101px) and (max-height:950px){
+ .case-catalogue__copy dl>div{margin:0;min-height:0}
+ .case-catalogue__copy dl{gap:6px;font-size:12px;line-height:1.4}
+ .case-catalogue__copy dt,.case-catalogue__copy dd{margin:0;line-height:1.4}
+ .case-catalogue__copy h2{margin:8px 0}
+ .case-catalogue__subtitle{margin-bottom:12px}
+ .case-catalogue__copy .case-catalogue__description{font-size:13px;line-height:1.45;margin:8px 0}
+ .case-catalogue__copy .case-catalogue__link{margin-top:0}
+}
+
+@media(min-width:1101px) and (max-height:800px){
+ .case-catalogue{padding-top:16px}
+ .case-catalogue__intro nav{margin-bottom:12px}
+ .case-catalogue__intro{margin-bottom:16px}
+ .case-catalogue h1{margin-bottom:16px}
+ .case-catalogue__filters{margin-bottom:12px}
+}

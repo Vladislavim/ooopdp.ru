@@ -13,7 +13,7 @@
   <link rel="canonical" href="https://ooopdp.ru/pages/07-news-articles.html">
   <link rel="stylesheet" href="../shared/production-base.css?v=20260911-cache-v10">
     <link rel="stylesheet" href="../shared/production-inner-shell-parity.css?v=20260912-inner-gap-v1">
-  <link rel="stylesheet" href="../shared/production-articles-index-reference.css?v=20260923-editorial-minimal-v2">
+  <link rel="stylesheet" href="../shared/production-articles-index-reference.css?v=20260927-responsive-cards-v3">
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -21,6 +21,47 @@
 <link rel="stylesheet" href="../shared/production-inner-v30-consistency.css?v=20260911-cache-v10">
 <link rel="stylesheet" href="../shared/production-inner-motion-a.css?v=20260911-cache-v10">
 <link rel="stylesheet" href="../shared/production-inner-redesign-v1.css?v=20260912-inner-redesign-v33"><link rel="stylesheet" href="../shared/production-inner-shell-parity.css?v=20260923-site-frame-v2">
+<style>
+  body.pdp-articles-index .articles-index-grid {
+    align-items: stretch;
+  }
+
+  body.pdp-articles-index .articles-index-card,
+  body.pdp-articles-index .articles-index-card__link,
+  body.pdp-articles-index .articles-index-card__body {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  body.pdp-articles-index .articles-index-card {
+    align-self: stretch;
+    height: 100% !important;
+  }
+
+  body.pdp-articles-index .articles-index-card__link {
+    height: 100% !important;
+  }
+
+  body.pdp-articles-index .articles-index-card__body {
+    flex: 1 1 auto !important;
+  }
+
+  body.pdp-articles-index .articles-index-card__text {
+    flex: 0 0 auto !important;
+  }
+
+  body.pdp-articles-index .articles-index-card__text {
+    margin-bottom: 18px;
+  }
+
+  body.pdp-articles-index .articles-index-card__cta {
+    margin-top: auto;
+  }
+
+  @media (min-width: 1800px) {
+    body.pdp-articles-index { --pdp-layout-max: 1600px !important; }
+  }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -86,7 +127,6 @@
       <div class="prod-container articles-index-hero__inner">
         <div class="articles-index-hero__copy">
           <div class="prod-breadcrumb"><a href="../index.html">Главная</a><span>/</span><b>Статьи и материалы</b></div>
-          <div class="prod-eyebrow">База знаний и практика инжиниринга</div>
           <h1>Статьи<br>и материалы</h1>
           <p>Экспертные регламенты, практика функций технического заказчика, строительный контроль и детальные разборы промышленных кейсов ПДП.</p>
         </div>

@@ -264,6 +264,10 @@ body.pdp-articles-index .articles-index-tabs a[aria-current="page"] .articles-in
   transition: transform .32s cubic-bezier(.2,.75,.2,1), box-shadow .32s ease, border-color .25s ease;
   min-width: 0;
 }
+body.pdp-articles-index .articles-index-card {
+  display: flex !important;
+  grid-template-rows: none !important;
+}
 .articles-index-card:hover {
   transform: translateY(-5px);
   border-color: rgba(244, 81, 22, 0.45);
@@ -595,9 +599,13 @@ body.pdp-articles-index .prod-container{width:min(calc(100% - 128px),1792px)}
 
 /* Quiet editorial pass: one lead story, one compact reading grid. */
 @media (min-width:1101px) {
+  body.pdp-articles-index {
+    --pdp-layout-max:1600px;
+  }
+
   body.pdp-articles-index .prod-container {
-    width:80vw;
-    max-width:80vw;
+    width:min(80vw,1600px) !important;
+    max-width:1600px !important;
   }
 
   .articles-index-hero {
@@ -734,6 +742,53 @@ body.pdp-articles-index .prod-container{width:min(calc(100% - 128px),1792px)}
   .articles-index-editorial-card__copy .articles-index-link {
     align-self:flex-start !important;
     margin:16px 0 0 !important;
+  }
+}
+
+/* Browser zoom-out and ultra-wide viewports: stop the editorial canvas from
+   spreading indefinitely, while keeping reading text legible. */
+@media (min-width:1800px) {
+  .articles-index-hero__copy h1 {
+    font-size:clamp(76px,4vw,92px);
+  }
+
+  .articles-index-hero__copy p {
+    max-width:680px;
+    font-size:18px;
+  }
+
+  .articles-index-featured__copy h2 {
+    font-size:clamp(48px,2.55vw,60px);
+  }
+
+  .articles-index-featured__copy p {
+    font-size:17px;
+  }
+
+  .articles-index-tabs a {
+    font-size:12px;
+  }
+
+  .articles-index-card__body {
+    padding:26px 28px 28px;
+  }
+
+  .articles-index-card__meta,
+  .articles-index-card__cta {
+    font-size:11px;
+  }
+
+  .articles-index-card__title {
+    font-size:clamp(23px,1.15vw,28px);
+  }
+
+  .articles-index-card__text {
+    font-size:16px;
+    line-height:1.48;
+  }
+
+  .articles-index-documents__lead {
+    font-size:15px;
   }
 }
 

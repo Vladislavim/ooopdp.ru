@@ -1750,6 +1750,118 @@ body.production-projects .case-catalogue__filters {
   margin-bottom: 28px !important;
 }
 
+/* Project catalogue finishing: clear comparison frame, readable facts and persistent CTAs. */
+body.production-projects .case-compare {
+  border: 2px solid var(--orange);
+}
+
+body.production-projects .case-catalogue__copy dl {
+  gap: 0;
+  border-bottom: 1px solid var(--case-line);
+}
+
+body.production-projects .case-catalogue__copy dl > div {
+  min-height: 42px;
+  padding: 9px 0;
+  border-top: 1px solid var(--case-line);
+}
+
+body.production-projects .case-catalogue__grid:has(> :nth-child(4 of :not([hidden]))) > :nth-child(1 of :not([hidden])) .case-catalogue__card-copy::after {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+body.production-projects .case-catalogue__grid:has(> :nth-child(4 of :not([hidden]))) > :nth-child(1 of :not([hidden])) .case-catalogue__card-copy > svg {
+  stroke: #fff;
+}
+
+body.production-projects .case-catalogue__grid:has(> :nth-child(4 of :not([hidden]))) > :nth-child(1 of :not([hidden])):is(:hover, :focus-visible) .case-catalogue__card-copy::after {
+  background: #d83d08;
+  border-color: #d83d08;
+}
+
+/* Keep the logo selector visible in the arrival viewport on laptop-height screens and at browser zoom. */
+@media (min-width: 1101px) and (max-height: 820px) {
+  body.production-projects .case-catalogue {
+    padding-top: 14px !important;
+  }
+
+  body.production-projects .case-catalogue__intro {
+    margin-bottom: 10px !important;
+  }
+
+  body.production-projects .case-catalogue__intro nav {
+    margin-bottom: 8px !important;
+  }
+
+  body.production-projects .case-catalogue h1 {
+    font-size: clamp(44px, 4.2vw, 62px) !important;
+    margin-bottom: 10px !important;
+  }
+
+  body.production-projects .case-catalogue__intro p {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+
+  body.production-projects .case-catalogue__filters {
+    margin-bottom: 10px !important;
+  }
+
+  body.production-projects .case-catalogue__filters button {
+    min-height: 38px;
+    padding-block: 8px;
+  }
+
+  body.production-projects .case-catalogue__feature {
+    gap: 24px;
+  }
+
+  body.production-projects .case-catalogue__copy {
+    padding-top: 2px;
+  }
+
+  body.production-projects .case-catalogue__copy h2 {
+    font-size: 28px;
+    margin: 6px 0;
+  }
+
+  body.production-projects .case-catalogue__subtitle {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  body.production-projects .case-catalogue__copy dl > div {
+    min-height: 34px;
+    padding: 6px 0;
+  }
+
+  body.production-projects .case-catalogue__description {
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 6px 0;
+  }
+
+  body.production-projects .case-catalogue__link {
+    min-height: 40px;
+    margin-top: 4px;
+  }
+
+  body.production-projects .case-compare {
+    height: clamp(220px, calc(100svh - 500px), 320px);
+  }
+
+  body.production-projects .case-catalogue__caption {
+    min-height: 34px;
+  }
+
+  body.production-projects .case-catalogue__rail {
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+}
+
 @media (max-width: 1100px) {
   body.production-projects .case-catalogue {
     width: 80vw !important;

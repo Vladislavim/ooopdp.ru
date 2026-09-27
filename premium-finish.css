@@ -116,13 +116,13 @@ body::selection {
 .hero-video {
   z-index: 1;
   opacity: 1;
-  filter: saturate(1) contrast(1.02) brightness(1.01);
+  filter: none;
   mix-blend-mode: normal;
 }
 
 .hero-img::after {
   z-index: 2;
-  background: linear-gradient(90deg,rgba(244,241,233,.88) 0%,rgba(244,241,233,.64) 34%,rgba(244,241,233,.12) 63%,rgba(244,241,233,.025) 82%,transparent 100%);
+  background: linear-gradient(90deg,rgba(247,246,243,.88) 0%,rgba(247,246,243,.84) 26%,rgba(247,246,243,.62) 36%,rgba(247,246,243,.22) 44%,rgba(247,246,243,.04) 50%,transparent 54%,transparent 100%);
 }
 
 .coords,

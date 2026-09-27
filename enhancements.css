@@ -3813,19 +3813,19 @@ button:focus-visible {
   .hero-img::after {
     background: linear-gradient(
       90deg,
-      rgba(247,246,243,.98) 0%,
-      rgba(247,246,243,.96) 29%,
-      rgba(247,246,243,.82) 40%,
-      rgba(247,246,243,.48) 52%,
-      rgba(247,246,243,.16) 66%,
-      rgba(247,246,243,.04) 82%,
+      rgba(247,246,243,.88) 0%,
+      rgba(247,246,243,.84) 26%,
+      rgba(247,246,243,.62) 36%,
+      rgba(247,246,243,.22) 44%,
+      rgba(247,246,243,.04) 50%,
+      transparent 54%,
       transparent 100%
     );
   }
 
   .hero-video {
-    opacity: .88;
-    filter: grayscale(1) contrast(.97) brightness(1.07);
+    opacity: 1;
+    filter: none;
   }
 
   .hero-copy {

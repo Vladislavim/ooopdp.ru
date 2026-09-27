@@ -41,6 +41,7 @@ export const siteData = Object.freeze({
     articles: 'pages/07-news-articles.html',
     contacts: 'pages/10-contacts.html',
     privacy: 'pages/12-privacy-policy.html',
+    requisites: 'pages/15-requisites.html',
   }),
   servicePageIds: Object.freeze([
     'service-technical-customer',
@@ -57,8 +58,6 @@ export const siteData = Object.freeze({
     'page-index',
     'about-company',
     'services',
-    'service-detail',
-    'projects-clients',
     'project-red-october',
     'completed-works',
     'news-articles',
@@ -69,6 +68,7 @@ export const siteData = Object.freeze({
     'privacy-policy',
     'article-construction-control',
     'article-executive-documentation',
+    'requisites',
   ]),
   // Canonical block sources. A manifest can override a key explicitly, but
   // shared and homepage sections resolve from this registry first.

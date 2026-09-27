@@ -12,7 +12,6 @@ export default {
     "prod-hero",
     "p01",
     "prod-container",
-    "div",
     "div-2"
   ]
 };

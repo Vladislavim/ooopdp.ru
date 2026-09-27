@@ -61,12 +61,6 @@
   };
   setupSharedScroll();
 
-  const favicon = document.createElement('link');
-  favicon.rel = 'icon';
-  favicon.type = 'image/svg+xml';
-  favicon.href = '../assets/pdp-official-logo.svg';
-  document.head.append(favicon);
-
   const shellStyles = document.createElement('link');
   shellStyles.rel = 'stylesheet';
   shellStyles.href = `../shared/production-main-shell.css?v=${CACHE_VERSION}`;

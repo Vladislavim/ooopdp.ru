@@ -1,0 +1,689 @@
+{
+  "total_pages": 29,
+  "missing_title": [],
+  "short_title": [],
+  "long_title": [],
+  "missing_desc": [],
+  "short_desc": [],
+  "long_desc": [],
+  "missing_canonical": [],
+  "missing_h1": [],
+  "multiple_h1": [],
+  "missing_og": [
+    {
+      "file": "index.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/01-about-company.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/02-services.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/03-service-detail.html",
+      "missing": {
+        "title": true,
+        "desc": true,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/04-projects-clients.html",
+      "missing": {
+        "title": true,
+        "desc": true,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/05-project-red-october.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/06-completed-works.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/07-news-articles.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/09-documents-materials.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/10-contacts.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/11-404.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/12-privacy-policy.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/15-requisites.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/index.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/project-alan-kz.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/project-crmo.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/project-eurochem.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/project-polyclinic-31.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/project-severstal.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/service-building-operations.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/service-construction-installation.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/service-design.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/service-engineering-systems.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/service-production-modernization.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/service-repairs.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    },
+    {
+      "file": "pages/service-technical-customer.html",
+      "missing": {
+        "title": false,
+        "desc": false,
+        "image": true
+      }
+    }
+  ],
+  "missing_schema": [],
+  "images_without_alt": [],
+  "broken_internal_links": [],
+  "commercial_audit": {
+    "inn_kpp_ogrn": true,
+    "bank_requisites": true,
+    "sro_membership": false,
+    "iso_certificates": true,
+    "liability_insurance": false,
+    "price_transparency": false,
+    "cost_calculator": true,
+    "client_recommendation_letters": false,
+    "team_engineers_credentials": false
+  },
+  "schema_breakdown": {
+    "index.html": [
+      "Organization"
+    ],
+    "pages/01-about-company.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/02-services.html": [
+      "Organization",
+      "BreadcrumbList",
+      "Service"
+    ],
+    "pages/03-service-detail.html": [
+      "WebPage"
+    ],
+    "pages/04-projects-clients.html": [
+      "WebPage"
+    ],
+    "pages/05-project-red-october.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/06-completed-works.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/07-news-articles.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/08-article-detail.html": [
+      "Organization",
+      "BreadcrumbList",
+      "Article"
+    ],
+    "pages/09-documents-materials.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/10-contacts.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/11-404.html": [
+      "Organization"
+    ],
+    "pages/12-privacy-policy.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/13-article-construction-control.html": [
+      "Organization",
+      "BreadcrumbList",
+      "Article"
+    ],
+    "pages/14-article-executive-documentation.html": [
+      "Organization",
+      "BreadcrumbList",
+      "Article"
+    ],
+    "pages/15-requisites.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/index.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/project-alan-kz.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/project-crmo.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/project-eurochem.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/project-polyclinic-31.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/project-severstal.html": [
+      "Organization",
+      "BreadcrumbList"
+    ],
+    "pages/service-building-operations.html": [
+      "Organization",
+      "BreadcrumbList",
+      "Service"
+    ],
+    "pages/service-construction-installation.html": [
+      "Organization",
+      "BreadcrumbList",
+      "Service"
+    ],
+    "pages/service-design.html": [
+      "Organization",
+      "BreadcrumbList",
+      "Service"
+    ],
+    "pages/service-engineering-systems.html": [
+      "Organization",
+      "BreadcrumbList",
+      "Service"
+    ],
+    "pages/service-production-modernization.html": [
+      "Organization",
+      "BreadcrumbList",
+      "Service"
+    ],
+    "pages/service-repairs.html": [
+      "Organization",
+      "BreadcrumbList",
+      "Service"
+    ],
+    "pages/service-technical-customer.html": [
+      "Organization",
+      "BreadcrumbList",
+      "Service"
+    ]
+  },
+  "pages_analysis": {
+    "index.html": {
+      "title": "ПДП — управление строительными проектами",
+      "title_len": 40,
+      "desc_len": 114,
+      "canonical": "https://ooopdp.ru/",
+      "h1_count": 1,
+      "schemas": [
+        "Organization"
+      ]
+    },
+    "pages/01-about-company.html": {
+      "title": "О компании ПДП — управление строительными проектами",
+      "title_len": 51,
+      "desc_len": 119,
+      "canonical": "https://ooopdp.ru/pages/01-about-company.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/02-services.html": {
+      "title": "Услуги для промышленных и общественных объектов — ПДП",
+      "title_len": 53,
+      "desc_len": 133,
+      "canonical": "https://ooopdp.ru/pages/02-services.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList",
+        "Service"
+      ]
+    },
+    "pages/03-service-detail.html": {
+      "title": "Перенаправление на услуги проектирования и строительства - ООО «ПДП»",
+      "title_len": 68,
+      "desc_len": 96,
+      "canonical": "https://ooopdp.ru/pages/service-technical-customer.html",
+      "h1_count": 1,
+      "schemas": [
+        "WebPage"
+      ]
+    },
+    "pages/04-projects-clients.html": {
+      "title": "Перенаправление в каталог проектов и клиентов - ООО «ПДП»",
+      "title_len": 57,
+      "desc_len": 92,
+      "canonical": "https://ooopdp.ru/pages/06-completed-works.html",
+      "h1_count": 1,
+      "schemas": [
+        "WebPage"
+      ]
+    },
+    "pages/05-project-red-october.html": {
+      "title": "Модернизация травильного отделения Красного Октября — ПДП",
+      "title_len": 57,
+      "desc_len": 102,
+      "canonical": "https://ooopdp.ru/pages/05-project-red-october.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/06-completed-works.html": {
+      "title": "Реализованные строительные проекты и партнёры — ПДП",
+      "title_len": 51,
+      "desc_len": 125,
+      "canonical": "https://ooopdp.ru/pages/06-completed-works.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/07-news-articles.html": {
+      "title": "Статьи о проектировании и строительстве — ПДП",
+      "title_len": 45,
+      "desc_len": 149,
+      "canonical": "https://ooopdp.ru/pages/07-news-articles.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/08-article-detail.html": {
+      "title": "Функции технического заказчика в строительстве — ПДП",
+      "title_len": 52,
+      "desc_len": 151,
+      "canonical": "https://ooopdp.ru/pages/08-article-detail.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList",
+        "Article"
+      ]
+    },
+    "pages/09-documents-materials.html": {
+      "title": "Библиотека документов и материалов ПДП",
+      "title_len": 38,
+      "desc_len": 120,
+      "canonical": "https://ooopdp.ru/pages/09-documents-materials.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/10-contacts.html": {
+      "title": "Контакты ООО «ПДП» в Волгограде - адрес офиса, телефон, почта",
+      "title_len": 61,
+      "desc_len": 163,
+      "canonical": "https://ooopdp.ru/pages/10-contacts.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/11-404.html": {
+      "title": "Ошибка 404: Запрашиваемая страница не найдена - ООО «ПДП»",
+      "title_len": 57,
+      "desc_len": 148,
+      "canonical": "https://ooopdp.ru/pages/11-404.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization"
+      ]
+    },
+    "pages/12-privacy-policy.html": {
+      "title": "Политика конфиденциальности — ПДП",
+      "title_len": 33,
+      "desc_len": 71,
+      "canonical": "https://ooopdp.ru/pages/12-privacy-policy.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/13-article-construction-control.html": {
+      "title": "Строительный контроль на промышленном объекте — ПДП",
+      "title_len": 51,
+      "desc_len": 144,
+      "canonical": "https://ooopdp.ru/pages/13-article-construction-control.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList",
+        "Article"
+      ]
+    },
+    "pages/14-article-executive-documentation.html": {
+      "title": "Исполнительная документация в строительстве — ПДП",
+      "title_len": 49,
+      "desc_len": 148,
+      "canonical": "https://ooopdp.ru/pages/14-article-executive-documentation.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList",
+        "Article"
+      ]
+    },
+    "pages/15-requisites.html": {
+      "title": "Реквизиты ООО «ПДП» в Волгограде - ИНН, ОГРН, расчетный счет",
+      "title_len": 60,
+      "desc_len": 147,
+      "canonical": "https://ooopdp.ru/pages/15-requisites.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/index.html": {
+      "title": "Карта разделов и служебных страниц сайта ООО «ПДП»",
+      "title_len": 50,
+      "desc_len": 134,
+      "canonical": "https://ooopdp.ru/pages/index.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/project-alan-kz.html": {
+      "title": "Футбольные поля ALAN KZ: проектные решения — ПДП",
+      "title_len": 48,
+      "desc_len": 114,
+      "canonical": "https://ooopdp.ru/pages/project-alan-kz.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/project-crmo.html": {
+      "title": "ЦРМО РМО отделение №2: эскизный проект цеха — ПДП",
+      "title_len": 49,
+      "desc_len": 136,
+      "canonical": "https://ooopdp.ru/pages/project-crmo.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/project-eurochem.html": {
+      "title": "Офисные помещения ЕвроХим — ПДП",
+      "title_len": 31,
+      "desc_len": 84,
+      "canonical": "https://ooopdp.ru/pages/project-eurochem.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/project-polyclinic-31.html": {
+      "title": "Городская поликлиника №31: проектная документация — ПДП",
+      "title_len": 55,
+      "desc_len": 134,
+      "canonical": "https://ooopdp.ru/pages/project-polyclinic-31.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/project-severstal.html": {
+      "title": "Инженерные решения для производства — ПДП",
+      "title_len": 41,
+      "desc_len": 95,
+      "canonical": "https://ooopdp.ru/pages/project-severstal.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    "pages/service-building-operations.html": {
+      "title": "Техническая эксплуатация зданий и сооружений — ПДП",
+      "title_len": 50,
+      "desc_len": 141,
+      "canonical": "https://ooopdp.ru/pages/service-building-operations.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList",
+        "Service"
+      ]
+    },
+    "pages/service-construction-installation.html": {
+      "title": "Выполнение строительно-монтажных работ — ПДП",
+      "title_len": 44,
+      "desc_len": 158,
+      "canonical": "https://ooopdp.ru/pages/service-construction-installation.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList",
+        "Service"
+      ]
+    },
+    "pages/service-design.html": {
+      "title": "Проектирование промышленных и общественных объектов — ПДП",
+      "title_len": 57,
+      "desc_len": 108,
+      "canonical": "https://ooopdp.ru/pages/service-design.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList",
+        "Service"
+      ]
+    },
+    "pages/service-engineering-systems.html": {
+      "title": "Проектирование и монтаж инженерных систем — ПДП",
+      "title_len": 47,
+      "desc_len": 121,
+      "canonical": "https://ooopdp.ru/pages/service-engineering-systems.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList",
+        "Service"
+      ]
+    },
+    "pages/service-production-modernization.html": {
+      "title": "Модернизация производства и оборудования — ПДП",
+      "title_len": 46,
+      "desc_len": 102,
+      "canonical": "https://ooopdp.ru/pages/service-production-modernization.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList",
+        "Service"
+      ]
+    },
+    "pages/service-repairs.html": {
+      "title": "Ремонт промышленных и общественных зданий — ПДП",
+      "title_len": 47,
+      "desc_len": 110,
+      "canonical": "https://ooopdp.ru/pages/service-repairs.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList",
+        "Service"
+      ]
+    },
+    "pages/service-technical-customer.html": {
+      "title": "Технический заказчик в строительстве — услуги ПДП",
+      "title_len": 49,
+      "desc_len": 119,
+      "canonical": "https://ooopdp.ru/pages/service-technical-customer.html",
+      "h1_count": 1,
+      "schemas": [
+        "Organization",
+        "BreadcrumbList",
+        "Service"
+      ]
+    }
+  }
+}

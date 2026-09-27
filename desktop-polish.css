@@ -943,8 +943,8 @@
 
   /* Footer */
   .footer {
-    grid-template-columns: 1.05fr .65fr .9fr 1.65fr;
-    gap: 28px;
+    grid-template-columns: minmax(220px, 1.15fr) minmax(80px, .42fr) minmax(130px, .62fr) minmax(125px, .6fr) minmax(500px, 1.65fr);
+    gap: 22px;
     padding: 30px var(--pdp-grid);
     color: var(--pdp-text-on-dark);
     background: var(--pdp-graphite-deep);
@@ -974,8 +974,11 @@
   }
 
   .footer-contacts {
+    display: grid !important;
+    grid-template-columns: minmax(145px, .62fr) minmax(0, 1.38fr) !important;
+    gap: 24px !important;
     border-left: var(--pdp-line) solid var(--pdp-border-dark);
-    padding-left: 28px;
+    padding-left: 26px;
   }
 
   .footer-contact-copy {

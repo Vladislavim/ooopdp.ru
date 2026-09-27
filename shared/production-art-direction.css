@@ -68,7 +68,7 @@ body:has(.hero) .hero {
 body:has(.hero) .hero-img { background: #c9c7c1; }
 body:has(.hero) .hero-video {
   opacity: 1 !important;
-  filter: saturate(1.06) contrast(1.07) brightness(.98) !important;
+  filter: none !important;
   object-position: center 48%;
 }
 
@@ -294,7 +294,7 @@ body:has(.hero) .contact-form textarea:focus { background: #191c19; border-color
 body:has(.hero) .form-submit { background: var(--art-orange); transition: background-color .42s var(--art-ease), transform .42s var(--art-ease); }
 body:has(.hero) .form-submit:hover { background: #dc4310; transform: translateY(-2px); }
 
-body:has(.hero) .footer { min-height: 285px; height: auto; padding: 48px clamp(30px, 4.55vw, 66px); grid-template-columns: minmax(240px, 1.25fr) minmax(130px, .7fr) minmax(210px, 1fr) minmax(360px, 1.4fr); gap: 36px; background: var(--art-dark); border-top-color: #343934; }
+body:has(.hero) .footer { min-height: 285px; height: auto; padding: 48px clamp(30px, 4.55vw, 66px); grid-template-columns: minmax(215px, 1.05fr) minmax(90px, .4fr) minmax(130px, .58fr) minmax(130px, .58fr) minmax(480px, 2.5fr); gap: 32px; background: var(--art-dark); border-top-color: #343934; }
 body:has(.hero) .footer > div { min-width: 0; }
 body:has(.hero) .footer-official-logo { width: 190px; height: auto; }
 body:has(.hero) .footer-slogan { color: var(--art-orange); }
@@ -441,8 +441,8 @@ body:not(:has(.hero)) .privacy-content section { padding-bottom: 28px; margin-bo
     min-height: 285px;
     height: auto;
     padding: 48px clamp(30px, 4.55vw, 66px);
-    grid-template-columns: minmax(215px, 1.25fr) minmax(120px, .7fr) minmax(180px, 1fr) minmax(0, 1.6fr);
-    gap: 36px;
+    grid-template-columns: minmax(215px, 1.05fr) minmax(90px, .4fr) minmax(130px, .58fr) minmax(130px, .58fr) minmax(480px, 2.5fr);
+    gap: 32px;
     overflow: hidden;
     background: var(--art-dark);
     border-top: 1px solid #343934;
@@ -454,7 +454,7 @@ body:not(:has(.hero)) .privacy-content section { padding-bottom: 28px; margin-bo
   body:has(.footer) .footer a { font-size: 11px; line-height: 1.65; }
   body:has(.footer) .footer a::after { display: none; }
   body:has(.footer) .footer-contacts {
-    grid-template-columns: minmax(145px, .62fr) minmax(0, 1.38fr);
+    grid-template-columns: minmax(170px, auto) minmax(260px, 1fr);
     gap: 24px;
     min-width: 0;
   }

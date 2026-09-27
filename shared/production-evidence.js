@@ -20,8 +20,33 @@
       dialog.querySelector('figcaption').textContent = panels[current].querySelector('figcaption').textContent;
       dialog.querySelector('.pdp-gallery-dialog__nav span').textContent = (current+1)+' / '+panels.length;
     };
-    const select = (index, focus = false, animate = true) => {
-      current = (index + panels.length) % panels.length;
+    let selectionToken = 0;
+    let ghost = null;
+    const readyImage = (img) => {
+      if (!img || img.complete) return Promise.resolve();
+      return img.decode().catch(() => {});
+    };
+
+    const select = async (index, focus = false, animate = true) => {
+      const token = ++selectionToken;
+      const target = (index + panels.length) % panels.length;
+      if (target === current && panels[current] && !panels[current].hidden) return;
+
+      const nextPanel = panels[target];
+      const nextImg = nextPanel?.querySelector('img');
+      if (nextImg) await readyImage(nextImg);
+      if (token !== selectionToken) return;
+
+      ghost?.remove();
+      ghost = null;
+      const currentPanel = panels[current];
+      if (animate && !reduced.matches && currentPanel && stage) {
+        ghost = currentPanel.cloneNode(true);
+        ghost.className = 'pdp-evidence-ghost';
+        ghost.setAttribute('aria-hidden', 'true');
+      }
+
+      current = target;
       animation?.cancel();
       panels.forEach((panel, i) => { panel.hidden = i !== current; });
       buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === current)));
@@ -32,7 +57,17 @@
         controls.scrollTo({left:Math.max(0,active.offsetLeft-controls.offsetLeft-controls.clientWidth/2+active.clientWidth/2),behavior:reduced.matches?'instant':'smooth'});
         if (focus) active.focus({preventScroll:true});
       }
-      if (animate && !reduced.matches) animation = panels[current].animate([{opacity:.3,transform:'translateX(10px)'},{opacity:1,transform:'translateX(0)'}],{duration:260,easing:'ease-out'});
+      if (ghost && stage) {
+        const layer = ghost;
+        stage.append(layer);
+        layer.animate(
+          [{ opacity: 1 }, { opacity: 0 }],
+          { duration: 800, easing: 'ease-in-out' }
+        ).finished.then(() => {
+          layer.remove();
+          if (ghost === layer) ghost = null;
+        }).catch(() => {});
+      }
       if (dialog.open) syncDialog();
     };
     controls.hidden = buttons.length < 2;

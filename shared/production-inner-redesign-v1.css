@@ -352,6 +352,7 @@ body.production-about .prod-proof__points { grid-template-columns: 1fr 1fr !impo
 body.production-about .prod-proof__point { display: grid; grid-template-columns: 34px 1fr; gap: 12px; min-height: 110px; padding: 18px 16px 18px 0 !important; border-right: 1px solid var(--pdp-inner-line) !important; }
 body.production-about .prod-proof__point:nth-child(even) { padding-left: 16px !important; border-right: 0 !important; }
 body.production-about .prod-proof__point img { width: 24px; height: 24px; object-fit: contain; filter: grayscale(1); opacity: .72; }
+body.production-about .prod-proof__badge { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: 1px solid var(--pdp-inner-line); color: var(--pdp-inner-orange); font: 700 12px/1 var(--font-display, "Martian Grotesk PDP", sans-serif); }
 body.production-about .prod-proof__point b { display: block; margin-bottom: 7px; color: var(--pdp-inner-ink); font-size: 15px; }
 body.production-about .prod-proof__point span { color: var(--pdp-inner-muted); font-size: 12px; line-height: 1.4; }
 
@@ -1267,9 +1268,10 @@ body.production-page.production-about .prod-card-grid--five>.prod-card { grid-co
 }
 /* Project media viewer. One renderer supplies each project's actual media. */
 body.production-case .pdp-case-gallery-heading { display:flex; align-items:baseline; justify-content:space-between; gap:24px; }
-body.production-case .pdp-case-gallery-heading>span { white-space:nowrap; color:#62635f; font-size:12px; }
 body.production-case .pdp-gallery { background:#eae9e3; }
-body.production-case .pdp-gallery__stage { touch-action:pan-y; min-width:0; }
+body.production-case .pdp-gallery__stage { touch-action:pan-y; min-width:0; position:relative; isolation:isolate; overflow:hidden; }
+body.production-case .pdp-evidence-ghost { position:absolute; inset:0; z-index:4; pointer-events:none; background:#eae9e3; display:flex; justify-content:center; align-items:center; }
+body.production-case .pdp-evidence-ghost img { height:clamp(300px,46vw,650px); width:100%; object-fit:contain; }
 body.production-case .pdp-gallery .pdp-evidence__panel img { height:clamp(300px,46vw,650px); width:100%; object-fit:contain; }
 body.production-case .pdp-gallery.is-enhanced .pdp-evidence__panel figcaption { display:none; }
 body.production-case .pdp-gallery__toolbar { display:flex; align-items:center; justify-content:space-between; gap:24px; padding:18px 24px; background:#171817; color:#f7f6f2; }
@@ -1326,3 +1328,4 @@ body.production-case .pdp-case-intro--document .pdp-case-intro__image img { obje
  body.production-case .pdp-case-related h2 { grid-row:auto; margin-bottom:24px; }
  .pdp-gallery-dialog { padding:16px; width:96vw; }
 }
+

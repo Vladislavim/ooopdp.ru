@@ -1,8 +1,8 @@
 /* One canonical footer copied from the approved main page. */
 .footer{
   display:grid;
-  grid-template-columns:1.05fr .65fr .9fr 1.65fr;
-  gap:28px;
+  grid-template-columns:minmax(220px, 1.15fr) minmax(80px, .42fr) minmax(130px, .62fr) minmax(125px, .6fr) minmax(500px, 1.65fr);
+  gap:22px;
   min-height:268px;
   height:auto;
   padding:30px 64px;
@@ -23,7 +23,7 @@
 .footer a:hover,.footer a:focus-visible{color:#fff}
 .footer-contact-copy b{margin-bottom:22px}
 .footer-contact-copy > a:not(.phone2){font:400 10px/1.45 "Golos Text",Golos,Arial,sans-serif}
-.footer-contacts{display:grid;grid-template-columns:minmax(145px,.62fr) minmax(0,1.38fr);gap:24px;align-items:stretch;border-left:1px solid #454743;padding-left:28px}
+.footer-contacts{display:grid;grid-template-columns:minmax(145px,.62fr) minmax(0,1.38fr);gap:24px;align-items:stretch;border-left:1px solid #454743;padding-left:26px}
 .footer-contact-copy{min-width:0;padding-top:2px}
 .footer-contact-copy .phone2{display:inline-flex;align-items:center;gap:9px;color:#fff;font:800 16.56px/1.15 "Golos Text",Golos,Arial,sans-serif;white-space:nowrap}
 .footer-contact-copy .phone2 .phone-icon{width:19px;height:19px;flex:0 0 19px}
@@ -49,7 +49,8 @@
   .footer-map-link{display:block!important;left:auto;right:0;bottom:0;width:max-content;padding:18px 14px;background:#f45116;font-size:8px!important;opacity:1;transform:none}
 }
 @media (min-width:1200px){
-  .footer-contacts{grid-template-columns:170px 320px;gap:24px}
+  .footer{grid-template-columns:minmax(220px, 1.15fr) minmax(80px, .42fr) minmax(130px, .62fr) minmax(125px, .6fr) minmax(500px, 1.65fr);gap:22px}
+  .footer-contacts{grid-template-columns:165px 335px;gap:24px}
   .footer-map-embed,.footer-map-embed iframe{width:100%!important;height:100%!important}
   .footer-map-link{display:none!important}
 }

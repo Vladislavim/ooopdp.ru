@@ -2,11 +2,11 @@
 
 @media (min-width: 1200px) {
   :root {
-    --pdp-motion-ease: cubic-bezier(.22, 1, .36, 1);
+    --pdp-motion-ease: cubic-bezier(.25, .1, .25, 1);
     --pdp-motion-ease-in: cubic-bezier(.7, 0, .84, 0);
-    --pdp-motion-fast: 180ms;
-    --pdp-motion-base: 520ms;
-    --pdp-motion-slow: 760ms;
+    --pdp-motion-fast: 240ms;
+    --pdp-motion-base: 700ms;
+    --pdp-motion-slow: 900ms;
   }
 
   /* First screen: staged like a drawing being registered, not a stack of cards. */
@@ -283,29 +283,29 @@
   }
 
   .service-wire.changing {
-    opacity: .42 !important;
+    opacity: 1 !important;
     filter: none !important;
-    transform: scale(1.018) !important;
+    transform: none !important;
   }
 
   .project-showcase-copy,
   .project-slide-gallery,
   .trust-panel-copy,
   .trust-panel-visual img {
-    transition: opacity 360ms var(--pdp-motion-ease), transform 480ms var(--pdp-motion-ease), clip-path 480ms var(--pdp-motion-ease) !important;
+    transition: opacity 450ms var(--pdp-motion-ease), transform 450ms var(--pdp-motion-ease) !important;
   }
 
   .project-showcase.is-changing .project-showcase-copy,
   .trust-panel.is-changing .trust-panel-copy {
-    opacity: 0 !important;
-    transform: translate3d(16px, 0, 0) !important;
+    opacity: .4 !important;
+    transform: translateY(3px) !important;
   }
 
   .project-showcase.is-changing .project-slide-gallery,
   .trust-panel.is-changing .trust-panel-visual img {
-    opacity: 0 !important;
-    clip-path: inset(0 0 0 8%) !important;
-    transform: translate3d(-12px, 0, 0) scale(1.01) !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+    transform: none !important;
   }
 
   .project-showcase-tab::after,

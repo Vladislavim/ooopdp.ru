@@ -383,8 +383,9 @@ body.production-page .contact-form-section { display: grid; grid-template-column
 body.production-page .contact-form-section::before { left: var(--prod-pad); width: 76px; height: 3px; }
 body.production-page .contact-form-intro h2 { max-width: 620px; font-size: clamp(40px, 3.8vw, 70px); }
 body.production-page .contact-form { border-top-width: 2px; padding: clamp(22px, 2vw, 34px); }
-body.production-page .footer { grid-template-columns: 1.05fr .65fr .9fr 1.65fr; min-height: 268px; padding: 32px var(--prod-pad); }
-body.production-page .footer-map { height: 190px; }
+body.production-page .footer { grid-template-columns: minmax(220px, 1.15fr) minmax(80px, .42fr) minmax(130px, .62fr) minmax(125px, .6fr) minmax(500px, 1.65fr); min-height: 268px; padding: 32px var(--prod-pad); gap: 22px; }
+body.production-page .footer-contacts { display: grid !important; grid-template-columns: minmax(145px, .62fr) minmax(0, 1.38fr) !important; gap: 24px !important; border-left: 1px solid #454743; padding-left: 26px; }
+body.production-page .footer-map { position: relative; height: 190px; min-width: 0; overflow: hidden; border: 1px solid #5b6058; background: #e8e7e2; }
 body.production-page .footer-map-embed iframe { display: block; width: 100%; height: 100%; min-height: 190px; border: 0; }
 body.production-page .footer-map-embed .footer-map-image { display: none; }
 body.production-page .contact-layout .contacts-map { background: #0d0f0e; }

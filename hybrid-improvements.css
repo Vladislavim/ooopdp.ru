@@ -1,4 +1,4 @@
-﻿/* Hybrid conversion improvements for /orig/. Isolated from /conversion/. */
+/* Hybrid conversion improvements for /orig/. Isolated from /conversion/. */
 
 /* Hero: compact proof in the first viewport. */
 .hero .metrics {
@@ -437,11 +437,11 @@
 
 /* Architectural contact composition with an integrated Yandex map. */
 .footer {
-  grid-template-columns: minmax(270px,1.08fr) minmax(95px,.42fr) minmax(180px,.72fr) minmax(520px,1.78fr);
+  grid-template-columns: minmax(200px, 1.1fr) minmax(85px, .45fr) minmax(130px, .65fr) minmax(130px, .65fr) minmax(390px, 1.85fr);
   min-height: 268px;
   height: auto;
   padding: 30px 48px;
-  gap: 28px;
+  gap: 24px;
   align-items: stretch;
   overflow: hidden;
 }
@@ -459,8 +459,8 @@
 .footer-contacts {
   min-width: 0;
   display: grid;
-  grid-template-columns: minmax(170px,.62fr) minmax(320px,1.38fr);
-  gap: 24px;
+  grid-template-columns: minmax(140px, .65fr) minmax(180px, 1.35fr);
+  gap: 20px;
   align-items: stretch;
 }
 

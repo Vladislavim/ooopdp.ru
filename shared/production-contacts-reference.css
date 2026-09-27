@@ -532,3 +532,31 @@ body.production-contacts .shared-contact-form-section > .contact-form {
     transition-duration: .01ms !important;
   }
 }
+/* Requisites Section: strictly follows the unified Contacts family geometry */
+body.production-requisites .prod-requisites-section {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px 10vw 72px !important;
+  background: var(--contacts-paper, #f7f6f2);
+  border-bottom: 1px solid var(--contacts-line, #d8d6cf);
+}
+
+body.production-requisites .prod-requisites-section > .prod-container {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 1199px) {
+  body.production-requisites .prod-requisites-section {
+    padding: 32px 25px 56px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body.production-requisites .prod-requisites-section {
+    padding: 28px 20px 48px !important;
+  }
+}
+

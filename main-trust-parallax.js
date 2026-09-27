@@ -27,30 +27,46 @@
       return;
     }
 
-    const bounds = section?.getBoundingClientRect();
-    const offset = bounds ? Math.max(-140, Math.min(80, (bounds.top - window.innerHeight * .48) * .22)) : 0;
+    // Phase 1: Batch all DOM Reads
+    const innerH = window.innerHeight;
+    const bounds = section ? section.getBoundingClientRect() : null;
+    const trustBounds = (trustSection && trustPattern) ? trustSection.getBoundingClientRect() : null;
+    const materialsBounds = (materialsSection && materialsPattern) ? materialsSection.getBoundingClientRect() : null;
+
+    // Phase 2: Compute Offsets & Positions
     const elapsed = lastTime ? Math.min(time - lastTime, 64) : 16;
     lastTime = time;
+
+    const offset = bounds ? Math.max(-140, Math.min(80, (bounds.top - innerH * .48) * .22)) : 0;
     position = position === null ? offset : position + (offset - position) * (1 - Math.exp(-elapsed / 160));
     if (Math.abs(offset - position) < .1) position = offset;
-    pattern?.style.setProperty('--projects-pattern-y', `${position.toFixed(2)}px`);
-    if (trustSection && trustPattern) {
-      const trustBounds = trustSection.getBoundingClientRect();
-      const trustOffset = Math.max(-105, Math.min(105, (trustBounds.top - window.innerHeight * .52) * .18));
+
+    let trustOffset = 0;
+    if (trustBounds) {
+      trustOffset = Math.max(-105, Math.min(105, (trustBounds.top - innerH * .52) * .18));
       trustPosition = trustPosition === null ? trustOffset : trustPosition + (trustOffset - trustPosition) * (1 - Math.exp(-elapsed / 180));
       if (Math.abs(trustOffset - trustPosition) < .1) trustPosition = trustOffset;
-      trustPattern.style.setProperty('--trust-pattern-y', `${trustPosition.toFixed(2)}px`);
       if (trustPosition !== trustOffset) needsNextFrame = true;
     }
-    if (materialsSection && materialsPattern) {
-      const materialsBounds = materialsSection.getBoundingClientRect();
-      const materialsOffset = Math.max(-105, Math.min(105, (materialsBounds.top - window.innerHeight * .52) * .18));
+
+    let materialsOffset = 0;
+    if (materialsBounds) {
+      materialsOffset = Math.max(-105, Math.min(105, (materialsBounds.top - innerH * .52) * .18));
       materialsPosition = materialsPosition === null ? materialsOffset : materialsPosition + (materialsOffset - materialsPosition) * (1 - Math.exp(-elapsed / 180));
       if (Math.abs(materialsOffset - materialsPosition) < .1) materialsPosition = materialsOffset;
-      materialsPattern.style.setProperty('--materials-pattern-y', `${materialsPosition.toFixed(2)}px`);
       if (materialsPosition !== materialsOffset) needsNextFrame = true;
     }
+
     if (position !== offset) needsNextFrame = true;
+
+    // Phase 3: Batch all DOM Writes
+    pattern?.style.setProperty('--projects-pattern-y', `${position.toFixed(2)}px`);
+    if (trustPattern && trustBounds) {
+      trustPattern.style.setProperty('--trust-pattern-y', `${trustPosition.toFixed(2)}px`);
+    }
+    if (materialsPattern && materialsBounds) {
+      materialsPattern.style.setProperty('--materials-pattern-y', `${materialsPosition.toFixed(2)}px`);
+    }
     if (needsNextFrame) frame = window.requestAnimationFrame(render);
   };
 

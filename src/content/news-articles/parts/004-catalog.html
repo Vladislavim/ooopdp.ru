@@ -1,32 +1,119 @@
 
 
-    <section class="prod-container articles-index-catalog" id="catalog" aria-label="Избранные материалы">
-      <a class="articles-index-case prod-catalog-card" data-category="cases" href="05-project-red-october.html">
-        <div class="articles-index-case__media">
-          <img src="../assets/cases/red-october-render-user.jpg" data-keep-local alt="Проектное решение травильного отделения Красного Октября">
-          <div class="articles-index-case__overlay">
-            <div class="prod-eyebrow">Кейс</div>
-            <h2>Красный Октябрь:<br>проект модернизации</h2>
-            <p>Разработка проекта модернизации травильного отделения листопрокатного цеха.</p>
-          </div>
-        </div>
-        <div class="articles-index-case__content">
-          <div class="articles-index-case__metrics"><div><small>Объект</small><strong>Травильное отделение</strong></div><div><small>Работа ПДП</small><strong>Проектирование</strong></div><div><small>Материалы</small><strong>Рабочая документация</strong></div></div>
-          <span class="articles-index-link">Смотреть кейс <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-6-6 6 6-6 6"/></svg></span>
-        </div>
-      </a>
-      <div class="articles-index-side">
-        <a class="articles-index-side-card prod-catalog-card" data-category="articles" href="13-article-construction-control.html">
-          <div><div class="prod-eyebrow">Статья</div><h3>Строительный контроль на промышленном объекте</h3><p>Контрольные точки, документы и связь проекта с фактическими работами.</p><span class="articles-index-link">Читать статью <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-6-6 6 6-6 6"/></svg></span></div>
-          <div class="articles-index-side-card__media"><img src="../assets/web-optimized/pexels-factory-15866139.jpg" data-keep-local alt="Инженерные системы на объекте"></div>
-        </a>
-        <a class="articles-index-side-card prod-catalog-card" data-category="articles" href="14-article-executive-documentation.html">
-          <div><div class="prod-eyebrow">Статья</div><h3>Исполнительная документация</h3><p>Документы, которые фиксируют выполненные работы на объекте.</p><span class="articles-index-link">Читать статью <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-6-6 6 6-6 6"/></svg></span></div>
-          <div class="articles-index-side-card__media"><img src="../assets/about-pdp-workers.jpg" data-keep-local alt="Промышленная реконструкция"></div>
-        </a>
-        <a class="articles-index-side-card prod-catalog-card" data-category="cases" href="project-crmo.html">
-          <div><div class="prod-eyebrow">Кейс</div><h3>ЦРМО РМО: проект ремонта помещений</h3><p>Проектные решения по ремонту бытовых помещений и инженерным системам.</p><span class="articles-index-link">Смотреть кейс <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-6-6 6 6-6 6"/></svg></span></div>
-          <div class="articles-index-side-card__media"><img src="../assets/cases/crmo-overview.webp" data-keep-local alt="Проектное решение бытовых помещений ЦРМО РМО"></div>
-        </a>
+    <section class="prod-container articles-index-catalog" id="catalog" aria-label="Материалы и кейсы">
+      <div class="articles-index-grid">
+        <!-- Card 1: Article - Construction Control -->
+        <article class="articles-index-card prod-catalog-card" data-category="articles">
+          <a class="articles-index-card__link" href="13-article-construction-control.html">
+            <div class="articles-index-card__media">
+              <img src="../assets/inner-optimized/article-stroykontrol-surveyor.webp" data-keep-local alt="Инженер строительного контроля на строительной площадке">
+              <span class="articles-index-card__badge">Статья</span>
+            </div>
+            <div class="articles-index-card__body">
+              <div class="articles-index-card__meta">
+                <span class="articles-index-card__category">Стройконтроль</span>
+                <span class="articles-index-card__time">6 мин</span>
+              </div>
+              <h3 class="articles-index-card__title">Строительный контроль: кто за что отвечает на площадке</h3>
+              <p class="articles-index-card__text">Входной контроль материалов, акты освидетельствования скрытых работ (АОСР), лабораторные испытания и устранение предписаний.</p>
+              <span class="articles-index-card__cta">Читать статью <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-6-6 6 6-6 6"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 2: Article - Executive Documentation -->
+        <article class="articles-index-card prod-catalog-card" data-category="articles">
+          <a class="articles-index-card__link" href="14-article-executive-documentation.html">
+            <div class="articles-index-card__media">
+              <img src="../assets/inner-optimized/article-docs-blueprints-desk.webp" data-keep-local alt="Комплект исполнительной документации и чертежей">
+              <span class="articles-index-card__badge">Статья</span>
+            </div>
+            <div class="articles-index-card__body">
+              <div class="articles-index-card__meta">
+                <span class="articles-index-card__category">Документооборот</span>
+                <span class="articles-index-card__time">8 мин</span>
+              </div>
+              <h3 class="articles-index-card__title">Исполнительная документация: состав, порядок и частые ошибки</h3>
+              <p class="articles-index-card__text">Реестры, исполнительные геодезические схемы, паспорта оборудования и порядок передачи комплекта заказчику.</p>
+              <span class="articles-index-card__cta">Читать статью <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-6-6 6 6-6 6"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 3: Case - Red October -->
+        <article class="articles-index-card prod-catalog-card" data-category="cases">
+          <a class="articles-index-card__link" href="05-project-red-october.html">
+            <div class="articles-index-card__media">
+              <img src="../assets/inner-optimized/cases-red-october-render-user.webp" data-keep-local alt="Модернизация травильного отделения Красный Октябрь">
+              <span class="articles-index-card__badge articles-index-card__badge--case">Кейс</span>
+            </div>
+            <div class="articles-index-card__body">
+              <div class="articles-index-card__meta">
+                <span class="articles-index-card__category">Металлургия</span>
+                <span class="articles-index-card__time">Кейс</span>
+              </div>
+              <h3 class="articles-index-card__title">Красный Октябрь: модернизация травильного отделения</h3>
+              <p class="articles-index-card__text">Разработка рабочей документации разделов АС, КМ и технологических систем в действующем листопрокатном цехе.</p>
+              <span class="articles-index-card__cta">Смотреть кейс <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-6-6 6 6-6 6"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 4: Case - CRMO -->
+        <article class="articles-index-card prod-catalog-card" data-category="cases">
+          <a class="articles-index-card__link" href="project-crmo.html">
+            <div class="articles-index-card__media">
+              <img src="../assets/cases/crmo-overview.webp" data-keep-local alt="ЦРМО РМО: ремонт помещений">
+              <span class="articles-index-card__badge articles-index-card__badge--case">Кейс</span>
+            </div>
+            <div class="articles-index-card__body">
+              <div class="articles-index-card__meta">
+                <span class="articles-index-card__category">Инженерия</span>
+                <span class="articles-index-card__time">Кейс</span>
+              </div>
+              <h3 class="articles-index-card__title">ЦРМО РМО: проект капитального ремонта помещений</h3>
+              <p class="articles-index-card__text">Инженерные коммуникации, системы вентиляции и перепланировка производственно-бытового корпуса завода.</p>
+              <span class="articles-index-card__cta">Смотреть кейс <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-6-6 6 6-6 6"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 5: Case - Polyclinic 31 -->
+        <article class="articles-index-card prod-catalog-card" data-category="cases">
+          <a class="articles-index-card__link" href="project-polyclinic-31.html">
+            <div class="articles-index-card__media">
+              <img src="../assets/inner-optimized/cases-polyclinic-render-front.webp" data-keep-local alt="Поликлиника №31 проект">
+              <span class="articles-index-card__badge articles-index-card__badge--case">Кейс</span>
+            </div>
+            <div class="articles-index-card__body">
+              <div class="articles-index-card__meta">
+                <span class="articles-index-card__category">Обследование</span>
+                <span class="articles-index-card__time">Кейс</span>
+              </div>
+              <h3 class="articles-index-card__title">Поликлиника №31: проектирование и реконструкция</h3>
+              <p class="articles-index-card__text">Комплексное обследование несущих конструкций и выпуск полного комплекта проектно-сметной документации.</p>
+              <span class="articles-index-card__cta">Смотреть кейс <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-6-6 6 6-6 6"/></svg></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 6: Service / Technical customer overview -->
+        <article class="articles-index-card prod-catalog-card" data-category="articles">
+          <a class="articles-index-card__link" href="service-technical-customer.html">
+            <div class="articles-index-card__media">
+              <img src="../assets/inner-optimized/article-tech-customer-inspection.webp" data-keep-local alt="Инженер технадзора проводит контроль на объекте">
+              <span class="articles-index-card__badge">Практика</span>
+            </div>
+            <div class="articles-index-card__body">
+              <div class="articles-index-card__meta">
+                <span class="articles-index-card__category">Технадзор</span>
+                <span class="articles-index-card__time">5 мин</span>
+              </div>
+              <h3 class="articles-index-card__title">Управление строительством и технический надзор</h3>
+              <p class="articles-index-card__text">Оптимизация сметных расчетов, входной контроль и регулярные выезды инженеров технадзора на объект.</p>
+              <span class="articles-index-card__cta">Подробнее об услуге <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-6-6 6 6-6 6"/></svg></span>
+            </div>
+          </a>
+        </article>
       </div>
     </section>

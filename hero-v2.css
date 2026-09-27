@@ -116,18 +116,18 @@ h2 *,
 
   .hero-video {
     opacity: 1;
-    filter: saturate(.96) contrast(1.025) brightness(1.01);
+    filter: none;
     mix-blend-mode: normal;
   }
 
   .hero-fallback {
-    filter: saturate(.96) contrast(1.025) brightness(1.01);
+    filter: none;
   }
 
   .hero-still {
     z-index: 1;
     opacity: 1 !important;
-    filter: saturate(1.12) contrast(1.08) brightness(1.01);
+    filter: none;
   }
 
   .hero-img::after {

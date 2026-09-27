@@ -24,6 +24,163 @@ function injectPageSeo(head, seo) {
   return /<link\b/i.test(result) ? result.replace(/<link\b/i, (match) => `${tags}\n${match}`) : `${result}\n${tags}\n`;
 }
 
+function generatePageSchemaOrg(manifest, headInnerSource) {
+  const isHome = manifest.kind === 'home' || manifest.id === 'home';
+  const canonicalMatch = headInnerSource.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']*)["']/i);
+  const canonical = manifest.seo?.canonical || canonicalMatch?.[1] || (isHome ? 'https://ooopdp.ru/' : `https://ooopdp.ru/${manifest.output}`);
+  const titleMatch = headInnerSource.match(/<title[^>]*>(.*?)<\/title>/i);
+  const rawTitle = manifest.seo?.title || titleMatch?.[1] || 'ПДП - управление строительными проектами';
+  const cleanTitle = rawTitle.replace(/\s*[—–-]\s*ООО\s*[«"]ПДП[»"].*$/i, '').replace(/\s*[—–-]\s*ПДП.*$/i, '').trim() || rawTitle;
+  const descMatch = headInnerSource.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["']/i) || headInnerSource.match(/<meta[^>]+content=["']([^"']*)["'][^>]+name=["']description["']/i);
+  const description = manifest.seo?.description || descMatch?.[1] || 'Управление строительными проектами, проектирование и генподряд.';
+
+  const schemas = [];
+
+  // 1. Organization Schema
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://ooopdp.ru/#organization',
+    'name': 'ООО «Поволжское деловое партнерство»',
+    'alternateName': 'ООО «ПДП»',
+    'legalName': 'Общество с ограниченной ответственностью «Поволжское Деловое Партнерство»',
+    'url': 'https://ooopdp.ru/',
+    'logo': 'https://ooopdp.ru/assets/pdp-official-logo.svg',
+    'image': 'https://ooopdp.ru/assets/pdp-official-logo.svg',
+    'description': 'Профессиональное управление строительными проектами, функции технического заказчика, комплексное проектирование и генеральный подряд в Волгограде и РФ.',
+    'telephone': '+7-8442-56-45-54',
+    'email': 'mail@ooopdp.ru',
+    'taxID': '3444183577',
+    'vatID': '346001001',
+    'address': {
+      '@type': 'PostalAddress',
+      'streetAddress': 'ул. Баррикадная, д. 1К, оф. 5',
+      'addressLocality': 'Волгоград',
+      'postalCode': '400074',
+      'addressCountry': 'RU'
+    },
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': 48.689697,
+      'longitude': 44.495523
+    }
+  });
+
+  // 2. Breadcrumbs for inner pages
+  if (!isHome && manifest.id !== 'not-found') {
+    const items = [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Главная',
+        'item': 'https://ooopdp.ru/'
+      }
+    ];
+
+    if (manifest.id.startsWith('service-') && manifest.id !== 'services') {
+      items.push({
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Услуги',
+        'item': 'https://ooopdp.ru/pages/02-services.html'
+      });
+      items.push({
+        '@type': 'ListItem',
+        'position': 3,
+        'name': cleanTitle,
+        'item': canonical
+      });
+    } else if (manifest.caseId || (manifest.id.startsWith('project-') && manifest.id !== 'projects-clients')) {
+      items.push({
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Проекты',
+        'item': 'https://ooopdp.ru/pages/06-completed-works.html'
+      });
+      items.push({
+        '@type': 'ListItem',
+        'position': 3,
+        'name': cleanTitle,
+        'item': canonical
+      });
+    } else if (manifest.id.startsWith('article-') && manifest.id !== 'news-articles') {
+      items.push({
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Статьи',
+        'item': 'https://ooopdp.ru/pages/07-news-articles.html'
+      });
+      items.push({
+        '@type': 'ListItem',
+        'position': 3,
+        'name': cleanTitle,
+        'item': canonical
+      });
+    } else {
+      items.push({
+        '@type': 'ListItem',
+        'position': 2,
+        'name': cleanTitle,
+        'item': canonical
+      });
+    }
+
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      'itemListElement': items
+    });
+  }
+
+  // 3. Service Schema
+  if (manifest.id.startsWith('service-') || manifest.id === 'services') {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'name': cleanTitle,
+      'description': description,
+      'provider': {
+        '@type': 'Organization',
+        'name': 'ООО «Поволжское деловое партнерство»',
+        'url': 'https://ooopdp.ru/'
+      },
+      'areaServed': {
+        '@type': 'Country',
+        'name': 'Россия'
+      }
+    });
+  }
+
+  // 4. Article Schema
+  if (manifest.id.startsWith('article-')) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      'headline': cleanTitle,
+      'description': description,
+      'author': {
+        '@type': 'Organization',
+        'name': 'ООО «Поволжское деловое партнерство»',
+        'url': 'https://ooopdp.ru/'
+      },
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'ООО «Поволжское деловое партнерство»',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://ooopdp.ru/assets/pdp-official-logo.svg'
+        }
+      },
+      'mainEntityOfPage': {
+        '@type': 'WebPage',
+        '@id': canonical
+      }
+    });
+  }
+
+  return schemas.map((s) => `<script type="application/ld+json">\n${JSON.stringify(s, null, 2)}\n</script>`).join('\n') + '\n';
+}
+
 function optimizeMarkup(markup, optimizedAssets) {
   if (!markup || !optimizedAssets || !Object.keys(optimizedAssets).length) return markup;
   return Object.entries(optimizedAssets).reduce((result, [source, target]) => (
@@ -66,16 +223,18 @@ export async function renderDocument({
   let bodyBeforeMain = optimize(compile(document.bodyBeforeMain));
   let mainInner = fragments.join('');
   const restoredInnerPages = new Set(['services', 'projects-clients', 'completed-works', 'contacts']);
+  const skipLeadMagnetPages = new Set(['contacts', 'not-found', 'privacy-policy']);
   if (manifest.kind !== 'home') {
     bodyBeforeMain = bodyBeforeMain.replace(/<div\s+data-site-header\s*><\/div>/, optimize(shell.header || ''));
     const contactSlot = /<div\s+data-cta(?:\s+data-title="[^"]*")?\s*><\/div>/g;
     const footerSlot = /<div\s+data-site-footer\s*><\/div>/g;
+    const shouldSkipCta = skipLeadMagnetPages.has(manifest.id);
     const hasContactSlot = contactSlot.test(mainInner);
     contactSlot.lastIndex = 0;
-    mainInner = mainInner.replace(contactSlot, optimize(shell.contact || ''));
+    mainInner = mainInner.replace(contactSlot, shouldSkipCta ? '' : optimize(shell.contact || ''));
     if (!hasContactSlot && footerSlot.test(mainInner)) {
       footerSlot.lastIndex = 0;
-      mainInner = mainInner.replace(footerSlot, `${optimize(shell.contact || '')}${optimize(shell.footer || '')}`);
+      mainInner = mainInner.replace(footerSlot, shouldSkipCta ? optimize(shell.footer || '') : `${optimize(shell.contact || '')}${optimize(shell.footer || '')}`);
     } else {
       footerSlot.lastIndex = 0;
       mainInner = mainInner.replace(footerSlot, optimize(shell.footer || ''));
@@ -121,14 +280,16 @@ export async function renderDocument({
   const homeServicesLayoutGuard = manifest.kind === 'home'
     ? '<style id="homepage-services-07-layout">@media (min-width:1200px){main.site > .services{min-height:435px;height:auto;}}</style>'
     : '';
-  const contactsGutterGuard = manifest.id === 'contacts'
-    ? '<style id="contacts-desktop-gutters">@media (min-width:1200px){html body.production-contacts main .prod-contact-reference__hero-inner.prod-container{width:100%!important;max-width:none!important;margin-inline:0!important;padding-inline:10vw!important;box-sizing:border-box!important;}body.production-contacts .prod-contact-reference__request>.prod-container{width:80vw!important;max-width:80vw!important;margin-inline:auto!important;}}</style>'
+  const contactsGutterGuard = (manifest.id === 'contacts' || manifest.id === 'requisites')
+    ? '<style id="contacts-desktop-gutters">@media (min-width:1200px){html body.production-contacts main .prod-contact-reference__hero-inner.prod-container{width:100%!important;max-width:none!important;margin-inline:0!important;padding-inline:10vw!important;box-sizing:border-box!important;}body.production-contacts .prod-contact-reference__request>.prod-container{width:80vw!important;max-width:80vw!important;margin-inline:auto!important;}body.production-requisites .prod-requisites-section{width:100%!important;max-width:none!important;margin-inline:0!important;padding-inline:10vw!important;box-sizing:border-box!important;}body.production-requisites .prod-requisites-section>.prod-container{width:100%!important;max-width:none!important;margin-inline:0!important;padding-inline:0!important;}}</style>'
     : '';
   // Keep render-blocking styles in <head>. Some legacy manifests still store
   // these links beside the closing scripts, which otherwise causes a visible
   // first-paint layout shift before the final inner-page geometry arrives.
   let headInnerSource = optimize(compile(document.headInner))
-    .replaceAll('https://ooopdp.ru/orig_test_v2/', 'https://ooopdp.ru/');
+    .replaceAll('https://ooopdp.ru/orig_test_v2/', 'https://ooopdp.ru/')
+    .replace(/<link\b(?=[^>]*\brel\s*=\s*(["'])icon\1)[^>]*>\s*/gi, '')
+    .replace(/<script\b[^>]*\btype=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>\s*/gi, '');
   headInnerSource = injectPageSeo(headInnerSource, manifest.seo);
   if (manifest.id === 'news-articles') {
     headInnerSource = headInnerSource.replace(
@@ -148,7 +309,14 @@ export async function renderDocument({
   const standardStyles = manifest.kind !== 'home' && manifest.id !== 'contacts'
     ? '<link rel="stylesheet" href="../shared/production-inner-shell-parity.css?v=20260923-site-frame-v2">\n'
     : '';
-  const head = [headInnerSource, deferredStyles.length ? deferredStyles.join('\n') + '\n' : '', innerRedesignStyles, pageStyles ? `${pageStyles}\n` : '', standardStyles, homeServicesLayoutGuard, contactsGutterGuard, GENERATED_MARKER].join('');
+  const prefix = manifest.kind === 'home' ? '' : '../';
+  const faviconLinks = [
+    `<link rel="icon" href="${prefix}favicon.ico" sizes="any">`,
+    `<link rel="icon" href="${prefix}favicon.svg" type="image/svg+xml">`,
+    `<link rel="apple-touch-icon" href="${prefix}apple-touch-icon.png">`
+  ].join('\n') + '\n';
+  const schemaMarkup = generatePageSchemaOrg(manifest, headInnerSource);
+  const head = [headInnerSource, faviconLinks, deferredStyles.length ? deferredStyles.join('\n') + '\n' : '', innerRedesignStyles, pageStyles ? `${pageStyles}\n` : '', standardStyles, homeServicesLayoutGuard, contactsGutterGuard, schemaMarkup, GENERATED_MARKER].join('');
 
   return [
     document.doctype,

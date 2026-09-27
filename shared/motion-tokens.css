@@ -1,12 +1,14 @@
 :root {
   --motion-duration-fast: 240ms;
-  --motion-duration-ui: 280ms;
-  --motion-duration-base: 600ms;
-  --motion-duration-content: 600ms;
-  --motion-duration-image: 600ms;
-  --motion-duration-slow: 650ms;
-  --motion-stagger: 35ms;
-  --motion-ease-standard: cubic-bezier(.22, 1, .36, 1);
+  --motion-duration-ui: 350ms;
+  --motion-duration-base: 700ms;
+  --motion-duration-content: 700ms;
+  --motion-duration-image: 900ms;
+  --motion-duration-slow: 950ms;
+  --motion-stagger: 40ms;
+  --motion-ease-standard: cubic-bezier(.25, .1, .25, 1);
+  --motion-ease-cinematic: cubic-bezier(.25, .1, .25, 1);
+  --motion-ease-smooth: cubic-bezier(.22, .72, .18, 1);
   --motion-ease-media: cubic-bezier(.22, .72, .18, 1);
   --motion-ease-exit: cubic-bezier(.4, 0, 1, 1);
 }

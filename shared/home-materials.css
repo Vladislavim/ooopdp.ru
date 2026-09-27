@@ -1,4 +1,6 @@
-.home-materials{order:8;padding:64px max(64px,calc((100% - 1792px)/2));background:#efeee9;color:#171817}
+.home-materials{order:8;position:relative;isolation:isolate;overflow:hidden;padding:64px max(64px,calc((100% - 1792px)/2));background:#efeee9;color:#171817}
+.home-materials__parallax-logo{position:absolute;z-index:0;top:-116px;right:clamp(18px,3vw,58px);width:min(420px,27vw);height:auto;opacity:.5;pointer-events:none;user-select:none;mix-blend-mode:multiply;filter:saturate(.96) contrast(1.06);transform:translate3d(0,var(--materials-pattern-y,0),0) rotate(-2deg);transform-origin:70% 50%;will-change:transform}
+.home-materials>:not(.home-materials__parallax-logo){position:relative;z-index:1}
 .home-materials__head{display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start;margin-bottom:32px}
 .home-materials h2{margin:0;font:800 clamp(32px,3.6vw,56px)/1.02 var(--display,sans-serif);letter-spacing:-.045em;text-transform:uppercase}
 .home-materials__head p{margin:0;border-left:2px solid #f45116;padding-left:20px;color:#686a64;font-size:14px;line-height:1.55}
@@ -12,7 +14,9 @@
 .home-materials__preview>a:first-child{display:block;width:100%;height:350px;text-align:center}
 .home-materials__preview img{height:100%;width:100%;object-fit:contain}
 .home-materials__preview p{margin:14px 0;color:#686a64;font-size:13px}
-.home-materials__presentation{font-size:13px;color:#171817;text-decoration:none;padding:12px 0;min-height:44px}
+.home-materials__presentation{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;max-width:100%;min-height:48px;padding:14px 22px;border:0;border-radius:0;background:#f45116;color:#fff;font-size:13px;font-weight:600;line-height:1.4;text-align:center;text-decoration:none;transition:background-color 240ms ease-out}
+@media(hover:hover){.home-materials__presentation:hover{background:#d83d08}}
+@media(prefers-reduced-motion:reduce){.home-materials__presentation{transition:none}}
 .home-materials__row{display:grid;grid-template-columns:minmax(0,1fr) 42px 100px;align-items:center;border:1px solid #d4d3cc;border-bottom:0;background:#faf9f5;position:relative}
 .home-materials__row:last-of-type{border-bottom:1px solid #d4d3cc}
 .home-materials__row.is-active:before{content:'';position:absolute;left:-1px;top:-1px;bottom:-1px;width:3px;background:#f45116}
@@ -25,5 +29,15 @@
 .home-materials__empty{padding:24px;border-top:1px solid #d4d3cc;line-height:1.5}
 .home-materials button:focus-visible,.home-materials a:focus-visible,.home-materials input:focus-visible{outline:2px solid #f45116;outline-offset:4px}
 .home-materials__sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-@media(max-width:1100px){.home-materials{padding:48px 25px}.home-materials__head{grid-template-columns:1fr;gap:20px}.home-materials__head p{max-width:420px}.home-materials__body{gap:24px;grid-template-columns:240px minmax(0,1fr)}.home-materials__tools{align-items:stretch;flex-direction:column}.home-materials__search input{width:100%}.home-materials__row{grid-template-columns:minmax(0,1fr) 78px}.home-materials__format{display:none}.home-materials__row button{padding:18px}.home-materials__preview>a:first-child{height:300px}}
-@media(max-width:700px){.home-materials{padding:40px 25px}.home-materials h2{font-size:36px}.home-materials__body{grid-template-columns:1fr;gap:24px}.home-materials__preview{order:2}.home-materials__preview>a:first-child{height:260px}.home-materials__filters{gap:8px 18px}.home-materials__filters button{font-size:12px}.home-materials__row strong{font-size:15px}.home-materials__row button>span{font-size:12px}.home-materials__row{grid-template-columns:minmax(0,1fr) 72px}.home-materials__row>a{font-size:12px;gap:8px}}
+@media(max-width:1100px){.home-materials{padding:48px 25px}.home-materials__parallax-logo{top:-70px;right:18px;width:min(300px,34vw)}.home-materials__head{grid-template-columns:1fr;gap:20px}.home-materials__head p{max-width:420px}.home-materials__body{gap:24px;grid-template-columns:240px minmax(0,1fr)}.home-materials__tools{align-items:stretch;flex-direction:column}.home-materials__search input{width:100%}.home-materials__row{grid-template-columns:minmax(0,1fr) 78px}.home-materials__format{display:none}.home-materials__row button{padding:18px}.home-materials__preview>a:first-child{height:300px}}
+@media(max-width:700px){.home-materials{padding:40px 25px}.home-materials__parallax-logo{top:-34px;right:8px;width:min(190px,48vw);will-change:auto}.home-materials h2{font-size:36px}.home-materials__body{grid-template-columns:1fr;gap:24px}.home-materials__preview{order:2}.home-materials__preview>a:first-child{height:260px}.home-materials__filters{gap:8px 18px}.home-materials__filters button{font-size:12px}.home-materials__row strong{font-size:15px}.home-materials__row button>span{font-size:12px}.home-materials__row{grid-template-columns:minmax(0,1fr) 72px}.home-materials__row>a{font-size:12px;gap:8px}}
+.home-materials__row.is-page-last{border-bottom:1px solid #d4d3cc}
+.home-materials__pagination{display:flex;align-items:center;gap:8px;margin-top:24px;padding-top:20px;border-top:1px solid #d4d3cc}
+.home-materials__pagination[hidden]{display:none}
+.home-materials__pagination button{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid #d4d3cc;background:transparent;color:#171817;font:600 13px/1 'Golos Text',sans-serif;cursor:pointer;transition:color 240ms,background-color 240ms,border-color 240ms}
+.home-materials__pagination button[aria-current=page]{background:#f45116;border-color:#f45116;color:#fff}
+.home-materials__pagination button:disabled{opacity:.35;cursor:default}
+.home-materials__page-count{margin-left:auto;font-size:12px;color:#686a64;font-variant-numeric:tabular-nums}
+@media(hover:hover){.home-materials__pagination button:not(:disabled):not([aria-current]):hover{color:#f45116;border-color:#f45116}}
+@media(max-width:400px){.home-materials__pagination{gap:6px;flex-wrap:wrap}.home-materials__page-count{flex-basis:100%;margin-top:8px}}
+@media(prefers-reduced-motion:reduce){.home-materials__pagination button{transition:none}}

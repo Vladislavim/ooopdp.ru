@@ -107,7 +107,7 @@ export async function renderDocument({
   if (manifest.id === 'contacts') {
     deferredStyles = deferredStyles.map((link) => link.replace(
       /production-contacts-reference\.css\?v=[^\"]+/g,
-      'production-contacts-reference.css?v=20260923-contacts-gutters-v2'
+      'production-contacts-reference.css?v=20260924-contacts-align-v3'
     ));
   }
   const bodyAfterMain = bodyAfterMainSource.replace(stylesheetPattern, '').replace(/^[ \t]+$/gm, '');
@@ -139,7 +139,7 @@ export async function renderDocument({
   if (manifest.id === 'contacts') {
     headInnerSource = headInnerSource.replace(
       /production-contacts-reference\.css\?v=[^\"]+/g,
-      'production-contacts-reference.css?v=20260923-contacts-gutters-v2'
+      'production-contacts-reference.css?v=20260924-contacts-align-v3'
     );
   }
   const pageStyles = (manifest.headStyles ?? [])

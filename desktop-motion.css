@@ -373,10 +373,19 @@
     to { transform: scale(1.035) translate3d(-.8%, -0.4%, 0); }
   }
 
-  .motion-ready.motion-loaded .hero-img video,
-  .motion-ready.motion-loaded .hero-img .hero-fallback {
+  .motion-ready.motion-loaded .hero-img video {
     animation: pdp-hero-drift 18s ease-in-out 1.05s infinite alternate;
     transform-origin: 62% 50%;
+  }
+
+  .motion-ready.motion-loaded .hero-img .hero-fallback {
+    animation: none;
+    transform: none;
+  }
+
+  .motion-ready.motion-loaded .hero.is-motion-paused .hero-img video,
+  .motion-ready.motion-loaded .is-motion-paused {
+    animation-play-state: paused !important;
   }
 
   .motion-ready.motion-loaded .service-wire:not(.changing),

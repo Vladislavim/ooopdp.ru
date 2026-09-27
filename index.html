@@ -277,11 +277,11 @@ html{scroll-padding-top:16px}
 <link rel="stylesheet" href="premium-finish.css?v=20260911-cache-v10">
  <link rel="stylesheet" href="motion-system.css?v=20260911-cache-v10">
  <link rel="stylesheet" href="desktop-polish.css?v=20260911-cache-v10">
-<link rel="stylesheet" href="desktop-motion.css?v=20260911-cache-v10">
+<link rel="stylesheet" href="desktop-motion.css?v=20260924-perf-v2">
  <link rel="stylesheet" href="lenis-scroll.css?v=20260911-cache-v10">
 <link rel="stylesheet" href="hero-v2.css?v=20260911-cache-v10">
 <link rel="stylesheet" href="main-motion-polish.css?v=20260911-cache-v10">
-<link rel="stylesheet" href="main-trust-parallax.css?v=20260911-cache-v10">
+<link rel="stylesheet" href="main-trust-parallax.css?v=20260927-articles-up-v8">
 <link rel="stylesheet" href="shared/header-shell.css?v=20260911-cache-v10">
 <link rel="stylesheet" href="home-motion-polish.css?v=20260911-cache-v10">
 <link rel="stylesheet" href="shared/production-cta-surface.css?v=20260911-cache-v10">
@@ -292,7 +292,7 @@ html{scroll-padding-top:16px}
   <a class="brand" href="#top" aria-label="ПДП — Поволжское деловое партнёрство. Архитектура возможностей"><img class="brand-logo" src="assets/pdp-official-logo.svg" width="150" height="50" alt="ПДП — Поволжское деловое партнёрство"><span class="brand-slogan">Архитектура<br>возможностей</span></a>
 <nav class="nav" aria-label="Основная навигация"><a class="active" aria-current="page" href="#top">Главная</a><a href="pages/02-services.html">Услуги</a><a href="pages/06-completed-works.html">Кейсы</a><a href="pages/10-contacts.html">Контакты</a><a href="pages/07-news-articles.html">Статьи</a></nav>
   <a class="tel" href="tel:+78442564554" aria-label="Позвонить: 8 8442 56-45-54"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a>
-  <a class="top-cta" href="#contacts" data-desktop-label="Обсудить проект" aria-label="Обсудить проект">Обсудить проект</a>
+  <a class="top-cta" href="#contacts" data-request-open data-desktop-label="Рассчитать стоимость" aria-label="Рассчитать стоимость" aria-haspopup="dialog" aria-controls="request-dialog">Рассчитать стоимость</a>
   <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="home-mobile-menu"><span>Открыть меню</span><i aria-hidden="true"></i></button>
 </header>
 <div class="mobile-menu" id="home-mobile-menu" aria-hidden="true">
@@ -334,9 +334,9 @@ html{scroll-padding-top:16px}
 </script>
 
 <section class="hero" id="top">
-  <div class="hero-img"><video class="hero-video" autoplay muted loop playsinline preload="auto" poster="media/hero-background-poster.jpg?v=20260911-cache-v10" aria-hidden="true"><source src="media/hero_background-perf-v2.mp4?v=20260911-cache-v10" type="video/mp4"><source src="media/hero_background-v2.mp4?v=20260911-cache-v10" type="video/mp4"></video><img class="hero-fallback" src="media/hero-background-poster.jpg?v=20260911-cache-v10" width="1920" height="1080" fetchpriority="high" alt="Современный промышленный объект с производственной и логистической инфраструктурой"></div>
+  <div class="hero-img"><video class="hero-video" autoplay muted loop playsinline preload="auto" poster="media/hero-background-poster.jpg?v=20260911-cache-v10" aria-hidden="true"><source src="media/hero_background-perf-v3.mp4?v=20260924-perf-v3" type="video/mp4"></video><img class="hero-fallback" src="media/hero-background-poster.jpg?v=20260911-cache-v10" width="1920" height="1080" fetchpriority="high" alt="Современный промышленный объект с производственной и логистической инфраструктурой"></div>
   <div class="hero-content">
-    <div class="hero-copy"><div class="hero-kicker"><img src="assets/icons/info-mark-orange.svg" width="16" height="16" alt="" aria-hidden="true"><span>Промышленность · склады · сельхозобъекты</span></div><h1><span class="hero-line">Обследование</span><span class="hero-line">Проектирование и СМР</span><span class="hero-line">для промышленности</span></h1><p class="hero-subtitle"><strong>Отдельный этап или комплекс работ.</strong> <span>Подключаемся к новому объекту, реконструкции или модернизации действующего производства.</span></p><div class="buttons"><a class="btn hot" href="#contacts">Обсудить задачу по объекту <i aria-hidden="true">→</i></a><a class="btn" href="#projects">Посмотреть работы ПДП</a></div></div>
+    <div class="hero-copy"><div class="hero-kicker"><img src="assets/icons/info-mark-orange.svg" width="16" height="16" alt="" aria-hidden="true"><span>Промышленность · склады · сельхозобъекты</span></div><h1><span class="hero-line">Обследование</span><span class="hero-line">Проектирование и СМР</span><span class="hero-line">для промышленности</span></h1><p class="hero-subtitle"><strong>Отдельный этап или комплекс работ.</strong> <span>Подключаемся к новому объекту, реконструкции или модернизации действующего производства.</span></p><div class="buttons"><a class="btn hot" href="#contacts" data-request-open aria-haspopup="dialog" aria-controls="request-dialog">Получить предварительную смету <i aria-hidden="true">→</i></a><a class="btn" href="#projects">Посмотреть работы ПДП</a></div></div>
   </div>
   <div class="metrics">
     <div class="metric"><b data-count="13" data-suffix="">13</b><small>лет работы</small></div>
@@ -431,14 +431,15 @@ html{scroll-padding-top:16px}
   <header class="projects-header"><div><span class="label">Проекты и материалы</span><h2>Наши работы</h2></div><p class="projects-header-note"><img src="assets/icons/info-mark-orange.svg" width="16" height="16" alt="" aria-hidden="true"><span>Задача заказчика, работа ПДП и результат по каждому объекту.</span></p></header>
   <div class="project-showcase" data-project-slider role="region" aria-roledescription="carousel" aria-label="Реализованные проекты ПДП" tabindex="0">
     <div class="project-showcase-stage"><div class="project-showcase-visual" data-project-gallery><div class="project-slide-gallery is-1"><figure><img src="assets/inner-optimized/cases-red-october-render-user.webp" width="1124" height="780" alt="Проектная визуализация модернизации травильного отделения"><figcaption>Проектное решение</figcaption></figure></div></div><article class="project-showcase-copy" aria-live="polite" aria-atomic="true"><div class="project-showcase-meta"><span data-project-number>01 / 04</span><span data-project-type>Промышленный объект</span></div><p class="project-showcase-client" data-project-client>Красный Октябрь</p><h3 data-project-title>Модернизация травильного отделения</h3><dl class="project-showcase-facts"><div><dt>Задача</dt><dd data-project-summary>Подготовить решения для модернизации производственного участка.</dd></div><div><dt>Работа ПДП</dt><dd data-project-role>Обследование, визуализации и раздел АС.</dd></div><div><dt>Результат</dt><dd data-project-material>Комплект рабочей документации.</dd></div></dl><div class="project-showcase-actions"><a class="project-showcase-discuss" href="#contacts">Обсудить похожую задачу →</a><a class="project-showcase-link" data-project-link href="assets/documents/red-october-11-2023-as.pdf" target="_blank" rel="noreferrer">Открыть документацию ↗</a></div></article></div>
-    <div class="project-showcase-nav" role="tablist" aria-label="Выбор проекта"><button class="project-showcase-tab is-active" type="button" role="tab" aria-selected="true" data-project-index="0"><span>01</span><img src="assets/inner-optimized/cases-red-october.webp" width="1760" height="390" alt=""><b>Красный Октябрь</b></button><button class="project-showcase-tab" type="button" role="tab" aria-selected="false" data-project-index="1"><span>02</span><img src="assets/inner-optimized/cases-polyclinic-render-front.webp" width="656" height="317" alt=""><b>Поликлиника №31</b></button><button class="project-showcase-tab" type="button" role="tab" aria-selected="false" data-project-index="2"><span>03</span><img src="assets/inner-optimized/cases-bombonera.webp" width="1800" height="440" alt=""><b>Стадион «Бомбонера»</b></button><button class="project-showcase-tab" type="button" role="tab" aria-selected="false" data-project-index="3"><span>04</span><img src="assets/inner-optimized/cases-eurochem-office.webp" width="1760" height="500" alt=""><b>ЕвроХим-ВолгаКалий</b></button><div class="project-showcase-controls"><button type="button" data-project-prev aria-label="Предыдущий проект"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button><button type="button" data-project-next aria-label="Следующий проект"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div></div>
+    <div class="project-showcase-nav" role="tablist" aria-label="Выбор проекта"><button class="project-showcase-tab is-active" type="button" role="tab" aria-selected="true" data-project-index="0"><span>01</span><img src="assets/inner-optimized/cases-red-october.webp" width="1760" height="390" alt=""><b>Красный Октябрь</b></button><button class="project-showcase-tab" type="button" role="tab" aria-selected="false" data-project-index="1"><span>02</span><img src="assets/inner-optimized/cases-polyclinic-render-front.webp" width="656" height="317" alt=""><b>Поликлиника №31</b></button><button class="project-showcase-tab" type="button" role="tab" aria-selected="false" data-project-index="2"><span>03</span><img src="assets/cases/bombonera-building.png" width="1200" height="630" alt=""><b>Стадион «Бомбонера»</b></button><button class="project-showcase-tab" type="button" role="tab" aria-selected="false" data-project-index="3"><span>04</span><img src="assets/inner-optimized/cases-eurochem-office.webp" width="1760" height="500" alt=""><b>ЕвроХим-ВолгаКалий</b></button><div class="project-showcase-controls"><button type="button" data-project-prev aria-label="Предыдущий проект"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button><button type="button" data-project-next aria-label="Следующий проект"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div></div>
   </div>
 </section>
 <section class="home-materials" id="documents" aria-labelledby="home-materials-title">
+ <img class="home-materials__parallax-logo" src="assets/inner-optimized/pdp-logo-parallax.webp" width="1254" height="1254" alt="" aria-hidden="true">
  <div class="home-materials__head"><h2 id="home-materials-title">Документы и материалы</h2><p>Корпоративные материалы ПДП, презентация и документация по представленным проектам.</p></div>
  <div class="home-materials__tools"><div class="home-materials__filters" aria-label="Тип материалов"><button type="button" data-material-filter="all" aria-pressed="true">Все материалы</button><button type="button" data-material-filter="company" aria-pressed="false">О компании</button><button type="button" data-material-filter="project" aria-pressed="false">Проекты</button><button type="button" data-material-filter="working" aria-pressed="false">Рабочая документация</button></div><label class="home-materials__search"><span class="home-materials__sr">Поиск по документам</span><input type="search" placeholder="Поиск по документам" aria-label="Поиск по документам"></label></div>
  <div class="home-materials__body">
- <aside class="home-materials__preview"><a data-material-preview-link href="assets/documents/pdp-presentation.pdf" target="_blank" rel="noreferrer"><img data-material-preview src="assets/documents/pdp-presentation-preview.jpg" alt="Презентация ПДП" width="420" height="594" loading="lazy"></a><p data-material-caption>Презентация ПДП</p><a class="home-materials__presentation" href="assets/documents/pdp-presentation.pdf" download>↓ Скачать презентацию компании</a></aside>
+ <aside class="home-materials__preview"><a data-material-preview-link href="assets/documents/pdp-presentation.pdf" target="_blank" rel="noreferrer"><img data-material-preview src="assets/documents/pdp-presentation-preview.jpg" alt="Презентация ПДП" width="420" height="594" loading="lazy"></a><p data-material-caption>Презентация ПДП</p><a class="home-materials__presentation" data-material-download href="assets/documents/pdp-presentation.pdf" download>↓ Скачать «Презентация ПДП»</a></aside>
  <div class="home-materials__list">
   <article class="home-materials__row is-active" data-material-row data-type="company" data-preview="assets/documents/pdp-presentation-preview.jpg"><button type="button" data-material-select aria-pressed="true" aria-label="Показать документ: Презентация ПДП"><strong>Презентация ПДП</strong><span>Компания, компетенции и реализованные проекты · 22 страницы</span></button><span class="home-materials__format">PDF</span><a href="assets/documents/pdp-presentation.pdf" target="_blank" rel="noreferrer" aria-label="Открыть презентацию ПДП">Открыть <span aria-hidden="true">→</span></a></article>
   <article class="home-materials__row" data-material-row data-type="company" data-preview="assets/documents/pdp-information-letter-preview.jpg"><button type="button" data-material-select aria-pressed="false" aria-label="Показать документ: Информационное письмо ПДП"><strong>Информационное письмо ПДП</strong><span>Комплексное управление проектами, технический заказчик, BIM и генеральный подряд</span></button><span class="home-materials__format">DOCX</span><a href="assets/documents/pdp-information-letter.docx" download aria-label="Скачать информационное письмо ПДП">Скачать <span aria-hidden="true">↓</span></a></article>
@@ -451,11 +452,12 @@ html{scroll-padding-top:16px}
  </div>
  </div>
 </section>
-<link rel="stylesheet" href="shared/home-materials.css">
+<link rel="stylesheet" href="shared/home-materials.css?v=20260924-documents-parallax-v1">
 <link rel="stylesheet" href="shared/production-home-width.css?v=20260923-site-frame-v4">
 <script src="shared/home-materials.js" defer></script>
 
 <section class="reviews clients-trust" aria-labelledby="clients-trust-title">
+  <img class="clients-trust-parallax-logo" src="assets/inner-optimized/pdp-logo-parallax.webp" width="1254" height="1254" alt="" aria-hidden="true">
   <div class="trust-shell">
     <header class="trust-header">
       <h2 id="clients-trust-title">Проекты и заказчики</h2>
@@ -517,70 +519,68 @@ html{scroll-padding-top:16px}
     </article>
   </div>
 </section>
+
 <section class="about"><div class="about-copy"><div class="label">О компании</div><h2 class="title">Объединяем<br>проектирование,<br>строительство</h2><p>Организуем обследование, проектирование и строительно-монтажные работы для промышленных, складских и сельскохозяйственных объектов. Подключаемся к отдельному этапу или комплексу работ.</p><a class="about-action" href="#documents">Документы и материалы →</a></div><div class="about-media about-media-single"><img src="assets/inner-optimized/archive-PDP-OBJ-100.webp" width="3840" height="2160" alt="Специалисты ПДП на промышленном объекте"></div></section>
 
 <section class="articles" id="articles">
+  <img class="articles-parallax-logo" src="assets/inner-optimized/pdp-logo-parallax.webp" width="1254" height="1254" alt="" aria-hidden="true">
   <header class="articles-header"><div><span class="label">Практические материалы</span><h2>Разбираем проект<br>по существу</h2></div><p>Короткие руководства для тех, кто отвечает за решения, документацию и контроль строительного проекта.</p></header>
   <div class="article-grid">
-    <a class="article" href="pages/08-article-detail.html"><span class="article-topic">Управление · 01</span><img src="assets/inner-optimized/cases-bombonera.webp" width="1800" height="440" loading="lazy" alt="Стадион Бомбонера"><div><b>Где начинается ответственность технического заказчика</b><p>Какие функции объединяют проектировщиков, подрядчиков и заказчика в одной системе управления.</p><small><span>6 минут</span><span>Читать материал →</span></small></div></a>
+    <a class="article" href="pages/08-article-detail.html"><span class="article-topic">Управление · 01</span><img src="assets/cases/bombonera-building.png" width="1200" height="630" loading="lazy" alt="Проектная визуализация здания спортивного комплекса Бомбонера"><div><b>Где начинается ответственность технического заказчика</b><p>Какие функции объединяют проектировщиков, подрядчиков и заказчика в одной системе управления.</p><small><span>6 минут</span><span>Читать материал →</span></small></div></a>
     <a class="article" href="pages/14-article-executive-documentation.html"><span class="article-topic">Документы · 02</span><img src="assets/inner-optimized/documents-red-october-11-2023-as-preview.webp" width="1200" height="850" loading="lazy" alt="Рабочая документация"><div><b>Исполнительная документация в строительстве</b><p>Что проверить в комплекте перед передачей заказчику.</p><small><span>5 минут</span><span>Читать →</span></small></div></a>
     <a class="article" href="pages/13-article-construction-control.html"><span class="article-topic">Риски · 03</span><img src="assets/inner-optimized/cases-astana-arena.webp" width="850" height="620" loading="lazy" alt="Спортивный объект"><div><b>Строительный контроль на промышленном объекте</b><p>Как связать проект, фактические работы и подтверждающие документы.</p><small><span>7 минут</span><span>Читать →</span></small></div></a>
     <a class="article" href="pages/05-project-red-october.html"><span class="article-topic">Кейс · 04</span><img src="assets/inner-optimized/cases-red-october.webp" width="1760" height="390" loading="lazy" alt="Проектная визуализация промышленного объекта"><div><b>Проект модернизации травильного отделения</b><p>Задача и проектные решения для цеха «Красного Октября».</p><small><span>6 минут</span><span>Смотреть кейс →</span></small></div></a>
   </div>
 </section>
 
-<link rel="stylesheet" href="shared/lead-magnet.css">
+<link rel="stylesheet" href="shared/lead-magnet.css?v=20260924-wrap-fix-v4">
 <section class="contact-form-section shared-contact-form-section pdp-lead" id="contacts" aria-labelledby="lead-title">
   <div class="contact-form-intro">
-    <span class="label">Материал для заказчика · PDF, 6 страниц</span>
-    <h2 id="lead-title">Какие документы<br>подготовить<br>по вашему объекту</h2>
-    <p>Что собрать перед обследованием и проектированием: исходные документы, ограничения на объекте и вопросы подрядчику.</p>
+    <span class="label">Рабочий документ для заказчика</span>
+    <h2 id="lead-title">Какие документы подготовить<br><span>для обследования и проектирования</span></h2>
+    <p>Чек-лист исходных данных, ограничений на объекте и вопросов, которые стоит обсудить с подрядчиком до начала работ.</p>
     <ul class="pdp-lead__contents">
       <li><span>01</span> Список исходных материалов с пояснениями</li>
       <li><span>02</span> Вопросы о составе работ и результате</li>
       <li><span>03</span> Шаблон первого письма подрядчику</li>
     </ul>
-    <p class="pdp-lead__note">Можно заполнить от руки и передать коллегам. Если каких-то данных нет, отметьте это и обсудите с исполнителем.</p>
-    <button class="pdp-lead__download" type="button" data-lead-open aria-haspopup="dialog" aria-controls="lead-dialog">Получить чек-лист <span aria-hidden="true">→</span></button>
-    <div class="pdp-lead__meta">PDF · 6 страниц · чек-лист и шаблон письма</div>
-    <details class="pdp-lead__contact">
-      <summary>Уже есть задача? Обсудить с ПДП <span aria-hidden="true">+</span></summary>
-      <p>Позвоните <a href="tel:+78442564554">8 (8442) 56-45-54</a> или подготовьте письмо через форму. Для отправки откроется ваша почтовая программа.</p>
-      <form class="contact-form" data-contact-form novalidate>
-    <div class="form-field"><label for="contact-name">Имя <span aria-hidden="true">*</span></label><input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться…" required><small class="form-error" data-error-for="name"></small></div>
-    <div class="form-field"><label for="contact-value"><span data-contact-label>Телефон</span> <span aria-hidden="true">*</span></label><input id="contact-value" name="contact" type="tel" autocomplete="tel" inputmode="tel" spellcheck="false" placeholder="+7 999 000-00-00" required><small class="form-error" data-error-for="contact"></small></div>
-    <fieldset class="contact-channel"><legend>Как удобнее ответить</legend><label><input type="radio" name="channel" value="phone" checked> Телефон</label><label><input type="radio" name="channel" value="email"> Email</label><label><input type="radio" name="channel" value="messenger"> Мессенджер</label></fieldset>
-    <label class="form-consent form-consent-note"><input name="consent" type="checkbox" required><span>Нажимая на кнопку «Обсудить состав работ», вы соглашаетесь на <a href="pages/12-privacy-policy.html" target="_blank" rel="noreferrer">обработку персональных данных</a>.</span></label><small class="form-error form-consent-error" data-error-for="consent"></small>
-    <button class="form-submit" type="submit"><span>Обсудить состав работ</span><i aria-hidden="true">→</i></button><p class="form-status" data-form-status aria-live="polite"></p>
-  </form>
-    </details>
+    <button class="pdp-lead__download" type="button" data-lead-open aria-haspopup="dialog" aria-controls="lead-dialog">Получить чек-лист документов <span aria-hidden="true">→</span></button>
+    <div class="pdp-lead__meta">Редактируемый документ · чек-лист и шаблон письма</div>
+    <button class="pdp-lead__discuss" type="button" data-request-open aria-haspopup="dialog" aria-controls="request-dialog">Рассчитать стоимость проекта с ПДП <span aria-hidden="true">→</span></button>
+
   </div>
-  <figure class="pdp-lead__preview">
-    <button type="button" data-lead-open aria-haspopup="dialog" aria-controls="lead-dialog" aria-label="Получить полный чек-лист подготовки объекта">
-      <img src="assets/documents/pdp-project-preparation-1.png" width="745" height="1053" alt="Первая страница чек-листа ПДП: подготовка объекта к первому разговору" loading="lazy">
-      <span class="pdp-lead__preview-action">Получить все 6 страниц <span aria-hidden="true">↗</span></span>
-    </button>
-    <figcaption>Чек-листы, вопросы подрядчику и место для ваших заметок.</figcaption>
-  </figure>
+  <div class="pdp-lead__art" aria-hidden="true"></div>
 </section>
 
 <dialog class="pdp-lead-dialog" id="lead-dialog" aria-labelledby="lead-dialog-title" aria-describedby="lead-dialog-description">
   <button type="button" class="pdp-lead-dialog__close" data-lead-close aria-label="Закрыть">×</button>
-  <span class="pdp-lead-dialog__eyebrow">Чек-лист для заказчика · 6 страниц</span>
+  <span class="pdp-lead-dialog__eyebrow">Редактируемый документ для заказчика</span>
   <h2 id="lead-dialog-title">Получите список<br>исходных документов</h2>
   <p id="lead-dialog-description">Оставьте email, чтобы получить чек-лист, вопросы подрядчику и шаблон первого письма.</p>
   <form class="pdp-lead-form">
     <label for="lead-email">Ваш email</label>
     <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="name@company.ru" maxlength="254" required>
     <label class="pdp-lead-form__consent"><input type="checkbox" name="consent" required><span>Даю согласие на <a href="pages/12-privacy-policy.html" target="_blank" rel="noopener">обработку персональных данных</a> для получения материала.</span></label>
-    <button type="submit" class="pdp-lead__download">Получить чек-лист <span aria-hidden="true">→</span></button>
+    <button type="submit" class="pdp-lead__download">Получить чек-лист документов <span aria-hidden="true">→</span></button>
     <p class="pdp-lead-form__status" data-lead-status role="status"></p>
   </form>
   <div data-lead-result hidden>
-    <p>Чек-лист готов к скачиванию.</p>
-    <a href="assets/documents/pdp-project-preparation.pdf" download="PDP-checklist.pdf" class="pdp-lead__download">Скачать PDF <span aria-hidden="true">↓</span></a>
+    <p>Документ готов к скачиванию.</p>
+    <a href="assets/documents/pdp-project-preparation.docx" download="PDP-project-preparation.docx" class="pdp-lead__download">Скачать чек-лист <span aria-hidden="true">↓</span></a>
   </div>
-  <p class="pdp-lead-dialog__demo" data-lead-demo hidden>Локальный просмотр: данные никуда не отправляются. Здесь можно проверить заполнение формы и получение файла.</p>
+</dialog>
+<dialog class="pdp-lead-dialog" id="request-dialog" aria-labelledby="request-title">
+  <button type="button" class="pdp-lead-dialog__close" data-request-close aria-label="Закрыть">×</button>
+  <span class="pdp-lead-dialog__eyebrow">Предварительный расчёт проекта</span>
+  <h2 id="request-title">Получите предварительную смету</h2>
+  <p>Оставьте имя и телефон или email. Мы свяжемся, уточним исходные данные и подготовим предварительный расчёт стоимости.</p>
+  <form class="pdp-lead-form pdp-request-form">
+    <label for="request-name">Ваше имя</label><input id="request-name" name="name" autocomplete="name" placeholder="Как к вам обращаться" required>
+    <label for="request-contact">Телефон или email</label><input id="request-contact" name="contact" required placeholder="Как с вами связаться">
+    <label class="pdp-lead-form__consent"><input name="consent" type="checkbox" required><span>Даю согласие на <a href="pages/12-privacy-policy.html" target="_blank" rel="noopener">обработку персональных данных</a>.</span></label>
+    <button class="pdp-lead__download" type="submit">Получить предварительную смету <span aria-hidden="true">→</span></button>
+    <p class="pdp-lead-form__status" data-request-status role="status"></p>
+  </form>
 </dialog>
 <script src="shared/lead-magnet.js" defer></script>
 
@@ -591,11 +591,11 @@ html{scroll-padding-top:16px}
   <div class="footer-contacts"><div class="footer-contact-copy"><b>Контакты</b><a class="phone2" href="tel:+78442564554"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a><a href="mailto:mail@ooopdp.ru">mail@ooopdp.ru</a><a class="footer-address" href="https://yandex.ru/maps/38/volgograd/house/barrikadnaya_ulitsa_1k/YE0Ycg5lTEcEQFpifXp5eHpqbA==/?ll=44.495523%2C48.689697&amp;z=16" target="_blank" rel="noreferrer">Волгоград, ул. Баррикадная,<br>дом 1К, офис 5</a></div><div class="footer-map" aria-label="Карта расположения офиса ПДП"><div class="footer-map-embed"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae6e6ea17780f6cf7b5b20ca42957b3a0e608287bd7129a93a53f6f5ba90f2667&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script></div><a class="footer-map-link" href="https://yandex.ru/maps/38/volgograd/house/barrikadnaya_ulitsa_1k/YE0Ycg5lTEcEQFpifXp5eHpqbA==/?ll=44.495523%2C48.689697&amp;z=16" target="_blank" rel="noreferrer">Открыть карту <span aria-hidden="true">↗</span></a></div></div>
 </footer>
 
-</main>
-<script src="vendor/lenis/lenis.min.js?v=20260911-cache-v10"></script>
-<script src="lenis-scroll.js?v=20260911-cache-v10"></script>
-<script src="motion-system.js?v=20260911-cache-v10"></script>
-<script src="main-trust-parallax.js?v=20260911-cache-v10"></script>
+</main><script src="vendor/lenis/lenis.min.js?v=20260911-cache-v10"></script>
+<script src="lenis-scroll.js?v=20260924-restored-v1"></script>
+
+<script src="motion-system.js?v=20260924-perf-v2"></script>
+<script src="main-trust-parallax.js?v=20260927-documents-parallax-v4"></script>
 <script src="shared/production-contacts-parallax.js?v=20260911-cache-v10"></script>
 <script>
 (() => {
@@ -754,7 +754,7 @@ html{scroll-padding-top:16px}
       link: '#documents',
       linkText: 'Смотреть материалы →',
       images: [
-        { src: 'assets/inner-optimized/cases-bombonera.webp', width: 1800, height: 440, alt: 'Футбольное поле стадиона Бомбонера', caption: 'Фотография объекта' }
+        { src: 'assets/cases/bombonera-building.png', width: 1200, height: 630, alt: 'Проектная визуализация здания спортивного комплекса Бомбонера', caption: 'Проектное решение' }
       ]
     },
     {

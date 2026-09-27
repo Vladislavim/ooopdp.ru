@@ -50,3 +50,9 @@
     margin-inline: 0;
   }
 }
+/* Extend only the About surface; its text and photo retain their grid. */
+body:has(main.site > .hero) main.site > section.about {
+  border: 0;
+  box-shadow: 0 0 0 100vmax #f7f5ef;
+  clip-path: inset(0 -100vmax);
+}

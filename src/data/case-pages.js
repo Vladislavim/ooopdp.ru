@@ -15,8 +15,8 @@ export const casePages = {
   'alan-kz': {
     name:'ALAN KZ', href:'project-alan-kz.html', title:'Футбольные поля ALAN KZ',
     description:'Проект предусматривает строительство и реконструкцию 20 футбольных полей в течение трёх лет.',
-    hero:'cases/astana-arena.jpg', facts:[['Тип объекта','Спортивный объект'],['Направление','Спортивная инфраструктура'],['Регион','Казахстан']],
-    media:[['cases/astana-arena.jpg','Спортивный объект ALAN KZ']]
+    hero:'cases/alan-field-kff.jpg', facts:[['Тип объекта','Спортивный объект'],['Направление','Спортивная инфраструктура'],['Регион','Казахстан']],
+    media:[['cases/alan-field-kff.jpg','Обновлённое футбольное поле проекта ALAÑ']]
   },
   'severstal': {
     name:'Северсталь', href:'project-severstal.html', title:'Инженерные решения для производства',

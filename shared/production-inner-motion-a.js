@@ -33,7 +33,7 @@
         reveal(entry.target);
         observer?.unobserve(entry.target);
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+    }, { threshold: 0.01, rootMargin: '0px 0px -3% 0px' });
     targets.forEach((target) => observer.observe(target));
     cleanupTasks.push(() => observer?.disconnect());
   }

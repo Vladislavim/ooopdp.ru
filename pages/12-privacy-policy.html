@@ -24,7 +24,7 @@
   <a class="brand" href="../index.html" aria-label="ПДП — Поволжское деловое партнёрство. Архитектура возможностей"><img class="brand-logo" src="../assets/pdp-official-logo.svg" width="150" height="50" alt="ПДП — Поволжское деловое партнёрство"><span class="brand-slogan">Архитектура<br>возможностей</span></a>
 <nav class="nav" aria-label="Основная навигация"><a class=""  href="../index.html">Главная</a><a class=""  href="02-services.html">Услуги</a><a class=""  href="06-completed-works.html">Кейсы</a><a class="active" aria-current="page" href="10-contacts.html">Контакты</a><a class=""  href="07-news-articles.html">Статьи</a></nav>
   <a class="tel" href="tel:+78442564554" aria-label="Позвонить: 8 8442 56-45-54"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a>
-  <a class="top-cta" href="10-contacts.html" data-desktop-label="Обсудить проект" data-tablet-label="Обсудить проект" aria-label="Обсудить проект">Обсудить проект</a>
+  <a class="top-cta" href="10-contacts.html" data-request-open data-desktop-label="Рассчитать стоимость" data-tablet-label="Рассчитать стоимость" aria-label="Рассчитать стоимость" aria-haspopup="dialog" aria-controls="request-dialog">Рассчитать стоимость</a>
 </header>
 
   <main>
@@ -58,58 +58,54 @@
 
     <section class="prod-container prod-section prod-section--tight"><div class="prod-contact-next"><div></div><div class="prod-contact-next__copy"><div class="prod-eyebrow">Остались вопросы?</div><h2>Мы готовы помочь</h2><p>Если у вас остались вопросы по обработке персональных данных, свяжитесь с нами удобным способом.</p><a class="prod-actions-button" href="10-contacts.html">Перейти в контакты&nbsp;&nbsp;→</a></div></div></section>
     
-<link rel="stylesheet" href="../shared/lead-magnet.css">
+<link rel="stylesheet" href="../shared/lead-magnet.css?v=20260924-wrap-fix-v4">
 <section class="contact-form-section shared-contact-form-section pdp-lead" id="contacts" aria-labelledby="lead-title">
   <div class="contact-form-intro">
-    <span class="label">Материал для заказчика · PDF, 6 страниц</span>
-    <h2 id="lead-title">Какие документы<br>подготовить<br>по вашему объекту</h2>
-    <p>Что собрать перед обследованием и проектированием: исходные документы, ограничения на объекте и вопросы подрядчику.</p>
+    <span class="label">Рабочий документ для заказчика</span>
+    <h2 id="lead-title">Какие документы подготовить<br><span>для обследования и проектирования</span></h2>
+    <p>Чек-лист исходных данных, ограничений на объекте и вопросов, которые стоит обсудить с подрядчиком до начала работ.</p>
     <ul class="pdp-lead__contents">
       <li><span>01</span> Список исходных материалов с пояснениями</li>
       <li><span>02</span> Вопросы о составе работ и результате</li>
       <li><span>03</span> Шаблон первого письма подрядчику</li>
     </ul>
-    <p class="pdp-lead__note">Можно заполнить от руки и передать коллегам. Если каких-то данных нет, отметьте это и обсудите с исполнителем.</p>
-    <button class="pdp-lead__download" type="button" data-lead-open aria-haspopup="dialog" aria-controls="lead-dialog">Получить чек-лист <span aria-hidden="true">→</span></button>
-    <div class="pdp-lead__meta">PDF · 6 страниц · чек-лист и шаблон письма</div>
-    <details class="pdp-lead__contact">
-      <summary>Уже есть задача? Обсудить с ПДП <span aria-hidden="true">+</span></summary>
-      <p>Позвоните <a href="tel:+78442564554">8 (8442) 56-45-54</a> или подготовьте письмо через форму. Для отправки откроется ваша почтовая программа.</p>
-      <form class="contact-form" data-contact-form novalidate>
-    <div class="form-field"><label for="contact-name">Имя <span aria-hidden="true">*</span></label><input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться…" required><small class="form-error" data-error-for="name"></small></div>
-    <div class="form-field"><label for="contact-value"><span data-contact-label>Телефон</span> <span aria-hidden="true">*</span></label><input id="contact-value" name="contact" type="tel" autocomplete="tel" inputmode="tel" spellcheck="false" placeholder="+7 999 000-00-00" required><small class="form-error" data-error-for="contact"></small></div>
-    <fieldset class="contact-channel"><legend>Как удобнее ответить</legend><label><input type="radio" name="channel" value="phone" checked> Телефон</label><label><input type="radio" name="channel" value="email"> Почта</label><label><input type="radio" name="channel" value="messenger"> Мессенджер</label></fieldset>
-    <label class="form-consent form-consent-note"><input name="consent" type="checkbox" required><span>Нажимая на кнопку «Обсудить состав работ», вы соглашаетесь на <a href="12-privacy-policy.html" target="_blank" rel="noreferrer">обработку персональных данных</a>.</span></label><small class="form-error form-consent-error" data-error-for="consent"></small>
-    <button class="form-submit" type="submit"><span>Обсудить состав работ</span><i aria-hidden="true">→</i></button><p class="form-status" data-form-status aria-live="polite"></p>
-  </form>
-    </details>
+    <button class="pdp-lead__download" type="button" data-lead-open aria-haspopup="dialog" aria-controls="lead-dialog">Получить чек-лист документов <span aria-hidden="true">→</span></button>
+    <div class="pdp-lead__meta">Редактируемый документ · чек-лист и шаблон письма</div>
+    <button class="pdp-lead__discuss" type="button" data-request-open aria-haspopup="dialog" aria-controls="request-dialog">Рассчитать стоимость проекта с ПДП <span aria-hidden="true">→</span></button>
+
   </div>
-  <figure class="pdp-lead__preview">
-    <button type="button" data-lead-open aria-haspopup="dialog" aria-controls="lead-dialog" aria-label="Получить полный чек-лист подготовки объекта">
-      <img src="../assets/documents/pdp-project-preparation-1.png" width="745" height="1053" alt="Первая страница чек-листа ПДП: подготовка объекта к первому разговору" loading="lazy">
-      <span class="pdp-lead__preview-action">Получить все 6 страниц <span aria-hidden="true">↗</span></span>
-    </button>
-    <figcaption>Чек-листы, вопросы подрядчику и место для ваших заметок.</figcaption>
-  </figure>
+  <div class="pdp-lead__art" aria-hidden="true"></div>
 </section>
 
 <dialog class="pdp-lead-dialog" id="lead-dialog" aria-labelledby="lead-dialog-title" aria-describedby="lead-dialog-description">
   <button type="button" class="pdp-lead-dialog__close" data-lead-close aria-label="Закрыть">×</button>
-  <span class="pdp-lead-dialog__eyebrow">Чек-лист для заказчика · 6 страниц</span>
+  <span class="pdp-lead-dialog__eyebrow">Редактируемый документ для заказчика</span>
   <h2 id="lead-dialog-title">Получите список<br>исходных документов</h2>
   <p id="lead-dialog-description">Оставьте email, чтобы получить чек-лист, вопросы подрядчику и шаблон первого письма.</p>
   <form class="pdp-lead-form">
     <label for="lead-email">Ваш email</label>
     <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="name@company.ru" maxlength="254" required>
     <label class="pdp-lead-form__consent"><input type="checkbox" name="consent" required><span>Даю согласие на <a href="12-privacy-policy.html" target="_blank" rel="noopener">обработку персональных данных</a> для получения материала.</span></label>
-    <button type="submit" class="pdp-lead__download">Получить чек-лист <span aria-hidden="true">→</span></button>
+    <button type="submit" class="pdp-lead__download">Получить чек-лист документов <span aria-hidden="true">→</span></button>
     <p class="pdp-lead-form__status" data-lead-status role="status"></p>
   </form>
   <div data-lead-result hidden>
-    <p>Чек-лист готов к скачиванию.</p>
-    <a href="../assets/documents/pdp-project-preparation.pdf" download="PDP-checklist.pdf" class="pdp-lead__download">Скачать PDF <span aria-hidden="true">↓</span></a>
+    <p>Документ готов к скачиванию.</p>
+    <a href="../assets/documents/pdp-project-preparation.docx" download="PDP-project-preparation.docx" class="pdp-lead__download">Скачать чек-лист <span aria-hidden="true">↓</span></a>
   </div>
-  <p class="pdp-lead-dialog__demo" data-lead-demo hidden>Локальный просмотр: данные никуда не отправляются. Здесь можно проверить заполнение формы и получение файла.</p>
+</dialog>
+<dialog class="pdp-lead-dialog" id="request-dialog" aria-labelledby="request-title">
+  <button type="button" class="pdp-lead-dialog__close" data-request-close aria-label="Закрыть">×</button>
+  <span class="pdp-lead-dialog__eyebrow">Предварительный расчёт проекта</span>
+  <h2 id="request-title">Получите предварительную смету</h2>
+  <p>Оставьте имя и телефон или email. Мы свяжемся, уточним исходные данные и подготовим предварительный расчёт стоимости.</p>
+  <form class="pdp-lead-form pdp-request-form">
+    <label for="request-name">Ваше имя</label><input id="request-name" name="name" autocomplete="name" placeholder="Как к вам обращаться" required>
+    <label for="request-contact">Телефон или email</label><input id="request-contact" name="contact" required placeholder="Как с вами связаться">
+    <label class="pdp-lead-form__consent"><input name="consent" type="checkbox" required><span>Даю согласие на <a href="12-privacy-policy.html" target="_blank" rel="noopener">обработку персональных данных</a>.</span></label>
+    <button class="pdp-lead__download" type="submit">Получить предварительную смету <span aria-hidden="true">→</span></button>
+    <p class="pdp-lead-form__status" data-request-status role="status"></p>
+  </form>
 </dialog>
 <script src="../shared/lead-magnet.js" defer></script>
 

@@ -36,6 +36,29 @@
   syncHeroVideoMotion();
   reducedMotion.addEventListener?.('change', syncHeroVideoMotion);
 
+  let heroVideoObserver;
+  const heroMedia = heroVideo?.closest('.hero');
+  if (heroVideo && heroMedia && 'IntersectionObserver' in window) {
+    heroVideoObserver = new IntersectionObserver(([entry]) => {
+      heroMedia.classList.toggle('is-motion-paused', !entry?.isIntersecting);
+      if (entry?.isIntersecting && !reducedMotion.matches && !document.hidden) {
+        heroVideo.play().catch(() => {});
+      } else {
+        heroVideo.pause();
+      }
+    }, { threshold: 0.01 });
+    heroVideoObserver.observe(heroMedia);
+  }
+
+  let ambientMotionObserver;
+  if ('IntersectionObserver' in window) {
+    const ambientNodes = document.querySelectorAll('.service-wire, .about-media-single img, .trust-panel-visual img');
+    ambientMotionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => entry.target.classList.toggle('is-motion-paused', !entry.isIntersecting));
+    }, { rootMargin: '10% 0px', threshold: 0.01 });
+    ambientNodes.forEach((node) => ambientMotionObserver.observe(node));
+  }
+
   const readTime = (name, fallback) => {
     const raw = styles.getPropertyValue(name).trim();
     if (!raw) return fallback;
@@ -79,6 +102,9 @@
 
   window.addEventListener('pagehide', () => {
     [...timers].forEach(cancel);
+    heroVideoObserver?.disconnect();
+    ambientMotionObserver?.disconnect();
+    heroVideo?.pause();
     reducedMotion.removeEventListener?.('change', syncHeroVideoMotion);
   }, { once: true });
 

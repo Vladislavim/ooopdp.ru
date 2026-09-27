@@ -24,7 +24,7 @@ body.production-page {
    never feels like a stack of loading cards. */
 html.inner-motion-a-ready body.production-page .inner-motion-a-reveal {
   opacity: 0;
-  transform: translate3d(0, 18px, 0);
+  transform: translate3d(0, 8px, 0);
   transition: opacity var(--pdp-motion-content) var(--pdp-motion-ease),
     transform var(--pdp-motion-content) var(--pdp-motion-ease);
   transition-delay: var(--inner-motion-a-delay, 0ms);

@@ -1,55 +1,114 @@
-/* Lead magnet: shared CTA owner, retaining the site's paper/ink/orange system. */
+/* Shared document invitation. The photograph is decorative; all UI remains HTML. */
 body .contact-form-section.pdp-lead,
 body.production-page.production-contacts .shared-contact-form-section.pdp-lead {
-  display:grid!important; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)!important;
-  gap:64px!important; padding:72px 10%!important; align-items:start!important;
-  background:#111311!important; color:#f7f6f2;
+  position:relative;isolation:isolate;display:block!important;box-sizing:border-box;
+  width:100%!important;max-width:none!important;margin-inline:0!important;
+  min-height:620px;padding:44px 10%!important;background:#101210!important;color:#fff;overflow:hidden;
 }
-body .contact-form-section.pdp-lead::after {opacity:.08!important}
+body .pdp-lead::before,body .pdp-lead::after{content:none!important}
+.pdp-lead__art{position:absolute;inset:0;z-index:-2;background:url('../assets/documents/pdp-document-industrial.png') center/cover no-repeat;pointer-events:none}
+.pdp-lead__art::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,10,9,.92) 0%,rgba(8,10,9,.82) 30%,rgba(8,10,9,.25) 57%,transparent 76%)}
+body .pdp-lead .contact-form-intro{position:relative;width:48%;max-width:540px;z-index:1}
+.pdp-lead .label{color:var(--o,#f45116);font:700 12px/1.5 'Golos Text',sans-serif;letter-spacing:.035em;text-transform:uppercase}
 body .pdp-lead .contact-form-intro h2,
-body.production-page.production-contacts .pdp-lead .contact-form-intro h2 {
-  font-size:clamp(32px,3.5vw,52px)!important;line-height:1.02!important;
-  letter-spacing:-.045em!important; margin:20px 0 24px!important;max-width:620px!important;
+body.production-page.production-contacts .pdp-lead .contact-form-intro h2{font-family:Geologica,sans-serif!important;font-size:clamp(30px,2.7vw,44px)!important;font-weight:800!important;line-height:.95!important;letter-spacing:-.04em!important;text-transform:uppercase;color:#fff!important;margin:18px 0 22px!important;max-width:620px!important}
+body .pdp-lead .contact-form-intro h2 span{color:var(--o,#f45116)!important}
+body #contacts.pdp-lead .contact-form-intro h2>span{
+  white-space:normal!important;
+  overflow:visible!important;
 }
-.pdp-lead .label {color:#ff692f;font:700 11px/1.5 "Golos Text",sans-serif;letter-spacing:.07em;text-transform:uppercase}
-body .pdp-lead .contact-form-intro>p {font:400 16px/1.55 "Golos Text",sans-serif!important;color:#c5c7c0!important;max-width:54ch!important}
-.pdp-lead__contents{list-style:none;padding:0;margin:28px 0;font:500 15px/1.5 "Golos Text",sans-serif}
-.pdp-lead__contents li{display:flex;gap:18px;padding:12px 0;border-bottom:1px solid #383b35}
-.pdp-lead__contents li span{color:#ff692f;font-size:11px;padding-top:3px}
-body .pdp-lead .contact-form-intro>p.pdp-lead__note{font-size:13px!important;color:#aeb1a8!important;margin:0 0 24px!important}
-.pdp-lead__download{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:56px;padding:16px 24px;background:#f45116;color:#fff;text-decoration:none;font:700 14px/1.4 "Golos Text",sans-serif;transition:background .2s}
-.pdp-lead__download:hover{background:#d83d08}.pdp-lead__download:focus-visible,.pdp-lead__preview a:focus-visible,.pdp-lead summary:focus-visible{outline:3px solid #fff;outline-offset:5px}
-.pdp-lead__download span{font-size:24px}.pdp-lead__meta{font:400 12px/1.5 "Golos Text",sans-serif;color:#aeb1a8;margin-top:10px}
-.pdp-lead__preview{margin:0!important;max-width:370px;width:100%;justify-self:center}
-.pdp-lead__preview>button{display:block;position:relative;color:#171817;text-decoration:none;background:#f7f6f2;border:0;padding:0;width:100%;text-align:left;cursor:pointer}
-.pdp-lead__preview img{display:block;width:100%;height:auto}
-.pdp-lead__preview-action{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-top:1px solid #d5d3ca;font:600 13px/1.5 "Golos Text",sans-serif}
-body .pdp-lead .pdp-lead__preview-action,body .pdp-lead .pdp-lead__preview-action span{color:#171817!important}
-body .pdp-lead__contact .form-field label,body .pdp-lead__contact [data-contact-label]{color:#f7f6f2!important}
-.pdp-lead__preview figcaption{margin:12px 0 0;color:#aeb1a8;font:400 12px/1.5 "Golos Text",sans-serif;max-width:35ch}
-.pdp-lead__contact{margin-top:28px;border-top:1px solid #383b35;padding-top:8px}
-.pdp-lead__contact summary{display:flex;justify-content:space-between;gap:16px;cursor:pointer;padding:16px 0;min-height:48px;font:600 14px/1.5 "Golos Text",sans-serif;list-style:none}
-.pdp-lead__contact summary::-webkit-details-marker{display:none}.pdp-lead__contact[open] summary span{transform:rotate(45deg)}
-.pdp-lead__contact>p{font:400 14px/1.55 "Golos Text",sans-serif;color:#c5c7c0;margin:0 0 20px}.pdp-lead__contact>p a{color:#fff}
-body .pdp-lead__contact .contact-form{width:100%;min-width:0;padding:20px!important;box-sizing:border-box}
-@media(max-width:1100px){body .contact-form-section.pdp-lead,body.production-page.production-contacts .shared-contact-form-section.pdp-lead{padding:48px 25px!important;gap:32px!important;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)!important}}
-@media(max-width:700px){body .contact-form-section.pdp-lead,body.production-page.production-contacts .shared-contact-form-section.pdp-lead{padding:40px 25px!important;grid-template-columns:minmax(0,1fr)!important;gap:32px!important}.pdp-lead__preview{max-width:280px}.pdp-lead__contents{margin:20px 0}.pdp-lead__download{padding-inline:18px}.pdp-lead__contact .contact-form{display:flex!important;flex-direction:column;gap:16px}.pdp-lead__contact .contact-form>*{width:100%;box-sizing:border-box}}
-@media(prefers-reduced-motion:reduce){.pdp-lead *{transition:none!important}}
-.pdp-lead button.pdp-lead__download{border:0;width:100%;text-align:left;cursor:pointer}
-.pdp-lead__preview>button:focus-visible{outline:3px solid #f45116;outline-offset:5px}
-body .pdp-lead-dialog{position:fixed;inset:0;margin:auto;box-sizing:border-box;width:min(520px,calc(100% - 32px));max-height:calc(100dvh - 32px);padding:40px;border:0;background:#f7f6f2;color:#171817;overflow:auto;font:400 16px/1.5 "Golos Text",sans-serif}
-.pdp-lead-dialog::backdrop{background:rgb(10 12 10 / .76)}
+body .pdp-lead .contact-form-intro>p{font:400 16px/1.5 'Golos Text',sans-serif!important;color:#d0d1ce!important;max-width:53ch!important;margin:0 0 18px!important}
+.pdp-lead__contents{list-style:none;padding:0;margin:0 0 22px;font:500 14px/1.4 'Golos Text',sans-serif}
+.pdp-lead__contents li{display:flex;align-items:center;gap:20px;min-height:54px;border-bottom:1px solid rgba(255,255,255,.2)}
+.pdp-lead__contents li span{flex:0 0 36px;color:var(--o,#f45116);font-size:18px;font-weight:700}
+.pdp-lead__download{display:flex;align-items:center;justify-content:space-between;gap:20px;box-sizing:border-box;width:100%;min-height:62px;padding:16px 22px;border:0;border-radius:0;background:var(--o,#f45116);color:#fff;text-decoration:none;text-align:left;font:600 19px/1.3 'Golos Text',sans-serif;cursor:pointer;transition:background-color var(--motion-duration-ui,280ms)}
+.pdp-lead__download span{font-size:32px;transition:transform var(--motion-duration-ui,280ms) var(--motion-ease-standard,ease-out)}
+@media(hover:hover) and (pointer:fine){.pdp-lead__download:hover{background:#dc400c}.pdp-lead__download:hover span{transform:translateX(5px)}}
+.pdp-lead__download:focus-visible{outline:2px solid currentColor;outline-offset:5px}
+.pdp-lead__meta{font:400 13px/1.5 'Golos Text',sans-serif;color:#c4c5c1;margin-top:16px}
+body .pdp-lead-dialog{position:fixed;inset:0;margin:auto;box-sizing:border-box;width:520px;max-width:calc(100% - 32px);max-height:calc(100dvh - 32px);padding:42px;border:0;border-radius:2px;background:#f7f6f2;color:#171817;box-shadow:0 18px 60px rgba(0,0,0,.18);overflow:auto;overscroll-behavior:contain;font:400 16px/1.5 'Golos Text',sans-serif}
+.pdp-lead-dialog::backdrop{background:rgba(0,0,0,.45)}
 .pdp-lead-dialog__close{position:absolute;right:8px;top:8px;width:44px;height:44px;border:0;background:transparent;color:#171817;font-size:30px;cursor:pointer}
-.pdp-lead-dialog__eyebrow{display:block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#b53609;margin:8px 0 20px}
-body .pdp-lead-dialog h2{font:800 30px/1.08 Geologica,sans-serif;letter-spacing:-.04em;margin:0 0 18px;text-transform:none;color:#171817}
-.pdp-lead-dialog p{font-size:14px;line-height:1.55;margin:0 0 24px;color:#555750}
-.pdp-lead-form>label:first-child{display:block;font-weight:600;font-size:13px;margin-bottom:8px}
-.pdp-lead-form>input{display:block;box-sizing:border-box;width:100%;height:52px;padding:12px;border:1px solid #a2a49b;background:#fff;color:#171817;font:inherit;margin-bottom:20px;border-radius:0}
-.pdp-lead-form__consent{display:flex;align-items:start;gap:10px;font-size:12px;line-height:1.5;margin:0 0 24px}
-.pdp-lead-form__consent input{width:18px;height:18px;flex:0 0 18px;margin:0;accent-color:#f45116}.pdp-lead-form__consent a{color:inherit;text-decoration:underline}
-.pdp-lead-dialog .pdp-lead__download{width:100%;box-sizing:border-box;border:0;cursor:pointer}
+.pdp-lead-dialog__eyebrow{display:block;font-size:10px;font-weight:700;letter-spacing:.035em;text-transform:uppercase;color:var(--o,#f45116);margin:8px 0 24px}
+body .pdp-lead-dialog h2{font:800 32px/1.08 Geologica,sans-serif;letter-spacing:-.04em;margin:0 0 20px;text-transform:none;color:#171817}
+.pdp-lead-dialog p{font-size:16px;line-height:1.5;margin:0 0 28px;color:#62645f}
+.pdp-lead-form>label:first-child{display:block;font-weight:600;font-size:15px;margin-bottom:10px}
+.pdp-lead-form>input{display:block;box-sizing:border-box;width:100%;height:60px;padding:14px 16px;border:1px solid #b9bbb5;background:#fff;color:#171817;font:inherit;margin-bottom:24px;border-radius:0}
+.pdp-lead-form>input:focus{border-color:var(--o,#f45116);outline:1px solid var(--o,#f45116);outline-offset:0}
+.pdp-lead-form__consent{display:flex;align-items:start;gap:12px;font-size:13px;line-height:1.5;margin:0 0 26px}
+.pdp-lead-form__consent input{width:20px;height:20px;flex:0 0 20px;margin:0;accent-color:var(--o,#f45116)}
+.pdp-lead-form__consent a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.pdp-lead-dialog .pdp-lead__download{min-height:72px;font-size:20px}
 .pdp-lead-dialog [hidden]{display:none!important}
-.pdp-lead-dialog .pdp-lead-dialog__demo{font-size:11px;margin:20px 0 0;color:#66685f;padding-top:16px;border-top:1px solid #d5d3ca}
+.pdp-lead-dialog .pdp-lead-dialog__demo{font-size:12px;margin:26px 0 0;color:#686a63;padding-top:20px;border-top:1px solid #d5d3ca}
 .pdp-lead-dialog .pdp-lead-form__status{color:#a32d07;margin:12px 0 0}
+.pdp-lead-dialog .pdp-lead-form__status:empty{display:none}
 .pdp-lead-dialog :focus-visible{outline:2px solid #b53609;outline-offset:4px}
-@media(max-width:700px){body .pdp-lead-dialog{padding:28px 24px}body .pdp-lead-dialog h2{font-size:26px}}
+@media(max-width:1100px){body .pdp-lead-dialog{margin:auto}body .contact-form-section.pdp-lead,body.production-page.production-contacts .shared-contact-form-section.pdp-lead{padding:40px 6%!important}.pdp-lead__art{background-position:60% center}body .pdp-lead .contact-form-intro{width:48%}}
+@media(max-width:700px){body .contact-form-section.pdp-lead,body.production-page.production-contacts .shared-contact-form-section.pdp-lead{min-height:0;padding:44px 25px 0!important}body .pdp-lead .contact-form-intro h2,body.production-page.production-contacts .pdp-lead .contact-form-intro h2{font-size:clamp(30px,8.2vw,44px)!important;line-height:1!important}body .pdp-lead .contact-form-intro>p{font-size:16px!important}.pdp-lead__contents{font-size:14px}.pdp-lead__contents li{gap:14px;min-height:72px}.pdp-lead__download{min-height:68px;padding:18px 20px;font-size:20px}.pdp-lead__art{position:relative;inset:auto;z-index:0;height:390px;margin:28px -25px 0;background-position:60% center}.pdp-lead__art::after{background:linear-gradient(180deg,#101210,transparent 18%)}body .pdp-lead-dialog{padding:38px 24px 28px}body .pdp-lead-dialog h2{font-size:28px}.pdp-lead-dialog__eyebrow{padding-right:16px}}
+@media(prefers-reduced-motion:reduce){.pdp-lead__download,.pdp-lead__download span{transition:none!important}}
+/* This invitation owns its surface, replacing the legacy CTA photograph. */
+body #contacts.pdp-lead::before,body #contacts.pdp-lead::after{content:none!important;display:none!important}
+body #contacts.pdp-lead>.pdp-lead__art{position:absolute;inset:0;z-index:0}
+body #contacts.pdp-lead>.contact-form-intro{z-index:1}
+@media(max-width:700px){body #contacts.pdp-lead{padding:44px 25px 0!important}body #contacts.pdp-lead>.pdp-lead__art{position:relative;inset:auto;z-index:0}}
+body:not(.production-page) #contacts.contact-form-section.pdp-lead::after,
+body.production-page #contacts.shared-contact-form-section.pdp-lead::after{display:none!important;content:none!important}
+@media(min-width:701px){body #contacts.pdp-lead>.pdp-lead__art{left:52%;right:0;background-position:60% center}.pdp-lead__art::after{background:linear-gradient(90deg,#101210 0%,rgba(8,10,9,.3) 12%,transparent 30%)}}
+
+@media(max-width:700px){body #contacts.pdp-lead>.contact-form-intro{width:100%;max-width:none}body #contacts.pdp-lead{padding-top:36px!important}.pdp-lead__contents li{min-height:56px}.pdp-lead__art{height:300px}.pdp-lead__download{min-height:60px}}
+
+.pdp-lead__discuss{display:inline-flex;gap:20px;align-items:center;margin-top:18px;padding:8px 0;border:0;border-bottom:1px solid #92958e;background:transparent;color:#fff;font:500 15px/1.4 "Golos Text",sans-serif;cursor:pointer}.pdp-lead__discuss:focus-visible{outline:2px solid #f45116;outline-offset:4px}
+.pdp-request-form>label{display:block;font-weight:600;font-size:14px;margin:0 0 8px}
+.pdp-request-form>label.pdp-lead-form__consent{display:flex;font-weight:400;font-size:13px;margin-bottom:26px}
+
+/* The shared lead block is a single component: inner-page typography must not
+   inherit the larger content-page heading and control rules. */
+body.production-page #contacts.shared-contact-form-section.pdp-lead .contact-form-intro h2{
+  font-family:Geologica,sans-serif!important;
+  font-size:clamp(30px,2.7vw,44px)!important;
+  font-weight:800!important;
+  line-height:.95!important;
+  letter-spacing:-.04em!important;
+  text-transform:uppercase!important;
+  color:#fff!important;
+  margin:18px 0 22px!important;
+  max-width:620px!important;
+  font-stretch:93%!important;
+}
+body.production-page #contacts.shared-contact-form-section.pdp-lead .contact-form-intro h2>span{
+  font-family:'Martian Grotesk PDP',Geologica,sans-serif!important;
+  font-stretch:93%!important;
+}
+body.production-page #contacts.shared-contact-form-section.pdp-lead .contact-form-intro>p{
+  font:400 16px/1.5 'Golos Text',sans-serif!important;
+  color:#d0d1ce!important;
+  max-width:53ch!important;
+  margin:0 0 18px!important;
+}
+body.production-page #contacts.shared-contact-form-section.pdp-lead .pdp-lead__download{
+  font:600 19px/1.3 'Golos Text',sans-serif!important;
+}
+body.production-page #contacts.shared-contact-form-section.pdp-lead .pdp-lead__discuss{
+  font:500 15px/1.4 'Golos Text',sans-serif!important;
+}
+@media(max-width:700px){
+  body.production-page #contacts.shared-contact-form-section.pdp-lead .contact-form-intro h2{font-size:clamp(30px,8.2vw,44px)!important;line-height:1!important}
+  body.production-page #contacts.shared-contact-form-section.pdp-lead .pdp-lead__download{font-size:20px!important}
+}
+
+@media(min-width:1200px){
+  body.production-page #contacts.shared-contact-form-section.pdp-lead .contact-form-intro h2>span{
+    white-space:nowrap!important;
+  }
+}
+
+@media(max-width:1199px){
+  body.production-page #contacts.shared-contact-form-section.pdp-lead .contact-form-intro h2{
+    max-width:100%!important;
+    overflow:visible!important;
+  }
+  body.production-page #contacts.shared-contact-form-section.pdp-lead .contact-form-intro h2>span{
+    white-space:normal!important;
+  }
+}

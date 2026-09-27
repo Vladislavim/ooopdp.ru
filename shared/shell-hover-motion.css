@@ -11,7 +11,7 @@
     background: var(--o, #f45116);
     transform: scaleX(0);
     transform-origin: right center;
-    transition: transform var(--pdp-motion-fast, 180ms) var(--pdp-motion-ease, cubic-bezier(.22, 1, .36, 1));
+    transition: transform var(--motion-duration-ui, 280ms) var(--pdp-motion-ease, cubic-bezier(.22, 1, .36, 1));
     pointer-events: none;
   }
 

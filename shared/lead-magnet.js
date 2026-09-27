@@ -6,7 +6,6 @@
   const result = dialog.querySelector('[data-lead-result]');
   const status = dialog.querySelector('[data-lead-status]');
   const demo = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
-  dialog.querySelector('[data-lead-demo]').hidden = !demo;
   let opener;
   document.querySelectorAll('[data-lead-open]').forEach(button => {
     button.addEventListener('click', () => {
@@ -38,5 +37,26 @@
     form.hidden = true;
     result.hidden = false;
     result.querySelector('a').focus();
+  });
+})();
+(() => {
+  const dialog = document.querySelector('#request-dialog');
+  if (!dialog) return;
+  let opener;
+  document.querySelectorAll('[data-request-open]').forEach(button => button.addEventListener('click', event => {
+    event.preventDefault();
+    opener = button;
+    dialog.showModal();
+    window.lenis?.stop?.();
+  }));
+  dialog.querySelector('[data-request-close]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    const r = dialog.getBoundingClientRect();
+    if (event.target === dialog && (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom)) dialog.close();
+  });
+  dialog.addEventListener('close', () => { window.lenis?.start?.(); opener?.focus({preventScroll:true}); });
+  dialog.querySelector('form').addEventListener('submit', event => {
+    event.preventDefault();
+    dialog.querySelector('[data-request-status]').textContent = 'Форма заполнена. Это предварительный просмотр: заявка не отправлена.';
   });
 })();

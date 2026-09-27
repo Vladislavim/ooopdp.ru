@@ -56,37 +56,6 @@
   z-index: 1;
 }
 
-.articles {
-  --articles-logo-right: 0px;
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-.articles-parallax-logo {
-  position: absolute;
-  z-index: 0;
-  top: calc(clamp(76px, 6vw, 108px) - 80px);
-  /* Keep the full mark inside the section; the article grid covers its left side. */
-  right: var(--articles-logo-right);
-  width: min(390px, 25vw);
-  height: auto;
-  opacity: .5;
-  pointer-events: none;
-  user-select: none;
-  mix-blend-mode: multiply;
-  filter: saturate(.96) contrast(1.06);
-  transform: translate3d(0, var(--articles-pattern-y, 0px), 0) rotate(-2deg);
-  transform-origin: 70% 50%;
-  will-change: transform;
-}
-
-.articles > .articles-header,
-.articles > .article-grid {
-  position: relative;
-  z-index: 1;
-}
-
 .direction[data-direction-route] { cursor: pointer; }
 .direction[data-direction-route]:focus-visible { outline: 2px solid var(--o); outline-offset: 5px; }
 
@@ -107,13 +76,6 @@
     width: min(350px, 36vw);
     opacity: .42;
   }
-
-
-  .articles-parallax-logo {
-    right: 0;
-    width: min(300px, 31vw);
-    opacity: .5;
-  }
 }
 
 @media (max-width: 700px) {
@@ -132,14 +94,6 @@
     width: min(220px, 60vw);
     opacity: .32;
   }
-
-
-  .articles-parallax-logo {
-    top: 34px;
-    right: 0;
-    width: min(190px, 46vw);
-    opacity: .5;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -151,12 +105,6 @@
 
   .clients-trust-parallax-logo {
     transform: rotate(2deg);
-    transition: none;
-  }
-
-
-  .articles-parallax-logo {
-    transform: rotate(-2deg);
     transition: none;
   }
 }

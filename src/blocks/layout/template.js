@@ -310,6 +310,7 @@ export async function renderDocument({
     ? '<link rel="stylesheet" href="../shared/production-inner-shell-parity.css?v=20260923-site-frame-v2">\n'
     : '';
   const prefix = manifest.kind === 'home' ? '' : '../';
+  headInnerSource += `\n<link rel="stylesheet" data-pdp-footer href="${prefix}shared/production-footer-shell.css?v=20260928-footer-owner-v3">\n`;
   const faviconLinks = [
     `<link rel="icon" href="${prefix}favicon.ico" sizes="any">`,
     `<link rel="icon" href="${prefix}favicon.svg" type="image/svg+xml">`,

@@ -71,7 +71,7 @@
   document.head.append(headerStyles);
   const footerStyles = document.createElement('link');
   footerStyles.rel = 'stylesheet';
-  footerStyles.href = `../shared/production-footer-shell.css?v=${CACHE_VERSION}`;
+  footerStyles.href = '../shared/production-footer-shell.css?v=20260928-footer-parity-v2';
   const artDirectionStyles = document.createElement('link');
   artDirectionStyles.rel = 'stylesheet';
   artDirectionStyles.href = `../shared/production-art-direction.css?v=${CACHE_VERSION}`;
@@ -112,7 +112,7 @@
 
   // The footer is a protected shared component copied from the approved home.
   // Load its owner last so page-family styles cannot reshape it.
-  document.head.append(footerStyles);
+  if (!document.querySelector('link[data-pdp-footer]')) document.head.append(footerStyles);
 
   if (document.body?.classList.contains('production-page')) {
     const main = document.querySelector('main');

@@ -42,7 +42,7 @@ body.production-contacts .prod-contact-reference__hero-art {
   z-index: 0;
   inset: 0 0 0 38%;
   background: url('../assets/inner-optimized/contact-wireframe-generated.webp') 78% 46% / min(790px, 63vw) auto no-repeat;
-  opacity: .11;
+  opacity: .4;
   mix-blend-mode: multiply;
   pointer-events: none;
 }
@@ -141,6 +141,8 @@ body.production-contacts .contact-reference-icon {
   place-items: center;
   border: 2px solid var(--contacts-orange, #f45116);
   border-radius: 50%;
+  background-color: var(--contacts-orange, #f45116);
+  color: #fff;
   transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
 }
 
@@ -166,6 +168,60 @@ body.production-contacts .prod-contact-reference__fact strong {
   letter-spacing: -.045em;
 }
 
+body.production-contacts .contact-reference-value {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+body.production-contacts .contact-reference-value > a {
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+body.production-contacts .contact-reference-copy {
+  display: grid;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  margin-top: -4px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #77766f;
+  cursor: pointer;
+  transition: color .18s ease, background-color .18s ease, transform .18s ease;
+}
+
+body.production-contacts .contact-reference-copy svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+body.production-contacts .contact-reference-copy:hover,
+body.production-contacts .contact-reference-copy:focus-visible,
+body.production-contacts .contact-reference-copy.is-copied {
+  background: rgb(244 81 22 / 10%);
+  color: var(--contacts-orange);
+}
+
+body.production-contacts .contact-reference-copy:focus-visible {
+  outline: 2px solid var(--contacts-orange);
+  outline-offset: 2px;
+}
+
+body.production-contacts .contact-reference-copy:active {
+  transform: scale(.92);
+}
+
 body.production-contacts .prod-contact-reference__fact:nth-of-type(3) strong {
   font-size: clamp(17px, 1.18vw, 23px);
   line-height: 1.2;
@@ -176,7 +232,8 @@ body.production-contacts .prod-contact-reference__fact:hover strong {
 }
 
 body.production-contacts .prod-contact-reference__fact:hover .contact-reference-icon {
-  background-color: rgba(244, 81, 22, .08);
+  border-color: #d9430e;
+  background-color: #d9430e;
 }
 
 body.production-contacts .prod-contact-reference__map-wrap {
@@ -394,7 +451,7 @@ body.production-contacts .shared-contact-form-section > .contact-form {
   body.production-contacts .prod-contact-reference__hero-art {
     inset: 0 0 0 30%;
     background-size: 610px auto;
-    opacity: .055;
+    opacity: .4;
   }
 
   body.production-contacts .prod-contact-reference__hero-inner {
@@ -452,6 +509,17 @@ body.production-contacts .shared-contact-form-section > .contact-form {
   body.production-contacts .prod-contact-reference__fact strong,
   body.production-contacts .prod-contact-reference__fact:nth-of-type(3) strong {
     font-size: 19px;
+  }
+
+  body.production-contacts .contact-reference-value {
+    gap: 6px;
+  }
+
+  body.production-contacts .contact-reference-copy {
+    flex-basis: 44px;
+    width: 44px;
+    height: 44px;
+    margin-top: -7px;
   }
 
   body.production-contacts .prod-contact-reference__map-wrap {

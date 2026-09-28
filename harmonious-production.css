@@ -77,19 +77,19 @@
     background:
       linear-gradient(
         90deg,
-        rgba(10, 11, 9, 0.86) 0%,
-        rgba(10, 11, 9, 0.76) 28%,
-        rgba(10, 11, 9, 0.40) 42%,
-        rgba(10, 11, 9, 0.10) 54%,
+        rgba(10, 11, 9, 0.77) 0%,
+        rgba(10, 11, 9, 0.68) 28%,
+        rgba(10, 11, 9, 0.36) 42%,
+        rgba(10, 11, 9, 0.09) 54%,
         transparent 64%,
         transparent 100%
       ),
       linear-gradient(
         180deg,
-        rgba(10, 11, 9, 0.35) 0%,
+        rgba(10, 11, 9, 0.32) 0%,
         transparent 20%,
         transparent 80%,
-        rgba(10, 11, 9, 0.45) 100%
+        rgba(10, 11, 9, 0.41) 100%
       ) !important;
     opacity: 1 !important;
   }
@@ -104,7 +104,13 @@
   }
 
   .hero h1 .hero-line:last-child {
+    color: #ffffff !important;
+  }
+
+  .hero h1 .hero-accent {
     color: #f45116 !important;
+    font: inherit;
+    font-style: normal;
     text-shadow: 0 2px 20px rgba(244, 81, 22, 0.4) !important;
   }
 
@@ -114,6 +120,14 @@
 
   .hero-subtitle strong {
     color: #ffffff !important;
+  }
+
+  .hero .hero-kicker {
+    color: #747670 !important;
+  }
+
+  .hero .hero-subtitle {
+    max-width: 520px !important;
   }
 
   .hero-subtitle span {

@@ -64,3 +64,67 @@
   .footer-map-embed{width:500px;height:400px}
 }
 @media (max-width:420px){.footer-contacts{grid-template-columns:1fr}.footer-map{height:168px}}
+
+/* Inner pages use the approved homepage footer without page-family overrides. */
+body.production-page .footer{
+  display:grid;
+  grid-template-columns:minmax(220px,1.15fr) minmax(70px,.35fr) minmax(175px,.72fr) minmax(130px,.6fr) minmax(500px,1.65fr);
+  gap:22px;
+  min-height:268px;
+  height:auto;
+  padding:28px 64px 26px;
+  color:#f3f2ed;
+  background:#0d0f0d;
+  border-top:1px solid #343832;
+  position:relative;
+  overflow:hidden;
+  box-sizing:border-box;
+  font:400 12px/normal "Golos Text","Segoe UI",sans-serif;
+}
+body.production-page .footer>*{align-self:start;min-width:0}
+body.production-page .footer-lockup{display:flex;align-items:center;gap:18px;margin-bottom:14px}
+body.production-page .footer-official-logo{display:block;width:210px;height:auto;max-width:100%;flex:0 1 auto}
+body.production-page .footer-slogan{padding-left:16px;border-left:1px solid #4b4d49;color:#f45116;font:650 8px/1.2 "Golos Text","Segoe UI",sans-serif;letter-spacing:.09em;text-transform:uppercase}
+body.production-page .footer-company small,
+body.production-page .footer a{display:block;color:#b6bab2;font:400 10px/1.7 "Golos Text","Segoe UI",sans-serif}
+body.production-page .footer b{display:block;margin-bottom:16px;color:#f3f2ed;font:700 11px/normal "Golos Text","Segoe UI",sans-serif;letter-spacing:normal;text-transform:uppercase}
+body.production-page .footer-contact-copy b{margin-bottom:18px}
+body.production-page .footer-contact-copy>a:not(.phone2){display:inline-block;font:400 11px/1.4 "Golos Text","Segoe UI",sans-serif;margin-bottom:14px}
+body.production-page .footer-contacts{display:grid;grid-template-columns:145px 304px;gap:24px;align-items:stretch;border-left:1px solid #454743;padding:0 0 0 26px}
+body.production-page .footer-contact-copy{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding-top:2px}
+body.production-page .footer-contact-copy .phone2{display:inline-flex!important;align-items:center!important;gap:9px!important;color:#fff;font:400 16.56px/1.15 "Golos Text","Segoe UI",sans-serif!important;white-space:nowrap;margin:0 0 12px!important}
+body.production-page .footer-contact-copy .phone2 .phone-icon{width:19px;height:19px;flex:0 0 19px}
+body.production-page .footer-contact-copy .footer-address{display:block;color:#8e928a;font-size:10.5px;line-height:1.55;margin:0;padding-top:14px;border-top:1px solid rgba(255,255,255,.12)}
+body.production-page .footer-map{position:relative;height:220px!important;min-width:0;overflow:hidden;border:1px solid #5b6058;background:#e8e7e2}
+body.production-page .footer>.footer-contacts .footer-map{height:220px!important}
+body.production-page .footer-map-embed{position:absolute;left:50%;top:50%;width:100%;height:100%;transform:translate(-50%,-50%)}
+body.production-page .footer-map-embed iframe{display:block;width:100%;height:100%;border:0;filter:none}
+
+@media (max-width:1199px) and (min-width:701px){
+  body.production-page .footer{grid-template-columns:1fr .65fr .8fr 1.55fr!important;gap:18px;padding:30px 48px;color:#fff;background:#111310}
+  body.production-page .footer b{font:700 7px/normal "Golos Text","Segoe UI",sans-serif;margin-bottom:7px}
+  body.production-page .footer-company small,
+  body.production-page .footer a{font-size:6px;line-height:1.65;color:#aaa}
+  body.production-page .footer-contacts{grid-column:auto!important;grid-template-columns:1fr!important;gap:20px!important;border-left:0!important;border-top:0!important;padding:0!important}
+  body.production-page .footer-contact-copy{padding:2px 0 0 18px}
+  body.production-page .footer-contact-copy .phone2{font-size:15px!important;line-height:1.15!important;margin-bottom:12px!important}
+  body.production-page .footer-contact-copy .phone2 .phone-icon{width:17px;height:17px;flex-basis:17px}
+  body.production-page .footer-contact-copy>a:not(.phone2){font-size:10px;line-height:1.45}
+  body.production-page .footer-map{height:190px!important;background:#1a1c1a;border-color:#454841}
+  body.production-page .footer>.footer-contacts .footer-map{height:190px!important}
+}
+
+@media (max-width:700px){
+  body.production-page .footer{grid-template-columns:1fr 1fr!important;min-height:0;padding:28px 18px;gap:28px 20px;background:#111310;color:#f4f5f1}
+  body.production-page .footer-company{grid-column:1/-1}
+  body.production-page .footer-official-logo{width:176px!important}
+  body.production-page .footer-slogan{padding-left:12px;font-size:6px;line-height:1.2;letter-spacing:.09em}
+  body.production-page .footer b{font:700 7px/normal "Golos Text","Segoe UI",sans-serif;margin-bottom:7px}
+  body.production-page .footer-company small,
+  body.production-page .footer a{font-size:6px;line-height:1.65;color:#aaa}
+  body.production-page .footer-contacts{grid-column:1/-1;grid-template-columns:1fr!important;gap:14px!important;border-left:0!important;border-top:1px solid #454743;padding:0!important}
+  body.production-page .footer-contact-copy{padding-left:14px}
+  body.production-page .footer-contact-copy .phone2{font-size:15px!important;line-height:1.15!important;margin-bottom:12px!important}
+  body.production-page .footer-map{height:190px!important}
+  body.production-page .footer>.footer-contacts .footer-map{height:190px!important}
+}

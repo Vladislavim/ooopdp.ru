@@ -1,5 +1,5 @@
 (() => {
-  const CACHE_VERSION = '20260911-cache-v10';
+  const CACHE_VERSION = '20260928-contact-copy-v12';
   'use strict';
 
   const pageCleanupTasks = [];
@@ -72,7 +72,6 @@
   const footerStyles = document.createElement('link');
   footerStyles.rel = 'stylesheet';
   footerStyles.href = `../shared/production-footer-shell.css?v=${CACHE_VERSION}`;
-  document.head.append(footerStyles);
   const artDirectionStyles = document.createElement('link');
   artDirectionStyles.rel = 'stylesheet';
   artDirectionStyles.href = `../shared/production-art-direction.css?v=${CACHE_VERSION}`;
@@ -110,6 +109,10 @@
     serviceTemplateStyles.dataset.pdpServiceTemplateStyles = 'true';
     document.head.append(serviceTemplateStyles);
   }
+
+  // The footer is a protected shared component copied from the approved home.
+  // Load its owner last so page-family styles cannot reshape it.
+  document.head.append(footerStyles);
 
   if (document.body?.classList.contains('production-page')) {
     const main = document.querySelector('main');
@@ -1586,6 +1589,50 @@
     registerPageCleanup(() => document.removeEventListener('DOMContentLoaded', startInnerParallax));
   } else {
     startInnerParallax();
+  }
+
+  const setupContactCopy = () => {
+    const buttons = [...document.querySelectorAll('[data-contact-copy]')];
+    if (!buttons.length) return;
+    let resetTimer = 0;
+    const copyText = async (value) => {
+      try {
+        await navigator.clipboard.writeText(value);
+      } catch (_) {
+        const field = document.createElement('textarea');
+        field.value = value;
+        field.setAttribute('readonly', '');
+        field.style.position = 'fixed';
+        field.style.opacity = '0';
+        document.body.append(field);
+        field.select();
+        document.execCommand('copy');
+        field.remove();
+      }
+    };
+    buttons.forEach((button) => {
+      const initialLabel = button.getAttribute('aria-label') || 'Скопировать';
+      button.addEventListener('click', async () => {
+        await copyText(button.dataset.contactCopy || '');
+        buttons.forEach((item) => item.classList.remove('is-copied'));
+        button.classList.add('is-copied');
+        button.setAttribute('aria-label', 'Скопировано');
+        button.title = 'Скопировано';
+        window.clearTimeout(resetTimer);
+        resetTimer = window.setTimeout(() => {
+          button.classList.remove('is-copied');
+          button.setAttribute('aria-label', initialLabel);
+          button.title = initialLabel;
+        }, 1600);
+      });
+    });
+    registerPageCleanup(() => window.clearTimeout(resetTimer));
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupContactCopy, { once: true });
+    registerPageCleanup(() => document.removeEventListener('DOMContentLoaded', setupContactCopy));
+  } else {
+    setupContactCopy();
   }
 
 })();

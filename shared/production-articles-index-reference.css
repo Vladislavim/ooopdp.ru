@@ -81,7 +81,7 @@ body.production-page.pdp-articles-index .articles-index-hero__art > .inner-paral
   width: min(620px, 74%);
   aspect-ratio: 1;
   background: url('../assets/inner-optimized/pdp-logo-parallax.webp') center / contain no-repeat;
-  opacity: .14;
+  opacity: 0.5;
   mix-blend-mode: multiply;
   pointer-events: none;
   user-select: none;

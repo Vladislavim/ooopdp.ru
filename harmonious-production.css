@@ -1,0 +1,202 @@
+/* ==========================================================================
+   PDP HARMONIOUS PRODUCTION HERO & HEADER OVERRIDES
+   Zero visual conflict: Dark industrial flagship top flowing seamlessly
+   into dark services, then into light engineering cases and dark footer.
+   ========================================================================== */
+
+@media (min-width: 320px) {
+  /* 1. Header: Unified dark industrial top bar */
+  .top {
+    background: #111310 !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45) !important;
+    color: #ffffff !important;
+  }
+
+  .top > * {
+    border-color: rgba(255, 255, 255, 0.12) !important;
+  }
+
+  .brand .brand-logo {
+    filter: none !important;
+  }
+
+  .brand-slogan {
+    border-left-color: rgba(255, 255, 255, 0.22) !important;
+    color: #9f9e9a !important;
+  }
+
+  .nav a {
+    color: #d1cfc9 !important;
+    transition: color 0.2s ease !important;
+  }
+
+  .nav a:hover,
+  .nav a.active,
+  .nav a[aria-current="page"] {
+    color: var(--o, #f45116) !important;
+  }
+
+  .tel {
+    background: transparent !important;
+    color: #ffffff !important;
+  }
+
+  .tel svg path {
+    fill: #ffffff !important;
+  }
+
+  .top-cta {
+    background: #f45116 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 18px rgba(244, 81, 22, 0.35) !important;
+  }
+
+  .top-cta:hover {
+    background: #df4610 !important;
+  }
+
+  /* 2. Hero: 100% full-resolution 3D workshop, zero milky fog */
+  .hero {
+    background: #0d0e0c !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+  }
+
+  .hero-img {
+    background: #0d0e0c !important;
+  }
+
+  .hero-img video,
+  .hero-img img {
+    object-position: center !important;
+    transform: translate3d(0, 0, 0) scale(1.02) !important;
+  }
+
+  /* Replace white milky gradient with deep non-destructive shadow under typography */
+  .hero-img::after {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(10, 11, 9, 0.86) 0%,
+        rgba(10, 11, 9, 0.76) 28%,
+        rgba(10, 11, 9, 0.40) 42%,
+        rgba(10, 11, 9, 0.10) 54%,
+        transparent 64%,
+        transparent 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(10, 11, 9, 0.35) 0%,
+        transparent 20%,
+        transparent 80%,
+        rgba(10, 11, 9, 0.45) 100%
+      ) !important;
+    opacity: 1 !important;
+  }
+
+  /* 3. Typography: Crisp industrial contrast */
+  .hero h1 {
+    color: #ffffff !important;
+  }
+
+  .hero h1 .hero-line {
+    color: #ffffff !important;
+  }
+
+  .hero h1 .hero-line:last-child {
+    color: #f45116 !important;
+    text-shadow: 0 2px 20px rgba(244, 81, 22, 0.4) !important;
+  }
+
+  .hero p {
+    color: #c9c8c4 !important;
+  }
+
+  .hero-subtitle strong {
+    color: #ffffff !important;
+  }
+
+  .hero-subtitle span {
+    color: #b0aea9 !important;
+  }
+
+  /* Tactile buttons on dark hero */
+  .hero-copy .buttons .btn {
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .hero-copy .buttons .btn:hover {
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  .hero-copy .buttons .btn.hot {
+    background: #f45116 !important;
+    border-color: #f45116 !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 28px rgba(244, 81, 22, 0.35) !important;
+  }
+
+  .hero-copy .buttons .btn.hot:hover {
+    background: #df4610 !important;
+    border-color: #df4610 !important;
+  }
+
+  /* 4. Metrics Bar: Frosted Dark Glass HUD (The video shines through!) */
+  .hero .metrics {
+    height: 80px !important;
+    background: rgba(14, 16, 13, 0.60) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .hero .metric {
+    border-right-color: rgba(255, 255, 255, 0.12) !important;
+  }
+
+  .hero .metric b {
+    color: #ffffff !important;
+    font-size: clamp(34px, 2.1vw, 42px) !important;
+  }
+
+  .hero .metric small {
+    color: #f45116 !important;
+  }
+
+  .hero-proof > span {
+    color: #8f8e8a !important;
+  }
+
+  .hero-proof > div > b {
+    color: #ffffff !important;
+  }
+
+  .hero-proof img {
+    filter: none !important;
+    opacity: 0.95 !important;
+    transition: opacity 0.2s ease, transform 0.2s ease !important;
+  }
+
+  .hero-proof img:hover {
+    opacity: 1 !important;
+    transform: scale(1.04);
+  }
+
+  .hero-proof-severstal em {
+    color: #ffffff !important;
+  }
+
+  /* 5. Seamless connection into Services */
+  .services {
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+}

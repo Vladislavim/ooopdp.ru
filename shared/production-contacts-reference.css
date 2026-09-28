@@ -139,8 +139,9 @@ body.production-contacts .contact-reference-icon {
   width: 44px;
   height: 44px;
   place-items: center;
-  border: 1px solid rgba(244, 81, 22, .7);
+  border: 2px solid var(--contacts-orange, #f45116);
   border-radius: 50%;
+  transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
 }
 
 body.production-contacts .contact-reference-icon img {
@@ -172,6 +173,10 @@ body.production-contacts .prod-contact-reference__fact:nth-of-type(3) strong {
 
 body.production-contacts .prod-contact-reference__fact:hover strong {
   color: var(--contacts-orange);
+}
+
+body.production-contacts .prod-contact-reference__fact:hover .contact-reference-icon {
+  background-color: rgba(244, 81, 22, .08);
 }
 
 body.production-contacts .prod-contact-reference__map-wrap {

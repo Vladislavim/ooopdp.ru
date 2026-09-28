@@ -12,7 +12,7 @@
   right: clamp(-150px, -4.2vw, -64px);
   width: min(480px, 31vw);
   height: auto;
-  opacity: .5;
+  opacity: 0.5;
   pointer-events: none;
   user-select: none;
   mix-blend-mode: multiply;
@@ -41,7 +41,7 @@
   left: clamp(-168px, -8vw, -92px);
   width: min(430px, 28vw);
   height: auto;
-  opacity: .5;
+  opacity: 0.5;
   pointer-events: none;
   user-select: none;
   mix-blend-mode: multiply;
@@ -52,6 +52,34 @@
 }
 
 .clients-trust > .trust-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.articles {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.articles-parallax-drawing {
+  position: absolute;
+  z-index: 0;
+  top: -110px;
+  right: clamp(30px, 6vw, 110px);
+  width: clamp(320px, 28vw, 480px);
+  height: auto;
+  opacity: 0.4;
+  pointer-events: none;
+  user-select: none;
+  mix-blend-mode: multiply;
+  filter: contrast(1.05);
+  transform: translate3d(0, var(--articles-pattern-y, 0px), 0);
+  transform-origin: 70% 50%;
+  will-change: transform;
+}
+
+.articles > :not(.articles-parallax-drawing) {
   position: relative;
   z-index: 1;
 }
@@ -68,13 +96,20 @@
     top: clamp(24px, 4vw, 48px);
     right: clamp(-144px, -8vw, -58px);
     width: min(390px, 38vw);
-    opacity: .22;
+    opacity: .5;
   }
 
   .clients-trust-parallax-logo {
     left: clamp(-138px, -11vw, -78px);
     width: min(350px, 36vw);
-    opacity: .42;
+    opacity: .5;
+  }
+
+  .articles-parallax-drawing {
+    top: 10px;
+    right: -30px;
+    width: min(320px, 32vw);
+    opacity: 0.35;
   }
 }
 
@@ -84,15 +119,22 @@
     top: clamp(10px, 4vw, 20px);
     right: clamp(-70px, -16vw, -42px);
     width: min(230px, 64vw);
-    opacity: .2;
+    opacity: .5;
   }
-
 
   .clients-trust-parallax-logo {
     top: 28px;
     left: -76px;
     width: min(220px, 60vw);
-    opacity: .32;
+    opacity: .5;
+  }
+
+  .articles-parallax-drawing {
+    top: 10px;
+    right: -20px;
+    width: min(180px, 48vw);
+    opacity: 0.3;
+    will-change: auto;
   }
 }
 
@@ -102,9 +144,12 @@
     transition: none;
   }
 
-
   .clients-trust-parallax-logo {
     transform: rotate(2deg);
+    transition: none;
+  }
+
+  .articles-parallax-drawing {
     transition: none;
   }
 }

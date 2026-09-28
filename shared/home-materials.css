@@ -1,6 +1,7 @@
 .home-materials{order:8;position:relative;isolation:isolate;overflow:hidden;padding:64px max(64px,calc((100% - 1792px)/2));background:#efeee9;color:#171817}
-.home-materials__parallax-logo{position:absolute;z-index:0;top:-116px;right:clamp(18px,3vw,58px);width:min(420px,27vw);height:auto;opacity:.5;pointer-events:none;user-select:none;mix-blend-mode:multiply;filter:saturate(.96) contrast(1.06);transform:translate3d(0,var(--materials-pattern-y,0),0) rotate(-2deg);transform-origin:70% 50%;will-change:transform}
-.home-materials>:not(.home-materials__parallax-logo){position:relative;z-index:1}
+.home-materials__parallax-logo{position:absolute;z-index:0;top:-116px;right:clamp(18px,3vw,58px);width:min(420px,27vw);height:auto;opacity:0.5;pointer-events:none;user-select:none;mix-blend-mode:multiply;filter:saturate(.96) contrast(1.06);transform:translate3d(0,var(--materials-pattern-y,0),0) rotate(-2deg);transform-origin:70% 50%;will-change:transform}
+.home-materials>:not(.home-materials__parallax-logo):not(.home-materials__parallax-drawing){position:relative;z-index:1}
+.home-materials__parallax-drawing{position:absolute;z-index:0;top:clamp(20px,2.5vw,70px);left:clamp(-60px,-3vw,-10px);width:min(540px,36vw);height:auto;opacity:0.4;pointer-events:none;user-select:none;mix-blend-mode:multiply;filter:contrast(1.05);transform:translate3d(0,var(--materials-pattern-y,0),0);transform-origin:20% 50%;will-change:transform}
 .home-materials__head{display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start;margin-bottom:32px}
 .home-materials h2{margin:0;font:800 clamp(32px,3.6vw,56px)/1.02 var(--display,sans-serif);letter-spacing:-.045em;text-transform:uppercase}
 .home-materials__head p{margin:0;border-left:2px solid #f45116;padding-left:20px;color:#686a64;font-size:14px;line-height:1.55}

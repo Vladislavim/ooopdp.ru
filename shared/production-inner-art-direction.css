@@ -2886,7 +2886,7 @@ body.production-page .inner-parallax-object--logo {
   width: min(520px, 46%);
   aspect-ratio: 1;
   background-image: url('../assets/inner-optimized/pdp-logo-parallax.webp');
-  opacity: .12;
+  opacity: 0.5;
   mix-blend-mode: screen;
 }
 

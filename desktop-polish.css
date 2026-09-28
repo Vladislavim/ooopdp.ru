@@ -943,9 +943,9 @@
 
   /* Footer */
   .footer {
-    grid-template-columns: minmax(220px, 1.15fr) minmax(80px, .42fr) minmax(130px, .62fr) minmax(125px, .6fr) minmax(500px, 1.65fr);
+    grid-template-columns: minmax(220px, 1.15fr) minmax(70px, .35fr) minmax(175px, .72fr) minmax(130px, .6fr) minmax(500px, 1.65fr);
     gap: 22px;
-    padding: 30px var(--pdp-grid);
+    padding: 28px var(--pdp-grid) 26px;
     color: var(--pdp-text-on-dark);
     background: var(--pdp-graphite-deep);
     border-top: var(--pdp-line) solid #343832;
@@ -960,12 +960,19 @@
   }
 
   .footer b {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    font-size: 11px;
+    letter-spacing: .08em;
   }
 
   .footer small,
   .footer a {
     color: #b6bab2;
+  }
+
+  .footer > div:not(.footer-company):not(.footer-contacts) a {
+    font-size: 11.5px;
+    line-height: 2.25;
   }
 
   .footer a:hover,
@@ -982,12 +989,39 @@
   }
 
   .footer-contact-copy {
+    display: flex;
+    flex-direction: column;
     align-content: start;
     padding-left: 0;
     border-left: 0;
   }
 
+  .footer .footer-contact-copy b {
+    margin-bottom: 18px;
+  }
+
+  .footer .footer-contact-copy .phone2 {
+    margin-bottom: 12px;
+  }
+
+  .footer .footer-contact-copy > a:not(.phone2) {
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .footer .footer-address {
+    margin-top: 2px !important;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 10.5px;
+    line-height: 1.55;
+    color: #8e928a;
+  }
+
   .footer-map {
+    height: 220px;
     overflow: hidden;
     border: var(--pdp-line) solid #5b6058;
     background-color: #e8e7e2;

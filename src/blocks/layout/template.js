@@ -49,7 +49,7 @@ function generatePageSchemaOrg(manifest, headInnerSource) {
     'image': 'https://ooopdp.ru/assets/pdp-official-logo.svg',
     'description': 'Профессиональное управление строительными проектами, функции технического заказчика, комплексное проектирование и генеральный подряд в Волгограде и РФ.',
     'telephone': '+7-8442-56-45-54',
-    'email': 'mail@ooopdp.ru',
+    'email': 'sale@ooopdp.ru',
     'taxID': '3444183577',
     'vatID': '346001001',
     'address': {
@@ -241,6 +241,7 @@ export async function renderDocument({
     }
     if (!restoredInnerPages.has(manifest.id)) mainInner = mainInner.replace(/> Email</g, '> Почта<');
   }
+  mainInner = mainInner.replaceAll('mail@ooopdp.ru', 'sale@ooopdp.ru');
   const mainInnerTrailing = optimize(document.mainInnerTrailing);
   const stylesheetPattern = /<link\b(?=[^>]*\brel=(["'])stylesheet\1)[^>]*>/gi;
   const isRedesignedInner = manifest.kind !== 'home' && !restoredInnerPages.has(manifest.id) && !manifest.skipInnerRedesign;
@@ -248,6 +249,7 @@ export async function renderDocument({
     ? '20260914-template-compact-v5'
     : '20260912-inner-hero-rhythm-v5';
   let bodyAfterMainSource = optimize(document.bodyAfterMain)
+    .replaceAll('mail@ooopdp.ru', 'sale@ooopdp.ru')
     .replace(/production-site-shell\.js\?v=[^\"]+/g, `production-site-shell.js?v=${shellCacheVersion}`);
   if (manifest.id === 'services') {
     bodyAfterMainSource = bodyAfterMainSource.replace(
@@ -266,7 +268,7 @@ export async function renderDocument({
   if (manifest.id === 'contacts') {
     deferredStyles = deferredStyles.map((link) => link.replace(
       /production-contacts-reference\.css\?v=[^\"]+/g,
-      'production-contacts-reference.css?v=20260924-contacts-align-v3'
+      'production-contacts-reference.css?v=20260929-map-ad-crop-v4'
     ));
   }
   const bodyAfterMain = bodyAfterMainSource.replace(stylesheetPattern, '').replace(/^[ \t]+$/gm, '');
@@ -288,6 +290,10 @@ export async function renderDocument({
   // first-paint layout shift before the final inner-page geometry arrives.
   let headInnerSource = optimize(compile(document.headInner))
     .replaceAll('https://ooopdp.ru/orig_test_v2/', 'https://ooopdp.ru/')
+    .replaceAll('mail@ooopdp.ru', 'sale@ooopdp.ru')
+    .replace(/harmonious-production\.css\?v=[^\"]+/g, 'harmonious-production.css?v=20260929-centered-mobile-v15')
+    .replace(/shared\/header-shell\.css\?v=[^\"]+/g, 'shared/header-shell.css?v=20260929-compact-mobile-v2')
+    .replace(/home-motion-polish\.css\?v=[^\"]+/g, 'home-motion-polish.css?v=20260929-compact-mobile-v2')
     .replace(/<link\b(?=[^>]*\brel\s*=\s*(["'])icon\1)[^>]*>\s*/gi, '')
     .replace(/<script\b[^>]*\btype=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>\s*/gi, '');
   headInnerSource = injectPageSeo(headInnerSource, manifest.seo);
@@ -300,7 +306,7 @@ export async function renderDocument({
   if (manifest.id === 'contacts') {
     headInnerSource = headInnerSource.replace(
       /production-contacts-reference\.css\?v=[^\"]+/g,
-      'production-contacts-reference.css?v=20260924-contacts-align-v3'
+      'production-contacts-reference.css?v=20260929-map-ad-crop-v4'
     );
   }
   const pageStyles = (manifest.headStyles ?? [])
@@ -310,7 +316,7 @@ export async function renderDocument({
     ? '<link rel="stylesheet" href="../shared/production-inner-shell-parity.css?v=20260923-site-frame-v2">\n'
     : '';
   const prefix = manifest.kind === 'home' ? '' : '../';
-  headInnerSource += `\n<link rel="stylesheet" data-pdp-footer href="${prefix}shared/production-footer-shell.css?v=20260928-footer-owner-v3">\n`;
+  headInnerSource += `\n<link rel="stylesheet" data-pdp-footer href="${prefix}shared/production-footer-shell.css?v=20260929-footer-grid-stretch-v5">\n`;
   const faviconLinks = [
     `<link rel="icon" href="${prefix}favicon.ico" sizes="any">`,
     `<link rel="icon" href="${prefix}favicon.svg" type="image/svg+xml">`,

@@ -98,3 +98,18 @@
  #site-footer .footer-map { height:190px!important; }
 }
 
+/* Crop the remote Yandex promotional rail without replacing the map iframe. */
+#site-footer .footer-map { overflow:hidden!important; }
+#site-footer .footer-map-embed iframe { height:calc(100% + 90px)!important; }
+
+@media(min-width:1200px) {
+ #site-footer > * { align-self:stretch!important; }
+ #site-footer .footer-contacts { height:100%!important; align-self:stretch!important; }
+ #site-footer .footer-contact-copy { height:100%!important; }
+ #site-footer .footer-map { height:auto!important; min-height:220px!important; align-self:stretch!important; }
+}
+
+@media(max-width:1199px) {
+ #site-footer .footer-map-embed iframe { height:100%!important; }
+}
+

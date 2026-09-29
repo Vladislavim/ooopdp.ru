@@ -107,3 +107,44 @@ body.production-page #contacts.shared-contact-form-section.pdp-lead .pdp-lead__d
     white-space:normal!important;
   }
 }
+
+@media(max-width:700px){
+  body .pdp-lead-dialog{
+    width:min(360px,calc(100% - 32px));
+    max-width:360px;
+    max-height:50dvh;
+    padding:10px 14px;
+    overflow:hidden;
+  }
+  .pdp-lead-dialog__close{right:0;top:0;width:40px;height:40px;font-size:25px}
+  .pdp-lead-dialog__eyebrow{margin:0 34px 6px 0;padding:0;font-size:8px;line-height:1.2}
+  body .pdp-lead-dialog h2{
+    max-width:100%;
+    margin-bottom:6px;
+    font-size:20px;
+    line-height:1.04;
+    overflow-wrap:anywhere;
+  }
+  .pdp-lead-dialog p{margin-bottom:8px;font-size:11px;line-height:1.2}
+  .pdp-request-form>label{font-size:11px;margin-bottom:2px}
+  .pdp-lead-form>input{height:40px;margin-bottom:6px;padding:7px 10px;font-size:14px}
+  .pdp-lead-form__consent{gap:7px;margin-bottom:6px;font-size:10px;line-height:1.2}
+  .pdp-lead-form__consent input{width:16px;height:16px;flex-basis:16px}
+  .pdp-lead-dialog .pdp-lead__download{min-height:40px;padding:7px 11px;font-size:12px;line-height:1.15}
+  body #contacts.pdp-lead{padding:32px 18px 0!important}
+  body #contacts.pdp-lead .contact-form-intro h2{margin:14px 0 16px!important;font-size:30px!important}
+  body #contacts.pdp-lead .contact-form-intro>p{margin-bottom:12px!important;font-size:14px!important}
+  body #contacts.pdp-lead .pdp-lead__contents{margin-bottom:16px;font-size:12px}
+  body #contacts.pdp-lead .pdp-lead__contents li{min-height:44px;gap:10px}
+  body #contacts.pdp-lead .pdp-lead__contents li span{flex-basis:28px;font-size:14px}
+  body #contacts.pdp-lead .pdp-lead__download{min-height:54px;padding:12px 16px;font-size:16px}
+  body #contacts.pdp-lead .pdp-lead__meta{margin-top:10px;font-size:11px}
+  body #contacts.pdp-lead .pdp-lead__discuss{min-height:44px;margin-top:10px;font-size:13px}
+  body #contacts.pdp-lead>.pdp-lead__art{height:130px;margin:18px -18px 0}
+}
+
+@media(max-width:359px){
+  #request-dialog>.pdp-lead-dialog__eyebrow,
+  #request-dialog>p{display:none}
+  body #request-dialog h2{font-size:19px;margin:0 32px 6px 0}
+}

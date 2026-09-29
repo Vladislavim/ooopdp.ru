@@ -56,7 +56,7 @@ function shellContext(manifest) {
     PRESENTATION: asset('documents/pdp-presentation.pdf'),
     CHECKLIST: asset('documents/pdp-project-preparation.docx'),
     CHECKLIST_PREVIEW: asset('documents/pdp-project-preparation-cover.png'),
-    LEAD_STYLES: href('shared/lead-magnet.css?v=20260924-wrap-fix-v4'),
+    LEAD_STYLES: href('shared/lead-magnet.css?v=20260929-fit-dialog-v8'),
     LEAD_SCRIPT: href('shared/lead-magnet.js'),
     ACTIVE_HOME: state('home'),
     ACTIVE_SERVICES: state('services'),

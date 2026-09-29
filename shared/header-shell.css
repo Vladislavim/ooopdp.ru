@@ -118,10 +118,10 @@
   .top .brand-slogan{display:none}
 }
 @media (max-width:700px){
-  .top{height:64px;grid-template-columns:1fr 54px}
-  .top .brand{padding:0 14px;gap:0}
-  .top .brand-logo{width:150px;height:50px;flex-basis:150px}
+  .top{height:56px;grid-template-columns:1fr 48px}
+  .top .brand{padding:0 10px;gap:0}
+  .top .brand-logo{width:132px;height:44px;flex-basis:132px}
   .top .nav,.top .tel{display:none}
   .top .top-cta{font-size:0;padding:0}
-  .top .top-cta::after{content:"→";font:20px/1 Arial,sans-serif}
+  .top .top-cta::after{content:"→";font:18px/1 Arial,sans-serif}
 }

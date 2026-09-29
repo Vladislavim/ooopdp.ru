@@ -214,3 +214,431 @@
     border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
   }
 }
+
+/* Keep the complete hero, including the metrics rail, inside the first viewport. */
+.hero {
+  height: calc(100svh - 84px) !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding-bottom: 80px !important;
+}
+
+.hero-content {
+  width: 100%;
+  height: calc(100% - 80px) !important;
+  min-height: 0 !important;
+}
+
+@media (min-width: 1200px) {
+  .hero-content {
+    height: 100% !important;
+    transform: none;
+  }
+}
+
+@supports (height: 100dvh) {
+  .hero { height: calc(100dvh - 84px) !important; }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    height: calc(100svh - 56px) !important;
+    min-height: 0 !important;
+    padding-bottom: 80px !important;
+  }
+
+  .hero-content {
+    height: calc(100% - 80px) !important;
+    min-height: 0 !important;
+  }
+
+  @supports (height: 100dvh) {
+    .hero { height: calc(100dvh - 56px) !important; }
+  }
+}
+
+/* Responsive hardening: preserve the approved composition while making every
+   compact layout usable by touch from 320px upward. */
+@media (max-width: 1199px) {
+  .hero-copy::before {
+    content: none;
+    display: none;
+  }
+
+  .top .nav a,
+  .hero .btn,
+  .service-row,
+  .service-copy .more {
+    min-height: 44px;
+  }
+
+  .top .nav a,
+  .service-copy .more {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .service-row,
+  .service-row.active {
+    height: auto;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1199px) {
+  .hero {
+    padding-bottom: 124px !important;
+  }
+
+  .hero-content {
+    height: calc(100% - 124px) !important;
+  }
+
+  .hero .metrics {
+    bottom: 0 !important;
+    height: 124px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    height: calc(100svh - 56px) !important;
+    min-height: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .hero-content {
+    display: flex;
+    align-items: center;
+    height: calc(100% - 124px) !important;
+    padding: 0;
+    transform: none;
+    overflow: hidden;
+  }
+
+  @supports (height: 100dvh) {
+    .hero { height: calc(100dvh - 56px) !important; }
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px 14px 14px;
+    margin: 0;
+    transform: translateY(-8px);
+  }
+
+  .hero .hero-kicker {
+    margin-bottom: 8px;
+  }
+
+  .hero h1 {
+    max-width: 340px;
+    font-size: clamp(20px, 5.7vw, 23px);
+    line-height: .89;
+    letter-spacing: -.04em;
+  }
+
+  .hero .hero-subtitle {
+    max-width: 290px;
+    margin-top: 8px;
+    font-size: 9px;
+    line-height: 1.3;
+  }
+
+  .hero-copy .buttons {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 11px;
+    align-items: stretch;
+  }
+
+  .hero-copy .buttons .btn {
+    width: 100% !important;
+    justify-self: start;
+    min-width: 0;
+    min-height: 44px !important;
+    height: 44px !important;
+    padding-inline: 10px;
+    gap: 8px;
+    font-size: 0;
+    white-space: nowrap;
+  }
+
+  .hero-copy .buttons .btn::before {
+    content: attr(data-mobile-label);
+    font-size: 8px;
+  }
+
+  .hero-copy .buttons .btn:first-child,
+  .hero-copy .buttons .btn:last-child { min-width: 0; }
+
+  .hero .metrics {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 124px !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 70px 54px;
+    overflow: hidden;
+  }
+
+  .hero .metric {
+    padding: 8px 7px;
+  }
+
+  .hero .metric b {
+    font-size: clamp(25px, 7.6vw, 29px) !important;
+  }
+
+  .hero .metric small {
+    display: block;
+    margin-top: 4px;
+    font-size: 6px;
+    line-height: 1.25;
+  }
+
+  .hero .hero-proof {
+    grid-column: 1 / -1;
+    min-height: 54px;
+    padding: 5px 10px;
+    gap: 3px;
+    overflow: hidden;
+  }
+
+  .hero .hero-proof > div {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .hero .hero-proof img {
+    max-width: 66px;
+    max-height: 18px;
+  }
+
+  /* Mobile reading order: show the service visual before controls and copy. */
+  .services {
+    gap: 16px;
+    padding: 20px 16px 24px;
+  }
+
+  .services > .service-wire {
+    order: 1;
+    height: 190px;
+  }
+
+  .services > div:first-child {
+    order: 2;
+  }
+
+  .services > .service-copy {
+    order: 3;
+    padding: 4px 0 0;
+  }
+
+  .service-copy h3 {
+    font-size: 26px;
+  }
+
+  .service-copy p {
+    margin-top: 12px;
+  }
+
+  .service-copy .more {
+    margin-top: 14px;
+  }
+
+  /* Repeated visual cards become finger-scannable rails instead of a long wall. */
+  .directions {
+    padding: 20px 0 28px;
+  }
+
+  .directions .line-title {
+    margin-inline: 18px;
+  }
+
+  .direction-grid {
+    display: flex;
+    gap: 10px;
+    padding: 0 18px 4px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .direction-grid::-webkit-scrollbar,
+  .article-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .direction {
+    flex: 0 0 min(72vw, 280px);
+    height: 250px;
+    scroll-snap-align: start;
+  }
+
+  .clients-trust {
+    padding-block: 38px 42px;
+  }
+
+  .trust-header h2 {
+    font-size: 32px;
+  }
+
+  .trust-header {
+    gap: 12px;
+  }
+
+  .trust-header p {
+    font-size: 12px;
+  }
+
+  .trust-tabs {
+    margin-top: 22px;
+  }
+
+  .trust-tab {
+    flex-basis: min(68vw, 260px);
+    min-height: 92px;
+    padding: 12px 16px;
+  }
+
+  .trust-logo {
+    height: 40px;
+  }
+
+  .trust-panel {
+    margin-top: 18px;
+  }
+
+  .trust-panel-main {
+    grid-template-rows: auto 90px;
+  }
+
+  .trust-panel-copy {
+    padding: 18px 16px 14px;
+  }
+
+  .trust-quote {
+    grid-template-columns: 34px minmax(0,1fr);
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .trust-quote blockquote {
+    font-size: 14px;
+    line-height: 1.32;
+  }
+
+  .trust-panel-visual {
+    height: 90px;
+  }
+
+  .trust-panel-footer {
+    min-height: 58px;
+    padding-block: 7px;
+  }
+
+  .articles {
+    padding: 38px 0 42px;
+  }
+
+  .articles-header {
+    margin-inline: 18px;
+  }
+
+  main.site > .articles .article-grid {
+    display: flex !important;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    gap: 10px;
+    padding: 0 18px 4px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  main.site > .articles .article,
+  main.site > .articles .article:first-child,
+  main.site > .articles .article:nth-child(2),
+  main.site > .articles .article:nth-child(3),
+  main.site > .articles .article:nth-child(4) {
+    display: grid;
+    flex: 0 0 min(78vw, 300px);
+    height: 286px;
+    min-height: 286px !important;
+    grid-template-rows: 170px 116px;
+    scroll-snap-align: start;
+  }
+
+  main.site > .articles .article:first-child img,
+  main.site > .articles .article:nth-child(2) img,
+  main.site > .articles .article:nth-child(3) img,
+  main.site > .articles .article:nth-child(4) img {
+    height: 170px;
+  }
+
+  main.site > .articles .article > div,
+  main.site > .articles .article:first-child > div {
+    position: relative;
+    inset: auto;
+    min-height: 116px;
+    padding: 14px;
+  }
+
+  main.site > .articles .article b,
+  main.site > .articles .article:first-child b {
+    font-size: 17px;
+  }
+
+  .service-row,
+  .service-row.active {
+    min-height: 46px;
+  }
+
+  .service-copy .more,
+  .v1-actions a,
+  .v1-controls button,
+  .home-materials__row > a,
+  .pdp-lead__discuss {
+    min-height: 48px;
+  }
+
+  .v1-controls {
+    height: 48px;
+  }
+
+  .home-materials__row > a {
+    justify-content: flex-end;
+  }
+
+  .mobile-menu__head button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 359px) {
+  .hero-copy .buttons {
+    gap: 8px;
+  }
+
+  .hero-copy .buttons .btn {
+    padding-inline: 7px;
+  }
+
+  .hero-copy .buttons .btn::before {
+    font-size: 6.5px;
+  }
+
+  .home-materials h2,
+  .projects-header h2,
+  .trust-header h2,
+  .articles-header h2 {
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+}

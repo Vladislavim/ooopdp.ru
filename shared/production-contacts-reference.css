@@ -278,6 +278,12 @@ body.production-contacts .prod-contact-reference__map-wrap .prod-contact-map > .
   opacity: 1 !important;
 }
 
+/* Yandex may inject a promotional strip at the iframe bottom. Keep the same
+   working map, but place that remote-only strip below the clipped viewport. */
+body.production-contacts .prod-contact-reference__map-wrap .prod-contact-map > .footer-map-embed iframe {
+  height: calc(100% + 110px) !important;
+}
+
 body.production-contacts .prod-contact-reference__request {
   position: relative;
   width: 100%;

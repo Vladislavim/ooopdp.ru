@@ -6,8 +6,8 @@ export default {
   "order": [
     "svc-hero-title",
     "services",
-    "svc-industries-title",
     "svc-project-title",
+    "svc-industries-title",
     "div",
     "div-2"
   ]

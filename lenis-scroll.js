@@ -15,7 +15,9 @@
     if (target === null) return;
     event.preventDefault();
     lenis.scrollTo(target, {
-      offset: -10
+      offset: -10,
+      duration: 1.2,
+      easing: (t) => 1 - Math.pow(1 - t, 3)
     });
     if (location.hash !== hash) history.pushState(null, '', hash);
   };
@@ -25,10 +27,10 @@
     lenis = new window.Lenis({
       autoRaf: true,
       anchors: false,
-      duration: 0.45,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      // Continuous, frame-rate-independent smoothing for successive wheel events.
+      lerp: 0.075,
       smoothWheel: true,
-      wheelMultiplier: 1,
+      wheelMultiplier: 0.85,
       touchMultiplier: 1,
       syncTouch: false,
       autoResize: true

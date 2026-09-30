@@ -327,12 +327,11 @@
   get('[data-case-count]').textContent=String(i+1).padStart(2,'0')+' / '+String(data.length).padStart(2,'0');
   get('[data-case-link]').href=p.href;
   const facts=get('[data-case-facts]');facts.replaceChildren();
-  p.facts.forEach(([k,v])=>{const d=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=k;dd.textContent=v;d.append(dt,dd);facts.append(d)});
+  p.facts.forEach(([k,v])=>{const d=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');d.classList.toggle('is-key-fact',['Роль ПДП','Результат','Материалы'].includes(k));d.classList.toggle('is-result-fact',['Результат','Материалы'].includes(k));dt.textContent=k;dd.textContent=v;d.append(dt,dd);facts.append(d)});
   const after=get('[data-case-after]'),before=get('[data-case-before]');
   after.src='../assets/'+(p.after||p.hero);after.alt=(p.after?'Проектное решение: ':'Материалы проекта: ')+p.name;
   before.src='../assets/'+p.hero;before.alt='Исходное состояние: '+p.name;
-  [before,range,get('[data-case-divider]'),get('[data-case-before-label]')].forEach(el=>el.hidden=!p.after);
-  get('[data-case-after-label]').textContent=p.after?'Проектное решение':'Материалы проекта';
+  [before,range,get('[data-case-divider]')].forEach(el=>el.hidden=!p.after);
   get('[data-case-hint]').textContent=p.after?'Перетащите линию, чтобы сравнить':p.title;
   range.value=46;split();
   all('[data-case-select]').forEach(b=>{b.hidden=!matching().includes(Number(b.dataset.caseSelect));b.setAttribute('aria-pressed',String(Number(b.dataset.caseSelect)===i))});
@@ -352,4 +351,14 @@
  function step(delta){const ids=matching();select(ids[(ids.indexOf(current)+delta+ids.length)%ids.length])}
  get('[data-case-prev]').addEventListener('click',()=>step(-1));get('[data-case-next]').addEventListener('click',()=>step(1));
  select(0,true);
+})();
+
+(() => {
+ const form=document.querySelector('[data-case-request-form]');if(!form)return;
+ const status=form.querySelector('[data-case-request-status]');
+ form.addEventListener('submit',event=>{
+  event.preventDefault();
+  if(!form.reportValidity())return;
+  status.textContent='Форма заполнена. Сейчас заявка не отправляется автоматически — направьте материалы на sale@ooopdp.ru.';
+ });
 })();

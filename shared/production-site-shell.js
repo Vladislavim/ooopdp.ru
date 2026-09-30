@@ -1,5 +1,5 @@
 (() => {
-  const CACHE_VERSION = '20260928-contact-copy-v12';
+  const CACHE_VERSION = '20260930-address-contrast-v8';
   'use strict';
 
   const pageCleanupTasks = [];

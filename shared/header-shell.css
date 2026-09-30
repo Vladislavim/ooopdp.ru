@@ -1,4 +1,46 @@
 /* One canonical desktop header for the main page and every inner page. */
+.top > .header-address{display:none}
+@media(min-width:1440px){
+  .top > .header-address{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    width:auto;
+    height:36px;
+    padding-inline:12px;
+    align-self:center;
+    border:0;
+    border-right:0;
+    color:#777973;
+    font:400 12px/1.25 "Golos Text",Arial,sans-serif;
+    white-space:nowrap;
+  }
+  .top > .header-address::after{
+    content:"";
+    position:absolute;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
+    width:1px;
+    height:25px;
+    background:#d8d6cf;
+  }
+  body:not(.production-page) .top > .header-address::after{background:rgba(255,255,255,.22)}
+  body:not(.production-page) .top > .header-address{color:rgba(255,255,255,.7)}
+  body.production-page .top > .header-address{
+    color:#5d605a;
+    font-weight:520;
+  }
+  .header-address__pin{
+    width:18px;
+    height:18px;
+    flex:0 0 18px;
+    background:#f45116;
+    mask:url("../assets/icons8/contact-marker.png") center/contain no-repeat;
+    -webkit-mask:url("../assets/icons8/contact-marker.png") center/contain no-repeat;
+  }
+}
 .top{
   height:84px;
   display:grid;
@@ -113,9 +155,74 @@
 }
 .top .top-cta:hover,
 .top .top-cta:focus-visible{background:#d9400c;color:#fff}
-@media (max-width:1199px) and (min-width:701px){
-  .top .brand{padding-inline:42px}
+@media(min-width:701px){
+  header.top{grid-template-columns:220px minmax(340px,1fr) 232px 224px}
+  .top > .brand{grid-column:1;grid-row:1;padding-inline:28px;gap:18px}
+  .top > nav.nav{grid-column:2;grid-row:1;gap:24px;border-right:1px solid #d3d1cb}
+  .top > .tel{grid-column:3;grid-row:1;background:transparent;padding-inline:20px}
+  .top > .top-cta{grid-column:4;grid-row:1;padding-inline:24px}
   .top .brand-slogan{display:none}
+}
+@media(min-width:1440px){
+  header.top{grid-template-columns:clamp(300px,22vw,420px) minmax(360px,1fr) 240px 232px 224px}
+  .top > .header-address{grid-column:3;grid-row:1}
+  .top > .tel{grid-column:4}
+  .top > .top-cta{grid-column:5}
+}
+@media(min-width:1600px){
+  .top .brand-slogan{display:block;font-size:10px;padding-left:18px}
+}
+@media(min-width:701px) and (max-width:1100px){
+  header.top{grid-template-columns:180px minmax(320px,1fr) 176px}
+  .top > .brand{padding-inline:15px}
+  .top > nav.nav{gap:16px}
+  .top > .tel{display:none}
+  .top > .top-cta{grid-column:3;padding-inline:12px}
+}
+
+/* Inner pages keep their light palette, but share the homepage header geometry. */
+@media(min-width:701px){
+  body.production-page header.top{
+    height:84px!important;
+    grid-template-columns:220px minmax(340px,1fr) 232px 224px!important;
+  }
+  body.production-page .top > .brand{
+    grid-column:1;
+    grid-row:1;
+    padding-inline:28px!important;
+    gap:18px;
+  }
+  body.production-page .top > nav.nav{
+    grid-column:2;
+    grid-row:1;
+    gap:24px!important;
+    border-right:1px solid #d3d1cb!important;
+  }
+  body.production-page .top > .tel{
+    grid-column:3;
+    grid-row:1;
+    padding-inline:20px!important;
+  }
+  body.production-page .top > .top-cta{
+    grid-column:4;
+    grid-row:1;
+    padding-inline:24px!important;
+  }
+  body.production-page .top .brand-slogan{display:none}
+}
+@media(min-width:1440px){
+  body.production-page header.top{
+    grid-template-columns:clamp(300px,22vw,420px) minmax(360px,1fr) 240px 232px 224px!important;
+  }
+  body.production-page .top > .header-address{
+    grid-column:3;
+    grid-row:1;
+  }
+  body.production-page .top > .tel{grid-column:4}
+  body.production-page .top > .top-cta{grid-column:5}
+}
+@media(min-width:1600px){
+  body.production-page .top .brand-slogan{display:block}
 }
 @media (max-width:700px){
   .top{height:56px;grid-template-columns:1fr 48px}

@@ -71,8 +71,8 @@ body.production-contacts .prod-contact-reference__hero h1 {
   max-width: 900px;
   margin: 0;
   color: var(--contacts-ink);
-  font: 800 clamp(72px, 7.25vw, 138px) / .88 'Geologica', Geologica, sans-serif;
-  letter-spacing: -.075em;
+  font: 800 clamp(48px, 5.4vw, 96px) / .94 'Geologica', Geologica, sans-serif;
+  letter-spacing: -.045em;
   text-transform: uppercase;
 }
 
@@ -251,10 +251,10 @@ body.production-contacts .prod-contact-reference__map-wrap .prod-contact-map {
   position: relative;
   height: clamp(425px, 32vw, 520px);
   overflow: hidden;
-  border: 1px solid var(--contacts-line);
+  border: 0;
   border-radius: 0;
   background: #e9e7e0;
-  box-shadow: none;
+  box-shadow: 0 12px 26px rgba(17, 19, 16, .12), 0 38px 68px -38px rgba(17, 19, 16, .52);
   isolation: isolate;
 }
 
@@ -297,32 +297,82 @@ body.production-contacts .prod-contact-reference__request-art {
 }
 
 body.production-contacts .prod-contact-reference__steps {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(40px, 10vw) minmax(0, 1fr) minmax(40px, 10vw) minmax(0, 1fr);
-  align-items: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 32px;
   min-height: 170px;
   padding: 35px 0 37px;
 }
 
 body.production-contacts .prod-contact-reference__steps > div {
-  display: grid;
-  grid-template-columns: 54px minmax(0, 1fr);
-  grid-template-rows: auto auto;
-  column-gap: 15px;
-  align-items: start;
   min-width: 0;
 }
 
+body.production-contacts .prod-contact-reference__step-track {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 body.production-contacts .prod-contact-reference__steps b {
-  grid-row: 1 / 3;
-  color: var(--contacts-orange);
-  font: 800 40px / .95 'Geologica', Geologica, sans-serif;
+  color: var(--contacts-muted);
+  font: 800 34px / .95 'Geologica', Geologica, sans-serif;
   letter-spacing: -.065em;
+  transition: color .2s ease;
+}
+
+body.production-contacts .prod-contact-reference__step-track > i,
+body.production-contacts .prod-contact-reference__runner {
+  display: block;
+  flex: 0 0 11px;
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--contacts-line);
+  border-radius: 50%;
+  background: var(--contacts-paper);
+  transition: border-color .2s ease;
+}
+
+body.production-contacts .prod-contact-reference__step-track > em {
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--contacts-line);
+}
+
+body.production-contacts .prod-contact-reference__steps > div:last-of-type .prod-contact-reference__step-track > em::after {
+  content: '›';
+  float: right;
+  margin-top: -14px;
+  color: var(--contacts-muted);
+  font: 300 28px/1 'Golos Text', Golos, sans-serif;
+}
+
+body.production-contacts .prod-contact-reference__steps > div.is-active b {
+  color: var(--contacts-orange);
+}
+
+body.production-contacts .prod-contact-reference__steps > div.is-active .prod-contact-reference__step-track > i {
+  border-color: var(--contacts-orange);
+}
+
+body.production-contacts .prod-contact-reference__runner {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  border: 0;
+  background: var(--contacts-orange);
+  box-shadow: 0 0 0 3px var(--contacts-paper);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  pointer-events: none;
 }
 
 body.production-contacts .prod-contact-reference__steps span {
   display: block;
-  margin: 1px 0 6px;
+  margin: 20px 0 7px;
   color: var(--contacts-ink);
   font: 800 16px / 1 'Geologica', Geologica, sans-serif;
   letter-spacing: -.035em;
@@ -333,22 +383,6 @@ body.production-contacts .prod-contact-reference__steps small {
   display: block;
   color: var(--contacts-muted);
   font: 400 13px / 1.34 'Golos Text', Golos, sans-serif;
-}
-
-body.production-contacts .prod-contact-reference__steps i {
-  display: block;
-  width: calc(100% - clamp(48px, 4vw, 80px));
-  height: 1px;
-  margin: 0 auto;
-  justify-self: center;
-  background: var(--contacts-orange);
-}
-
-@media (min-width: 701px) {
-  body.production-contacts .prod-contact-reference__steps b,
-  body.production-contacts .prod-contact-reference__steps i {
-    align-self: center;
-  }
 }
 
 /* The CTA is the existing inner-shell component; only its contacts-page
@@ -563,22 +597,42 @@ body.production-contacts .shared-contact-form-section > .contact-form {
   }
 
   body.production-contacts .prod-contact-reference__steps > div {
-    grid-template-columns: 50px minmax(0, 1fr);
-    min-height: 80px;
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    min-height: 104px;
   }
 
   body.production-contacts .prod-contact-reference__steps b {
-    font-size: 34px;
+    font-size: 28px;
   }
 
   body.production-contacts .prod-contact-reference__steps span {
+    grid-column: 2;
+    margin: 0 0 6px;
     font-size: 15px;
   }
 
-  body.production-contacts .prod-contact-reference__steps i {
+  body.production-contacts .prod-contact-reference__steps small {
+    grid-column: 2;
+  }
+
+  body.production-contacts .prod-contact-reference__step-track {
+    grid-row: 1 / 3;
+    align-self: stretch;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  body.production-contacts .prod-contact-reference__step-track > em {
     width: 1px;
-    height: 24px;
-    margin: 0 0 0 24px;
+    min-height: 38px;
+  }
+
+  body.production-contacts .prod-contact-reference__steps > div:last-of-type .prod-contact-reference__step-track > em::after {
+    float: none;
+    display: block;
+    margin: 0 0 0 -5px;
+    transform: rotate(90deg);
   }
 
   body.production-contacts .shared-contact-form-section {

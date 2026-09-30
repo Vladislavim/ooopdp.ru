@@ -6,152 +6,155 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const interactionController = new AbortController();
+  const serviceCards = [...document.querySelectorAll('.svc-service-card')];
+
+  const rememberServiceCard = (card) => {
+    serviceCards.forEach((item) => item.classList.toggle('is-active', item === card));
+  };
+
+  if (serviceCards.length) {
+    const initialCard = serviceCards.find((card) => card.classList.contains('is-active')) || serviceCards[0];
+    rememberServiceCard(initialCard);
+    serviceCards.forEach((card) => {
+      card.addEventListener('pointerenter', () => rememberServiceCard(card), { signal: interactionController.signal });
+      card.addEventListener('focusin', () => rememberServiceCard(card), { signal: interactionController.signal });
+    });
+  }
 
   const projectsData = [
     {
       id: 'red-october',
+      tab: 'Красный Октябрь',
       eyebrow: 'Красный Октябрь · проектирование',
       title: '<span>Проект модернизации</span><br><span>травильного отделения</span>',
-      client: '<img src="../assets/logos/krasny-oktyabr.svg" alt="Красный Октябрь" width="148" height="42" loading="lazy">',
-      desc: 'Разработка проекта модернизации травильного отделения листопрокатного цеха АО «Корпорация Красный Октябрь».',
-      metrics: [
-        { val: '2023', label: 'Год выпуска' },
-        { val: 'АС', label: 'Раздел чертежей' },
-        { val: '05', label: 'Материалов объекта' },
-        { val: '100%', label: 'Согласование' }
+      role: 'Проектирование<br>и сопровождение<br>реализации',
+      outputs: [
+        'Технологические решения',
+        'Рабочая документация',
+        'Увязка инженерных систем',
+        '3D-модель и визуализация'
       ],
+      services: ['Проектирование', 'Инженерные системы', 'Модернизация производства'],
       caseUrl: '05-project-red-october.html',
-      docUrl: '../assets/documents/red-october-11-2023-as.pdf',
-      docText: 'Документация 11-2023-АС (PDF)',
-      imageSrc: '../assets/inner-optimized/industrial-pickling-01.webp',
-      imageAlt: 'Проект модернизации травильного отделения Красный Октябрь',
-      caption: 'ПРОЕКТНЫЕ МАТЕРИАЛЫ'
+      images: [
+        { src: '../assets/industrial-pickling-01.png', alt: 'Объёмная 3D-модель травильного отделения', fit: 'contain' },
+        { src: '../assets/industrial-pickling-02.png', alt: 'Увязка инженерных систем травильного отделения', fit: 'contain' },
+        { src: '../assets/archive-optimized/PDP-OBJ-006.jpg', alt: 'Исходное состояние производственного цеха', fit: 'cover' },
+        { src: '../assets/cases/red-october.jpg', alt: 'Промышленный объект Красный Октябрь', fit: 'cover' },
+        { src: '../assets/cases/red-october-render-user.jpg', alt: 'Проектное решение Красного Октября', fit: 'contain' }
+      ]
     },
     {
       id: 'severstal',
-      eyebrow: 'Северсталь · инженерия и производство',
+      tab: 'Северсталь',
+      eyebrow: 'Северсталь · промышленное производство',
       title: '<span>Инженерные решения</span><br><span>для производства</span>',
-      client: '<div class="svc-project__client-severstal"><img src="../assets/logos/severstal.svg" width="34" height="34" alt=""><span>Северсталь</span></div>',
-      desc: 'Комплексная работа с промышленной инфраструктурой и инженерными системами действующего металлургического объекта.',
-      metrics: [
-        { val: '2024', label: 'Год реализации' },
-        { val: 'ЭС', label: 'Инженерные сети' },
-        { val: '02', label: 'Производственных цеха' },
-        { val: '100%', label: 'Безопасность систем' }
+      role: 'Инженерные решения<br>для действующего<br>производства',
+      outputs: [
+        'Решения для промышленной инфраструктуры',
+        'Увязка инженерных систем',
+        'Материалы по действующему объекту',
+        'Реализованное решение'
       ],
+      services: ['Проектирование', 'Инженерные системы', 'Модернизация производства'],
       caseUrl: 'project-severstal.html',
-      docUrl: 'project-severstal.html',
-      docText: 'Материалы объекта (ПАО Северсталь)',
-      imageSrc: '../assets/cases/severstal-after.webp',
-      imageAlt: 'Инженерные решения для производства Северсталь',
-      caption: 'ДЕЙСТВУЮЩИЙ ОБЪЕКТ'
+      images: [
+        { src: '../assets/cases/severstal-after.webp', alt: 'Реализованное инженерное решение Северстали', fit: 'contain' },
+        { src: '../assets/archive-optimized/PDP-OBJ-004.jpg', alt: 'Исходное состояние производственного объекта Северстали', fit: 'cover' }
+      ]
     },
     {
       id: 'eurochem',
-      eyebrow: 'ЕвроХим · промышленный комплекс',
+      tab: 'ЕвроХим',
+      eyebrow: 'ЕвроХим-Волгакалий · проектирование',
       title: '<span>Дизайн-проект</span><br><span>офисных помещений</span>',
-      client: '<img src="../assets/logos/eurochem.svg" alt="ЕвроХим" width="156" height="32" loading="lazy">',
-      desc: 'Дизайн-проект офисных помещений и рабочая документация для действующего горно-обогатительного предприятия.',
-      metrics: [
-        { val: '2024', label: 'Год проекта' },
-        { val: 'ЭОМ', label: 'Интерьеры и сети' },
-        { val: '10.7 МБ', label: 'Рабочий проект' },
-        { val: '4 этаж', label: 'Площадь комплекса' }
+      role: 'Дизайн-проект<br>и рабочая<br>документация',
+      outputs: [
+        'Планировочные решения',
+        'Дизайн-проект помещений',
+        'Рабочая документация',
+        'Материалы для реализации'
       ],
+      services: ['Проектирование', 'Инженерные системы', 'Ремонтные работы'],
       caseUrl: 'project-eurochem.html',
-      docUrl: '../assets/documents/eurochem-office-design.pdf',
-      docText: 'Дизайн-проект (PDF 10.7 МБ)',
-      imageSrc: '../assets/inner-optimized/cases-eurochem-office.webp',
-      imageAlt: 'Офисные помещения ЕвроХим',
-      caption: 'ДИЗАЙН-ПРОЕКТ'
+      images: [
+        { src: '../assets/cases/eurochem-office.jpg', alt: 'Офисные помещения ЕвроХим-Волгакалий', fit: 'contain' },
+        { src: '../assets/documents/eurochem-office-design-preview.jpg', alt: 'Титульный лист дизайн-проекта офисных помещений', fit: 'contain' }
+      ]
     },
     {
       id: 'polyclinic',
-      eyebrow: 'Поликлиника №31 · общественный объект',
+      tab: 'Поликлиника №31',
+      eyebrow: 'Поликлиника №31 · проектирование',
       title: '<span>Проектная документация</span><br><span>реконструкции</span>',
-      client: '<div class="svc-project__client-polyclinic"><span class="svc-project__client-badge-icon">№31</span><span>Клиническая поликлиника</span></div>',
-      desc: 'Разработка проектной и рабочей документации, архитектурные решения раздела АР1 для городской клинической поликлиники.',
-      metrics: [
-        { val: '2023', label: 'Год выпуска' },
-        { val: 'АР1', label: 'Раздел проекта' },
-        { val: '04', label: 'Фасадных решения' },
-        { val: '14.1 МБ', label: 'Объем документации' }
+      role: 'Проектная и рабочая<br>документация<br>раздела АР1',
+      outputs: [
+        'Архитектурные решения',
+        'Проектная документация',
+        'Рабочая документация',
+        'Решения по фасадам'
       ],
+      services: ['Проектирование', 'Инженерные системы', 'Реконструкция объекта'],
       caseUrl: 'project-polyclinic-31.html',
-      docUrl: '../assets/documents/polyclinic-31-ar.pdf',
-      docText: 'Документация АР1 (PDF 14.1 МБ)',
-      imageSrc: '../assets/inner-optimized/cases-polyclinic-render-front.webp',
-      imageAlt: 'Городская поликлиника №31 проектная документация',
-      caption: 'РЕКОНСТРУКЦИЯ ОБЪЕКТА'
+      images: [
+        { src: '../assets/cases/polyclinic-render-front.jpg', alt: 'Проектное решение поликлиники №31 — главный фасад', fit: 'contain' },
+        { src: '../assets/cases/polyclinic-render-side.jpg', alt: 'Проектное решение поликлиники №31 — боковой фасад', fit: 'contain' },
+        { src: '../assets/cases/polyclinic-old-front.jpg', alt: 'Исходное состояние поликлиники №31 — главный фасад', fit: 'contain' },
+        { src: '../assets/cases/polyclinic-old-side.jpg', alt: 'Исходное состояние поликлиники №31 — боковой фасад', fit: 'contain' }
+      ]
     }
   ];
 
   const projectImage = document.querySelector('[data-project-image]');
-  const projectSlides = [...document.querySelectorAll('[data-project-slide]')];
+  const projectThumbs = document.querySelector('[data-project-thumbs]');
   const projectPrev = document.querySelector('[data-project-prev]');
   const projectNext = document.querySelector('[data-project-next]');
+  const projectSelectors = [...document.querySelectorAll('[data-project-select]')];
   const copyEl = document.querySelector('.svc-project__copy');
-  const introInner = document.querySelector('.svc-project .svc-section-intro > div');
   const eyebrowEl = document.querySelector('[data-project-eyebrow]');
   const titleEl = document.querySelector('[data-project-title]');
-  const clientEl = document.querySelector('[data-project-client]');
-  const descEl = document.querySelector('[data-project-desc]');
-  const metricsEl = document.querySelector('[data-project-metrics]');
+  const roleEl = document.querySelector('[data-project-role]');
+  const outputsEl = document.querySelector('[data-project-outputs]');
+  const servicesEl = document.querySelector('[data-project-services]');
   const caseBtnEl = document.querySelector('[data-project-case-btn]');
-  const docLinkEl = document.querySelector('[data-project-doc-link]');
-  const docTextEl = document.querySelector('[data-project-doc-text]');
-  const captionEl = document.querySelector('[data-project-caption]');
 
+  let activeCaseIndex = 0;
   let projectIndex = 0;
   let projectAnimation = null;
   let isTransitioning = false;
 
-  const renderProject = (nextIndex) => {
-    if (!projectImage || !projectSlides.length || isTransitioning) return;
-    const targetIndex = (nextIndex + projectsData.length) % projectsData.length;
-    if (targetIndex === projectIndex && projectAnimation) return;
+  const getSlides = () => [...document.querySelectorAll('[data-project-slide]')];
+
+  const renderProjectImage = (nextIndex, animate = true) => {
+    const slides = getSlides();
+    const images = projectsData[activeCaseIndex]?.images || [];
+    if (!projectImage || !slides.length || !images.length || isTransitioning) return;
+    const targetIndex = (nextIndex + images.length) % images.length;
 
     projectIndex = targetIndex;
     isTransitioning = true;
 
-    projectSlides.forEach((slide, index) => {
+    slides.forEach((slide, index) => {
       const active = index === projectIndex;
       slide.classList.toggle('is-active', active);
       slide.setAttribute('aria-selected', String(active));
     });
 
-    const item = projectsData[projectIndex];
+    const item = images[projectIndex];
 
     const updateDOM = () => {
-      if (eyebrowEl) eyebrowEl.textContent = item.eyebrow;
-      if (titleEl) titleEl.innerHTML = item.title;
-      if (clientEl) clientEl.innerHTML = item.client;
-      if (descEl) descEl.textContent = item.desc;
-      if (metricsEl) {
-        metricsEl.innerHTML = item.metrics.map(m => `
-          <div>
-            <strong>${m.val}</strong>
-            <span>${m.label}</span>
-          </div>
-        `).join('');
-      }
-      if (caseBtnEl) caseBtnEl.href = item.caseUrl;
-      if (docLinkEl) docLinkEl.href = item.docUrl;
-      if (docTextEl) docTextEl.textContent = item.docText;
-      if (captionEl) captionEl.textContent = item.caption;
-
-      projectImage.src = item.imageSrc;
-      projectImage.alt = item.imageAlt;
+      projectImage.src = item.src;
+      projectImage.alt = item.alt;
+      projectImage.dataset.fit = item.fit || 'cover';
     };
 
-    if (reduceMotion || !projectImage.animate) {
+    if (!animate || reduceMotion || !projectImage.animate) {
       updateDOM();
       isTransitioning = false;
       return;
     }
 
     copyEl?.classList.add('is-transitioning');
-    introInner?.classList.add('is-transitioning');
 
     if (projectAnimation) projectAnimation.cancel();
     projectAnimation = projectImage.animate(
@@ -162,7 +165,6 @@
     setTimeout(() => {
       updateDOM();
       copyEl?.classList.remove('is-transitioning');
-      introInner?.classList.remove('is-transitioning');
 
       projectAnimation = projectImage.animate(
         [{ opacity: 0.15, transform: 'scale(1.02)' }, { opacity: 1, transform: 'scale(1)' }],
@@ -176,16 +178,53 @@
     }, 150);
   };
 
-  projectSlides.forEach((slide, index) => {
-    const options = { signal: interactionController.signal };
-    slide.addEventListener('click', () => renderProject(index), options);
-    slide.addEventListener('keydown', (event) => {
-      if (event.key === 'ArrowRight') renderProject(projectIndex + 1);
-      if (event.key === 'ArrowLeft') renderProject(projectIndex - 1);
-    }, options);
-  });
-  projectPrev?.addEventListener('click', () => renderProject(projectIndex - 1), { signal: interactionController.signal });
-  projectNext?.addEventListener('click', () => renderProject(projectIndex + 1), { signal: interactionController.signal });
+  const buildThumbs = (project) => {
+    if (!projectThumbs) return;
+    projectThumbs.style.setProperty('--thumb-count', String(Math.min(project.images.length, 5)));
+    const arrows = projectThumbs.querySelector('.svc-project__arrows');
+    projectThumbs.querySelectorAll('[data-project-slide]').forEach((slide) => slide.remove());
+    project.images.forEach((image, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.setAttribute('role', 'tab');
+      button.setAttribute('aria-label', `Показать: ${image.alt}`);
+      button.setAttribute('aria-selected', String(index === 0));
+      button.dataset.projectSlide = '';
+      if (index === 0) button.classList.add('is-active');
+      button.innerHTML = `<img src="${image.src}" alt="" width="240" height="140" loading="lazy">`;
+      button.addEventListener('click', () => renderProjectImage(index), { signal: interactionController.signal });
+      button.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowRight') renderProjectImage(projectIndex + 1);
+        if (event.key === 'ArrowLeft') renderProjectImage(projectIndex - 1);
+      }, { signal: interactionController.signal });
+      projectThumbs.insertBefore(button, arrows);
+    });
+  };
+
+  const renderCase = (nextCaseIndex) => {
+    activeCaseIndex = (nextCaseIndex + projectsData.length) % projectsData.length;
+    const project = projectsData[activeCaseIndex];
+    projectSelectors.forEach((selector, index) => {
+      const active = index === activeCaseIndex;
+      selector.classList.toggle('is-active', active);
+      selector.setAttribute('aria-selected', String(active));
+    });
+    if (eyebrowEl) eyebrowEl.textContent = project.eyebrow;
+    if (titleEl) titleEl.innerHTML = project.title;
+    if (roleEl) roleEl.innerHTML = project.role;
+    if (outputsEl) outputsEl.innerHTML = project.outputs.map((output, index) => `<li><b>${String(index + 1).padStart(2, '0')}</b><span>${output}</span></li>`).join('');
+    if (servicesEl) servicesEl.innerHTML = project.services.map((service) => `<span>${service}</span>`).join('');
+    if (caseBtnEl) caseBtnEl.href = project.caseUrl;
+    buildThumbs(project);
+    projectIndex = 0;
+    isTransitioning = false;
+    renderProjectImage(0, false);
+  };
+
+  projectSelectors.forEach((selector, index) => selector.addEventListener('click', () => renderCase(index), { signal: interactionController.signal }));
+  projectPrev?.addEventListener('click', () => renderProjectImage(projectIndex - 1), { signal: interactionController.signal });
+  projectNext?.addEventListener('click', () => renderProjectImage(projectIndex + 1), { signal: interactionController.signal });
+  renderCase(0);
 
   // Parallax motion for hero pattern and grid logo
   const heroSection = document.querySelector('.svc-hero');
@@ -246,9 +285,100 @@
     requestParallax();
   }
 
+  const briefProgress = document.querySelector('[data-brief-progress]');
+  const briefRunner = briefProgress?.querySelector('[data-brief-runner]');
+  const briefSteps = briefProgress ? [...briefProgress.querySelectorAll('[data-brief-step]')] : [];
+  const briefNodes = briefProgress ? [...briefProgress.querySelectorAll('[data-brief-node]')] : [];
+
+  if (briefProgress && briefRunner && briefSteps.length === 3 && briefNodes.length === 3) {
+    let briefCycleToken = 0;
+    let briefVisible = false;
+    let briefAnimation = null;
+
+    const wait = (duration) => new Promise((resolve) => window.setTimeout(resolve, duration));
+    const setBriefStage = (stage) => {
+      briefSteps.forEach((step, index) => step.classList.toggle('is-active', index <= stage));
+    };
+    const nodeTransform = (index) => {
+      const listRect = briefProgress.getBoundingClientRect();
+      const nodeRect = briefNodes[index].getBoundingClientRect();
+      const runnerHalf = briefRunner.offsetWidth / 2;
+      return `translate3d(${nodeRect.left + nodeRect.width / 2 - listRect.left - runnerHalf}px, ${nodeRect.top + nodeRect.height / 2 - listRect.top - runnerHalf}px, 0)`;
+    };
+    const placeRunner = (index) => {
+      briefRunner.style.transform = nodeTransform(index);
+    };
+    const moveRunner = async (from, to, token) => {
+      briefAnimation?.cancel();
+      briefAnimation = briefRunner.animate(
+        [{ transform: nodeTransform(from) }, { transform: nodeTransform(to) }],
+        { duration: 1500, easing: 'cubic-bezier(0.77, 0, 0.175, 1)', fill: 'forwards' }
+      );
+      try { await briefAnimation.finished; } catch (error) { return false; }
+      if (token !== briefCycleToken || !briefVisible) return false;
+      briefRunner.style.transform = nodeTransform(to);
+      briefAnimation.cancel();
+      briefAnimation = null;
+      return true;
+    };
+    const runBriefCycle = async (token) => {
+      setBriefStage(0);
+      placeRunner(0);
+      await wait(350);
+      if (token !== briefCycleToken || !briefVisible) return;
+      if (!await moveRunner(0, 1, token)) return;
+      setBriefStage(1);
+      await wait(400);
+      if (token !== briefCycleToken || !briefVisible) return;
+      if (!await moveRunner(1, 2, token)) return;
+      setBriefStage(2);
+      await wait(700);
+      if (token !== briefCycleToken || !briefVisible) return;
+      runBriefCycle(token);
+    };
+    const startBriefCycle = () => {
+      briefCycleToken += 1;
+      briefAnimation?.cancel();
+      briefAnimation = null;
+      setBriefStage(0);
+      placeRunner(0);
+      if (!reduceMotion && briefVisible) runBriefCycle(briefCycleToken);
+    };
+
+    const briefObserver = new IntersectionObserver(([entry]) => {
+      briefVisible = entry.isIntersecting;
+      if (briefVisible) startBriefCycle();
+      else {
+        briefCycleToken += 1;
+        briefAnimation?.cancel();
+        briefAnimation = null;
+      }
+    }, { threshold: 0.2 });
+    briefObserver.observe(briefProgress);
+    window.addEventListener('resize', startBriefCycle, { passive: true, signal: interactionController.signal });
+    interactionController.signal.addEventListener('abort', () => {
+      briefCycleToken += 1;
+      briefAnimation?.cancel();
+      briefObserver.disconnect();
+    }, { once: true });
+    setBriefStage(0);
+    placeRunner(0);
+  }
+
   window.addEventListener('pagehide', (event) => {
     if (event.persisted) return;
     interactionController.abort();
     projectAnimation?.cancel();
+  });
+})();
+
+(() => {
+  const form = document.querySelector('[data-service-request-form]');
+  if (!form) return;
+  const status = form.querySelector('[data-service-request-status]');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    status.textContent = 'Форма заполнена. Сейчас заявка не отправляется автоматически — направьте материалы на sale@ooopdp.ru.';
   });
 })();

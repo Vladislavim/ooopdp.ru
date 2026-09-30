@@ -1,12 +1,16 @@
 /* Service-page-only hover state, matching the PDP orange interaction language. */
 
 body.production-services .svc-service-card {
+  background: #fff !important;
+  box-shadow: 0 2px 4px rgba(17, 19, 16, .05), 0 10px 22px -8px rgba(17, 19, 16, .18) !important;
   transition: background-color var(--pdp-motion-ui, 280ms) var(--pdp-motion-ease, cubic-bezier(.22, .72, .18, 1)),
+    box-shadow var(--pdp-motion-ui, 280ms) ease-out,
     border-color var(--pdp-motion-ui, 280ms) var(--pdp-motion-ease, cubic-bezier(.22, .72, .18, 1)),
     color var(--pdp-motion-ui, 280ms) var(--pdp-motion-ease, cubic-bezier(.22, .72, .18, 1));
 }
 
 body.production-services .svc-service-card:focus-within {
+  box-shadow: 0 4px 8px rgba(17, 19, 16, .08), 0 16px 28px -8px rgba(17, 19, 16, .24) !important;
   background: var(--svc-orange, #f45116) !important;
   border-color: var(--svc-orange, #f45116) !important;
   color: #fff;
@@ -81,7 +85,28 @@ body.production-services .svc-industry-card:focus-visible::after {
 }
 
 @media (hover: hover) and (pointer: fine) {
+  /* Keep the lead service active until the user deliberately explores another card. */
+  body.production-services .svc-service-grid:not(:has(.svc-service-card:hover)):not(:has(.svc-service-card:focus-within))
+    > .svc-service-card.is-active {
+    box-shadow: 0 4px 8px rgba(17, 19, 16, .08), 0 16px 28px -8px rgba(17, 19, 16, .24) !important;
+    background: var(--svc-orange, #f45116) !important;
+    border-color: var(--svc-orange, #f45116) !important;
+    color: #fff;
+    transform: none !important;
+  }
+
+  body.production-services .svc-service-grid:not(:has(.svc-service-card:hover)):not(:has(.svc-service-card:focus-within))
+    > .svc-service-card.is-active :where(.svc-service-card__head > span, h3, p, .svc-card-action, .svc-card-action span) {
+    color: #fff;
+  }
+
+  body.production-services .svc-service-grid:not(:has(.svc-service-card:hover)):not(:has(.svc-service-card:focus-within))
+    > .svc-service-card.is-active .svc-service-card__head img {
+    filter: brightness(0) invert(1) !important;
+  }
+
   body.production-services .svc-service-card:hover {
+    box-shadow: 0 4px 8px rgba(17, 19, 16, .08), 0 16px 28px -8px rgba(17, 19, 16, .24) !important;
     background: var(--svc-orange, #f45116) !important;
     border-color: var(--svc-orange, #f45116) !important;
     color: #fff;
@@ -124,7 +149,7 @@ body.production-services .svc-industry-card:focus-visible::after {
 @media (hover: none), (pointer: coarse) {
   body.production-services .svc-service-card:hover:not(:focus-within) {
     border-color: var(--svc-line) !important;
-    background: rgba(255, 255, 255, .22) !important;
+    background: #fff !important;
     color: var(--svc-ink);
   }
 

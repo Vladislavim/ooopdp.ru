@@ -18,11 +18,11 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../shared/production-inner-shell-parity.css?v=20260912-inner-gap-v1">
-<link rel="stylesheet" href="../shared/production-services-page.css?v=20260914-services-container-align-v2">
+<link rel="stylesheet" href="../shared/production-services-page.css?v=20260930-form-depth-v10">
 <link rel="stylesheet" href="../shared/production-inner-v28-polish.css?v=20260911-cache-v10">
 <link rel="stylesheet" href="../shared/production-inner-v30-consistency.css?v=20260911-cache-v10">
 <link rel="stylesheet" href="../shared/production-inner-motion-a.css?v=20260911-cache-v10">
-<link rel="stylesheet" href="../shared/production-services-hover-polish.css?v=20260911-cache-v10">
+<link rel="stylesheet" href="../shared/production-services-hover-polish.css?v=20260930-sticky-service-v3">
 <link rel="stylesheet" href="../shared/production-inner-shell-parity.css?v=20260923-site-frame-v2">
 <script type="application/ld+json">
 {
@@ -95,6 +95,7 @@
 <body class="production-page production-services" data-page="Услуги">
   
 <header class="top">
+  <div class="header-address"><span class="header-address__pin" aria-hidden="true"></span><span>Волгоград,<br>ул. Баррикадная, д. 1К, 4 этаж</span></div>
   <a class="brand" href="../index.html" aria-label="ПДП — Поволжское деловое партнёрство. Архитектура возможностей"><img class="brand-logo" src="../assets/pdp-official-logo.svg" width="150" height="50" alt="ПДП — Поволжское деловое партнёрство"><span class="brand-slogan">Архитектура<br>возможностей</span></a>
 <nav class="nav" aria-label="Основная навигация"><a class=""  href="../index.html">Главная</a><a class="active" aria-current="page" href="02-services.html">Услуги</a><a class=""  href="06-completed-works.html">Кейсы</a><a class=""  href="10-contacts.html">Контакты</a><a class=""  href="07-news-articles.html">Статьи</a></nav>
   <a class="tel" href="tel:+78442564554" aria-label="Позвонить: 8 8442 56-45-54"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a>
@@ -122,7 +123,7 @@
     <section class="svc-services" id="services" aria-label="Услуги">
       <div class="svc-container">
         <div class="svc-service-grid">
-          <article class="svc-service-card" data-reveal>
+          <article class="svc-service-card is-active" data-reveal>
             <div class="svc-service-card__head"><span>01</span><img src="../assets/icons8/service-workflow.png" alt="" width="48" height="48"></div>
             <h3>Технический заказчик</h3><p>Координируем проектировщиков и подрядчиков, контролируем решения, сроки и документы.</p>
             <a class="svc-card-action" href="service-technical-customer.html">Подробнее <span aria-hidden="true">→</span></a>
@@ -167,6 +168,54 @@
     </section>
 
 
+    <section class="svc-project" aria-labelledby="svc-project-title">
+      <img class="svc-project__wireframe" src="../assets/drawings/03-steel-skeleton-mezzanine.png" alt="" aria-hidden="true" loading="lazy">
+      <div class="svc-container">
+        <header class="svc-project__header" data-reveal>
+          <p class="svc-eyebrow" data-project-eyebrow>Красный Октябрь · проектирование</p>
+          <h2 id="svc-project-title" data-project-title><span>Проект модернизации</span><br><span>травильного отделения</span></h2>
+          <p class="svc-project__subtitle">Выше — компетенции ПДП. Здесь — что именно они дали на реальном объекте.</p>
+        </header>
+        <div class="svc-project__case-tabs" role="tablist" aria-label="Выбрать проект" data-reveal>
+          <button class="is-active" type="button" role="tab" aria-selected="true" data-project-select="0"><b>01</b><span>Красный Октябрь</span></button>
+          <button type="button" role="tab" aria-selected="false" data-project-select="1"><b>02</b><span>Северсталь</span></button>
+          <button type="button" role="tab" aria-selected="false" data-project-select="2"><b>03</b><span>ЕвроХим</span></button>
+          <button type="button" role="tab" aria-selected="false" data-project-select="3"><b>04</b><span>Поликлиника №31</span></button>
+        </div>
+        <div class="svc-project__layout" data-reveal>
+          <div class="svc-project__copy">
+            <div class="svc-project__role"><span>Роль ПДП</span><strong data-project-role>Проектирование<br>и сопровождение<br>реализации</strong></div>
+            <div class="svc-project__outputs">
+              <span class="svc-project__label">На выходе</span>
+              <ol data-project-outputs>
+                <li><b>01</b><span>Технологические решения</span></li>
+                <li><b>02</b><span>Рабочая документация</span></li>
+                <li><b>03</b><span>Увязка инженерных систем</span></li>
+                <li><b>04</b><span>3D-модель и визуализация</span></li>
+              </ol>
+            </div>
+            <div class="svc-project__services">
+              <span class="svc-project__label">Связь с услугами</span>
+              <div data-project-services><span>Проектирование</span><span>Инженерные<br>системы</span><span>Модернизация<br>производства</span></div>
+            </div>
+          </div>
+          <div class="svc-project__gallery">
+            <figure class="svc-project__main-media"><img data-project-image data-fit="contain" data-keep-local src="../assets/inner-optimized/industrial-pickling-01.webp" alt="Проект модернизации травильного отделения" width="1600" height="900" loading="eager" decoding="async"></figure>
+            <div class="svc-project__thumbs" role="tablist" aria-label="Материалы проекта" data-project-thumbs>
+              <button type="button" class="is-active" role="tab" aria-label="Показать 3D-модель травильного отделения" aria-selected="true" data-project-slide data-src="../assets/inner-optimized/industrial-pickling-01.webp" data-alt="3D-модель травильного отделения"><img data-keep-local src="../assets/inner-optimized/industrial-pickling-01.webp" alt="" width="240" height="140" loading="eager"></button>
+              <button type="button" role="tab" aria-label="Показать инженерные системы объекта" aria-selected="false" data-project-slide data-src="../assets/inner-optimized/industrial-pickling-02.webp" data-alt="Инженерные системы травильного отделения"><img data-keep-local src="../assets/inner-optimized/industrial-pickling-02.webp" alt="" width="240" height="140" loading="eager"></button>
+              <button type="button" role="tab" aria-label="Показать исходное состояние цеха" aria-selected="false" data-project-slide data-src="../assets/inner-optimized/archive-PDP-OBJ-006.webp" data-alt="Исходное состояние производственного цеха"><img src="../assets/inner-optimized/archive-PDP-OBJ-006.webp" alt="" width="240" height="140" loading="eager"></button>
+              <button type="button" role="tab" aria-label="Показать промышленный объект Красный Октябрь" aria-selected="false" data-project-slide data-src="../assets/inner-optimized/cases-red-october.webp" data-alt="Промышленный объект Красный Октябрь"><img src="../assets/inner-optimized/cases-red-october.webp" alt="" width="240" height="140" loading="eager"></button>
+              <button type="button" role="tab" aria-label="Показать проектное решение Красного Октября" aria-selected="false" data-project-slide data-src="../assets/inner-optimized/cases-red-october-render-user.webp" data-alt="Проектное решение Красного Октября"><img src="../assets/inner-optimized/cases-red-october-render-user.webp" alt="" width="240" height="140" loading="eager"></button>
+              <span class="svc-project__arrows"><button type="button" data-project-prev aria-label="Предыдущее изображение">←</button><button type="button" data-project-next aria-label="Следующее изображение">→</button></span>
+            </div>
+          </div>
+          <a class="svc-project__cta" data-project-case-btn href="05-project-red-october.html">Смотреть кейс <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+
     <section class="svc-industries" aria-labelledby="svc-industries-title">
       <div class="svc-container">
         <div class="svc-section-intro svc-section-intro--dark" data-reveal>
@@ -183,84 +232,48 @@
       </div>
     </section>
 
-
-    <section class="svc-project" aria-labelledby="svc-project-title">
+    <section class="svc-brief" aria-labelledby="svc-brief-title" data-inline-request>
       <div class="svc-container">
-        <div class="svc-section-intro" data-reveal>
-          <div><p class="svc-eyebrow">Красный Октябрь · проектирование</p><h2 id="svc-project-title"><span>Проект модернизации</span><br><span>травильного отделения</span></h2></div>
+        <div class="svc-brief__head" data-reveal>
+          <h2 id="svc-brief-title">Что нужно для предложения</h2>
+          <p>На старте достаточно коротко описать задачу и передать то, что уже есть по объекту.</p>
         </div>
-        <div class="svc-project__layout" data-reveal>
-          <div class="svc-project__copy">
-            <p>Разработка проекта модернизации травильного отделения листопрокатного цеха АО «Корпорация Красный Октябрь».</p>
-            <p>В кейсе — проектные решения, визуализации оборудования и рабочая документация.</p>
-            <a class="svc-text-action svc-text-action--dark" href="05-project-red-october.html">Смотреть кейс <span aria-hidden="true">→</span></a>
-          </div>
-          <div class="svc-project__gallery">
-            <figure class="svc-project__main-media"><img data-project-image data-keep-local src="../assets/inner-optimized/industrial-pickling-01.webp" alt="Проект модернизации травильного отделения" width="1600" height="900" loading="eager" decoding="async"><figcaption>ПРОЕКТНЫЕ МАТЕРИАЛЫ</figcaption></figure>
-            <div class="svc-project__thumbs" role="tablist" aria-label="Материалы проекта">
-              <button type="button" class="is-active" role="tab" aria-label="Показать изображение 1: модернизация производственного комплекса" aria-selected="true" data-project-slide data-src="../assets/inner-optimized/industrial-pickling-01.webp" data-alt="Модернизация производственного комплекса"><img data-keep-local src="../assets/inner-optimized/industrial-pickling-01.webp" alt="" width="240" height="140" loading="eager"></button>
-              <button type="button" role="tab" aria-label="Показать изображение 2: инженерные системы производственного комплекса" aria-selected="false" data-project-slide data-src="../assets/inner-optimized/industrial-pickling-02.webp" data-alt="Инженерные системы производственного комплекса"><img data-keep-local src="../assets/inner-optimized/industrial-pickling-02.webp" alt="" width="240" height="140" loading="eager"></button>
-              <button type="button" role="tab" aria-label="Показать изображение 3: производственный объект" aria-selected="false" data-project-slide data-src="../assets/inner-optimized/archive-PDP-OBJ-006.webp" data-alt="Производственный объект"><img src="../assets/inner-optimized/archive-PDP-OBJ-006.webp" alt="" width="240" height="140" loading="eager"></button>
-              <button type="button" role="tab" aria-label="Показать изображение 4: промышленный объект Красный Октябрь" aria-selected="false" data-project-slide data-src="../assets/inner-optimized/cases-red-october.webp" data-alt="Промышленный объект Красный Октябрь"><img src="../assets/inner-optimized/cases-red-october.webp" alt="" width="240" height="140" loading="eager"></button>
-              <span class="svc-project__arrows"><button type="button" data-project-prev aria-label="Предыдущее изображение">←</button><button type="button" data-project-next aria-label="Следующее изображение">→</button></span>
-            </div>
-          </div>
-        </div>
+        <dl class="svc-brief__list" data-brief-progress data-reveal>
+          <span class="svc-brief__runner" data-brief-runner aria-hidden="true"></span>
+          <div class="is-active" data-brief-step><dt>01 <i class="svc-brief__node" data-brief-node aria-hidden="true"></i></dt><dd><strong>Задача</strong><span>Что требуется обследовать, спроектировать, построить или модернизировать.</span></dd></div>
+          <div data-brief-step><dt>02 <i class="svc-brief__node" data-brief-node aria-hidden="true"></i></dt><dd><strong>Объект</strong><span>Назначение, расположение и текущий статус объекта.</span></dd></div>
+          <div data-brief-step><dt>03 <i class="svc-brief__node" data-brief-node aria-hidden="true"></i></dt><dd><strong>Исходные данные</strong><span>Техническое задание, чертежи, фотографии или ссылка на материалы — если они есть.</span></dd></div>
+        </dl>
       </div>
     </section>
 
-
-    
-<link rel="stylesheet" href="../shared/lead-magnet.css?v=20260929-fit-dialog-v8">
-<section class="contact-form-section shared-contact-form-section pdp-lead" id="contacts" aria-labelledby="lead-title">
-  <div class="contact-form-intro">
-    <span class="label">Рабочий документ для заказчика</span>
-    <h2 id="lead-title">Какие документы подготовить<br><span>для обследования и проектирования</span></h2>
-    <p>Чек-лист исходных данных, ограничений на объекте и вопросов, которые стоит обсудить с подрядчиком до начала работ.</p>
-    <ul class="pdp-lead__contents">
-      <li><span>01</span> Список исходных материалов с пояснениями</li>
-      <li><span>02</span> Вопросы о составе работ и результате</li>
-      <li><span>03</span> Шаблон первого письма подрядчику</li>
-    </ul>
-    <button class="pdp-lead__download" type="button" data-lead-open aria-haspopup="dialog" aria-controls="lead-dialog">Получить чек-лист документов <span aria-hidden="true">→</span></button>
-    <div class="pdp-lead__meta">Редактируемый документ · чек-лист и шаблон письма</div>
-    <button class="pdp-lead__discuss" type="button" data-request-open aria-haspopup="dialog" aria-controls="request-dialog">Рассчитать стоимость проекта с ПДП <span aria-hidden="true">→</span></button>
-
-  </div>
-  <div class="pdp-lead__art" aria-hidden="true"></div>
-</section>
-
-<dialog class="pdp-lead-dialog" id="lead-dialog" aria-labelledby="lead-dialog-title" aria-describedby="lead-dialog-description">
-  <button type="button" class="pdp-lead-dialog__close" data-lead-close aria-label="Закрыть">×</button>
-  <span class="pdp-lead-dialog__eyebrow">Редактируемый документ для заказчика</span>
-  <h2 id="lead-dialog-title">Получите список<br>исходных документов</h2>
-  <p id="lead-dialog-description">Оставьте email, чтобы получить чек-лист, вопросы подрядчику и шаблон первого письма.</p>
-  <form class="pdp-lead-form">
-    <label for="lead-email">Ваш email</label>
-    <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="name@company.ru" maxlength="254" required>
-    <label class="pdp-lead-form__consent"><input type="checkbox" name="consent" required><span>Даю согласие на <a href="12-privacy-policy.html" target="_blank" rel="noopener">обработку персональных данных</a> для получения материала.</span></label>
-    <button type="submit" class="pdp-lead__download">Получить чек-лист документов <span aria-hidden="true">→</span></button>
-    <p class="pdp-lead-form__status" data-lead-status role="status"></p>
-  </form>
-  <div data-lead-result hidden>
-    <p>Документ готов к скачиванию.</p>
-    <a href="../assets/documents/pdp-project-preparation.docx" download="PDP-project-preparation.docx" class="pdp-lead__download">Скачать чек-лист <span aria-hidden="true">↓</span></a>
-  </div>
-</dialog>
-<dialog class="pdp-lead-dialog" id="request-dialog" aria-labelledby="request-title">
-  <button type="button" class="pdp-lead-dialog__close" data-request-close aria-label="Закрыть">×</button>
-  <span class="pdp-lead-dialog__eyebrow">Предварительный расчёт проекта</span>
-  <h2 id="request-title">Получите предварительную смету</h2>
-  <p>Оставьте имя и телефон или email. Мы свяжемся, уточним исходные данные и подготовим предварительный расчёт стоимости.</p>
-  <form class="pdp-lead-form pdp-request-form">
-    <label for="request-name">Ваше имя</label><input id="request-name" name="name" autocomplete="name" placeholder="Как к вам обращаться" required>
-    <label for="request-contact">Телефон или email</label><input id="request-contact" name="contact" required placeholder="Как с вами связаться">
-    <label class="pdp-lead-form__consent"><input name="consent" type="checkbox" required><span>Даю согласие на <a href="12-privacy-policy.html" target="_blank" rel="noopener">обработку персональных данных</a>.</span></label>
-    <button class="pdp-lead__download" type="submit">Получить предварительную смету <span aria-hidden="true">→</span></button>
-    <p class="pdp-lead-form__status" data-request-status role="status"></p>
-  </form>
-</dialog>
-<script src="../shared/lead-magnet.js" defer></script>
+    <section class="svc-request" aria-labelledby="svc-request-title">
+      <div class="svc-container svc-request__layout">
+        <div class="svc-request__copy" data-reveal>
+          <h2 id="svc-request-title">Передайте задание</h2>
+          <p>Оставьте контакт и кратко опишите задачу. Специалист ПДП уточнит исходные данные и предложит следующий шаг.</p>
+          <ul class="svc-request__prompts" aria-label="Что указать в задании">
+            <li><span><img src="../assets/icons8/task.png" alt="" aria-hidden="true"></span><div><strong>Задача</strong><p>Какую задачу нужно решить</p></div></li>
+            <li><span><img src="../assets/icons8/service-building.png" alt="" aria-hidden="true"></span><div><strong>Объект</strong><p>Тип объекта, вид работ</p></div></li>
+            <li><span><img src="../assets/icons8/document.png" alt="" aria-hidden="true"></span><div><strong>Исходные данные</strong><p>Чертежи, ТЗ, технические требования</p></div></li>
+          </ul>
+          <div class="svc-request__direct">
+            <a href="tel:+78442564554"><img src="../assets/icons8/contact-phone.png" alt="" aria-hidden="true"><span>8 (8442) 56-45-54</span></a>
+            <a href="mailto:sale@ooopdp.ru"><img src="../assets/icons8/contact-email.png" alt="" aria-hidden="true"><span>sale@ooopdp.ru</span></a>
+          </div>
+        </div>
+        <form class="svc-request__form" data-service-request-form novalidate data-reveal>
+          <label class="svc-request__field"><span>ФИО</span><input id="service-request-name" name="name" autocomplete="name" placeholder="ФИО"></label>
+          <label class="svc-request__field"><span>Компания</span><input id="service-request-company" name="company" autocomplete="organization" placeholder="Компания"></label>
+          <label class="svc-request__field"><span>Телефон</span><input id="service-request-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Телефон (обязательное поле)" required></label>
+          <label class="svc-request__field"><span>Почта</span><input id="service-request-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Почта"></label>
+          <label class="svc-request__field svc-request__field--message"><span>Комментарий</span><textarea id="service-request-task" name="task" rows="4" placeholder="Максимально удобный способ связи / комментарий для связи"></textarea></label>
+          <label class="svc-request__consent"><input name="consent" type="checkbox" required><span>Даю согласие на <a href="12-privacy-policy.html" target="_blank" rel="noopener">обработку персональных данных</a>.</span></label>
+          <button type="submit">Передать задание <span aria-hidden="true">→</span></button>
+          <p class="svc-request__status" data-service-request-status role="status"></p>
+        </form>
+      </div>
+    </section>
 
     
 <footer class="footer" id="site-footer">
@@ -273,12 +286,12 @@
 
   </main>
 
-  <script src="../shared/production-site-shell.js?v=20260912-inner-hero-rhythm-v5"></script>
+  <script src="../shared/production-site-shell.js?v=20260930-address-contrast-v8"></script>
 
 
 
 
-  <script src="../shared/production-services-page.js?v=20260911-cache-v10"></script>
+  <script src="../shared/production-services-page.js?v=20260930-sticky-service-v2"></script>
 
 
   <script src="../shared/production-inner-motion-a.js?v=20260911-cache-v10"></script>

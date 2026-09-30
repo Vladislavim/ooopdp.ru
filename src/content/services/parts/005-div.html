@@ -1,3 +1,43 @@
 
+    <section class="svc-brief" aria-labelledby="svc-brief-title" data-inline-request>
+      <div class="svc-container">
+        <div class="svc-brief__head" data-reveal>
+          <h2 id="svc-brief-title">Что нужно для предложения</h2>
+          <p>На старте достаточно коротко описать задачу и передать то, что уже есть по объекту.</p>
+        </div>
+        <dl class="svc-brief__list" data-brief-progress data-reveal>
+          <span class="svc-brief__runner" data-brief-runner aria-hidden="true"></span>
+          <div class="is-active" data-brief-step><dt>01 <i class="svc-brief__node" data-brief-node aria-hidden="true"></i></dt><dd><strong>Задача</strong><span>Что требуется обследовать, спроектировать, построить или модернизировать.</span></dd></div>
+          <div data-brief-step><dt>02 <i class="svc-brief__node" data-brief-node aria-hidden="true"></i></dt><dd><strong>Объект</strong><span>Назначение, расположение и текущий статус объекта.</span></dd></div>
+          <div data-brief-step><dt>03 <i class="svc-brief__node" data-brief-node aria-hidden="true"></i></dt><dd><strong>Исходные данные</strong><span>Техническое задание, чертежи, фотографии или ссылка на материалы — если они есть.</span></dd></div>
+        </dl>
+      </div>
+    </section>
 
-    <div data-cta data-title="Доведём ваш проект до результата"></div>
+    <section class="svc-request" aria-labelledby="svc-request-title">
+      <div class="svc-container svc-request__layout">
+        <div class="svc-request__copy" data-reveal>
+          <h2 id="svc-request-title">Передайте задание</h2>
+          <p>Оставьте контакт и кратко опишите задачу. Специалист ПДП уточнит исходные данные и предложит следующий шаг.</p>
+          <ul class="svc-request__prompts" aria-label="Что указать в задании">
+            <li><span><img src="../assets/icons8/task.png" alt="" aria-hidden="true"></span><div><strong>Задача</strong><p>Какую задачу нужно решить</p></div></li>
+            <li><span><img src="../assets/icons8/service-building.png" alt="" aria-hidden="true"></span><div><strong>Объект</strong><p>Тип объекта, вид работ</p></div></li>
+            <li><span><img src="../assets/icons8/document.png" alt="" aria-hidden="true"></span><div><strong>Исходные данные</strong><p>Чертежи, ТЗ, технические требования</p></div></li>
+          </ul>
+          <div class="svc-request__direct">
+            <a href="tel:+78442564554"><img src="../assets/icons8/contact-phone.png" alt="" aria-hidden="true"><span>8 (8442) 56-45-54</span></a>
+            <a href="mailto:sale@ooopdp.ru"><img src="../assets/icons8/contact-email.png" alt="" aria-hidden="true"><span>sale@ooopdp.ru</span></a>
+          </div>
+        </div>
+        <form class="svc-request__form" data-service-request-form novalidate data-reveal>
+          <label class="svc-request__field"><span>ФИО</span><input id="service-request-name" name="name" autocomplete="name" placeholder="ФИО"></label>
+          <label class="svc-request__field"><span>Компания</span><input id="service-request-company" name="company" autocomplete="organization" placeholder="Компания"></label>
+          <label class="svc-request__field"><span>Телефон</span><input id="service-request-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Телефон (обязательное поле)" required></label>
+          <label class="svc-request__field"><span>Почта</span><input id="service-request-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Почта"></label>
+          <label class="svc-request__field svc-request__field--message"><span>Комментарий</span><textarea id="service-request-task" name="task" rows="4" placeholder="Максимально удобный способ связи / комментарий для связи"></textarea></label>
+          <label class="svc-request__consent"><input name="consent" type="checkbox" required><span>Даю согласие на <a href="12-privacy-policy.html" target="_blank" rel="noopener">обработку персональных данных</a>.</span></label>
+          <button type="submit">Передать задание <span aria-hidden="true">→</span></button>
+          <p class="svc-request__status" data-service-request-status role="status"></p>
+        </form>
+      </div>
+    </section>

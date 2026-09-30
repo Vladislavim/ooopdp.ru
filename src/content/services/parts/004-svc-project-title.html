@@ -1,26 +1,48 @@
 
 
     <section class="svc-project" aria-labelledby="svc-project-title">
+      <img class="svc-project__wireframe" src="../assets/drawings/03-steel-skeleton-mezzanine.png" alt="" aria-hidden="true" loading="lazy">
       <div class="svc-container">
-        <div class="svc-section-intro" data-reveal>
-          <div><p class="svc-eyebrow">Красный Октябрь · проектирование</p><h2 id="svc-project-title"><span>Проект модернизации</span><br><span>травильного отделения</span></h2></div>
+        <header class="svc-project__header" data-reveal>
+          <p class="svc-eyebrow" data-project-eyebrow>Красный Октябрь · проектирование</p>
+          <h2 id="svc-project-title" data-project-title><span>Проект модернизации</span><br><span>травильного отделения</span></h2>
+          <p class="svc-project__subtitle">Выше — компетенции ПДП. Здесь — что именно они дали на реальном объекте.</p>
+        </header>
+        <div class="svc-project__case-tabs" role="tablist" aria-label="Выбрать проект" data-reveal>
+          <button class="is-active" type="button" role="tab" aria-selected="true" data-project-select="0"><b>01</b><span>Красный Октябрь</span></button>
+          <button type="button" role="tab" aria-selected="false" data-project-select="1"><b>02</b><span>Северсталь</span></button>
+          <button type="button" role="tab" aria-selected="false" data-project-select="2"><b>03</b><span>ЕвроХим</span></button>
+          <button type="button" role="tab" aria-selected="false" data-project-select="3"><b>04</b><span>Поликлиника №31</span></button>
         </div>
         <div class="svc-project__layout" data-reveal>
           <div class="svc-project__copy">
-            <p>Разработка проекта модернизации травильного отделения листопрокатного цеха АО «Корпорация Красный Октябрь».</p>
-            <p>В кейсе — проектные решения, визуализации оборудования и рабочая документация.</p>
-            <a class="svc-text-action svc-text-action--dark" href="05-project-red-october.html">Смотреть кейс <span aria-hidden="true">→</span></a>
+            <div class="svc-project__role"><span>Роль ПДП</span><strong data-project-role>Проектирование<br>и сопровождение<br>реализации</strong></div>
+            <div class="svc-project__outputs">
+              <span class="svc-project__label">На выходе</span>
+              <ol data-project-outputs>
+                <li><b>01</b><span>Технологические решения</span></li>
+                <li><b>02</b><span>Рабочая документация</span></li>
+                <li><b>03</b><span>Увязка инженерных систем</span></li>
+                <li><b>04</b><span>3D-модель и визуализация</span></li>
+              </ol>
+            </div>
+            <div class="svc-project__services">
+              <span class="svc-project__label">Связь с услугами</span>
+              <div data-project-services><span>Проектирование</span><span>Инженерные<br>системы</span><span>Модернизация<br>производства</span></div>
+            </div>
           </div>
           <div class="svc-project__gallery">
-            <figure class="svc-project__main-media"><img data-project-image data-keep-local src="../assets/industrial-pickling-01.png" alt="Проект модернизации травильного отделения" width="1600" height="900" loading="eager" decoding="async"><figcaption>ПРОЕКТНЫЕ МАТЕРИАЛЫ</figcaption></figure>
-            <div class="svc-project__thumbs" role="tablist" aria-label="Материалы проекта">
-              <button type="button" class="is-active" role="tab" aria-label="Показать изображение 1: модернизация производственного комплекса" aria-selected="true" data-project-slide data-src="../assets/industrial-pickling-01.png" data-alt="Модернизация производственного комплекса"><img data-keep-local src="../assets/industrial-pickling-01.png" alt="" width="240" height="140" loading="eager"></button>
-              <button type="button" role="tab" aria-label="Показать изображение 2: инженерные системы производственного комплекса" aria-selected="false" data-project-slide data-src="../assets/industrial-pickling-02.png" data-alt="Инженерные системы производственного комплекса"><img data-keep-local src="../assets/industrial-pickling-02.png" alt="" width="240" height="140" loading="eager"></button>
-              <button type="button" role="tab" aria-label="Показать изображение 3: производственный объект" aria-selected="false" data-project-slide data-src="../assets/archive-optimized/PDP-OBJ-006.jpg" data-alt="Производственный объект"><img src="../assets/archive-optimized/PDP-OBJ-006.jpg" alt="" width="240" height="140" loading="eager"></button>
-              <button type="button" role="tab" aria-label="Показать изображение 4: промышленный объект Красный Октябрь" aria-selected="false" data-project-slide data-src="../assets/cases/red-october.jpg" data-alt="Промышленный объект Красный Октябрь"><img src="../assets/cases/red-october.jpg" alt="" width="240" height="140" loading="eager"></button>
+            <figure class="svc-project__main-media"><img data-project-image data-fit="contain" data-keep-local src="../assets/industrial-pickling-01.png" alt="Проект модернизации травильного отделения" width="1600" height="900" loading="eager" decoding="async"></figure>
+            <div class="svc-project__thumbs" role="tablist" aria-label="Материалы проекта" data-project-thumbs>
+              <button type="button" class="is-active" role="tab" aria-label="Показать 3D-модель травильного отделения" aria-selected="true" data-project-slide data-src="../assets/industrial-pickling-01.png" data-alt="3D-модель травильного отделения"><img data-keep-local src="../assets/industrial-pickling-01.png" alt="" width="240" height="140" loading="eager"></button>
+              <button type="button" role="tab" aria-label="Показать инженерные системы объекта" aria-selected="false" data-project-slide data-src="../assets/industrial-pickling-02.png" data-alt="Инженерные системы травильного отделения"><img data-keep-local src="../assets/industrial-pickling-02.png" alt="" width="240" height="140" loading="eager"></button>
+              <button type="button" role="tab" aria-label="Показать исходное состояние цеха" aria-selected="false" data-project-slide data-src="../assets/archive-optimized/PDP-OBJ-006.jpg" data-alt="Исходное состояние производственного цеха"><img src="../assets/archive-optimized/PDP-OBJ-006.jpg" alt="" width="240" height="140" loading="eager"></button>
+              <button type="button" role="tab" aria-label="Показать промышленный объект Красный Октябрь" aria-selected="false" data-project-slide data-src="../assets/cases/red-october.jpg" data-alt="Промышленный объект Красный Октябрь"><img src="../assets/cases/red-october.jpg" alt="" width="240" height="140" loading="eager"></button>
+              <button type="button" role="tab" aria-label="Показать проектное решение Красного Октября" aria-selected="false" data-project-slide data-src="../assets/cases/red-october-render-user.jpg" data-alt="Проектное решение Красного Октября"><img src="../assets/cases/red-october-render-user.jpg" alt="" width="240" height="140" loading="eager"></button>
               <span class="svc-project__arrows"><button type="button" data-project-prev aria-label="Предыдущее изображение">←</button><button type="button" data-project-next aria-label="Следующее изображение">→</button></span>
             </div>
           </div>
+          <a class="svc-project__cta" data-project-case-btn href="05-project-red-october.html">Смотреть кейс <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>

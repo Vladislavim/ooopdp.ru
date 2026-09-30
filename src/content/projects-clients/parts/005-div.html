@@ -1,3 +1,30 @@
 
 
-    <div data-cta data-title="Доведём ваш объект от проекта до ввода"></div>
+    <section class="pcp-request" aria-labelledby="pcp-request-title" data-inline-request>
+      <div class="pcp-container pcp-request__layout">
+        <div class="pcp-request__copy">
+          <span class="pcp-request__kicker">Есть похожая задача</span>
+          <h2 id="pcp-request-title">Обсудить похожий проект</h2>
+          <p>Оставьте контакт и коротко опишите объект. Специалист ПДП уточнит исходные данные и предложит следующий шаг.</p>
+          <ul class="pcp-request__prompts" aria-label="Что указать в заявке">
+            <li><span><img src="../assets/icons8/task.png" alt="" aria-hidden="true"></span><div><strong>Задача</strong><p>Какую задачу нужно решить</p></div></li>
+            <li><span><img src="../assets/icons8/service-building.png" alt="" aria-hidden="true"></span><div><strong>Объект</strong><p>Тип объекта, вид работ</p></div></li>
+            <li><span><img src="../assets/icons8/document.png" alt="" aria-hidden="true"></span><div><strong>Исходные данные</strong><p>Чертежи, ТЗ, технические требования</p></div></li>
+          </ul>
+          <div class="pcp-request__direct">
+            <a href="tel:+78442564554"><img src="../assets/icons8/contact-phone.png" alt="" aria-hidden="true"><span>8 (8442) 56-45-54</span></a>
+            <a href="mailto:sale@ooopdp.ru"><img src="../assets/icons8/contact-email.png" alt="" aria-hidden="true"><span>sale@ooopdp.ru</span></a>
+          </div>
+        </div>
+        <form class="pcp-request__form" data-case-request-form novalidate>
+          <label class="pcp-request__field"><span>ФИО</span><input id="case-request-name" name="name" autocomplete="name" placeholder="ФИО"></label>
+          <label class="pcp-request__field"><span>Компания</span><input id="case-request-company" name="company" autocomplete="organization" placeholder="Компания"></label>
+          <label class="pcp-request__field"><span>Телефон</span><input id="case-request-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Телефон (обязательное поле)" required></label>
+          <label class="pcp-request__field"><span>Почта</span><input id="case-request-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Почта"></label>
+          <label class="pcp-request__field pcp-request__field--message"><span>Комментарий</span><textarea id="case-request-task" name="task" rows="4" placeholder="Максимально удобный способ связи / комментарий для связи"></textarea></label>
+          <label class="pcp-request__consent"><input name="consent" type="checkbox" required><span>Даю согласие на <a href="12-privacy-policy.html" target="_blank" rel="noopener">обработку персональных данных</a>.</span></label>
+          <button type="submit">Обсудить похожий проект <span aria-hidden="true">→</span></button>
+          <p class="pcp-request__status" data-case-request-status role="status"></p>
+        </form>
+      </div>
+    </section>

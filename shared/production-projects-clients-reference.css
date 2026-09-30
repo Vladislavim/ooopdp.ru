@@ -1403,6 +1403,110 @@ body.production-projects .footer {
   }
 }
 
+/* Keep project selection attached to the comparison it controls. */
+body.production-projects .case-catalogue__caption {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
+  gap: 16px;
+  align-items: center;
+  min-height: 70px;
+}
+
+body.production-projects .case-catalogue__caption > [data-case-hint] {
+  max-width: 128px;
+  line-height: 1.35;
+}
+
+body.production-projects .case-catalogue__caption > .case-catalogue__rail {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border-top: 0;
+  border-left: 1px solid var(--case-line);
+  overflow: visible;
+}
+
+body.production-projects .case-catalogue__caption .case-catalogue__rail button {
+  display: grid;
+  grid-template-rows: auto 30px;
+  align-content: center;
+  min-width: 0;
+  min-height: 58px;
+  padding: 5px 10px;
+}
+
+body.production-projects .case-catalogue__caption .case-catalogue__rail button > span {
+  margin-bottom: 3px;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: .04em;
+}
+
+body.production-projects .case-catalogue__caption .case-catalogue__brand {
+  height: 30px;
+  padding: 0;
+}
+
+body.production-projects .case-catalogue__caption .case-catalogue__brand img {
+  width: auto;
+  max-width: 92px;
+  height: 23px;
+  object-position: left center;
+}
+
+body.production-projects .case-catalogue__caption .case-catalogue__brand strong {
+  font-size: 10px;
+  line-height: 1.08;
+}
+
+body.production-projects .case-catalogue__caption .case-catalogue__progress {
+  top: auto;
+  right: 10px;
+  bottom: 0;
+  left: 10px;
+  width: auto;
+  max-width: none;
+}
+
+body.production-projects .case-catalogue__caption > .case-catalogue__caption-actions {
+  display: flex;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+@media (max-width: 1100px) {
+  body.production-projects .case-catalogue__caption {
+    grid-template-columns: minmax(0, 1fr) max-content;
+    gap: 8px 12px;
+    padding-top: 8px;
+  }
+
+  body.production-projects .case-catalogue__caption > [data-case-hint] {
+    max-width: none;
+  }
+
+  body.production-projects .case-catalogue__caption > .case-catalogue__rail {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    border-left: 0;
+    border-top: 1px solid var(--case-line);
+    overflow-x: auto;
+  }
+
+  body.production-projects .case-catalogue__caption .case-catalogue__rail button {
+    flex: 0 0 132px;
+  }
+
+  body.production-projects .case-catalogue__caption > .case-catalogue__caption-actions {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
 @media (max-width: 560px) {
   body.pdp-service-page .pdp-service-result__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1536,7 +1640,7 @@ body.production-projects .footer {
 .case-catalogue__caption button{border:1px solid var(--case-line);border-radius:50%;background:transparent;color:var(--case-muted);font-size:24px;width:44px;height:44px;transition:background-color .2s ease,color .2s ease}
 .case-catalogue__caption button[data-case-prev],.case-catalogue__caption button[data-case-next]{border-radius:50%!important}
 .case-catalogue__caption button[data-case-next]{background:#f45116;border-color:#f45116;color:#fff}
-.case-catalogue__caption button:hover{background:#d83d08;border-color:#d83d08;color:#fff}
+.case-catalogue__caption-actions button:hover{background:#d83d08;border-color:#d83d08;color:#fff}
 .case-catalogue__rail{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1px solid var(--case-line);padding:20px 0 0;margin-top:24px;gap:0}
 .case-catalogue__rail button{background:none;border:0;border-right:1px solid var(--case-line);text-align:left;padding:0 16px;color:var(--case-ink);min-width:0;position:relative}
 .case-catalogue__rail span,.case-catalogue__card>span{font-size:11px;color:var(--case-muted)}
@@ -1751,8 +1855,32 @@ body.production-projects .case-catalogue__filters {
 }
 
 /* Project catalogue finishing: clear comparison frame, readable facts and persistent CTAs. */
+body.production-projects .case-catalogue__feature {
+  position: relative;
+  padding: clamp(20px, 1.7vw, 28px);
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(17, 19, 16, .08), 0 34px 62px -38px rgba(17, 19, 16, .48);
+  transition: box-shadow .42s cubic-bezier(.16, 1, .3, 1), transform .42s cubic-bezier(.16, 1, .3, 1);
+}
+
+body.production-projects .case-catalogue__feature::before {
+  position: absolute;
+  top: 0;
+  left: clamp(20px, 1.7vw, 28px);
+  width: 64px;
+  height: 2px;
+  background: var(--orange);
+  content: "";
+}
+
+body.production-projects .case-catalogue__feature:focus-within {
+  box-shadow: 0 14px 30px rgba(17, 19, 16, .1), 0 38px 70px -38px rgba(17, 19, 16, .58);
+  transform: translateY(-2px);
+}
+
 body.production-projects .case-compare {
   border: 2px solid var(--orange);
+  box-shadow: 0 9px 20px rgba(17, 19, 16, .12);
 }
 
 body.production-projects .case-catalogue__copy dl {
@@ -1778,6 +1906,39 @@ body.production-projects .case-catalogue__grid:has(> :nth-child(4 of :not([hidde
 body.production-projects .case-catalogue__grid:has(> :nth-child(4 of :not([hidden]))) > :nth-child(1 of :not([hidden])):is(:hover, :focus-visible) .case-catalogue__card-copy::after {
   background: #d83d08;
   border-color: #d83d08;
+}
+
+body.production-projects .case-catalogue__card {
+  border: 0;
+  box-shadow: 0 7px 16px rgba(17, 19, 16, .08), 0 22px 42px -30px rgba(17, 19, 16, .38);
+  transition: box-shadow .38s cubic-bezier(.16, 1, .3, 1), transform .38s cubic-bezier(.16, 1, .3, 1);
+}
+
+body.production-projects .case-catalogue__card:is(:hover, :focus-visible) {
+  box-shadow: 0 12px 24px rgba(17, 19, 16, .12), 0 30px 52px -30px rgba(17, 19, 16, .5);
+  transform: translateY(-4px);
+}
+
+@media (min-width: 1101px) {
+  body.production-projects .case-catalogue__grid:has(> :nth-child(4 of :not([hidden]))) > :nth-child(1 of :not([hidden])) {
+    box-shadow: 0 14px 28px rgba(17, 19, 16, .16), 0 38px 68px -34px rgba(17, 19, 16, .6);
+  }
+
+  body.production-projects .case-catalogue__grid:has(> :nth-child(4 of :not([hidden]))) > :nth-child(1 of :not([hidden])):is(:hover, :focus-visible) {
+    box-shadow: 0 18px 34px rgba(17, 19, 16, .2), 0 44px 76px -34px rgba(17, 19, 16, .7);
+  }
+}
+
+@media (max-width: 700px) {
+  body.production-projects .case-catalogue__feature {
+    padding: 18px;
+    box-shadow: 0 8px 18px rgba(17, 19, 16, .09), 0 24px 42px -30px rgba(17, 19, 16, .42);
+  }
+
+  body.production-projects .case-catalogue__feature::before {
+    left: 18px;
+    width: 46px;
+  }
 }
 
 /* Keep the logo selector visible in the arrival viewport on laptop-height screens and at browser zoom. */
@@ -1877,6 +2038,240 @@ body.production-projects .case-catalogue__grid:has(> :nth-child(4 of :not([hidde
   }
 }
 
+/* Project-specific conversion block: the case stays primary, the form closes the page. */
+body.production-projects .pcp-request {
+  padding: 38px 0;
+  background: var(--pcp-dark);
+  color: #fff;
+}
+
+body.production-projects .pcp-request__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 47fr) minmax(0, 53fr);
+  gap: clamp(40px, 4vw, 64px);
+  align-items: start;
+}
+
+body.production-projects .pcp-request__kicker {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--pcp-orange);
+  font: 700 11px/1.3 var(--body);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+body.production-projects .pcp-request__copy h2 {
+  max-width: none;
+  margin: 0;
+  font: 800 clamp(38px, 4.2vw, 64px)/.98 var(--display);
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+body.production-projects .pcp-request__copy > p {
+  max-width: 48ch;
+  margin: 16px 0 0;
+  color: #c8cac6;
+  font: 400 16px/1.55 var(--body);
+}
+
+body.production-projects .pcp-request__direct {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 36px;
+  margin-top: 24px;
+  font: 700 16px/1.4 var(--body);
+}
+
+body.production-projects .pcp-request__direct a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #fff;
+  text-decoration: none;
+  text-decoration-color: rgba(255,255,255,.35);
+  text-underline-offset: 6px;
+}
+
+body.production-projects .pcp-request__direct img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+body.production-projects .pcp-request__direct span {
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255,255,255,.55);
+}
+body.production-projects .pcp-request__prompts {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+body.production-projects .pcp-request__prompts li {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+body.production-projects .pcp-request__prompts li > span {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--pcp-orange);
+}
+body.production-projects .pcp-request__prompts img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+body.production-projects .pcp-request__prompts strong {
+  display: block;
+  color: #fff;
+  font: 800 clamp(16px, 1vw, 19px)/1.1 var(--display);
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+body.production-projects .pcp-request__prompts p {
+  margin: 3px 0 0;
+  color: rgba(255,255,255,.72);
+  font: 400 clamp(14px, .85vw, 15px)/1.3 var(--body);
+}
+
+body.production-projects .pcp-request__form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 28px;
+  background: var(--pcp-paper);
+  color: var(--pcp-ink);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, .34), 0 38px 64px -42px rgba(0, 0, 0, .78), inset 0 1px 0 rgba(255, 255, 255, .72);
+}
+
+body.production-projects .pcp-request__form > label {
+  align-self: end;
+  font: 700 13px/1.4 var(--body);
+}
+
+body.production-projects .pcp-request__field { display: block; min-width: 0; }
+body.production-projects .pcp-request__field > span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+body.production-projects .pcp-request__field--message,
+body.production-projects .pcp-request__form > textarea,
+body.production-projects .pcp-request__consent,
+body.production-projects .pcp-request__form > button,
+body.production-projects .pcp-request__status { grid-column: 1 / -1; }
+
+body.production-projects .pcp-request__form input:not([type="checkbox"]),
+body.production-projects .pcp-request__form textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #a8aaa5;
+  border-radius: 0;
+  background: #fff;
+  color: var(--pcp-ink);
+  font: 400 clamp(15px, .9vw, 17px)/1.35 var(--body);
+  box-shadow: inset 0 1px 3px rgba(17, 19, 16, .07);
+}
+
+body.production-projects .pcp-request__form input:not([type="checkbox"]) {
+  height: 48px;
+  padding: 0 18px;
+}
+
+body.production-projects .pcp-request__form textarea {
+  height: 90px;
+  min-height: 90px;
+  padding: 15px 18px;
+  resize: vertical;
+}
+
+body.production-projects .pcp-request__form input:focus,
+body.production-projects .pcp-request__form textarea:focus {
+  border-color: var(--pcp-orange);
+  outline: 1px solid var(--pcp-orange);
+}
+
+body.production-projects .pcp-request__consent {
+  display: flex;
+  align-items: flex-start !important;
+  gap: 12px;
+  margin-top: 2px;
+  font-weight: 400 !important;
+}
+
+body.production-projects .pcp-request__consent input {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  margin: 0;
+  accent-color: var(--pcp-orange);
+}
+
+body.production-projects .pcp-request__consent a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+body.production-projects .pcp-request__form > button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 54px;
+  margin-top: 0;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 0;
+  background: var(--pcp-orange);
+  color: #fff;
+  font: 700 18px/1.2 var(--body);
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(153, 43, 7, .22);
+  transition: background-color 240ms ease-out, box-shadow 240ms ease-out, transform 240ms ease-out;
+}
+
+body.production-projects .pcp-request__form > button span { font-size: 28px; }
+body.production-projects .pcp-request__form > button:hover,
+body.production-projects .pcp-request__form > button:focus-visible { background: #d9410f; box-shadow: 0 11px 22px rgba(153, 43, 7, .3); transform: translateY(-2px); }
+body.production-projects .pcp-request__form :focus-visible { outline: 2px solid var(--pcp-orange); outline-offset: 3px; }
+
+body.production-projects .pcp-request__status {
+  min-height: 0;
+  margin: 0;
+  color: #8f2b0c;
+  font: 500 13px/1.4 var(--body);
+}
+body.production-projects .pcp-request__status:empty { display: none; }
+
+@media (max-width: 900px) {
+  body.production-projects .pcp-request { padding: 48px 0; }
+  body.production-projects .pcp-request__layout { grid-template-columns: 1fr; gap: 28px; }
+  body.production-projects .pcp-request__copy h2 { max-width: none; }
+}
+
+@media (max-width: 700px) {
+  body.production-projects .pcp-request { padding: 40px 0; }
+  body.production-projects .pcp-request .pcp-container { width: calc(100% - 32px); }
+  body.production-projects .pcp-request__copy h2 { font-size: 38px; }
+  body.production-projects .pcp-request__direct { margin-top: 28px; }
+  body.production-projects .pcp-request__form { grid-template-columns: 1fr; padding: 20px; }
+  body.production-projects .pcp-request__form > label,
+  body.production-projects .pcp-request__form > input { grid-column: 1; }
+  body.production-projects .pcp-request__form > button { min-height: 56px; font-size: 16px; }
+}
+
 @media (max-width: 700px) {
   body.production-projects .case-catalogue {
     width: calc(100% - 32px) !important;
@@ -1904,6 +2299,189 @@ body.production-projects .case-catalogue__grid:has(> :nth-child(4 of :not([hidde
   }
   body.production-projects .case-catalogue__mark {
     display: none !important;
+  }
+}
+
+/* Bring the comparison and its controls into the desktop arrival viewport. */
+@media (min-width: 1101px) {
+  body.production-projects .case-catalogue {
+    padding-top: 20px !important;
+  }
+  body.production-projects .case-catalogue__intro {
+    margin-bottom: 12px !important;
+  }
+  body.production-projects .case-catalogue__intro nav {
+    margin-bottom: 12px !important;
+  }
+  body.production-projects .case-catalogue h1 {
+    font-size: clamp(48px, 4vw, 64px) !important;
+    margin-bottom: 12px !important;
+  }
+  body.production-projects .case-catalogue__intro p {
+    max-width: 760px !important;
+    margin-bottom: 0 !important;
+  }
+  body.production-projects .case-catalogue__filters {
+    margin-bottom: 16px !important;
+  }
+}
+
+/* Lead with the work; the client name supplies supporting recognition. */
+body.production-projects .case-catalogue__feature .case-catalogue__copy h2 {
+  margin: 10px 0 12px;
+  color: #a9320b;
+  font: 700 13px/1.3 var(--display);
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+body.production-projects .case-catalogue__feature .case-catalogue__subtitle {
+  margin: 0 0 20px;
+  color: var(--case-ink);
+  font: 800 clamp(23px, 1.7vw, 30px)/1.12 var(--display);
+  letter-spacing: -.03em;
+  text-wrap: balance;
+}
+
+body.production-projects .case-catalogue__copy dl > .is-key-fact dd {
+  color: var(--case-ink);
+  font-weight: 700;
+}
+
+body.production-projects .case-catalogue__copy dl > .is-result-fact {
+  padding: 12px;
+  background: #efeee9;
+  border-bottom: 0;
+}
+
+body.production-projects .case-catalogue__copy dl > .is-result-fact dt {
+  color: #a9320b;
+  font-weight: 600;
+}
+
+@media (min-width: 1101px) {
+  body.production-projects .case-catalogue__feature > .case-catalogue__visual {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+  }
+  body.production-projects .case-catalogue__visual > .case-compare {
+    flex: 1 1 auto;
+    height: auto;
+    min-height: 320px;
+    aspect-ratio: auto;
+  }
+  body.production-projects .case-catalogue__visual > .case-catalogue__caption {
+    flex: 0 0 auto;
+  }
+}
+
+/* Final cascade owner: compact project rail inside the comparison caption. */
+body.production-projects .case-catalogue__visual .case-catalogue__caption {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
+  gap: 16px;
+  align-items: center;
+  min-height: 70px;
+}
+
+body.production-projects .case-catalogue__visual .case-catalogue__caption > .case-catalogue__rail {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border-top: 0;
+  border-left: 1px solid var(--case-line);
+  overflow: visible;
+}
+
+body.production-projects .case-catalogue__visual .case-catalogue__caption .case-catalogue__rail button {
+  display: grid;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  grid-template-rows: auto 36px;
+  align-content: center;
+  min-width: 0;
+  min-height: 64px;
+  padding: 5px 10px;
+}
+
+body.production-projects .case-catalogue__visual .case-catalogue__caption .case-catalogue__brand {
+  height: 36px;
+  padding: 0;
+  justify-content: center;
+}
+
+body.production-projects .case-catalogue__visual .case-catalogue__caption .case-catalogue__brand img {
+  width: auto;
+  max-width: 100%;
+  height: 32px;
+  object-position: center;
+}
+
+body.production-projects .case-catalogue__caption .case-catalogue__rail button[hidden] {
+  display: none;
+}
+
+body.production-projects .case-catalogue__visual .case-catalogue__caption .case-catalogue__rail button:is(:hover, :focus-visible) {
+  background: #efeee9;
+  color: var(--case-ink);
+}
+
+body.production-projects .case-catalogue__visual .case-catalogue__caption .case-catalogue__brand strong {
+  margin: 0;
+  min-height: 0;
+  font-size: 11px;
+  line-height: 1.08;
+  text-align: center;
+  text-wrap: balance;
+}
+
+body.production-projects .case-catalogue__caption .case-catalogue__rail button > span {
+  white-space: nowrap;
+}
+
+body.production-projects .case-catalogue__caption [data-case-select="3"] strong,
+body.production-projects .case-catalogue__caption [data-case-select="5"] strong {
+  white-space: nowrap;
+}
+
+body.production-projects .case-catalogue__visual .case-catalogue__caption .case-catalogue__progress {
+  top: auto;
+  right: 10px;
+  bottom: 0;
+  left: 10px;
+  width: auto;
+  max-width: none;
+}
+
+@media (max-width: 1100px) {
+  body.production-projects .case-catalogue__visual .case-catalogue__caption {
+    grid-template-columns: minmax(0, 1fr) max-content;
+    gap: 8px 12px;
+    padding-top: 8px;
+  }
+
+  body.production-projects .case-catalogue__visual .case-catalogue__caption > .case-catalogue__rail {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    border-top: 1px solid var(--case-line);
+    border-left: 0;
+    overflow-x: auto;
+  }
+
+  body.production-projects .case-catalogue__visual .case-catalogue__caption .case-catalogue__rail button {
+    flex: 0 0 132px;
+  }
+
+  body.production-projects .case-catalogue__visual .case-catalogue__caption > .case-catalogue__caption-actions {
+    grid-column: 2;
+    grid-row: 1;
   }
 }
 

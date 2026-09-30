@@ -230,9 +230,10 @@ export async function renderDocument({
     const footerSlot = /<div\s+data-site-footer\s*><\/div>/g;
     const shouldSkipCta = skipLeadMagnetPages.has(manifest.id);
     const hasContactSlot = contactSlot.test(mainInner);
+    const hasInlineRequest = /\bdata-inline-request\b/.test(mainInner);
     contactSlot.lastIndex = 0;
     mainInner = mainInner.replace(contactSlot, shouldSkipCta ? '' : optimize(shell.contact || ''));
-    if (!hasContactSlot && footerSlot.test(mainInner)) {
+    if (!hasContactSlot && !hasInlineRequest && footerSlot.test(mainInner)) {
       footerSlot.lastIndex = 0;
       mainInner = mainInner.replace(footerSlot, shouldSkipCta ? optimize(shell.footer || '') : `${optimize(shell.contact || '')}${optimize(shell.footer || '')}`);
     } else {
@@ -245,22 +246,33 @@ export async function renderDocument({
   const mainInnerTrailing = optimize(document.mainInnerTrailing);
   const stylesheetPattern = /<link\b(?=[^>]*\brel=(["'])stylesheet\1)[^>]*>/gi;
   const isRedesignedInner = manifest.kind !== 'home' && !restoredInnerPages.has(manifest.id) && !manifest.skipInnerRedesign;
-  const shellCacheVersion = manifest.id.startsWith('service-')
-    ? '20260914-template-compact-v5'
-    : '20260912-inner-hero-rhythm-v5';
+  const shellCacheVersion = '20260930-address-contrast-v8';
   let bodyAfterMainSource = optimize(document.bodyAfterMain)
+    .replace(/lenis-scroll\.js\?v=[^\"]+/g, 'lenis-scroll.js?v=20260930-lenis-smooth-v2')
     .replaceAll('mail@ooopdp.ru', 'sale@ooopdp.ru')
     .replace(/production-site-shell\.js\?v=[^\"]+/g, `production-site-shell.js?v=${shellCacheVersion}`);
   if (manifest.id === 'services') {
     bodyAfterMainSource = bodyAfterMainSource.replace(
       /production-services-page\.css\?v=[^\"]+/g,
-      'production-services-page.css?v=20260914-services-container-align-v2'
+      'production-services-page.css?v=20260930-form-depth-v10'
+    );
+    bodyAfterMainSource = bodyAfterMainSource.replace(
+      /production-services-hover-polish\.css\?v=[^\"]+/g,
+      'production-services-hover-polish.css?v=20260930-sticky-service-v3'
+    );
+    bodyAfterMainSource = bodyAfterMainSource.replace(
+      /production-services-page\.js\?v=[^\"]+/g,
+      'production-services-page.js?v=20260930-sticky-service-v2'
     );
   }
   if (manifest.id === 'projects-clients' || manifest.id === 'completed-works') {
     bodyAfterMainSource = bodyAfterMainSource.replace(
       /production-projects-clients-reference\.css\?v=[^\"]+/g,
-      'production-projects-clients-reference.css?v=20260914-projects-container-align-v1'
+      'production-projects-clients-reference.css?v=20260930-comparison-height-v13'
+    );
+    bodyAfterMainSource = bodyAfterMainSource.replace(
+      /production-projects-clients-reference\.js\?v=[^\"]+/g,
+      'production-projects-clients-reference.js?v=20260930-case-hierarchy-v2'
     );
   }
   if (isRedesignedInner) bodyAfterMainSource = bodyAfterMainSource.replace(/> Email</g, '> Почта<');
@@ -268,7 +280,7 @@ export async function renderDocument({
   if (manifest.id === 'contacts') {
     deferredStyles = deferredStyles.map((link) => link.replace(
       /production-contacts-reference\.css\?v=[^\"]+/g,
-      'production-contacts-reference.css?v=20260929-map-ad-crop-v4'
+      'production-contacts-reference.css?v=20260930-map-depth-v6'
     ));
   }
   const bodyAfterMain = bodyAfterMainSource.replace(stylesheetPattern, '').replace(/^[ \t]+$/gm, '');
@@ -292,7 +304,7 @@ export async function renderDocument({
     .replaceAll('https://ooopdp.ru/orig_test_v2/', 'https://ooopdp.ru/')
     .replaceAll('mail@ooopdp.ru', 'sale@ooopdp.ru')
     .replace(/harmonious-production\.css\?v=[^\"]+/g, 'harmonious-production.css?v=20260929-centered-mobile-v15')
-    .replace(/shared\/header-shell\.css\?v=[^\"]+/g, 'shared/header-shell.css?v=20260929-compact-mobile-v2')
+    .replace(/shared\/header-shell\.css\?v=[^\"]+/g, 'shared/header-shell.css?v=20260930-address-contrast-v8')
     .replace(/home-motion-polish\.css\?v=[^\"]+/g, 'home-motion-polish.css?v=20260929-compact-mobile-v2')
     .replace(/<link\b(?=[^>]*\brel\s*=\s*(["'])icon\1)[^>]*>\s*/gi, '')
     .replace(/<script\b[^>]*\btype=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>\s*/gi, '');
@@ -300,13 +312,13 @@ export async function renderDocument({
   if (manifest.id === 'news-articles') {
     headInnerSource = headInnerSource.replace(
       /production-articles-index-reference\.css\?v=[^\"]+/g,
-      'production-articles-index-reference.css?v=20260923-editorial-minimal-v2'
+      'production-articles-index-reference.css?v=20260930-editorial-depth-v3'
     );
   }
   if (manifest.id === 'contacts') {
     headInnerSource = headInnerSource.replace(
       /production-contacts-reference\.css\?v=[^\"]+/g,
-      'production-contacts-reference.css?v=20260929-map-ad-crop-v4'
+      'production-contacts-reference.css?v=20260930-map-depth-v6'
     );
   }
   const pageStyles = (manifest.headStyles ?? [])

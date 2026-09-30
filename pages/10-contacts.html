@@ -19,7 +19,7 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../shared/production-inner-shell-parity.css?v=20260912-inner-gap-v1">
-<link rel="stylesheet" href="../shared/production-contacts-reference.css?v=20260929-map-ad-crop-v4">
+<link rel="stylesheet" href="../shared/production-contacts-reference.css?v=20260930-map-depth-v6">
 <link rel="stylesheet" href="../shared/production-inner-v28-polish.css?v=20260911-cache-v10">
 <link rel="stylesheet" href="../shared/production-inner-motion-a.css?v=20260911-cache-v10">
 <style id="contacts-desktop-gutters">@media (min-width:1200px){html body.production-contacts main .prod-contact-reference__hero-inner.prod-container{width:100%!important;max-width:none!important;margin-inline:0!important;padding-inline:10vw!important;box-sizing:border-box!important;}body.production-contacts .prod-contact-reference__request>.prod-container{width:80vw!important;max-width:80vw!important;margin-inline:auto!important;}body.production-requisites .prod-requisites-section{width:100%!important;max-width:none!important;margin-inline:0!important;padding-inline:10vw!important;box-sizing:border-box!important;}body.production-requisites .prod-requisites-section>.prod-container{width:100%!important;max-width:none!important;margin-inline:0!important;padding-inline:0!important;}}</style><script type="application/ld+json">
@@ -76,6 +76,7 @@
 <body class="production-page production-contacts" data-page="Контакты">
   
 <header class="top">
+  <div class="header-address"><span class="header-address__pin" aria-hidden="true"></span><span>Волгоград,<br>ул. Баррикадная, д. 1К, 4 этаж</span></div>
   <a class="brand" href="../index.html" aria-label="ПДП — Поволжское деловое партнёрство. Архитектура возможностей"><img class="brand-logo" src="../assets/pdp-official-logo.svg" width="150" height="50" alt="ПДП — Поволжское деловое партнёрство"><span class="brand-slogan">Архитектура<br>возможностей</span></a>
 <nav class="nav" aria-label="Основная навигация"><a class=""  href="../index.html">Главная</a><a class=""  href="02-services.html">Услуги</a><a class=""  href="06-completed-works.html">Кейсы</a><a class="active" aria-current="page" href="10-contacts.html">Контакты</a><a class=""  href="07-news-articles.html">Статьи</a></nav>
   <a class="tel" href="tel:+78442564554" aria-label="Позвонить: 8 8442 56-45-54"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a>
@@ -110,8 +111,20 @@
     <section class="prod-contact-reference__request" id="contact-request">
       <div class="prod-contact-reference__request-art" aria-hidden="true"></div>
       <div class="prod-container">
-        <div class="prod-contact-reference__steps">
-          <div><b>01</b><span>Запрос</span><small>Расскажите об объекте<br>и необходимых работах.</small></div><i></i><div><b>02</b><span>Исходные данные</span><small>Приложите к письму<br>имеющиеся материалы.</small></div><i></i><div><b>03</b><span>Обсуждение</span><small>Уточняем задачу<br>и согласуем следующий шаг.</small></div>
+        <div class="prod-contact-reference__steps" data-contact-progress>
+          <i class="prod-contact-reference__runner" data-contact-runner aria-hidden="true"></i>
+          <div class="is-active" data-contact-step>
+            <div class="prod-contact-reference__step-track"><b>01</b><i data-contact-node aria-hidden="true"></i><em aria-hidden="true"></em></div>
+            <span>Запрос</span><small>Расскажите об объекте<br>и необходимых работах.</small>
+          </div>
+          <div data-contact-step>
+            <div class="prod-contact-reference__step-track"><b>02</b><i data-contact-node aria-hidden="true"></i><em aria-hidden="true"></em></div>
+            <span>Исходные данные</span><small>Приложите к письму<br>имеющиеся материалы.</small>
+          </div>
+          <div data-contact-step>
+            <div class="prod-contact-reference__step-track"><b>03</b><i data-contact-node aria-hidden="true"></i><em aria-hidden="true"></em></div>
+            <span>Обсуждение</span><small>Уточняем задачу<br>и согласуем следующий шаг.</small>
+          </div>
         </div>
       </div>
     </section>
@@ -126,12 +139,13 @@
 </footer>
 
   </main>
-    <script src="../shared/production-site-shell.js?v=20260912-inner-hero-rhythm-v5"></script>
+    <script src="../shared/production-site-shell.js?v=20260930-address-contrast-v8"></script>
 
 
 
 
     <script src="../shared/production-inner-motion-a.js?v=20260911-cache-v10"></script>
+    <script src="../shared/production-contacts-progress.js?v=20260929-v1"></script>
 </body>
 </html>
 

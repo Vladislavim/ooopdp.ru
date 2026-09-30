@@ -176,7 +176,7 @@ main.site > .services .service-row.active:focus-visible {
   transform: none !important;
 }
 
-/* Articles are an editorial composition: one lead material and three concise
+/* Articles are an editorial composition: one lead material and two concise
    companion pieces. The whole group stays visual-first, like the homepage. */
 main.site > .articles .article-grid {
   display: grid !important;
@@ -209,10 +209,9 @@ main.site > .articles .article:nth-child(2) {
   grid-column: span 2;
 }
 
-/* Preserve the intended 2 × 2 editorial grid. An older rule sent the fourth
-   item into an implicit third row, which left the lower-right tile blank. */
+/* Two supporting articles fill the right-hand column. */
 main.site > .articles .article:nth-child(3) {
-  grid-column: 3 !important;
+  grid-column: 3 / span 2 !important;
   grid-row: 2 !important;
 }
 
@@ -459,6 +458,8 @@ main.site > .mobile-menu {
     grid-column: auto !important;
     grid-row: auto !important;
   }
+
+  main.site > .articles .article:first-child { grid-column: 1 / -1 !important; }
 }
 
 @media (max-width: 700px) {

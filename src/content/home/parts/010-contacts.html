@@ -1,12 +1,50 @@
-
-<section class="contact-form-section" id="contacts">
-  <img class="contact-form-p-mark" src="assets/patterns/pdp-logo-parallax.png" width="1254" height="1254" alt="" aria-hidden="true">
-  <div class="contact-form-intro"><span class="label">Обсуждение проекта</span><h2><span>Расскажите об объекте</span><span>и необходимых работах</span></h2><p>Уточним задачу и обсудим, на каком этапе может подключиться ПДП. Техническое задание и имеющиеся материалы можно направить на почту.</p><div class="contact-direct"><a href="tel:+78442564554"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a><a href="mailto:mail@ooopdp.ru">mail@ooopdp.ru</a><a class="contact-presentation" href="assets/documents/pdp-presentation.pdf" download>Скачать презентацию PDF <small>15,4 МБ</small></a></div></div>
-  <form class="contact-form" data-contact-form novalidate>
-    <div class="form-field"><label for="contact-name">Имя <span aria-hidden="true">*</span></label><input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться…" required><small class="form-error" data-error-for="name"></small></div>
-    <div class="form-field"><label for="contact-value"><span data-contact-label>Телефон</span> <span aria-hidden="true">*</span></label><input id="contact-value" name="contact" type="tel" autocomplete="tel" inputmode="tel" spellcheck="false" placeholder="+7 999 000-00-00" required><small class="form-error" data-error-for="contact"></small></div>
-    <fieldset class="contact-channel"><legend>Как удобнее ответить</legend><label><input type="radio" name="channel" value="phone" checked> Телефон</label><label><input type="radio" name="channel" value="email"> Email</label><label><input type="radio" name="channel" value="messenger"> Мессенджер</label></fieldset>
-    <label class="form-consent form-consent-note"><input name="consent" type="checkbox" required><span>Нажимая на кнопку «Обсудить состав работ», вы соглашаетесь на <a href="../privacy.html" target="_blank" rel="noreferrer">обработку персональных данных</a>.</span></label><small class="form-error form-consent-error" data-error-for="consent"></small>
-    <button class="form-submit" type="submit"><span>Обсудить состав работ</span><i aria-hidden="true">→</i></button><p class="form-status" data-form-status aria-live="polite"></p>
+<link rel="stylesheet" href="shared/production-services-page.css?v=20260930-home-request">
+    <section class="svc-request home-request" id="contacts" aria-labelledby="svc-request-title">
+      <div class="svc-container svc-request__layout">
+        <div class="svc-request__copy">
+          <h2 id="svc-request-title">Получить предварительную смету</h2>
+          <p>Опишите объект и необходимые работы. Специалист ПДП уточнит исходные данные для предварительной оценки стоимости.</p>
+          <ul class="svc-request__prompts" aria-label="Что указать в задании">
+            <li><span><img src="assets/icons8/task.png" alt="" aria-hidden="true"></span><div><strong>Задача</strong><p>Какую задачу нужно решить</p></div></li>
+            <li><span><img src="assets/icons8/service-building.png" alt="" aria-hidden="true"></span><div><strong>Объект</strong><p>Тип объекта, вид работ</p></div></li>
+            <li><span><img src="assets/icons8/document.png" alt="" aria-hidden="true"></span><div><strong>Исходные данные</strong><p>Чертежи, ТЗ, технические требования</p></div></li>
+          </ul>
+          <div class="svc-request__direct">
+            <a href="tel:+78442564554"><img src="assets/icons8/contact-phone.png" alt="" aria-hidden="true"><span>8 (8442) 56-45-54</span></a>
+            <a href="mailto:sale@ooopdp.ru"><img src="assets/icons8/contact-email.png" alt="" aria-hidden="true"><span>sale@ooopdp.ru</span></a>
+          </div>
+        </div>
+        <div class="home-request__form-column">
+        <form class="svc-request__form" data-service-request-form novalidate>
+          <label class="svc-request__field"><span>ФИО</span><input id="service-request-name" name="name" autocomplete="name" placeholder="ФИО"></label>
+          <label class="svc-request__field"><span>Компания</span><input id="service-request-company" name="company" autocomplete="organization" placeholder="Компания"></label>
+          <label class="svc-request__field"><span>Телефон</span><input id="service-request-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Телефон (обязательное поле)" required></label>
+          <label class="svc-request__field"><span>Почта</span><input id="service-request-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Почта"></label>
+          <label class="svc-request__field svc-request__field--message"><span>Комментарий</span><textarea id="service-request-task" name="task" rows="4" placeholder="Максимально удобный способ связи / комментарий для связи"></textarea></label>
+          <label class="svc-request__consent"><input name="consent" type="checkbox" required><span>Даю согласие на <a href="pages/12-privacy-policy.html" target="_blank" rel="noopener">обработку персональных данных</a>.</span></label>
+          <button type="submit">Получить предварительную смету <span aria-hidden="true">→</span></button>
+          <p class="svc-request__status" data-service-request-status role="status"></p>
+        </form>
+          <p class="home-request__checklist">Нужна помощь с исходными данными? <button type="button" data-lead-open aria-haspopup="dialog" aria-controls="lead-dialog">Скачать чек-лист документов ↓</button></p>
+        </div>
+      </div>
+    </section>
+<script src="shared/production-services-page.js" defer></script>
+<link rel="stylesheet" href="shared/lead-magnet.css">
+<dialog class="pdp-lead-dialog" id="lead-dialog" data-download-only aria-labelledby="lead-dialog-title" aria-describedby="lead-dialog-description">
+  <button type="button" class="pdp-lead-dialog__close" data-lead-close aria-label="Закрыть">×</button>
+  <h2 id="lead-dialog-title">Укажите почту</h2>
+  <p id="lead-dialog-description">После заполнения формы начнётся скачивание чек-листа документов.</p>
+  <form class="pdp-lead-form">
+    <label for="lead-email">Ваш email</label>
+    <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="name@company.ru" maxlength="254" required>
+    <label class="pdp-lead-form__consent"><input type="checkbox" name="consent" required><span>Даю согласие на <a href="pages/12-privacy-policy.html" target="_blank" rel="noopener">обработку персональных данных</a>.</span></label>
+    <button type="submit" class="pdp-lead__download">Скачать чек-лист <span aria-hidden="true">↓</span></button>
+    <p class="pdp-lead-form__status" data-lead-status role="status"></p>
   </form>
-</section>
+  <div data-lead-result hidden>
+    <p>Скачивание началось. Если файл не загрузился, нажмите ссылку ниже.</p>
+    <a href="assets/documents/pdp-project-preparation.docx" download="PDP-project-preparation.docx" class="pdp-lead__download">Скачать повторно ↓</a>
+  </div>
+</dialog>
+<script src="shared/lead-magnet.js?v=20261001-download-gate" defer></script>

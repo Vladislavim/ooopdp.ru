@@ -11,10 +11,8 @@
       badgeAfter: 'Реализованное решение (ПОСЛЕ)',
       status: 'ЭКСПЕРТИЗА ПРОЙДЕНА',
       metrics: [
-        { val: '2024', label: 'Год реализации' },
-        { val: 'ЭС', label: 'Инженерные сети' },
-        { val: '02', label: 'Производственных цеха' },
-        { val: '100%', label: 'Безопасность систем' }
+        { val: 'Инженерные решения', label: 'Роль ПДП' },
+        { val: 'Реализованное решение', label: 'Результат' }
       ],
       caseUrl: 'pages/project-severstal.html',
       docUrl: 'pages/project-severstal.html',
@@ -31,10 +29,8 @@
       badgeAfter: '3D Проект АС (ПОСЛЕ)',
       status: '100% СОГЛАСОВАНО',
       metrics: [
-        { val: '2023', label: 'Год выпуска' },
-        { val: 'АС', label: 'Раздел чертежей' },
-        { val: '05', label: 'Материалов объекта' },
-        { val: '2.6 МБ', label: 'Объем альбома' }
+        { val: 'Проектирование', label: 'Роль ПДП' },
+        { val: 'Проектная и рабочая документация', label: 'Результат' }
       ],
       caseUrl: 'pages/05-project-red-october.html',
       docUrl: 'assets/documents/red-october-11-2023-as.pdf',
@@ -51,10 +47,8 @@
       badgeAfter: 'Новый фасад АР1 (ПОСЛЕ)',
       status: 'ЗАЩИТА В КОМИТЕТЕ',
       metrics: [
-        { val: '2023', label: 'Год выпуска' },
-        { val: 'АР1', label: 'Раздел проекта' },
-        { val: '04', label: 'Фасадных решения' },
-        { val: '14.1 МБ', label: 'Объем альбома' }
+        { val: 'Архитектурные решения', label: 'Роль ПДП' },
+        { val: 'Проектная и рабочая документация · АР1', label: 'Результат' }
       ],
       caseUrl: 'pages/project-polyclinic-31.html',
       docUrl: 'assets/documents/polyclinic-31-ar.pdf',
@@ -71,14 +65,28 @@
       badgeAfter: 'Готовый интерьер (ПОСЛЕ)',
       status: 'В ЭКСПЛУАТАЦИИ',
       metrics: [
-        { val: '2024', label: 'Год сдачи' },
-        { val: 'ЭОМ', label: 'Раздел проекта' },
-        { val: '12', label: 'Зон объекта' },
-        { val: '10.7 МБ', label: 'Объем альбома' }
+        { val: 'Дизайн-проект офисных помещений', label: 'Роль ПДП' },
+        { val: 'Рабочая документация', label: 'Результат' }
       ],
       caseUrl: 'pages/project-eurochem.html',
       docUrl: 'assets/documents/eurochem-office-design.pdf',
       docText: 'Дизайн-проект (PDF 10.7 МБ)'
+    },
+    {
+      id: 'alan-kz',
+      logoHtml: '<strong class="v1-client-name">ALAN KZ</strong>',
+      title: 'Футбольные поля ALAN KZ',
+      desc: 'Проект предусматривает строительство и реконструкцию 20 футбольных полей в течение трёх лет в Казахстане.',
+      beforeImg: 'assets/cases/alan-field-kff.jpg',
+      afterImg: 'assets/cases/alan-field-kff.jpg',
+      singleImage: true,
+      metrics: [
+        { val: 'Генеральный подрядчик', label: 'Роль ПДП' },
+        { val: 'Проектные решения для футбольных полей', label: 'Результат' }
+      ],
+      caseUrl: 'pages/project-alan-kz.html',
+      docUrl: 'pages/project-alan-kz.html',
+      docText: 'Материалы проекта ALAN KZ'
     }
   ];
 
@@ -92,6 +100,7 @@
 
     let isDragging = false;
     const setPos = (clientX) => {
+      if (box.classList.contains('is-single-image')) return;
       layer.style.transition = 'none';
       handle.style.transition = 'none';
       const rect = box.getBoundingClientRect();
@@ -154,6 +163,11 @@
     const docEl = document.getElementById('v1-doc');
     const docTextEl = document.getElementById('v1-doc-text');
     const metricsEl = document.getElementById('v1-metrics');
+    const syncMediaMode = () => {
+      box?.classList.toggle('is-single-image', Boolean(d.singleImage));
+      if (beforeEl) beforeEl.alt = d.singleImage ? '' : 'Исходные материалы — ' + d.title;
+      if (afterEl) afterEl.alt = d.title;
+    };
 
     // Immediate tab highlight
     document.querySelectorAll('[data-v1]').forEach((el, index) => {
@@ -163,6 +177,7 @@
     if (!isInitialized) {
       isInitialized = true;
       homeProjectIndex = targetIndex;
+      syncMediaMode();
       if (logoEl) logoEl.innerHTML = d.logoHtml;
       if (titleEl) titleEl.textContent = d.title;
       if (descEl) descEl.textContent = d.desc;
@@ -174,8 +189,8 @@
       if (metricsEl) {
         metricsEl.innerHTML = d.metrics.map(m => `
           <div>
-            <strong>${m.val}</strong>
             <span>${m.label}</span>
+            <strong>${m.val}</strong>
           </div>
         `).join('');
       }
@@ -192,7 +207,7 @@
       activeGhost.remove();
       activeGhost = null;
     }
-    if (box && beforeEl && afterEl && layer) {
+    if (box && beforeEl && afterEl && layer && !box.classList.contains('is-single-image')) {
       const ghost = document.createElement('div');
       ghost.className = 'split-box-ghost';
       ghost.innerHTML = `
@@ -227,6 +242,7 @@
     setTimeout(() => {
       if (token !== transitionToken) return;
       homeProjectIndex = targetIndex;
+      syncMediaMode();
 
       if (logoEl) logoEl.innerHTML = d.logoHtml;
       if (titleEl) titleEl.textContent = d.title;
@@ -239,8 +255,8 @@
       if (metricsEl) {
         metricsEl.innerHTML = d.metrics.map(m => `
           <div>
-            <strong>${m.val}</strong>
             <span>${m.label}</span>
+            <strong>${m.val}</strong>
           </div>
         `).join('');
       }

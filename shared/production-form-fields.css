@@ -1,0 +1,11 @@
+/* Shared recessed surface for editable fields; controls keep their own layout. */
+body form :is(input:not([type]), input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"], input[type="search"], textarea, select) {
+  background: #fff !important;
+  border: 1px solid #a8aaa5 !important;
+  box-shadow: inset 0 2px 5px rgba(23, 24, 23, .12), inset 0 1px 2px rgba(23, 24, 23, .05), 0 1px 0 rgba(255, 255, 255, .9) !important;
+}
+body form :is(input:not([type]), input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"], input[type="search"], textarea, select):focus-visible {
+  border-color: #f45116 !important;
+  outline: 2px solid #f45116 !important;
+  outline-offset: 2px !important;
+}

@@ -1,4 +1,17 @@
-.home-materials{order:8;position:relative;isolation:isolate;overflow:hidden;padding:64px max(64px,calc((100% - 1792px)/2));background:#efeee9;color:#171817}
+.home-materials{position:relative;isolation:isolate;overflow:hidden;padding:64px max(64px,calc((100% - 1792px)/2));background:#efeee9;color:#171817}
+.home-materials.home-materials--compact { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(0, 1.4fr); align-items: center; gap: clamp(32px, 4vw, 64px); padding-block: 40px; }
+.home-materials--compact h2 { font-size: clamp(32px, 2.8vw, 48px); }
+.home-materials__cover { display: block; }
+.home-materials__cover img { display: block; width: 100%; height: auto; max-height: 270px; object-fit: contain; box-shadow: 0 12px 26px -12px rgba(17, 19, 17, .25); }
+.home-materials__summary p { max-width: 65ch; margin: 16px 0 24px; font-size: 16px; line-height: 1.5; }
+.home-materials__links { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+.home-materials__links > a:not(.home-materials__presentation) { color: #171817; text-underline-offset: 4px; font-size: 14px; }
+@media (max-width: 700px) {
+  .home-materials.home-materials--compact { grid-template-columns: 1fr; gap: 24px; padding: 32px 25px; }
+  .home-materials__cover { width: 100%; max-width: 420px; }
+  .home-materials__cover img { height: auto; }
+  .home-materials__summary p { font-size: 15px; }
+}
 .home-materials__parallax-logo{position:absolute;z-index:0;top:-116px;right:clamp(18px,3vw,58px);width:min(420px,27vw);height:auto;opacity:0.5;pointer-events:none;user-select:none;mix-blend-mode:multiply;filter:saturate(.96) contrast(1.06);transform:translate3d(0,var(--materials-pattern-y,0),0) rotate(-2deg);transform-origin:70% 50%;will-change:transform}
 .home-materials>:not(.home-materials__parallax-logo):not(.home-materials__parallax-drawing){position:relative;z-index:1}
 .home-materials__parallax-drawing{position:absolute;z-index:0;top:clamp(20px,2.5vw,70px);left:clamp(-60px,-3vw,-10px);width:min(540px,36vw);height:auto;opacity:0.4;pointer-events:none;user-select:none;mix-blend-mode:multiply;filter:contrast(1.05);transform:translate3d(0,var(--materials-pattern-y,0),0);transform-origin:20% 50%;will-change:transform}

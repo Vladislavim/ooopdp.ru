@@ -328,7 +328,8 @@ export async function renderDocument({
     ? '<link rel="stylesheet" href="../shared/production-inner-shell-parity.css?v=20260923-site-frame-v2">\n'
     : '';
   const prefix = manifest.kind === 'home' ? '' : '../';
-  headInnerSource += `\n<link rel="stylesheet" data-pdp-footer href="${prefix}shared/production-footer-shell.css?v=20260929-footer-grid-stretch-v5">\n`;
+  headInnerSource += `\n<link rel="stylesheet" data-pdp-footer href="${prefix}shared/production-footer-shell.css?v=20260930-proportional-footer">\n`;
+  headInnerSource += `<link rel="stylesheet" href="${prefix}shared/production-form-fields.css?v=20260930-depth">\n`;
   const faviconLinks = [
     `<link rel="icon" href="${prefix}favicon.ico" sizes="any">`,
     `<link rel="icon" href="${prefix}favicon.svg" type="image/svg+xml">`,

@@ -11,20 +11,18 @@ export default {
   },
   "shared": {
     "header": "content/home/parts/001-header.html",
-    "contacts": "blocks/contact-form/template.html",
+    "contacts": "content/home/parts/010-contacts.html",
     "footer": "blocks/footer/template.html"
   },
   "order": [
     "header",
     "header-2",
     "services",
-    "directions",
     "projects",
     "documents",
-    "clients-trust-title",
     "about",
-    "articles",
     "contacts",
+    "articles",
     "footer"
   ]
 };

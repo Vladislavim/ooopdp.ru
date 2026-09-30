@@ -75,6 +75,16 @@ const unlockPageAfterDialog = () => {
   form.addEventListener('submit', event => {
     event.preventDefault();
     if (!form.reportValidity()) return;
+    // Download gate only: no email delivery or lead-storage claim.
+    if (dialog.hasAttribute('data-download-only')) {
+      form.reset();
+      form.hidden = true;
+      result.hidden = false;
+      const download = result.querySelector('a');
+      download.click();
+      download.focus();
+      return;
+    }
     // Backend intentionally deferred. Never claim submission or reveal a success
     // state on a public host without acknowledgement from an actual handler.
     if (!demo) {

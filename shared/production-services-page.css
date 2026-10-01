@@ -740,11 +740,14 @@ body.production-page.production-services .svc-hero__art {
   }
 }
 
-/* Logo PDP in services grid - floating freely under card 06 without any card box/borders */
+/* Keep card 07 in column one; the decorative mark sits in the outer gutter. */
+body.production-services .svc-service-grid { position: relative; }
 body.production-services .svc-service-grid__logo-slot {
-  grid-column: 3;
-  grid-row: 3;
-  position: relative;
+  position: absolute;
+  right: calc(100% + 10px);
+  bottom: 0;
+  width: calc(10vw - 20px);
+  height: 248px;
   min-height: 248px;
   display: flex;
   align-items: center;
@@ -758,15 +761,12 @@ body.production-services .svc-service-grid__logo-slot {
 }
 
 body.production-services .svc-service-grid__logo-inner {
-  position: absolute;
-  top: 40px;
-  left: 0;
-  right: 0;
+  position: relative;
+  width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  transform: translate3d(0, var(--svc-grid-logo-y, 0px), 0);
-  will-change: transform;
+  transform: none;
   pointer-events: none;
 }
 
@@ -782,7 +782,7 @@ body.production-services .svc-service-grid__logo-img {
   pointer-events: none;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1199px) {
   body.production-services .svc-service-grid__logo-slot {
     display: none !important;
   }
@@ -1310,7 +1310,7 @@ body.production-services .svc-project__case-tabs {
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-bottom: 24px;
+  margin-bottom: 0;
   border: 0;
   background: #fff;
   box-shadow: 0 5px 14px rgba(17, 19, 16, .08);
@@ -1386,7 +1386,11 @@ body.production-services .svc-project__services {
 
 body.production-services .svc-project__role {
   padding: 14px 0 18px;
+  border-top: 0;
 }
+
+body.production-services .svc-project__role > span:first-child,
+body.production-services .svc-project__outputs > .svc-project__label { color: #c43b0c; }
 
 body.production-services .svc-project__role > span,
 body.production-services .svc-project__label {
@@ -1405,7 +1409,9 @@ body.production-services .svc-project__role strong {
 }
 
 body.production-services .svc-project__outputs {
-  padding-top: 14px;
+  padding: 16px;
+  background: #f3f2ed;
+  border-top: 0;
 }
 
 body.production-services .svc-project__outputs ol {
@@ -1480,6 +1486,13 @@ body.production-services .svc-project__gallery {
   padding: 0;
 }
 
+@media (min-width: 981px) {
+  body.production-services .svc-project__gallery .svc-project__main-media {
+    height: 100%;
+    min-height: 320px;
+  }
+}
+
 body.production-services .svc-project__main-media {
   width: 100%;
   height: clamp(320px, 24vw, 400px);
@@ -1543,7 +1556,7 @@ body.production-services .svc-project__arrows button { width: 48px; height: 72px
   body.production-services .svc-project__subtitle { max-width: 34ch; margin-top: 18px; font-size: 15px; }
   body.production-services .svc-project__case-tabs {
     grid-template-columns: repeat(4, minmax(142px, 1fr));
-    margin: 0 calc(var(--svc-gutter) * -1) 30px;
+    margin: 0 calc(var(--svc-gutter) * -1);
     padding-left: var(--svc-gutter);
     overflow-x: auto;
     scrollbar-width: thin;

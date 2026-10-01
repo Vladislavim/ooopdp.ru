@@ -124,6 +124,11 @@ body.production-page:not(.production-contacts) #main-content h1 {
   font-weight:800!important; line-height:.94!important;
   letter-spacing:-.045em!important; text-transform:uppercase;
 }
+@media(max-width:700px) {
+  body.production-page:is(.production-service-detail,.pdp-service-page,.production-documents) #main-content h1 {
+    hyphens:none!important;
+  }
+}
 body.production-page:not(.production-contacts) #main-content :is(.prod-section-head,.pcp-section-heading,.svc-section-intro,.pdp-service-section-heading) h2,
 body.production-page:not(.production-contacts) #main-content .pdp-case-section-title {
   font-family:var(--display,"Geologica",sans-serif)!important;
@@ -178,7 +183,7 @@ body.production-page:not(.production-contacts) #main-content .pdp-service-editor
 body.production-page.production-privacy { --pdp-layout-page-title:clamp(36px,3.5vw,56px); }
 body.production-page:not(.production-contacts) #main-content { background:#f7f6f2!important; }
 body.production-page:not(.production-contacts) #main-content :is(.prod-hero,.prod-hero__inner) { min-height:0!important; height:auto!important; }
-body.production-page.pdp-articles-index #main-content :is(.articles-index-hero,.articles-index-hero__art) { background:#f7f6f2!important; }
+body.production-page.pdp-articles-index #main-content .articles-index-hero { background:#f7f6f2!important; }
 @media(min-width:701px) and (max-width:1100px) {
  body.production-page.production-services #main-content .svc-hero__copy-inner { padding-right:16px!important; }
 }
@@ -190,6 +195,7 @@ body.production-page.pdp-articles-index #main-content :is(.articles-index-hero,.
  body.production-page.production-article { --pdp-layout-page-title:32px; }
  body.production-page.production-privacy { --pdp-layout-page-title:32px; }
  body.production-page.production-404-page { --pdp-layout-page-title:36px; }
+ body.production-page:is(.production-service-detail,.pdp-service-page,.production-documents) { --pdp-layout-page-title:clamp(28px,8vw,36px); }
  body.production-page:not(.production-contacts) #main-content :is(.prod-section-head,.pcp-section-heading,.svc-section-intro,.pdp-service-section-heading) { margin-bottom:24px!important; }
  body.production-page:not(.production-contacts) #main-content .prod-hero__copy { width:100%!important; }
 }

@@ -335,6 +335,15 @@
   get('[data-case-hint]').textContent=p.after?'Перетащите линию, чтобы сравнить':p.title;
   range.value=46;split();
   all('[data-case-select]').forEach(b=>{b.hidden=!matching().includes(Number(b.dataset.caseSelect));b.setAttribute('aria-pressed',String(Number(b.dataset.caseSelect)===i))});
+  if(!initial){
+   const active=get('[data-case-select="'+i+'"]');
+   const rail=active.parentElement;
+   if(rail.scrollWidth>rail.clientWidth){
+    const itemRect=active.getBoundingClientRect(),railRect=rail.getBoundingClientRect();
+    const shift=itemRect.left<railRect.left?itemRect.left-railRect.left:itemRect.right>railRect.right?itemRect.right-railRect.right:0;
+    if(shift)rail.scrollTo({left:rail.scrollLeft+shift,behavior:reduced.matches?'instant':'smooth'});
+   }
+  }
   all('[data-case-card]').forEach(c=>c.hidden=Number(c.dataset.caseCard)===i||!matching().includes(Number(c.dataset.caseCard)));
   const count=all('[data-case-card]').filter(c=>!c.hidden).length;
   get('[data-case-total]').textContent=String(count).padStart(2,'0');get('#case-archive').hidden=count===0;

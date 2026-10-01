@@ -91,9 +91,9 @@
         <div class="articles-index-hero__copy">
           <div class="prod-breadcrumb"><a href="../index.html">Главная</a><span>/</span><b>Статьи и материалы</b></div>
           <h1>Статьи<br>и материалы</h1>
-          <p>Экспертные регламенты, практика функций технического заказчика, строительный контроль и детальные разборы промышленных кейсов ПДП.</p>
+          <p>Разбираем работу технического заказчика, строительный контроль и документы по проектам ПДП.</p>
         </div>
-        <div class="articles-index-hero__art" aria-hidden="true"><span class="inner-parallax-object inner-parallax-object--logo"></span></div>
+        <div class="articles-index-hero__art" aria-hidden="true"><img class="articles-index-hero__pattern" src="../assets/patterns/articles-drawing-sheets.svg" width="640" height="480" alt=""></div>
       </div>
     </section>
 
@@ -116,13 +116,13 @@
 
     <section class="prod-container articles-index-rail" aria-label="Темы материалов">
       <nav class="prod-catalog-tabs articles-index-tabs">
-        <a href="#all" class="is-active" data-filter="all" aria-current="page">Все материалы <span class="articles-index-tab-count">7</span></a>
-        <a href="#articles" data-filter="articles">Статьи и гайды <span class="articles-index-tab-count">3</span></a>
+        <a href="#all" class="is-active" data-filter="all" aria-current="page">Все материалы <span class="articles-index-tab-count">11</span></a>
+        <a href="#articles" data-filter="articles">Статьи и практика <span class="articles-index-tab-count">4</span></a>
         <a href="#cases" data-filter="cases">Кейсы проектов <span class="articles-index-tab-count">3</span></a>
-        <a href="#documents" data-filter="documents">Нормативная база <span class="articles-index-tab-count">4</span></a>
+        <a href="#documents" data-filter="documents">Документы <span class="articles-index-tab-count">4</span></a>
       </nav>
       <script>
-      (() => {
+      document.addEventListener('DOMContentLoaded', () => {
         const tabs = document.querySelectorAll('.articles-index-tabs a');
         const items = document.querySelectorAll('.articles-index-card, .articles-index-featured, .articles-index-documents');
         tabs.forEach(tab => {
@@ -143,12 +143,10 @@
                 item.classList.add('is-filtered-out');
               }
             });
-            if (filter === 'documents') {
-              document.getElementById('documents')?.scrollIntoView({ behavior: 'smooth' });
-            }
+            document.getElementById('catalog')?.classList.toggle('is-filtered-out', filter === 'documents');
           });
         });
-      })();
+      });
       </script>
     </section>
 
@@ -159,7 +157,7 @@
         <article class="articles-index-card prod-catalog-card" data-category="articles">
           <a class="articles-index-card__link" href="13-article-construction-control.html">
             <div class="articles-index-card__media">
-              <img src="../assets/inner-optimized/article-stroykontrol-surveyor.webp" data-keep-local alt="Инженер строительного контроля на строительной площадке">
+              <img src="../assets/inner-optimized/article-rebar-inspection.webp" data-keep-local alt="Инженер проверяет армирование конструкции перед бетонированием">
               <span class="articles-index-card__badge">Статья</span>
             </div>
             <div class="articles-index-card__body">
@@ -260,7 +258,7 @@
             <div class="articles-index-card__body">
               <div class="articles-index-card__meta">
                 <span class="articles-index-card__category">Технадзор</span>
-                <span class="articles-index-card__time">5 мин</span>
+                <span class="articles-index-card__time">Услуга</span>
               </div>
               <h3 class="articles-index-card__title">Управление строительством и технический надзор</h3>
               <p class="articles-index-card__text">Оптимизация сметных расчетов, входной контроль и регулярные выезды инженеров технадзора на объект.</p>
@@ -281,28 +279,28 @@
       </div>
       <div class="articles-index-documents__list">
         <a class="articles-index-document" href="../assets/documents/red-october-11-2023-as.pdf" target="_blank" rel="noopener">
-          <span class="articles-index-document__icon">PDF</span>
+          <img class="articles-index-document__preview" src="../assets/inner-optimized/documents-red-october-11-2023-as-preview.webp" width="88" height="104" loading="lazy" alt="">
           <div class="articles-index-document__info">
             <strong>Красный Октябрь: документация АС</strong>
             <small>2,6 МБ · Чертежи конструкций</small>
           </div>
         </a>
         <a class="articles-index-document" href="../assets/documents/polyclinic-31-ar.pdf" target="_blank" rel="noopener">
-          <span class="articles-index-document__icon">PDF</span>
+          <img class="articles-index-document__preview" src="../assets/inner-optimized/documents-polyclinic-31-ar-preview.webp" width="88" height="104" loading="lazy" alt="">
           <div class="articles-index-document__info">
             <strong>Поликлиника №31: решения АР</strong>
             <small>14,1 МБ · Архитектурный раздел</small>
           </div>
         </a>
         <a class="articles-index-document" href="../assets/documents/eurochem-office-design.pdf" target="_blank" rel="noopener">
-          <span class="articles-index-document__icon">PDF</span>
+          <img class="articles-index-document__preview" src="../assets/inner-optimized/documents-eurochem-office-design-preview.webp" width="88" height="104" loading="lazy" alt="">
           <div class="articles-index-document__info">
             <strong>ЕвроХим: дизайн-проект офиса</strong>
             <small>10,7 МБ · Проект интерьеров</small>
           </div>
         </a>
         <a class="articles-index-document" href="../assets/documents/pdp-presentation.pdf" target="_blank" rel="noopener">
-          <span class="articles-index-document__icon">PDF</span>
+          <img class="articles-index-document__preview" src="../assets/documents/pdp-presentation-preview.jpg" width="88" height="104" loading="lazy" alt="">
           <div class="articles-index-document__info">
             <strong>Презентация компании ПДП</strong>
             <small>15,4 МБ · Компетенции и кейсы</small>
@@ -332,11 +330,11 @@
   <div class="pdp-lead__art" aria-hidden="true"></div>
 </section>
 
-<dialog class="pdp-lead-dialog" id="lead-dialog" aria-labelledby="lead-dialog-title" aria-describedby="lead-dialog-description">
+<dialog class="pdp-lead-dialog" id="lead-dialog" data-download-only aria-labelledby="lead-dialog-title" aria-describedby="lead-dialog-description">
   <button type="button" class="pdp-lead-dialog__close" data-lead-close aria-label="Закрыть">×</button>
   <span class="pdp-lead-dialog__eyebrow">Редактируемый документ для заказчика</span>
-  <h2 id="lead-dialog-title">Получите список<br>исходных документов</h2>
-  <p id="lead-dialog-description">Оставьте email, чтобы получить чек-лист, вопросы подрядчику и шаблон первого письма.</p>
+  <h2 id="lead-dialog-title">Укажите почту</h2>
+  <p id="lead-dialog-description">После заполнения формы начнётся скачивание чек-листа документов.</p>
   <form class="pdp-lead-form">
     <label for="lead-email">Ваш email</label>
     <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="name@company.ru" maxlength="254" required>
@@ -370,7 +368,7 @@
   <div><b>Навигация</b><a href="../index.html">Главная</a><a href="02-services.html">Услуги</a><a href="06-completed-works.html">Проекты</a><a href="07-news-articles.html">Материалы</a><a href="10-contacts.html">Контакты</a><a href="15-requisites.html">Реквизиты</a></div>
   <div><b>Услуги</b><a href="service-technical-customer.html">Технический заказчик</a><a href="service-design.html">Проектирование</a><a href="service-construction-installation.html">Строительные работы</a><a href="service-engineering-systems.html">Монтаж инженерных систем</a><a href="service-repairs.html">Ремонтные работы</a></div>
   <div><b>Кейсы</b><a href="05-project-red-october.html">Красный Октябрь</a><a href="project-severstal.html">Северсталь</a><a href="project-eurochem.html">ЕвроХим-ВолгаКалий</a><a href="project-polyclinic-31.html">Поликлиника №31</a><a href="project-alan-kz.html">ALAN KZ</a><a href="project-crmo.html">ЦРМО РМО</a></div>
-  <div class="footer-contacts"><div class="footer-contact-copy"><b>Контакты</b><a class="phone2" href="tel:+78442564554"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a><a href="mailto:sale@ooopdp.ru">sale@ooopdp.ru</a><a class="footer-address" href="https://yandex.ru/maps/38/volgograd/house/barrikadnaya_ulitsa_1k/YE0Ycg5lTEcEQFpifXp5eHpqbA==/?ll=44.495523%2C48.689697&amp;z=16" target="_blank" rel="noreferrer">Волгоград, ул. Баррикадная,<br>д. 1К, 4 этаж</a></div><div class="footer-map" aria-label="Карта расположения офиса ПДП"><div class="footer-map-embed"><iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;source=constructor-api&amp;um=constructor%3Ae6e6ea17780f6cf7b5b20ca42957b3a0e608287bd7129a93a53f6f5ba90f2667" title="Карта расположения офиса ПДП" loading="lazy" allowfullscreen></iframe></div><a class="footer-map-link" href="https://yandex.ru/maps/38/volgograd/house/barrikadnaya_ulitsa_1k/YE0Ycg5lTEcEQFpifXp5eHpqbA==/?ll=44.495523%2C48.689697&amp;z=16" target="_blank" rel="noreferrer">Открыть карту <span aria-hidden="true">↗</span></a></div></div>
+  <div class="footer-contacts"><div class="footer-contact-copy"><b>Контакты</b><a class="phone2" href="tel:+78442564554"><svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4V7C4 14 10 20 17 20H21V17L16 15L14 17C10 16 7 13 6 9L8 7L7 3Z"/></svg><span>8 (8442) 56-45-54</span></a><a href="mailto:sale@ooopdp.ru">sale@ooopdp.ru</a><a class="footer-address" href="https://yandex.ru/maps/38/volgograd/house/barrikadnaya_ulitsa_1k/YE0Ycg5lTEcEQFpifXp5eHpqbA==/?ll=44.495523%2C48.689697&amp;z=16" target="_blank" rel="noreferrer">Волгоград, ул. Баррикадная,<br>д. 1К, 4 этаж</a></div><div class="footer-map" aria-label="Карта расположения офиса ПДП"><div class="footer-map-embed"><iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;source=constructor-api&amp;um=constructor%3Ae6e6ea17780f6cf7b5b20ca42957b3a0e608287bd7129a93a53f6f5ba90f2667" title="Карта расположения офиса ПДП" loading="eager" allowfullscreen></iframe></div><a class="footer-map-link" href="https://yandex.ru/maps/38/volgograd/house/barrikadnaya_ulitsa_1k/YE0Ycg5lTEcEQFpifXp5eHpqbA==/?ll=44.495523%2C48.689697&amp;z=16" target="_blank" rel="noreferrer">Открыть карту <span aria-hidden="true">↗</span></a></div></div>
 </footer>
 
   </main>

@@ -2,13 +2,13 @@
 
     <section class="prod-container articles-index-rail" aria-label="Темы материалов">
       <nav class="prod-catalog-tabs articles-index-tabs">
-        <a href="#all" class="is-active" data-filter="all" aria-current="page">Все материалы <span class="articles-index-tab-count">7</span></a>
-        <a href="#articles" data-filter="articles">Статьи и гайды <span class="articles-index-tab-count">3</span></a>
+        <a href="#all" class="is-active" data-filter="all" aria-current="page">Все материалы <span class="articles-index-tab-count">11</span></a>
+        <a href="#articles" data-filter="articles">Статьи и практика <span class="articles-index-tab-count">4</span></a>
         <a href="#cases" data-filter="cases">Кейсы проектов <span class="articles-index-tab-count">3</span></a>
-        <a href="#documents" data-filter="documents">Нормативная база <span class="articles-index-tab-count">4</span></a>
+        <a href="#documents" data-filter="documents">Документы <span class="articles-index-tab-count">4</span></a>
       </nav>
       <script>
-      (() => {
+      document.addEventListener('DOMContentLoaded', () => {
         const tabs = document.querySelectorAll('.articles-index-tabs a');
         const items = document.querySelectorAll('.articles-index-card, .articles-index-featured, .articles-index-documents');
         tabs.forEach(tab => {
@@ -29,11 +29,9 @@
                 item.classList.add('is-filtered-out');
               }
             });
-            if (filter === 'documents') {
-              document.getElementById('documents')?.scrollIntoView({ behavior: 'smooth' });
-            }
+            document.getElementById('catalog')?.classList.toggle('is-filtered-out', filter === 'documents');
           });
         });
-      })();
+      });
       </script>
     </section>

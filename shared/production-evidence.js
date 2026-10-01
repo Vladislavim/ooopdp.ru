@@ -7,7 +7,7 @@
     const controls = root.querySelector('[data-evidence-controls]');
     const stage = root.querySelector('[data-evidence-stage]');
     if (!panels.length || !controls) return;
-    let current = 0, animation, pointer;
+    let current = -1, animation, pointer;
     const dialog = document.createElement('dialog');
     dialog.className = 'pdp-gallery-dialog';
     dialog.setAttribute('aria-label','Полноэкранный просмотр материалов проекта');

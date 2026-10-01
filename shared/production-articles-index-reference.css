@@ -428,6 +428,15 @@ body.pdp-articles-index .prod-catalog-card img {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(16, 17, 16, 0.06);
 }
+.articles-index-document__preview {
+  display:block;
+  width:88px;
+  height:104px;
+  flex:0 0 88px;
+  object-fit:contain;
+  background:#fff;
+  box-shadow:0 3px 8px rgba(17,19,16,.12);
+}
 .articles-index-document__icon {
   display: grid;
   place-items: center;
@@ -584,7 +593,7 @@ body.pdp-articles-index .prod-container{width:min(calc(100% - 128px),1792px)}
 .articles-index-featured{grid-template-columns:minmax(0,1.45fr) minmax(300px,.75fr);gap:32px;margin-top:24px}
 .articles-index-featured__media{height:clamp(280px,25vw,380px)}
 .articles-index-featured__copy{justify-content:center;padding:20px 0 20px 0}
-.articles-index-featured__copy h2{margin:16px 0 12px;font-size:clamp(32px,3vw,48px);line-height:.96;letter-spacing:-.045em}
+.articles-index-featured__copy h2{margin:16px 0 16px;font-size:clamp(28px,2.5vw,42px);line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
 .articles-index-featured__copy p{color:#555750;font:450 14px/1.5 var(--body)}
 .articles-index-link{color:var(--article-index-ink)}
 .articles-index-featured__meta span+span,.prod-eyebrow{color:var(--article-index-orange)}
@@ -613,6 +622,7 @@ body.pdp-articles-index .prod-container{width:min(calc(100% - 128px),1792px)}
   }
 
   .articles-index-hero__inner {
+    position:relative;
     display:block;
     min-height:260px;
   }
@@ -629,7 +639,23 @@ body.pdp-articles-index .prod-container{width:min(calc(100% - 128px),1792px)}
   }
 
   .articles-index-hero__art {
-    display:none;
+    display:block;
+    position:absolute;
+    inset:0 -8vw 0 auto;
+    width:42%;
+    min-height:0;
+    border:0;
+    background:transparent;
+    pointer-events:none;
+  }
+
+  .articles-index-hero__art > .articles-index-hero__pattern:first-child {
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:right center;
+    filter:none;
+    opacity:.7;
   }
 
   .articles-index-featured {
